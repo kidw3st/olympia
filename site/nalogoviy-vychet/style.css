@@ -1,0 +1,313 @@
+ .containerFile{
+    width: 45px;
+    height: 45px;
+    position: relative;
+}
+
+ .containerFile input{
+    /*display: none;*/
+    position: absolute;
+    top: 0px;
+    left:0px;
+    opacity: 0;
+    z-index: -10;
+}
+
+.containerFile .label_file{
+    position: relative;
+    width: 45px;
+    height: 45px;
+    display: block;
+    cursor: pointer;
+    margin: 0px;
+}
+
+ .containerFile .name_file{
+    font-size: 12px;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+ .containerFile .remove_file:before{
+    content: '\2573;';
+}
+
+ .containerFile .remove_file{
+    z-index: 10;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: #fff;
+    line-height: 1;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+
+
+
+
+
+
+@media(min-width: 900px){
+
+    :root{
+        --width-left-field: 30%;
+        --width-right-field: 70%;
+    }
+
+    form.question_form .d_f label {
+        display: flex;
+        align-items: center;
+        justify-content:start;
+        margin-bottom: 20px
+    }
+
+    form.question_form .d_f label.align-start{
+        align-items: start;
+    }
+    
+    form.question_form .d_f label > span{
+        flex-basis: var(--width-left-field);
+        min-width: var(--width-left-field);
+        max-width: var(--width-left-field);
+    }
+    
+    form.question_form .d_f label > span + div{
+        flex-basis: var(--width-right-field);
+        min-width: var(--width-right-field);
+        max-width: var(--width-right-field);
+    }
+    
+    form.question_form .d_f.file_right label > :not(span)  {
+        flex-basis: calc(75% - 60px);
+    }
+    
+    form.question_form .d_f.file_right{
+        position: relative;
+    }
+
+}
+
+label[for="form_checkbox_SMS_82"]{
+    padding-left: 10px;
+}
+
+
+
+/*form.question_form .d_f.file_right .containerFile{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}*/
+
+form.question_form .checkbox{
+    margin-bottom: 15px;
+}
+
+@media(max-width: 600px){
+    form.question_form .d_f label{
+        display: block;
+    }
+
+    form.question_form .d_f.file_right label > :not(span) {
+        width: calc(100% - 60px);
+    }
+}
+
+form.question_form .containerFile .label_file{
+    margin-bottom: 0px !important;
+}
+
+form.question_form .title .errortext {
+    margin: 0 0 15px 0;
+    font: 15px "OpenSansBold";
+    line-height: 24px;
+
+}
+
+/*form.question_form*/ .message_sent {
+    width: 600px;
+    margin: auto;
+    background-color: white;
+    position: fixed;
+    z-index: 50;
+    top: 25%;
+    left: 34%;
+    padding: 30px;
+    max-height: 100%;
+    max-width: 100%;
+    height: unset;
+    border-radius: 6px;
+}
+
+form.question_form .message_sent h4 {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+form.question_form .message_sent p {
+    color: gray;
+    font-weight: bold;
+    width: 400px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+
+/**/
+
+form.question_form .file_field {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: start;
+}
+
+form.question_form .file_field .containerFile{
+    margin-right: 10px;
+}
+
+
+form.question_form h4{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+form.question_form > div{
+    margin-bottom: 40px;
+}
+
+form.question_form > div.chkbox_{
+    margin-bottom: 20px;
+}
+
+
+
+
+form.question_form .chkbox_ *{
+    cursor: pointer;
+}
+
+
+/**/
+
+.message_sent {
+    padding: 25px
+}
+
+.message_sent h4{
+    padding: 10px 0 0 0;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+/**/
+.d_f.required .label_title:before, .chkbox_.required .label_title:before {
+    display: inline-block;
+    content: '*';
+    color: rgb(223, 25, 25);
+    margin: 0px 2px 2px 0;
+}
+
+#recaptcha_asq_quetion{
+    margin-top: 40px;
+}
+
+/**/
+
+.container_files .row_file{
+    display: flex;
+}
+
+.container_files .row_file{
+    margin: 20px 0px 0px;
+}
+
+.container_files .row_file .file_desc{
+    margin-left: 10px;
+}
+
+.container_files .row_file .file_size{
+    font-size: 14px
+}
+
+.container_files .row_file .containerFile .label_file{
+    cursor: default;
+}
+
+.container_files .row_file .containerFile .label_file:after{
+    content: unset;
+}
+
+.container_files .row_file .containerFile .label_file:before{
+    width: 22px;
+    height: 22px;
+}
+
+
+.containerFileField,
+form.question_form .d_f:not(.file_right) .containerFile{
+    width: unset;
+    height: unset;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.containerFileField .containerFileFieldDesc,
+form.question_form .d_f:not(.file_right) .containerFile .name_file{
+    margin-left: 12px;
+    font-size: 15px;
+}
+
+
+form.question_form .d_f:not(.file_right) .label_title{
+    margin-bottom: 7px;
+}
+
+form.question_form .d_f .passport [data-separator]{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form.question_form .d_f .passport [data-separator] input{
+    margin: 0;
+}
+
+form.question_form .d_f .passport label{
+    color: #696969;
+}
+
+form.question_form .d_f .passport > div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+    align-items: flex-end;
+}
+
+form.question_form .d_f .passport label{
+    margin-bottom: 6px;
+}
+
+
+.help_page .description{
+    overflow: unset;
+}
+
+@media(min-width: 767px){
+    form.question_form .d_f .passport{
+        display: flex;
+        gap: 20px;
+    }
+    
+}

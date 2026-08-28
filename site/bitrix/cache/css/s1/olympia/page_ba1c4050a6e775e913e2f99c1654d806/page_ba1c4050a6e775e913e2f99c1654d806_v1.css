@@ -1,0 +1,25 @@
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.detail/page_top_banner/style.css?1673253106155*/
+div.news-detail
+{
+	word-wrap: break-word;
+}
+div.news-detail img.detail_picture
+{
+	float:left;
+	margin:0 8px 6px 1px;
+}
+.news-date-time
+{
+	color:#486DAA;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/breadcrumb/olymp/style.min.css?1673253106467*/
+.bx-breadcrumb{margin:10px 0}.bx-breadcrumb i{color:#b5bdc2;line-height:13px;font-size:12px;vertical-align:middle;margin-right:5px}.bx-breadcrumb .bx-breadcrumb-item{float:left;margin-bottom:10px;white-space:nowrap;line-height:13px;vertical-align:middle;margin-right:10px}.bx-breadcrumb .bx-breadcrumb-item span{font-family:"Open Sans",Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:13px;white-space:normal}.bx-breadcrumb .bx-breadcrumb-item a{border-bottom:0}
+/* End */
+/* /local/templates/olympia/components/bitrix/news.detail/page_top_banner/style.css?1673253106155 */
+/* /local/templates/olympia/components/bitrix/breadcrumb/olymp/style.min.css?1673253106467 */

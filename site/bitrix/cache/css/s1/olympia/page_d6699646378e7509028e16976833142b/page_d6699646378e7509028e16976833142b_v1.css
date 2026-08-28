@@ -1,0 +1,148 @@
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.detail/page_top_banner/style.css?1673253106155*/
+div.news-detail
+{
+	word-wrap: break-word;
+}
+div.news-detail img.detail_picture
+{
+	float:left;
+	margin:0 8px 6px 1px;
+}
+.news-date-time
+{
+	color:#486DAA;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/menu/inner_side_3lv_menu_mobile/style.min.css?1673253106490*/
+ul.left-menu{list-style:none;margin:0;padding:0;margin-bottom:8px;position:relative}ul.left-menu li{padding:10px 16px;background:#f5f5f5 url(../../../../../../local/templates/olympia/components/bitrix/menu/inner_side_3lv_menu_mobile/images/left_menu_bg.gif) top repeat-x}ul.left-menu li a{font-size:100%;color:#bc262c;font-weight:bold;text-decoration:none}ul.left-menu li a:visited{color:#bc262c}ul.left-menu li a:hover{color:#bc262c}ul.left-menu li a.selected:link,ul.left-menu li a.selected:visited,ul.left-menu li a.selected:active,ul.left-menu li a.selected:hover{color:#fc8d3d}
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.list/inner_wellness_programs/style.css?1673253106150*/
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/menu/inner_side_3lv_menu/style.min.css?1673253106490*/
+ul.left-menu{list-style:none;margin:0;padding:0;margin-bottom:8px;position:relative}ul.left-menu li{padding:10px 16px;background:#f5f5f5 url(../../../../../../local/templates/olympia/components/bitrix/menu/inner_side_3lv_menu/images/left_menu_bg.gif) top repeat-x}ul.left-menu li a{font-size:100%;color:#bc262c;font-weight:bold;text-decoration:none}ul.left-menu li a:visited{color:#bc262c}ul.left-menu li a:hover{color:#bc262c}ul.left-menu li a.selected:link,ul.left-menu li a.selected:visited,ul.left-menu li a.selected:active,ul.left-menu li a.selected:hover{color:#fc8d3d}
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/menu/inner_side_menu/style.min.css?1673253106490*/
+ul.left-menu{list-style:none;margin:0;padding:0;margin-bottom:8px;position:relative}ul.left-menu li{padding:10px 16px;background:#f5f5f5 url(../../../../../../local/templates/olympia/components/bitrix/menu/inner_side_menu/images/left_menu_bg.gif) top repeat-x}ul.left-menu li a{font-size:100%;color:#bc262c;font-weight:bold;text-decoration:none}ul.left-menu li a:visited{color:#bc262c}ul.left-menu li a:hover{color:#bc262c}ul.left-menu li a.selected:link,ul.left-menu li a.selected:visited,ul.left-menu li a.selected:active,ul.left-menu li a.selected:hover{color:#fc8d3d}
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.list/inner_stock/style.css?1696845185207*/
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+.promotion_banner_wrapper .title{
+    font-weight:700;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.list/inner_ads/style.css?1673253106150*/
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.list/inner_first_time/style.css?1673253106150*/
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.list/inner_whattotake/style.css?1673253106150*/
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+
+/* End */
+
+
+/* Start:/local/templates/olympia/components/bitrix/news.list/inner_faq/style.css?1673253106150*/
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+
+/* End */
+/* /local/templates/olympia/components/bitrix/news.detail/page_top_banner/style.css?1673253106155 */
+/* /local/templates/olympia/components/bitrix/menu/inner_side_3lv_menu_mobile/style.min.css?1673253106490 */
+/* /local/templates/olympia/components/bitrix/news.list/inner_wellness_programs/style.css?1673253106150 */
+/* /local/templates/olympia/components/bitrix/menu/inner_side_3lv_menu/style.min.css?1673253106490 */
+/* /local/templates/olympia/components/bitrix/menu/inner_side_menu/style.min.css?1673253106490 */
+/* /local/templates/olympia/components/bitrix/news.list/inner_stock/style.css?1696845185207 */
+/* /local/templates/olympia/components/bitrix/news.list/inner_ads/style.css?1673253106150 */
+/* /local/templates/olympia/components/bitrix/news.list/inner_first_time/style.css?1673253106150 */
+/* /local/templates/olympia/components/bitrix/news.list/inner_whattotake/style.css?1673253106150 */
+/* /local/templates/olympia/components/bitrix/news.list/inner_faq/style.css?1673253106150 */

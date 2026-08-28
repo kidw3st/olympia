@@ -1,0 +1,7 @@
+_tools/node_modules/
+_tools/*.log
+_tools/manifest*.json
+_tools/real-failures.json
+_tools/missing.json
+_tools/package*.json
+*.log
