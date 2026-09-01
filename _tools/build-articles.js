@@ -16,12 +16,19 @@ const SECTIONS = [
 ];
 
 const CAT_NAMES = {
-  'basseyn': 'Бассейн',
-  'detskiy-tsentr-plavaniya6604': 'Детский центр плавания',
-  'detskiy-tsentr-plavaniya': 'Детский центр плавания',
+  'basseyn': 'Бассейны',
+  'detskiy-tsentr-plavaniya6604': 'Центр детского плавания',
+  'detskiy-tsentr-plavaniya': 'Центр детского плавания',
   'fitnes-tsentr': 'Фитнес-центр',
-  'spa-tsentr': 'СПА-центр',
-  'kineziterapiya': 'Кинезитерапия'
+  'spa-tsentr': 'SPA-центр',
+  'kineziterapiya': 'Кинезитерапия',
+  'company': 'Комплекс'
+};
+
+const NEWS_REROUTE = {
+  'pervenstvo-rossii-23-29-marta-g-saratov': 'detskiy-tsentr-plavaniya',
+  'mezhregionalnye-sorevnovaniya-po-plavaniyu-natsplav-deti-12-14-iyunya-g-izhevsk-': 'detskiy-tsentr-plavaniya',
+  'vnimanie-posetiteli-fitnes-tsentra-olimpiya-': 'fitnes-tsentr'
 };
 
 // lastmod из карт сайта для сортировки
@@ -152,12 +159,17 @@ function buildSection(sec, lastmod) {
       if (!hasText && !hasImg) { errors.push('ПУСТО: ' + srcDirFromSiteRoot); continue; }
       if (/errortext|Элемент не найден/i.test(body)) { errors.push('МЁРТВАЯ: ' + srcDirFromSiteRoot); continue; }
 
-      const rel = [sec.key, cat.name, slug.name, 'index.html'].join('/');
-      const urlPath = '/' + [sec.src, cat.name, slug.name].join('/') + '/';
+      const origCat = cat.name;
+      let outCat = origCat;
+      if (sec.key === 'news' && NEWS_REROUTE[slug.name]) outCat = NEWS_REROUTE[slug.name];
+      const rel = [sec.key, outCat, slug.name, 'index.html'].join('/');
+      const urlPath = '/' + [sec.src, origCat, slug.name].join('/') + '/';
       articles.push({
         sec: sec.key,
-        cat: cat.name,
-        catName: CAT_NAMES[cat.name] || cat.name,
+        cat: outCat,
+        origCat,
+        origRel: [sec.key, origCat, slug.name].join('/'),
+        catName: CAT_NAMES[outCat] || outCat,
         slug: slug.name,
         title, body, rel,
         img: firstImage(body),
@@ -170,11 +182,7 @@ function buildSection(sec, lastmod) {
   // рендер статей
   for (const a of articles) {
     const r = '../'.repeat(3);
-    const crumbs = lib.breadcrumbs(3, [
-      [r + 'index.html', 'Главная'],
-      [r + a.sec + '/index.html', sec.crumb],
-      [null, a.title]
-    ]);
+    const crumbs = lib.breadcrumbs(3, lib.trailFromRel([a.sec, a.cat, a.slug].join('/'), a.title));
     const content = `  <div class="container">
     ${crumbs}
     <div class="page-head">
@@ -186,18 +194,24 @@ ${a.body}
     </article>
     <div class="article-footer">
       <a class="btn btn--ghost" href="${r + a.sec}/index.html">Все ${a.sec === 'news' ? 'новости' : 'акции'}</a>
-      <a class="btn btn--primary" href="${'../'.repeat(4)}site/zapis_cdp/index.html">Записаться</a>
+      <a class="btn btn--primary" href="${r}price/index.html">Выбрать абонемент</a>
     </div>
   </div>`;
     const page = lib.shell(3, {
       title: a.title + ' — «Олимпия» Пермь',
       description: a.preview,
-      active: a.sec === 'actions' ? 'actions' : '',
+      active: a.sec === 'actions' ? 'actions' : 'news',
       content
     });
     const outFile = path.join(OUT, a.rel);
     fs.mkdirSync(path.dirname(outFile), { recursive: true });
     fs.writeFileSync(outFile, page, 'utf8');
+    if (a.origRel && a.origRel !== [a.sec, a.cat, a.slug].join('/')) {
+      const stub = lib.redirectPage(3, a.sec + '/' + a.cat + '/' + a.slug + '/', a.title);
+      const stubFile = path.join(OUT, a.origRel, 'index.html');
+      fs.mkdirSync(path.dirname(stubFile), { recursive: true });
+      fs.writeFileSync(stubFile, stub, 'utf8');
+    }
   }
 
   return { articles, errors };
@@ -231,9 +245,12 @@ function buildList(sec, articles) {
   }).join('\n');
 
   const content = `  <div class="container">
-    ${lib.breadcrumbs(1, [['../index.html', 'Главная'], [null, sec.crumb]])}
+    ${lib.breadcrumbs(1, lib.trailFromRel(sec.key, sec.crumb))}
     <div class="page-head">
       <h1>${sec.title}</h1>
+      <p class="page-head__lede">${sec.key === 'news'
+        ? 'Объявления о режиме работы, соревнованиях и жизни комплекса. Скидки — в разделе «Акции».'
+        : 'Маркетинговые предложения: скидки и спецпредложения. Режим работы — в новостях.'}</p>
     </div>
     ${pills}
     <ul class="rows">
@@ -244,7 +261,7 @@ ${rowsHtml}
   const page = lib.shell(1, {
     title: sec.title + ' — «Олимпия» Пермь',
     description: sec.title + ' спортивного комплекса «Олимпия» в Перми.',
-    active: sec.key === 'actions' ? 'actions' : '',
+    active: sec.key === 'actions' ? 'actions' : 'news',
     content
   });
   fs.mkdirSync(path.join(OUT, sec.key), { recursive: true });

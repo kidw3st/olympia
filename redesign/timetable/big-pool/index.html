@@ -24,58 +24,123 @@
     </a>
     <ul class="nav-links">
       <li><a href="../../index.html#dirs">Направления</a></li>
-      <li><a href="../group/index.html" aria-current="page">Расписание</a></li>
+      <li><a href="../../timetable/index.html" aria-current="page">Расписание</a></li>
       <li><a href="../../price/index.html">Цены</a></li>
       <li><a href="../../actions/index.html">Акции</a></li>
+      <li><a href="../../news/index.html">Новости</a></li>
+      <li><a href="../../team/index.html">Команда</a></li>
       <li><a href="../../contacts/index.html">Контакты</a></li>
     </ul>
     <a class="nav-phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
-    <a class="btn btn--primary nav-cta" href="../../zapis_cdp/index.html">Записаться</a>
+    <a class="btn btn--primary nav-cta" href="../../price/index.html">Записаться</a>
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
+<div class="occupancy" data-occupancy data-src="../../js/occupancy.json">
+    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+    <span class="occupancy__demo">демо</span>
+  </div>
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="../../index.html#dirs">Направления</a>
-  <a href="../group/index.html">Расписание</a>
+  <a href="../../timetable/index.html">Расписание</a>
   <a href="../../price/index.html">Цены</a>
   <a href="../../actions/index.html">Акции</a>
+  <a href="../../news/index.html">Новости</a>
+  <a href="../../team/index.html">Команда</a>
   <a href="../../contacts/index.html">Контакты</a>
   <a class="mobile-menu__phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
+  <a class="btn btn--primary" href="../../price/index.html">Записаться</a>
 </div>
+<a class="sticky-cta" href="../../price/index.html">Выбрать абонемент</a>
 
 <main id="main">
   <div class="container">
-    <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../../index.html">Главная</a></li><li aria-current="page">Расписание большого бассейна</li></ol></nav>
+    <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../../index.html">Главная</a></li><li><a href="../../timetable/index.html">Расписание</a></li><li aria-current="page">Расписание большого бассейна</li></ol></nav>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://olympiaperm.ru/"},{"@type":"ListItem","position":2,"name":"Расписание","item":"https://olympiaperm.ru/timetable/"},{"@type":"ListItem","position":3,"name":"Расписание большого бассейна","item":"https://olympiaperm.ru/timetable/big-pool/"}]}</script>
     <div class="page-head">
       <h1>Расписание большого бассейна</h1>
       <p class="page-head__lede">Свободное плавание и занятия в 50-метровом бассейне. Актуальное расписание уточняйте
       по телефону <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a> —
       горячая линия работает с 8:00 до 21:00.</p>
     </div>
+    <nav class="sched-tabs" aria-label="Тип расписания">
+    <a href="../../timetable/big-pool/index.html" aria-current="page">Бассейны</a>
+    <a href="../../timetable/group/index.html">Фитнес-центр</a>
+    <a href="../../timetable/group-cp/index.html">Дежурные группы ЦП</a>
+    <a href="../../timetable/mama-i-malysh/index.html">Мама и малыш</a>
+    <a href="../../timetable/ekg/index.html">ЭКГ</a>
+  </nav>
+    <figure class="sched-hero reveal-fill">
+      <img src="../../../site/upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg" alt="Большой бассейн «Олимпии»" loading="lazy">
+    </figure>
 
     <section class="section" aria-label="Расписание">
       <div class="section-head reveal">
-        <h2>Интерактивная сетка</h2>
-        <p class="section-head__aside">Сетка занятий формируется системой записи
-        и открывается в архивной версии страницы.</p>
+        <h2>Сетка</h2>
+        <p class="section-head__aside">Как на сайте комплекса.</p>
       </div>
-      <ul class="tickets-list reveal">
-        <li>
-          <a class="ticket-row" href="./index.html">
-            <span class="ticket-row__name">Открыть сетку занятий</span>
-            <span class="ticket-row__hint">архивная интерактивная версия</span>
-          </a>
-        </li>
-        <li>
-          <a class="ticket-row" href="../../contacts/index.html">
-            <span class="ticket-row__name">Уточнить по телефону</span>
-            <span class="ticket-row__hint">+7 (342) 2-56789-2, с 8:00 до 21:00</span>
-          </a>
-        </li>
-      </ul>
+      <div class="filter-pills" aria-label="День недели">
+        <button type="button" class="is-active">Пн</button>
+        <button type="button">Вт</button>
+        <button type="button">Ср</button>
+        <button type="button">Чт</button>
+        <button type="button">Пт</button>
+        <button type="button">Сб</button>
+        <button type="button">Вс</button>
+      </div>
+      <div class="sched reveal">
+        <div class="sched__meta">
+          <p class="sched__note">Пример буднего дня из архива копии. Не касса и не запись.</p>
+          <span class="sched__demo">пример</span>
+        </div>
+        <div class="lane-scroll">
+      <div class="lane-board">
+        <div class="lane-head"><span></span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>Малый</span></div>
+        <div class="lane-body" style="height:2400px">
+          <div class="lane-times"><div>07:15</div><div>07:30</div><div>07:45</div><div>08:00</div><div>08:15</div><div>08:30</div><div>08:45</div><div>09:00</div><div>09:15</div><div>09:30</div><div>09:45</div><div>10:00</div><div>10:15</div><div>10:30</div><div>10:45</div><div>11:00</div><div>11:15</div><div>11:30</div><div>11:45</div><div>12:00</div><div>12:15</div><div>12:30</div><div>12:45</div><div>13:00</div><div>13:15</div><div>13:30</div><div>13:45</div><div>14:00</div><div>14:15</div><div>14:30</div><div>14:45</div><div>15:00</div><div>15:15</div><div>15:30</div><div>15:45</div><div>16:00</div><div>16:15</div><div>16:30</div><div>16:45</div><div>17:00</div><div>17:15</div><div>17:30</div><div>17:45</div><div>18:00</div><div>18:15</div><div>18:30</div><div>18:45</div><div>19:00</div><div>19:15</div><div>19:30</div><div>19:45</div><div>20:00</div><div>20:15</div><div>20:30</div><div>20:45</div><div>21:00</div><div>21:15</div><div>21:30</div><div>21:45</div><div>22:00</div></div>
+          <div class="lane-cols">
+          <div class="lane-col"><article class="lane-card" style="top:480px;height:480px;--bar:var(--blue)">
+            <span class="lane-card__title">шк 122</span>
+            <span class="lane-card__time">10:15–13:15</span>
+          </article></div>
+          <div class="lane-col"><article class="lane-card" style="top:480px;height:480px;--bar:var(--blue)">
+            <span class="lane-card__title">шк 122</span>
+            <span class="lane-card__time">10:15–13:15</span>
+          </article></div>
+          <div class="lane-col"><article class="lane-card" style="top:760px;height:360px;--bar:var(--red)">
+            <span class="lane-card__title">Колпаков спорт</span>
+            <span class="lane-card__time">12:00–14:15</span>
+          </article></div>
+          <div class="lane-col"><article class="lane-card" style="top:760px;height:360px;--bar:var(--red)">
+            <span class="lane-card__title">Колпаков спорт</span>
+            <span class="lane-card__time">12:00–14:15</span>
+          </article></div>
+          <div class="lane-col"><article class="lane-card" style="top:0px;height:2400px;--bar:var(--red)">
+            <span class="lane-card__title">скоростная дорожка</span>
+            <span class="lane-card__time">7:15–22:15</span>
+          </article></div>
+          <div class="lane-col"></div>
+          <div class="lane-col"><article class="lane-card" style="top:0px;height:2400px;--bar:var(--red)">
+            <span class="lane-card__title">скоростная дорожка</span>
+            <span class="lane-card__time">7:15–22:15</span>
+          </article></div>
+          <div class="lane-col"></div>
+          <div class="lane-col"></div>
+          <div class="lane-col"></div>
+          <div class="lane-col"><article class="lane-card" style="top:1880px;height:120px;--bar:var(--red)">
+            <span class="lane-card__title">аква</span>
+            <span class="lane-card__time">19:00–19:45</span>
+          </article></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
     </section>
 
     <div class="cta-band reveal-fill">
@@ -84,8 +149,8 @@
         <p class="cta-band__sub">Будни с 07:00, выходные с 08:00. Кассы до 21:15.</p>
       </div>
       <div class="cta-band__actions">
-        <a class="btn btn--ghost-light" href="../../vpervye-v-olimpii/index.html">Памятка новичку</a>
-        <a class="btn btn--primary" href="../../zapis_cdp/index.html">Записаться</a>
+        <a class="btn btn--ghost-light" href="../../visitors/first-visit/index.html">Памятка новичку</a>
+        <a class="btn btn--primary" href="../../price/index.html">Выбрать абонемент</a>
       </div>
     </div>
   </div>
@@ -111,6 +176,11 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
           </a>
         </div>
+        <div class="app-links app-links--footer">
+          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+        </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
         <h3>Направления</h3>
@@ -125,20 +195,21 @@
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="../group/index.html">Расписание</a></li>
+          <li><a href="../../visitors/faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="../../timetable/index.html">Расписание</a></li>
           <li><a href="../../price/index.html">Цены</a></li>
-          <li><a href="../../actions/index.html">Акции</a></li>
+          <li><a href="../../visitors/first-visit/index.html">Первый визит</a></li>
+          <li><a href="../../team/index.html">Команда</a></li>
           <li><a href="../../news/index.html">Новости</a></li>
-          <li><a href="../../pravila/index.html">Правила посещения</a></li>
-          <li><a href="../../faq/index.html">Вопросы и ответы</a></li>
           <li><a href="../../contacts/index.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
     <div class="footer-legal">
       <span>© Спортивный комплекс «Олимпия», Пермь, ул. Мира, 41</span>
-      <a href="../../personal-data-consent/index.html">Обработка персональных данных</a>
-      <a href="../../fz152/index.html">Политика в отношении персональных данных</a>
+      <a href="../../legal/index.html">Юридическое и B2B</a>
+      <a href="../../legal/personal-data-consent/index.html">Обработка персональных данных</a>
+      <a href="../../legal/fz152/index.html">Политика в отношении персональных данных</a>
     </div>
   </div>
   <div class="footer-watermark" aria-hidden="true">

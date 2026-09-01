@@ -23,32 +23,45 @@
       <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#dirs" aria-current="page">Направления</a></li>
-      <li><a href="../timetable/group/index.html">Расписание</a></li>
+      <li><a href="../index.html#dirs">Направления</a></li>
+      <li><a href="../timetable/index.html">Расписание</a></li>
       <li><a href="../price/index.html">Цены</a></li>
       <li><a href="../actions/index.html">Акции</a></li>
+      <li><a href="../news/index.html">Новости</a></li>
+      <li><a href="../team/index.html">Команда</a></li>
       <li><a href="../contacts/index.html">Контакты</a></li>
     </ul>
     <a class="nav-phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
-    <a class="btn btn--primary nav-cta" href="../zapis_cdp/index.html">Записаться</a>
+    <a class="btn btn--primary nav-cta" href="../price/index.html">Записаться</a>
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
+<div class="occupancy" data-occupancy data-src="../js/occupancy.json">
+    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+    <span class="occupancy__demo">демо</span>
+  </div>
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="../index.html#dirs">Направления</a>
-  <a href="../timetable/group/index.html">Расписание</a>
+  <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
+  <a href="../news/index.html">Новости</a>
+  <a href="../team/index.html">Команда</a>
   <a href="../contacts/index.html">Контакты</a>
   <a class="mobile-menu__phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
+  <a class="btn btn--primary" href="../price/index.html">Записаться</a>
 </div>
+<a class="sticky-cta" href="../price/index.html">Выбрать абонемент</a>
 
 <main id="main">
   <div class="container">
     <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../index.html">Главная</a></li><li aria-current="page">SPA-центр</li></ol></nav>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://olympiaperm.ru/"},{"@type":"ListItem","position":2,"name":"SPA-центр","item":"https://olympiaperm.ru/spa_center/"}]}</script>
     <div class="page-head">
       <h1>SPA-центр</h1>
       <p class="page-head__lede">Центр красоты и восстановления с медицинской лицензией.</p>
@@ -69,63 +82,73 @@
       </div>
     </div>
 
+
     <section class="section" aria-label="Услуги">
       <div class="section-head reveal">
         <h2>Процедуры</h2>
       </div>
-      <ul class="tickets-list reveal">
+      <ul class="hub-cards reveal">
       <li>
-        <a class="ticket-row" href="./massazhi-telo/index.html">
-          <span class="ticket-row__name">Массажи тела</span>
-          <span class="ticket-row__hint">классические и специальные</span>
+        <a class="hub-card hub-card--media" href="./massazhi-telo/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/2b3/ejjsd6kcowpg11sqkqafb609hqr8fzl4.jpg" alt="Массаж тела" loading="lazy"></figure>
+          <span class="hub-card__name">Массажи тела</span>
+          <span class="hub-card__hint">классические и специальные</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./massazhi-litsa/index.html">
-          <span class="ticket-row__name">Массажи лица</span>
-          <span class="ticket-row__hint">уход и тонус</span>
+        <a class="hub-card hub-card--media" href="./massazhi-litsa/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/b01/o1rcjcywig14k2whoqpkvd5ql5e9m99b.jpg" alt="Массаж лица" loading="lazy"></figure>
+          <span class="hub-card__name">Массажи лица</span>
+          <span class="hub-card__hint">уход и тонус</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./spa-ritualy/index.html">
-          <span class="ticket-row__name">SPA-ритуалы</span>
-          <span class="ticket-row__hint">«Очищение», «Возрождение» и другие</span>
+        <a class="hub-card hub-card--media" href="./spa-ritualy/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg" alt="SPA-ритуал" loading="lazy"></figure>
+          <span class="hub-card__name">SPA-ритуалы</span>
+          <span class="hub-card__hint">«Очищение», «Возрождение» и другие</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./spa-ritualy-dlya-dvoikh/index.html">
-          <span class="ticket-row__name">SPA-ритуалы для двоих</span>
-          <span class="ticket-row__hint">вдвоём приятнее</span>
+        <a class="hub-card hub-card--media" href="./spa-ritualy-dlya-dvoikh/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/05b/jfa7oyxu95f7fy5q9xibdtjhaqter23q.jpg" alt="SPA-ритуал для двоих" loading="lazy"></figure>
+          <span class="hub-card__name">SPA-ритуалы для двоих</span>
+          <span class="hub-card__hint">вдвоём приятнее</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./spa-protsedury-face/index.html">
-          <span class="ticket-row__name">SPA-процедуры для лица</span>
-          <span class="ticket-row__hint">программы ухода</span>
+        <a class="hub-card hub-card--media" href="./spa-protsedury-face/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/ce2/ce260038e341d8a654c72a0691140cdc.jpg" alt="SPA-процедура для лица" loading="lazy"></figure>
+          <span class="hub-card__name">SPA-процедуры для лица</span>
+          <span class="hub-card__hint">программы ухода</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./apparatnye-protsedury/index.html">
-          <span class="ticket-row__name">Аппаратные процедуры</span>
-          <span class="ticket-row__hint">медицинское оборудование</span>
+        <a class="hub-card hub-card--media" href="./apparatnye-protsedury/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/775/ot0hbee81gmt2p5wh227svsnbkd1y6uf.jpg" alt="Аппаратные процедуры" loading="lazy"></figure>
+          <span class="hub-card__name">Аппаратные процедуры</span>
+          <span class="hub-card__hint">медицинское оборудование</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./obertyvaniya/index.html">
-          <span class="ticket-row__name">Обертывания</span>
-          <span class="ticket-row__hint">детокс и тонус кожи</span>
+        <a class="hub-card hub-card--media" href="./obertyvaniya/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/814/814a0ab959ab64dc86efca46b7621d0e.jpg" alt="Обертывание" loading="lazy"></figure>
+          <span class="hub-card__name">Обертывания</span>
+          <span class="hub-card__hint">детокс и тонус кожи</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./barrel/index.html">
-          <span class="ticket-row__name">Фитобочка</span>
-          <span class="ticket-row__hint">кедровое прогревание</span>
+        <a class="hub-card" href="./barrel/index.html">
+          
+          <span class="hub-card__name">Фитобочка</span>
+          <span class="hub-card__hint">кедровое прогревание</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./solyariy/index.html">
-          <span class="ticket-row__name">Солярий</span>
-          <span class="ticket-row__hint">ровный тон кожи</span>
+        <a class="hub-card hub-card--media" href="./solyariy/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/422/422c3d74154be0a8233639686b2daee7.jpg" alt="Солярий" loading="lazy"></figure>
+          <span class="hub-card__name">Солярий</span>
+          <span class="hub-card__hint">ровный тон кожи</span>
         </a>
       </li>
     </ul>
@@ -137,7 +160,7 @@
         <p class="cta-band__sub">SPA-ритуалы и массажи после бассейна или тренировки. Действуют подарочные карты.</p>
       </div>
       <div class="cta-band__actions">
-        <a class="btn btn--ghost-light" href="../podarochnaya-karta-ideya-dlya-podarka/index.html">Подарочная карта</a>
+        <a class="btn btn--ghost-light" href="../price/index.html">Подарочная карта</a>
         <a class="btn btn--primary" href="../zapis_cdp/index.html">Записаться</a>
       </div>
     </div>
@@ -164,6 +187,11 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
           </a>
         </div>
+        <div class="app-links app-links--footer">
+          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+        </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
         <h3>Направления</h3>
@@ -178,20 +206,21 @@
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="../timetable/group/index.html">Расписание</a></li>
+          <li><a href="../visitors/faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="../timetable/index.html">Расписание</a></li>
           <li><a href="../price/index.html">Цены</a></li>
-          <li><a href="../actions/index.html">Акции</a></li>
+          <li><a href="../visitors/first-visit/index.html">Первый визит</a></li>
+          <li><a href="../team/index.html">Команда</a></li>
           <li><a href="../news/index.html">Новости</a></li>
-          <li><a href="../pravila/index.html">Правила посещения</a></li>
-          <li><a href="../faq/index.html">Вопросы и ответы</a></li>
           <li><a href="../contacts/index.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
     <div class="footer-legal">
       <span>© Спортивный комплекс «Олимпия», Пермь, ул. Мира, 41</span>
-      <a href="../personal-data-consent/index.html">Обработка персональных данных</a>
-      <a href="../fz152/index.html">Политика в отношении персональных данных</a>
+      <a href="../legal/index.html">Юридическое и B2B</a>
+      <a href="../legal/personal-data-consent/index.html">Обработка персональных данных</a>
+      <a href="../legal/fz152/index.html">Политика в отношении персональных данных</a>
     </div>
   </div>
   <div class="footer-watermark" aria-hidden="true">

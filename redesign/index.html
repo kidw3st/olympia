@@ -71,27 +71,39 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
     </a>
     <ul class="nav-links">
       <li><a href="#dirs">Направления</a></li>
-      <li><a href="./timetable/group/index.html">Расписание</a></li>
+      <li><a href="timetable/index.html">Расписание</a></li>
       <li><a href="price/index.html">Цены</a></li>
       <li><a href="actions/index.html">Акции</a></li>
+      <li><a href="news/index.html">Новости</a></li>
+      <li><a href="team/index.html">Команда</a></li>
       <li><a href="#visit">Контакты</a></li>
     </ul>
     <a class="nav-phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
-    <a class="btn btn--primary nav-cta" href="./zapis_cdp/index.html">Записаться</a>
+    <a class="btn btn--primary nav-cta" href="price/index.html">Записаться</a>
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
+<div class="occupancy" data-occupancy data-src="js/occupancy.json">
+  <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+  <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+  <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+  <span class="occupancy__demo">демо</span>
+</div>
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="#dirs">Направления</a>
-  <a href="./timetable/group/index.html">Расписание</a>
+  <a href="timetable/index.html">Расписание</a>
   <a href="price/index.html">Цены</a>
   <a href="actions/index.html">Акции</a>
+  <a href="news/index.html">Новости</a>
+  <a href="team/index.html">Команда</a>
   <a href="#visit">Контакты</a>
   <a class="mobile-menu__phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
+  <a class="btn btn--primary" href="price/index.html">Записаться</a>
 </div>
+<a class="sticky-cta" href="price/index.html">Выбрать абонемент</a>
 
 <main id="main">
 
@@ -105,7 +117,14 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
         на&nbsp;улице Мира,&nbsp;41.</p>
         <div class="hero-actions">
           <a class="btn btn--primary" href="price/index.html">Выбрать абонемент</a>
-          <a class="btn btn--ghost" href="./timetable/group/index.html">Расписание</a>
+          <a class="btn btn--ghost" href="timetable/index.html">Расписание</a>
+        </div>
+        <div class="filter-pills scenario-pills" aria-label="Кто вы">
+          <a href="pools/index.html">Плыть</a>
+          <a href="swimming_center/index.html">Ребёнок</a>
+          <a href="fitness_center/index.html">Фитнес</a>
+          <a href="spa_center/index.html">SPA</a>
+          <a href="visitors/first-visit/index.html">Впервые</a>
         </div>
         <p class="hero-note">Сегодня открыто до 22:30 · касса до 21:15</p>
       </div>
@@ -266,15 +285,15 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
         <p class="cinema__sub">Свободное плавание: будни с 07:00, выходные с 08:00.</p>
       </div>
       <div class="cinema__actions">
-        <a class="btn btn--ghost-light" href="./timetable/big-pool/index.html">Расписание бассейна</a>
+        <a class="btn btn--ghost-light" href="timetable/big-pool/index.html">Расписание бассейна</a>
       </div>
     </div>
-    <img class="cinema__img" src="assets/cinematic-start.jpg" alt="Пловец на стартовой тумбе в утреннем свете" loading="lazy" width="1920" height="340">
+    <img class="cinema__img" src="assets/lanes-overhead.jpg" alt="Дорожки большого бассейна сверху" loading="lazy">
   </section>
 
   <!-- ================= ДЕТСКИЙ ЦЕНТР ================= -->
   <section class="section container" aria-labelledby="kids-title">
-    <div class="kids reveal-fill">
+    <div class="kids">
       <div class="kids__media">
         <img src="assets/kids-mom.jpg" alt="Мама с ребёнком занимаются в бассейне" loading="lazy">
       </div>
@@ -288,8 +307,8 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
           <li>Дежурные группы в течение дня</li>
         </ul>
         <div class="kids__actions">
-          <a class="btn btn--primary" href="./zapis_cdp/index.html">Записаться в детский центр</a>
-          <a class="btn btn--ghost-light" href="./timetable/mama-i-malysh/index.html">Расписание занятий</a>
+          <a class="btn btn--primary" href="zapis_cdp/index.html">Записаться в детский центр</a>
+          <a class="btn btn--ghost-light" href="timetable/mama-i-malysh/index.html">Расписание занятий</a>
         </div>
       </div>
     </div>
@@ -302,29 +321,33 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
       <p class="section-head__aside">Разовое посещение, абонементы на месяц
       и клубные карты: актуальные цены собраны в одном разделе.</p>
     </div>
-    <ul class="tickets-list reveal">
+    <ul class="hub-cards reveal">
       <li>
-        <a class="ticket-row" href="price/index.html">
-          <span class="ticket-row__name">Разовые посещения и абонементы</span>
-          <span class="ticket-row__hint">бассейны, взрослые и дети</span>
+        <a class="hub-card hub-card--media" href="price/index.html">
+          <figure class="hub-card__media"><img src="../site/upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg" alt="Большой бассейн" loading="lazy"></figure>
+          <span class="hub-card__name">Разовые посещения и абонементы</span>
+          <span class="hub-card__hint">бассейны, взрослые и дети</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="fitness_center/index.html">
-          <span class="ticket-row__name">Клубные карты фитнеса</span>
-          <span class="ticket-row__hint">с доступом в бассейн</span>
+        <a class="hub-card hub-card--media" href="fitness_center/index.html">
+          <figure class="hub-card__media"><img src="../site/upload/iblock/039/039baaae5c9bae0291b76a8d9e498127.jpg" alt="Тренажёрный зал" loading="lazy"></figure>
+          <span class="hub-card__name">Клубные карты фитнеса</span>
+          <span class="hub-card__hint">с доступом в бассейн</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="actions/index.html">
-          <span class="ticket-row__name">Льготы и акции</span>
-          <span class="ticket-row__hint">пенсионерам, студентам, многодетным</span>
+        <a class="hub-card hub-card--media" href="actions/index.html">
+          <figure class="hub-card__media"><img src="../site/upload/iblock/c5f/o4s06ch5jgmtpqxnt03sbp0kz8uu1hn4.jpg" alt="Акции спорткомплекса «Олимпия»" loading="lazy"></figure>
+          <span class="hub-card__name">Льготы и акции</span>
+          <span class="hub-card__hint">пенсионерам, студентам, многодетным</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./podarochnaya-karta-ideya-dlya-podarka/index.html">
-          <span class="ticket-row__name">Подарочная карта</span>
-          <span class="ticket-row__hint">впечатление вместо вещи</span>
+        <a class="hub-card hub-card--media" href="price/index.html">
+          <figure class="hub-card__media"><img src="../site/upload/iblock/c20/c20c46fe34da4a7e0fd98a36e6f30be1.jpg" alt="Подарочная карта" loading="lazy"></figure>
+          <span class="hub-card__name">Подарочная карта</span>
+          <span class="hub-card__hint">впечатление вместо вещи — в кассе и онлайн</span>
         </a>
       </li>
     </ul>
@@ -334,11 +357,14 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
   <section class="section container" id="visit" aria-labelledby="visit-title">
     <div class="visit">
       <div class="reveal">
+        <figure class="visit__media">
+          <img src="../site/upload/iblock/274/27478541b86add03e5d370172e16aa32.jpg" alt="Спорткомплекс «Олимпия»" loading="lazy">
+        </figure>
         <h2 id="visit-title">Приходите сегодня</h2>
         <p class="visit__address">г. Пермь, ул. Мира, 41</p>
         <p class="visit__phone-line">Горячая линия <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a> работает с 8:00 до 21:00</p>
         <div class="visit__actions">
-          <a class="btn btn--primary" href="./zapis_cdp/index.html">Записаться</a>
+          <a class="btn btn--primary" href="price/index.html">Выбрать абонемент</a>
           <a class="btn btn--ghost" href="contacts/index.html">Все контакты и схема проезда</a>
         </div>
       </div>
@@ -356,9 +382,21 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
           <dd>до 21:15</dd>
         </div>
         <p class="hours__note">Впервые в «Олимпии»? Посмотрите
-        <a href="./vpervye-v-olimpii/index.html">памятку для первого визита</a>:
+        <a href="visitors/first-visit/index.html">памятку для первого визита</a>:
         что взять с собой и как всё устроено.</p>
       </dl>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="app-title">
+    <div class="section-head reveal">
+      <h2 id="app-title">Приложение «Олимпия»</h2>
+      <p class="section-head__aside">Расписание и карта в телефоне — канал повторных визитов.</p>
+    </div>
+    <div class="app-links reveal">
+      <a class="btn btn--ghost" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+      <a class="btn btn--ghost" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+      <a class="btn btn--ghost" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
     </div>
   </section>
 
@@ -385,6 +423,11 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
           </a>
         </div>
+        <div class="app-links app-links--footer">
+          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+        </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
         <h3>Направления</h3>
@@ -399,19 +442,21 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="./timetable/group/index.html">Расписание</a></li>
+          <li><a href="visitors/faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="timetable/index.html">Расписание</a></li>
           <li><a href="price/index.html">Цены</a></li>
-          <li><a href="actions/index.html">Акции</a></li>
-          <li><a href="pravila/index.html">Правила посещения</a></li>
-          <li><a href="faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="visitors/first-visit/index.html">Первый визит</a></li>
+          <li><a href="team/index.html">Команда</a></li>
+          <li><a href="news/index.html">Новости</a></li>
           <li><a href="contacts/index.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
     <div class="footer-legal">
       <span>© Спортивный комплекс «Олимпия», Пермь, ул. Мира, 41</span>
-      <a href="./personal-data-consent/index.html">Обработка персональных данных</a>
-      <a href="./fz152/index.html">Политика в отношении персональных данных</a>
+      <a href="legal/index.html">Юридическое и B2B</a>
+      <a href="legal/personal-data-consent/index.html">Обработка персональных данных</a>
+      <a href="legal/fz152/index.html">Политика в отношении персональных данных</a>
     </div>
   </div>
   <div class="footer-watermark" aria-hidden="true">

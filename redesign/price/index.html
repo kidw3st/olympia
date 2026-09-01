@@ -24,84 +24,145 @@
     </a>
     <ul class="nav-links">
       <li><a href="../index.html#dirs">Направления</a></li>
-      <li><a href="../timetable/group/index.html">Расписание</a></li>
+      <li><a href="../timetable/index.html">Расписание</a></li>
       <li><a href="../price/index.html" aria-current="page">Цены</a></li>
       <li><a href="../actions/index.html">Акции</a></li>
+      <li><a href="../news/index.html">Новости</a></li>
+      <li><a href="../team/index.html">Команда</a></li>
       <li><a href="../contacts/index.html">Контакты</a></li>
     </ul>
     <a class="nav-phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
-    <a class="btn btn--primary nav-cta" href="../zapis_cdp/index.html">Записаться</a>
+    <a class="btn btn--primary nav-cta" href="../price/index.html">Записаться</a>
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
+<div class="occupancy" data-occupancy data-src="../js/occupancy.json">
+    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+    <span class="occupancy__demo">демо</span>
+  </div>
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="../index.html#dirs">Направления</a>
-  <a href="../timetable/group/index.html">Расписание</a>
+  <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
+  <a href="../news/index.html">Новости</a>
+  <a href="../team/index.html">Команда</a>
   <a href="../contacts/index.html">Контакты</a>
   <a class="mobile-menu__phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
+  <a class="btn btn--primary" href="../price/index.html">Записаться</a>
 </div>
+<a class="sticky-cta" href="../price/index.html">Выбрать абонемент</a>
 
 <main id="main">
   <div class="container">
-    <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../index.html">Главная</a></li><li aria-current="page">Цены</li></ol></nav>
+    <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../index.html">Главная</a></li><li aria-current="page">Цены и карты</li></ol></nav>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://olympiaperm.ru/"},{"@type":"ListItem","position":2,"name":"Цены и карты","item":"https://olympiaperm.ru/price/"}]}</script>
     <div class="page-head">
       <h1>Билеты и абонементы</h1>
-      <p class="page-head__lede">Разовые посещения, абонементы и клубные карты для взрослых
-      и детей. Актуальный прайс уточняйте по телефону
-      <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a> или в кассах комплекса:
-      цены зависят от времени посещения и категории льгот.</p>
+      <p class="page-head__lede">Разовые посещения, абонементы и клубные карты.
+      Суммы зависят от времени и льгот — актуальный прайс в кассах
+      и по телефону <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a>.</p>
     </div>
+
+    <section class="section" aria-label="Сравнение клубных карт">
+      <div class="section-head reveal">
+        <h2>Клубные карты</h2>
+        <p class="section-head__aside">Сравните доступ, не три одинаковые карточки.
+        Цену уточняйте в кассе — здесь только состав услуг.</p>
+      </div>
+      <div class="filter-pills" data-filter="benefit">
+        <button type="button" data-benefit="all" class="is-active">Все</button>
+        <button type="button" data-benefit="pensioner">Пенсионер</button>
+        <button type="button" data-benefit="student">Студент</button>
+        <button type="button" data-benefit="family">Многодетные</button>
+        <button type="button" data-benefit="svo">СВО</button>
+      </div>
+      <div class="compare reveal">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Что входит</th>
+              <th>Плавание</th>
+              <th>Фитнес</th>
+              <th>Фитнес+плавание</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th>Свободное плавание, 50&nbsp;м</th><td>да</td><td>—</td><td>да</td></tr>
+            <tr><th>Тренажёрный зал и группы</th><td>—</td><td>да</td><td>да</td></tr>
+            <tr><th>Комплекс саун</th><td>да</td><td>да</td><td>да</td></tr>
+            <tr><th>Заморозка карты</th><td colspan="3"><a href="./freeze/index.html">условия на отдельной странице</a></td></tr>
+            <tr class="compare-price"><th>Стоимость</th><td colspan="3">в кассе / по телефону, без сумм на сайте</td></tr>
+          </tbody>
+        </table>
+        <p class="hero-note compare-note" data-benefit-note hidden></p>
+      </div>
+    </section>
 
     <section class="section" aria-label="Категории">
       <div class="section-head reveal">
         <h2>Что можно оформить</h2>
       </div>
-      <ul class="tickets-list reveal">
+      <ul class="hub-cards reveal">
       <li>
-        <a class="ticket-row" href="../pools/index.html">
-          <span class="ticket-row__name">Разовое посещение бассейна</span>
-          <span class="ticket-row__hint">взрослые и дети, будни и выходные</span>
+        <a class="hub-card hub-card--media" href="../pools/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg" alt="Большой бассейн" loading="lazy"></figure>
+          <span class="hub-card__name">Разовое посещение бассейна</span>
+          <span class="hub-card__hint">взрослые и дети, будни и выходные</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../pools/adult_groups/index.html">
-          <span class="ticket-row__name">Абонементы на плавание</span>
-          <span class="ticket-row__hint">свободное плавание и группы</span>
+        <a class="hub-card hub-card--media" href="../pools/adult_groups/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/b2d/b2d270c05a5bca4c28ecf42edb7aa2b4.jpg" alt="Занятия плаванием" loading="lazy"></figure>
+          <span class="hub-card__name">Абонементы на плавание</span>
+          <span class="hub-card__hint">свободное плавание и группы</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../swimming_center/index.html">
-          <span class="ticket-row__name">Абонементы детского центра</span>
-          <span class="ticket-row__hint">обучение плаванию по возрастам</span>
+        <a class="hub-card hub-card--media" href="../swimming_center/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg" alt="Центр детского плавания" loading="lazy"></figure>
+          <span class="hub-card__name">Абонементы детского центра</span>
+          <span class="hub-card__hint">обучение плаванию по возрастам</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../fitness_center/index.html">
-          <span class="ticket-row__name">Клубные карты фитнеса</span>
-          <span class="ticket-row__hint">«Фитнес» и «Фитнес+плавание»</span>
+        <a class="hub-card hub-card--media" href="../fitness_center/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/039/039baaae5c9bae0291b76a8d9e498127.jpg" alt="Тренажёрный зал" loading="lazy"></figure>
+          <span class="hub-card__name">Клубные карты фитнеса</span>
+          <span class="hub-card__hint">«Фитнес» и «Фитнес+плавание»</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../spa_center/index.html">
-          <span class="ticket-row__name">SPA-процедуры</span>
-          <span class="ticket-row__hint">по прайсу центра</span>
+        <a class="hub-card hub-card--media" href="../spa_center/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg" alt="SPA-центр" loading="lazy"></figure>
+          <span class="hub-card__name">SPA-процедуры</span>
+          <span class="hub-card__hint">по прайсу центра</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../center_kinesitherapy/index.html">
-          <span class="ticket-row__name">Программы кинезитерапии</span>
-          <span class="ticket-row__hint">приёмы и курсы</span>
+        <a class="hub-card hub-card--media" href="../center_kinesitherapy/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/32c/32c8f9fd1810f5b17473cc25870b7c78.jpg" alt="Кинезитерапия" loading="lazy"></figure>
+          <span class="hub-card__name">Программы кинезитерапии</span>
+          <span class="hub-card__hint">приёмы и курсы</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../podarochnaya-karta-ideya-dlya-podarka/index.html">
-          <span class="ticket-row__name">Подарочная карта</span>
-          <span class="ticket-row__hint">номинал на любые услуги</span>
+        <a class="hub-card hub-card--media" href="../actions/basseyn/podarochnaya-karta-ideya-dlya-podarka/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/c20/c20c46fe34da4a7e0fd98a36e6f30be1.jpg" alt="Подарочная карта" loading="lazy"></figure>
+          <span class="hub-card__name">Подарочная карта</span>
+          <span class="hub-card__hint">в кассе и онлайн</span>
+        </a>
+      </li>
+      <li>
+        <a class="hub-card" href="../price/freeze/index.html">
+          
+          <span class="hub-card__name">Заморозка карты</span>
+          <span class="hub-card__hint">пауза действия клубной карты</span>
         </a>
       </li>
     </ul>
@@ -110,8 +171,6 @@
     <section class="section" aria-label="Льготы">
       <div class="section-head reveal">
         <h2>Льготы и выгода</h2>
-        <p class="section-head__aside">Скидки действуют по будням и в определённые
-        часы: подробности внутри каждой акции.</p>
       </div>
       <ul class="tickets-list reveal">
       <li>
@@ -121,19 +180,19 @@
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../nalogoviy-vychet/index.html">
+        <a class="ticket-row" href="../visitors/tax-refund/index.html">
           <span class="ticket-row__name">Налоговый вычет</span>
           <span class="ticket-row__hint">верните 13% за занятия спортом</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../uslugi_dms/index.html">
+        <a class="ticket-row" href="../legal/dms/index.html">
           <span class="ticket-row__name">Услуги по полису ДМС</span>
           <span class="ticket-row__hint">SPA и кинезитерапия</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="../uslugi_dlya_korporativnykh_klientov/index.html">
+        <a class="ticket-row" href="../legal/corporate/index.html">
           <span class="ticket-row__name">Корпоративным клиентам</span>
           <span class="ticket-row__hint">спорт для команд</span>
         </a>
@@ -147,8 +206,8 @@
         <p class="cta-band__sub">Кассы работают до 21:15. Будни с 07:00, выходные с 08:00.</p>
       </div>
       <div class="cta-band__actions">
-        <a class="btn btn--ghost-light" href="../timetable/group/index.html">Расписание</a>
-        <a class="btn btn--primary" href="../zapis_cdp/index.html">Записаться</a>
+        <a class="btn btn--ghost-light" href="../timetable/index.html">Расписание</a>
+        <a class="btn btn--primary" href="../kupit-online/index.html">Купить онлайн</a>
       </div>
     </div>
   </div>
@@ -174,6 +233,11 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
           </a>
         </div>
+        <div class="app-links app-links--footer">
+          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+        </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
         <h3>Направления</h3>
@@ -188,20 +252,21 @@
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="../timetable/group/index.html">Расписание</a></li>
+          <li><a href="../visitors/faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="../timetable/index.html">Расписание</a></li>
           <li><a href="../price/index.html">Цены</a></li>
-          <li><a href="../actions/index.html">Акции</a></li>
+          <li><a href="../visitors/first-visit/index.html">Первый визит</a></li>
+          <li><a href="../team/index.html">Команда</a></li>
           <li><a href="../news/index.html">Новости</a></li>
-          <li><a href="../pravila/index.html">Правила посещения</a></li>
-          <li><a href="../faq/index.html">Вопросы и ответы</a></li>
           <li><a href="../contacts/index.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
     <div class="footer-legal">
       <span>© Спортивный комплекс «Олимпия», Пермь, ул. Мира, 41</span>
-      <a href="../personal-data-consent/index.html">Обработка персональных данных</a>
-      <a href="../fz152/index.html">Политика в отношении персональных данных</a>
+      <a href="../legal/index.html">Юридическое и B2B</a>
+      <a href="../legal/personal-data-consent/index.html">Обработка персональных данных</a>
+      <a href="../legal/fz152/index.html">Политика в отношении персональных данных</a>
     </div>
   </div>
   <div class="footer-watermark" aria-hidden="true">

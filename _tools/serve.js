@@ -1,10 +1,13 @@
 'use strict';
 // Простой статический сервер для локальной копии сайта.
-// Запуск: node _tools/serve.js [порт]
+// Запуск: node _tools/serve.js [порт] [каталог]
+// При раздаче redesign/ путь /site/ читается из соседнего каталога site/.
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const PROJECT = path.resolve(__dirname, '..');
+const SITE_ROOT = path.join(PROJECT, 'site');
 const ROOT = process.argv[3]
   ? path.resolve(process.argv[3])
   : path.resolve(__dirname, '..', 'site');
@@ -26,14 +29,30 @@ const MIME = {
   '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 };
 
+function inside(root, abs) {
+  const base = root.endsWith(path.sep) ? root : root + path.sep;
+  return abs === root || abs.startsWith(base);
+}
+
 http.createServer((req, res) => {
   let p;
   try { p = decodeURIComponent(req.url.split('?')[0].split('#')[0]); }
   catch (e) { p = req.url.split('?')[0]; }
 
-  // защита от выхода за пределы каталога
-  let abs = path.join(ROOT, path.normalize(p).replace(/^([\\/]|\.\.)+/, ''));
-  if (!abs.startsWith(ROOT)) { res.writeHead(403); return res.end('403'); }
+  const norm = path.posix.normalize(p.replace(/\\/g, '/'));
+  let abs;
+  let bound;
+
+  if (norm === '/site' || norm.startsWith('/site/')) {
+    bound = SITE_ROOT;
+    const rest = norm.replace(/^\/site\/?/, '');
+    abs = path.resolve(SITE_ROOT, rest);
+  } else {
+    bound = ROOT;
+    abs = path.join(ROOT, path.normalize(p).replace(/^([\\/]|\.\.)+/, ''));
+  }
+
+  if (!inside(bound, abs)) { res.writeHead(403); return res.end('403'); }
 
   fs.stat(abs, (err, st) => {
     if (!err && st.isDirectory()) abs = path.join(abs, 'index.html');
@@ -50,4 +69,5 @@ http.createServer((req, res) => {
 }).listen(PORT, '127.0.0.1', () => {
   console.log('Локальная копия сайта: http://127.0.0.1:' + PORT + '/');
   console.log('Каталог: ' + ROOT);
+  console.log('Медиа /site/ → ' + SITE_ROOT);
 });

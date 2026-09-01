@@ -23,32 +23,45 @@
       <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#dirs" aria-current="page">Направления</a></li>
-      <li><a href="../timetable/group/index.html">Расписание</a></li>
+      <li><a href="../index.html#dirs">Направления</a></li>
+      <li><a href="../timetable/index.html">Расписание</a></li>
       <li><a href="../price/index.html">Цены</a></li>
       <li><a href="../actions/index.html">Акции</a></li>
+      <li><a href="../news/index.html">Новости</a></li>
+      <li><a href="../team/index.html">Команда</a></li>
       <li><a href="../contacts/index.html">Контакты</a></li>
     </ul>
     <a class="nav-phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
-    <a class="btn btn--primary nav-cta" href="../zapis_cdp/index.html">Записаться</a>
+    <a class="btn btn--primary nav-cta" href="../price/index.html">Записаться</a>
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
+<div class="occupancy" data-occupancy data-src="../js/occupancy.json">
+    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+    <span class="occupancy__demo">демо</span>
+  </div>
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="../index.html#dirs">Направления</a>
-  <a href="../timetable/group/index.html">Расписание</a>
+  <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
+  <a href="../news/index.html">Новости</a>
+  <a href="../team/index.html">Команда</a>
   <a href="../contacts/index.html">Контакты</a>
   <a class="mobile-menu__phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
+  <a class="btn btn--primary" href="../price/index.html">Записаться</a>
 </div>
+<a class="sticky-cta" href="../price/index.html">Выбрать абонемент</a>
 
 <main id="main">
   <div class="container">
     <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../index.html">Главная</a></li><li aria-current="page">Фитнес-центр</li></ol></nav>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://olympiaperm.ru/"},{"@type":"ListItem","position":2,"name":"Фитнес-центр","item":"https://olympiaperm.ru/fitness_center/"}]}</script>
     <div class="page-head">
       <h1>Фитнес-центр</h1>
       <p class="page-head__lede">Самый большой фитнес-центр Пермского края: более 3500 м² под одной крышей с бассейнами.</p>
@@ -69,45 +82,59 @@
       </div>
     </div>
 
+
     <section class="section" aria-label="Услуги">
       <div class="section-head reveal">
         <h2>Услуги и занятия</h2>
       </div>
-      <ul class="tickets-list reveal">
+      <ul class="hub-cards reveal">
       <li>
-        <a class="ticket-row" href="./gym/index.html">
-          <span class="ticket-row__name">Тренажёрный зал</span>
-          <span class="ticket-row__hint">1600 м², Technogym и Matrix</span>
+        <a class="hub-card hub-card--media" href="./gym/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/039/039baaae5c9bae0291b76a8d9e498127.jpg" alt="Тренажёрный зал" loading="lazy"></figure>
+          <span class="hub-card__name">Тренажёрный зал</span>
+          <span class="hub-card__hint">1600 м², Technogym и Matrix</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./personalnye-trenirovki/index.html">
-          <span class="ticket-row__name">Персональные тренировки</span>
-          <span class="ticket-row__hint">индивидуальная программа</span>
+        <a class="hub-card" href="./personalnye-trenirovki/index.html">
+          
+          <span class="hub-card__name">Персональные тренировки</span>
+          <span class="hub-card__hint">индивидуальная программа</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./group_programs/index.html">
-          <span class="ticket-row__name">Групповые направления</span>
-          <span class="ticket-row__hint">по расписанию</span>
+        <a class="hub-card hub-card--media" href="./group_programs/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/72d/j6mwdyta3xlp6si2r3a9qv6unrn04y8z.jpg" alt="Зал групповых тренировок" loading="lazy"></figure>
+          <span class="hub-card__name">Групповые направления</span>
+          <span class="hub-card__hint">по расписанию</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./aqua/index.html">
-          <span class="ticket-row__name">Аквааэробика</span>
-          <span class="ticket-row__hint">тренировки в бассейне</span>
+        <a class="hub-card hub-card--media" href="../pools/aqua/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/dc6/dc66dbc89ecaa75e6027a26583af448e.jpg" alt="Аквапрограммы фитнес-центра" loading="lazy"></figure>
+          <span class="hub-card__name">Аквааэробика</span>
+          <span class="hub-card__hint">канон — в разделе бассейнов</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./meditsinskoe_testirovanie/index.html">
-          <span class="ticket-row__name">Медицинское тестирование</span>
-          <span class="ticket-row__hint">контроль состояния организма</span>
+        <a class="hub-card hub-card--media" href="./meditsinskoe_testirovanie/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/071/071b94b96eabeeb8e0ad3e09f4a0a1c4.jpg" alt="Медицинское тестирование MS FIT" loading="lazy"></figure>
+          <span class="hub-card__name">Медицинское тестирование</span>
+          <span class="hub-card__hint">контроль состояния организма</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./tehnika-bezopasnosti/index.html">
-          <span class="ticket-row__name">Техника безопасности</span>
-          <span class="ticket-row__hint">правила зала</span>
+        <a class="hub-card" href="./tehnika-bezopasnosti/index.html">
+          
+          <span class="hub-card__name">Техника безопасности</span>
+          <span class="hub-card__hint">правила зала</span>
+        </a>
+      </li>
+      <li>
+        <a class="hub-card" href="../price/freeze/index.html">
+          
+          <span class="hub-card__name">Заморозка клубной карты</span>
+          <span class="hub-card__hint">пауза действия карты</span>
         </a>
       </li>
     </ul>
@@ -169,6 +196,11 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
           </a>
         </div>
+        <div class="app-links app-links--footer">
+          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+        </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
         <h3>Направления</h3>
@@ -183,20 +215,21 @@
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="../timetable/group/index.html">Расписание</a></li>
+          <li><a href="../visitors/faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="../timetable/index.html">Расписание</a></li>
           <li><a href="../price/index.html">Цены</a></li>
-          <li><a href="../actions/index.html">Акции</a></li>
+          <li><a href="../visitors/first-visit/index.html">Первый визит</a></li>
+          <li><a href="../team/index.html">Команда</a></li>
           <li><a href="../news/index.html">Новости</a></li>
-          <li><a href="../pravila/index.html">Правила посещения</a></li>
-          <li><a href="../faq/index.html">Вопросы и ответы</a></li>
           <li><a href="../contacts/index.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
     <div class="footer-legal">
       <span>© Спортивный комплекс «Олимпия», Пермь, ул. Мира, 41</span>
-      <a href="../personal-data-consent/index.html">Обработка персональных данных</a>
-      <a href="../fz152/index.html">Политика в отношении персональных данных</a>
+      <a href="../legal/index.html">Юридическое и B2B</a>
+      <a href="../legal/personal-data-consent/index.html">Обработка персональных данных</a>
+      <a href="../legal/fz152/index.html">Политика в отношении персональных данных</a>
     </div>
   </div>
   <div class="footer-watermark" aria-hidden="true">

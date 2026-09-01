@@ -72,20 +72,110 @@ document.documentElement.classList.add('js');
 
 /* ---------- Фильтр списков по категории ---------- */
 (function () {
-  var bar = document.querySelector('.filter-pills[data-filter]');
-  if (!bar) return;
-  var rows = Array.prototype.slice.call(document.querySelectorAll('.rows > li[data-cat]'));
+  var bars = Array.prototype.slice.call(document.querySelectorAll('.filter-pills[data-filter]'));
+  bars.forEach(function (bar) {
+    var kind = bar.getAttribute('data-filter');
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-cat]');
+      if (!btn) return;
+      var cat = btn.getAttribute('data-cat');
+      Array.prototype.slice.call(bar.querySelectorAll('button')).forEach(function (b) {
+        b.classList.toggle('is-active', b === btn);
+      });
+      if (kind === 'team') {
+        Array.prototype.slice.call(document.querySelectorAll('section.section[data-cat]')).forEach(function (sec) {
+          sec.classList.toggle('is-hidden', cat !== 'all' && sec.getAttribute('data-cat') !== cat);
+        });
+        return;
+      }
+      if (kind === 'timetable') {
+        Array.prototype.slice.call(document.querySelectorAll('.tickets-list > li[data-cat], .hub-cards > li[data-cat]')).forEach(function (li) {
+          li.classList.toggle('is-hidden', cat !== 'all' && li.getAttribute('data-cat') !== cat);
+        });
+        return;
+      }
+      var rows = Array.prototype.slice.call(document.querySelectorAll('.rows > li[data-cat]'));
+      rows.forEach(function (li) {
+        li.classList.toggle('is-hidden', cat !== 'all' && li.getAttribute('data-cat') !== cat);
+      });
+    });
+  });
+})();
+
+/* ---------- Льготы на таблице карт ---------- */
+(function () {
+  var bar = document.querySelector('.filter-pills[data-filter="benefit"]');
+  var note = document.querySelector('.compare-note');
+  if (!bar || !note) return;
+  var texts = {
+    all: '',
+    pensioner: 'Льгота пенсионерам — уточняйте часы и размер скидки по акциям и в кассе.',
+    student: 'Студенческая льгота — по действующему студенческому билету, детали в кассе.',
+    family: 'Многодетным — по подтверждающим документам, актуальные условия в акциях.',
+    svo: 'Участникам СВО — по действующей акции, сумма в кассе.'
+  };
   bar.addEventListener('click', function (e) {
-    var btn = e.target.closest('button[data-cat]');
+    var btn = e.target.closest('button[data-benefit]');
     if (!btn) return;
-    var cat = btn.getAttribute('data-cat');
     Array.prototype.slice.call(bar.querySelectorAll('button')).forEach(function (b) {
       b.classList.toggle('is-active', b === btn);
     });
-    rows.forEach(function (li) {
-      li.classList.toggle('is-hidden', cat !== 'all' && li.getAttribute('data-cat') !== cat);
-    });
+    var key = btn.getAttribute('data-benefit');
+    var t = texts[key] || '';
+    note.hidden = !t;
+    note.textContent = t;
   });
+})();
+
+/* ---------- Пошаговые мастера ---------- */
+(function () {
+  var wizards = Array.prototype.slice.call(document.querySelectorAll('[data-wizard]'));
+  wizards.forEach(function (box) {
+    var nav = box.querySelector('.wizard-nav');
+    if (!nav) return;
+    function show(i) {
+      Array.prototype.slice.call(box.querySelectorAll('.wizard-pane')).forEach(function (p) {
+        p.classList.toggle('is-active', p.getAttribute('data-step') === String(i));
+      });
+      Array.prototype.slice.call(nav.querySelectorAll('button')).forEach(function (b) {
+        b.classList.toggle('is-active', b.getAttribute('data-step') === String(i));
+      });
+    }
+    nav.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-step]');
+      if (!btn) return;
+      show(btn.getAttribute('data-step'));
+    });
+    var ageBar = box.querySelector('[data-cdp-age]');
+    if (ageBar) {
+      ageBar.addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-age]');
+        if (!btn) return;
+        var age = btn.getAttribute('data-age');
+        Array.prototype.slice.call(ageBar.querySelectorAll('button')).forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+        Array.prototype.slice.call(box.querySelectorAll('[data-step="1"] li[data-age]')).forEach(function (li) {
+          li.classList.toggle('is-hidden', li.getAttribute('data-age') !== age);
+        });
+        show(1);
+      });
+    }
+  });
+})();
+
+/* ---------- Демо-загрузка ---------- */
+(function () {
+  var bar = document.querySelector('[data-occupancy]');
+  if (!bar) return;
+  var src = bar.getAttribute('data-src');
+  if (!src) return;
+  fetch(src).then(function (r) { return r.json(); }).then(function (data) {
+    ['pools', 'fitness', 'lockers'].forEach(function (key) {
+      var el = bar.querySelector('[data-occ="' + key + '"]');
+      if (el && data[key] != null) el.textContent = data[key];
+    });
+  }).catch(function () {});
 })();
 
 /* ---------- Появление при скролле («вода наполняет») ---------- */

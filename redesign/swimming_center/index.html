@@ -23,32 +23,45 @@
       <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#dirs" aria-current="page">Направления</a></li>
-      <li><a href="../timetable/group/index.html">Расписание</a></li>
+      <li><a href="../index.html#dirs">Направления</a></li>
+      <li><a href="../timetable/index.html">Расписание</a></li>
       <li><a href="../price/index.html">Цены</a></li>
       <li><a href="../actions/index.html">Акции</a></li>
+      <li><a href="../news/index.html">Новости</a></li>
+      <li><a href="../team/index.html">Команда</a></li>
       <li><a href="../contacts/index.html">Контакты</a></li>
     </ul>
     <a class="nav-phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
-    <a class="btn btn--primary nav-cta" href="../zapis_cdp/index.html">Записаться</a>
+    <a class="btn btn--primary nav-cta" href="../price/index.html">Записаться</a>
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
+<div class="occupancy" data-occupancy data-src="../js/occupancy.json">
+    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+    <span class="occupancy__demo">демо</span>
+  </div>
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="../index.html#dirs">Направления</a>
-  <a href="../timetable/group/index.html">Расписание</a>
+  <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
+  <a href="../news/index.html">Новости</a>
+  <a href="../team/index.html">Команда</a>
   <a href="../contacts/index.html">Контакты</a>
   <a class="mobile-menu__phone" href="tel:+73422567892">+7 (342) 2-56789-2</a>
+  <a class="btn btn--primary" href="../price/index.html">Записаться</a>
 </div>
+<a class="sticky-cta" href="../price/index.html">Выбрать абонемент</a>
 
 <main id="main">
   <div class="container">
     <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../index.html">Главная</a></li><li aria-current="page">Центр детского плавания</li></ol></nav>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://olympiaperm.ru/"},{"@type":"ListItem","position":2,"name":"Центр детского плавания","item":"https://olympiaperm.ru/swimming_center/"}]}</script>
     <div class="page-head">
       <h1>Центр детского плавания</h1>
       <p class="page-head__lede">Более двух с половиной тысяч ребят учатся плавать и делают первые шаги к будущим победам.</p>
@@ -70,63 +83,73 @@
       </div>
     </div>
 
+
     <section class="section" aria-label="Услуги">
       <div class="section-head reveal">
         <h2>Программы центра</h2>
       </div>
-      <ul class="tickets-list reveal">
+      <ul class="hub-cards reveal">
       <li>
-        <a class="ticket-row" href="./forkids/index.html">
-          <span class="ticket-row__name">Обучение плаванию</span>
-          <span class="ticket-row__hint">с раннего возраста</span>
+        <a class="hub-card hub-card--media" href="./forkids/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/98b/98b4e272a77295f2bde9ca7b294d2ba0.jpg" alt="Обучение плаванию" loading="lazy"></figure>
+          <span class="hub-card__name">Обучение плаванию</span>
+          <span class="hub-card__hint">с раннего возраста</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./mnm/index.html">
-          <span class="ticket-row__name">Мама и малыш</span>
-          <span class="ticket-row__hint">первые занятия вместе</span>
+        <a class="hub-card hub-card--media" href="./mnm/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg" alt="Занятие «Мама и малыш»" loading="lazy"></figure>
+          <span class="hub-card__name">Мама и малыш</span>
+          <span class="hub-card__hint">первые занятия вместе</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./profilaktika-ploskostopiya-i-skolioza/index.html">
-          <span class="ticket-row__name">Профилактика плоскостопия и сколиоза</span>
-          <span class="ticket-row__hint">оздоровительные группы</span>
+        <a class="hub-card hub-card--media" href="./profilaktika-ploskostopiya-i-skolioza/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/b55/o738a88mfqwkpdxmecee8lt6is2hos7a.jpg" alt="Оздоровительное плавание" loading="lazy"></figure>
+          <span class="hub-card__name">Профилактика плоскостопия и сколиоза</span>
+          <span class="hub-card__hint">оздоровительные группы</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./training/index.html">
-          <span class="ticket-row__name">Программа «Класс»</span>
-          <span class="ticket-row__hint">плавание для школ и садов</span>
+        <a class="hub-card hub-card--media" href="./training/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/0de/0de4aea8d956eb7b4937ea79906978dc.jpg" alt="Программа «Класс»" loading="lazy"></figure>
+          <span class="hub-card__name">Программа «Класс»</span>
+          <span class="hub-card__hint">плавание для школ и садов</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./sport/index.html">
-          <span class="ticket-row__name">Спортивное плавание</span>
-          <span class="ticket-row__hint">путь в большой спорт</span>
+        <a class="hub-card hub-card--media" href="./sport/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/9f2/9f24b7edc6ebf0a240c528485364555a.jpg" alt="Спортивное плавание" loading="lazy"></figure>
+          <span class="hub-card__name">Спортивное плавание</span>
+          <span class="hub-card__hint">путь в большой спорт</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./waterpolo/index.html">
-          <span class="ticket-row__name">Водное поло</span>
-          <span class="ticket-row__hint">командная игра в воде</span>
+        <a class="hub-card hub-card--media" href="./waterpolo/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/4a8/4a8386016212e00e0bf77143020e7ba6.jpg" alt="Водное поло" loading="lazy"></figure>
+          <span class="hub-card__name">Водное поло</span>
+          <span class="hub-card__hint">командная игра в воде</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./flipper/index.html">
-          <span class="ticket-row__name">Плавание в ластах</span>
-          <span class="ticket-row__hint">скоростное плавание</span>
+        <a class="hub-card hub-card--media" href="./flipper/index.html">
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/633/6339ea818fade84c1e78de3c31642068.jpg" alt="Плавание в ластах" loading="lazy"></figure>
+          <span class="hub-card__name">Плавание в ластах</span>
+          <span class="hub-card__hint">скоростное плавание</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./pamyatka-dlya-roditeley/index.html">
-          <span class="ticket-row__name">Памятка для родителей</span>
-          <span class="ticket-row__hint">что взять на занятие</span>
+        <a class="hub-card" href="./pamyatka-dlya-roditeley/index.html">
+          
+          <span class="hub-card__name">Памятка для родителей</span>
+          <span class="hub-card__hint">что взять на занятие</span>
         </a>
       </li>
       <li>
-        <a class="ticket-row" href="./pravila-bezopasnogo-povedeniya-na-vode/index.html">
-          <span class="ticket-row__name">Правила безопасного поведения на воде</span>
-          <span class="ticket-row__hint">обязательно к прочтению</span>
+        <a class="hub-card" href="./pravila-bezopasnogo-povedeniya-na-vode/index.html">
+          
+          <span class="hub-card__name">Правила безопасного поведения на воде</span>
+          <span class="hub-card__hint">обязательно к прочтению</span>
         </a>
       </li>
     </ul>
@@ -165,6 +188,11 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
           </a>
         </div>
+        <div class="app-links app-links--footer">
+          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
+          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
+          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+        </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
         <h3>Направления</h3>
@@ -179,20 +207,21 @@
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="../timetable/group/index.html">Расписание</a></li>
+          <li><a href="../visitors/faq/index.html">Вопросы и ответы</a></li>
+          <li><a href="../timetable/index.html">Расписание</a></li>
           <li><a href="../price/index.html">Цены</a></li>
-          <li><a href="../actions/index.html">Акции</a></li>
+          <li><a href="../visitors/first-visit/index.html">Первый визит</a></li>
+          <li><a href="../team/index.html">Команда</a></li>
           <li><a href="../news/index.html">Новости</a></li>
-          <li><a href="../pravila/index.html">Правила посещения</a></li>
-          <li><a href="../faq/index.html">Вопросы и ответы</a></li>
           <li><a href="../contacts/index.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
     <div class="footer-legal">
       <span>© Спортивный комплекс «Олимпия», Пермь, ул. Мира, 41</span>
-      <a href="../personal-data-consent/index.html">Обработка персональных данных</a>
-      <a href="../fz152/index.html">Политика в отношении персональных данных</a>
+      <a href="../legal/index.html">Юридическое и B2B</a>
+      <a href="../legal/personal-data-consent/index.html">Обработка персональных данных</a>
+      <a href="../legal/fz152/index.html">Политика в отношении персональных данных</a>
     </div>
   </div>
   <div class="footer-watermark" aria-hidden="true">
