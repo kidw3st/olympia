@@ -1,0 +1,14 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="39.9993" cy="39.9993" r="31.0345" fill="#ECEEEF"/>
+<path d="M42.0914 43.9922C42.0914 43.9922 41.8061 48.444 45.3447 50.7841" stroke="#ED4432" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.7897 28.0111C22.5709 23.8447 24.5114 37.6568 32.7873 40.6247" stroke="#0B56A6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M49.3961 28.0111C57.6149 23.8447 55.6743 37.6568 47.3984 40.6247" stroke="#0B56A6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.9609 23.4453H49.2249V35.0886C49.2249 40.1112 45.1155 44.1635 40.0929 44.1635C35.0703 44.1635 30.9609 40.1112 30.9609 35.0886V23.4453Z" stroke="#ED4432" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.9779 28.125L41.1194 31.6066H44.7722L41.8043 33.7754L42.9458 37.257L39.9779 35.0881L37.01 37.257L38.1515 33.7754L35.1836 31.6066H38.8935L39.9779 28.125Z" stroke="#ED4432" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38.0931 43.9922C38.0931 43.9922 38.3785 48.444 34.8398 50.7841" stroke="#ED4432" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45.3416 50.7852H34.8398V53.696H45.3416V50.7852Z" stroke="#0B56A6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45.9165 53.6953C47.6288 53.6953 48.7132 55.4076 48.7132 56.5491C43.2911 56.5491 36.8987 56.5491 31.4766 56.5491C31.4766 55.4076 32.561 53.6953 34.2732 53.6953C37.8119 53.6953 42.3779 53.6953 45.9165 53.6953Z" stroke="#0B56A6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="40" cy="40" r="39" stroke="#0B56A6" stroke-width="2"/>
+<circle cx="58.9654" cy="5.17241" r="5.17241" fill="#EA4534"/>
+<circle cx="11.0342" cy="66.2061" r="3.44828" fill="#EA4534"/>
+</svg>

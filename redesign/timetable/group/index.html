@@ -82,31 +82,19 @@
     <section class="section" aria-label="Расписание">
       <div class="section-head reveal">
         <h2>Сетка</h2>
-        <p class="section-head__aside">Как на сайте комплекса.</p>
+        <p class="section-head__aside">Нажмите на занятие — откроется описание и запись.</p>
       </div>
       
       <div class="sched reveal">
         <div class="sched__meta">
-          <p class="sched__note">Пример недели. Актуальное расписание — по телефону.</p>
+          <p class="sched__note">Времена и залы — редактируемый образец: правятся в data/schedule.json. Названия и описания занятий взяты с сайта комплекса.</p>
           <span class="sched__demo">пример</span>
         </div>
-        <div class="class-week">
-    <div class="class-day"><h3>Пн</h3><article class="class-card"><time>08:00–08:50</time><strong>Утренняя группа</strong><span>Зал аэробики</span></article>
-          <article class="class-card"><time>09:00–09:45</time><strong>AQUA DANCE</strong><span>Бассейн</span></article>
-          <article class="class-card"><time>18:00–18:50</time><strong>Силовая</strong><span>Зал</span></article></div>
-    <div class="class-day"><h3>Вт</h3><article class="class-card"><time>09:00–09:45</time><strong>AQUA FREESTYLE</strong><span>Бассейн</span></article>
-          <article class="class-card"><time>19:00–19:45</time><strong>AQUA INTERVAL</strong><span>Бассейн</span></article></div>
-    <div class="class-day"><h3>Ср</h3><article class="class-card"><time>08:00–08:50</time><strong>Утренняя группа</strong><span>Зал аэробики</span></article>
-          <article class="class-card"><time>10:00–10:45</time><strong>AQUA PRENATAL</strong><span>Бассейн</span></article>
-          <article class="class-card"><time>18:00–18:50</time><strong>Силовая</strong><span>Зал</span></article></div>
-    <div class="class-day"><h3>Чт</h3><article class="class-card"><time>09:00–09:45</time><strong>AQUA DANCE</strong><span>Бассейн</span></article>
-          <article class="class-card"><time>19:00–19:45</time><strong>AQUA FREESTYLE</strong><span>Бассейн</span></article></div>
-    <div class="class-day"><h3>Пт</h3><article class="class-card"><time>08:00–08:50</time><strong>Утренняя группа</strong><span>Зал аэробики</span></article>
-          <article class="class-card"><time>19:00–19:45</time><strong>AQUA INTERVAL</strong><span>Бассейн</span></article></div>
-    <div class="class-day"><h3>Сб</h3><article class="class-card"><time>10:00–10:45</time><strong>AQUA DANCE</strong><span>Бассейн</span></article>
-          <article class="class-card"><time>11:00–11:45</time><strong>AQUA FREESTYLE</strong><span>Бассейн</span></article></div>
-    <div class="class-day"><h3>Вс</h3><article class="class-card"><time>10:00–10:45</time><strong>AQUA FREESTYLE</strong><span>Бассейн</span></article></div>
-  </div>
+        <div data-schedule="group,aqua"
+             data-schedule-src="../../data/schedule.json"
+             data-book-href="../../zapis_cdp/index.html">
+          <p class="tg__empty">Загружаем расписание…</p>
+        </div>
       </div>
     </section>
 
@@ -189,5 +177,6 @@
 </footer>
 
 <script src="../../js/main.js" defer></script>
+<script src="../../js/schedule.js" defer></script>
 </body>
 </html>

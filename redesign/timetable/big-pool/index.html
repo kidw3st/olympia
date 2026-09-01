@@ -82,64 +82,19 @@
     <section class="section" aria-label="Расписание">
       <div class="section-head reveal">
         <h2>Сетка</h2>
-        <p class="section-head__aside">Как на сайте комплекса.</p>
+        <p class="section-head__aside">Нажмите на занятие — откроется описание и запись.</p>
       </div>
-      <div class="filter-pills" aria-label="День недели">
-        <button type="button" class="is-active">Пн</button>
-        <button type="button">Вт</button>
-        <button type="button">Ср</button>
-        <button type="button">Чт</button>
-        <button type="button">Пт</button>
-        <button type="button">Сб</button>
-        <button type="button">Вс</button>
-      </div>
+      
       <div class="sched reveal">
         <div class="sched__meta">
-          <p class="sched__note">Пример буднего дня из архива копии. Не касса и не запись.</p>
+          <p class="sched__note">Времена и залы — редактируемый образец: правятся в data/schedule.json. Названия и описания занятий взяты с сайта комплекса.</p>
           <span class="sched__demo">пример</span>
         </div>
-        <div class="lane-scroll">
-      <div class="lane-board">
-        <div class="lane-head"><span></span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>Малый</span></div>
-        <div class="lane-body" style="height:2400px">
-          <div class="lane-times"><div>07:15</div><div>07:30</div><div>07:45</div><div>08:00</div><div>08:15</div><div>08:30</div><div>08:45</div><div>09:00</div><div>09:15</div><div>09:30</div><div>09:45</div><div>10:00</div><div>10:15</div><div>10:30</div><div>10:45</div><div>11:00</div><div>11:15</div><div>11:30</div><div>11:45</div><div>12:00</div><div>12:15</div><div>12:30</div><div>12:45</div><div>13:00</div><div>13:15</div><div>13:30</div><div>13:45</div><div>14:00</div><div>14:15</div><div>14:30</div><div>14:45</div><div>15:00</div><div>15:15</div><div>15:30</div><div>15:45</div><div>16:00</div><div>16:15</div><div>16:30</div><div>16:45</div><div>17:00</div><div>17:15</div><div>17:30</div><div>17:45</div><div>18:00</div><div>18:15</div><div>18:30</div><div>18:45</div><div>19:00</div><div>19:15</div><div>19:30</div><div>19:45</div><div>20:00</div><div>20:15</div><div>20:30</div><div>20:45</div><div>21:00</div><div>21:15</div><div>21:30</div><div>21:45</div><div>22:00</div></div>
-          <div class="lane-cols">
-          <div class="lane-col"><article class="lane-card" style="top:480px;height:480px;--bar:var(--blue)">
-            <span class="lane-card__title">шк 122</span>
-            <span class="lane-card__time">10:15–13:15</span>
-          </article></div>
-          <div class="lane-col"><article class="lane-card" style="top:480px;height:480px;--bar:var(--blue)">
-            <span class="lane-card__title">шк 122</span>
-            <span class="lane-card__time">10:15–13:15</span>
-          </article></div>
-          <div class="lane-col"><article class="lane-card" style="top:760px;height:360px;--bar:var(--red)">
-            <span class="lane-card__title">Колпаков спорт</span>
-            <span class="lane-card__time">12:00–14:15</span>
-          </article></div>
-          <div class="lane-col"><article class="lane-card" style="top:760px;height:360px;--bar:var(--red)">
-            <span class="lane-card__title">Колпаков спорт</span>
-            <span class="lane-card__time">12:00–14:15</span>
-          </article></div>
-          <div class="lane-col"><article class="lane-card" style="top:0px;height:2400px;--bar:var(--red)">
-            <span class="lane-card__title">скоростная дорожка</span>
-            <span class="lane-card__time">7:15–22:15</span>
-          </article></div>
-          <div class="lane-col"></div>
-          <div class="lane-col"><article class="lane-card" style="top:0px;height:2400px;--bar:var(--red)">
-            <span class="lane-card__title">скоростная дорожка</span>
-            <span class="lane-card__time">7:15–22:15</span>
-          </article></div>
-          <div class="lane-col"></div>
-          <div class="lane-col"></div>
-          <div class="lane-col"></div>
-          <div class="lane-col"><article class="lane-card" style="top:1880px;height:120px;--bar:var(--red)">
-            <span class="lane-card__title">аква</span>
-            <span class="lane-card__time">19:00–19:45</span>
-          </article></div>
-          </div>
+        <div data-schedule="pool"
+             data-schedule-src="../../data/schedule.json"
+             data-book-href="../../zapis_cdp/index.html">
+          <p class="tg__empty">Загружаем расписание…</p>
         </div>
-      </div>
-    </div>
       </div>
     </section>
 
@@ -222,5 +177,6 @@
 </footer>
 
 <script src="../../js/main.js" defer></script>
+<script src="../../js/schedule.js" defer></script>
 </body>
 </html>

@@ -368,7 +368,7 @@ ${opt.content}
 
 ${footer(depth)}
 
-<script src="${r}js/main.js" defer></script>
+<script src="${r}js/main.js" defer></script>${(opt.scripts || []).map(s => `\n<script src="${r}${s}" defer></script>`).join('')}
 </body>
 </html>
 `;

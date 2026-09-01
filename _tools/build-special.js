@@ -126,6 +126,77 @@ ${bio}
 console.log('Профили сотрудников: ' + persons + ', не удалось: ' + personFail.length);
 personFail.slice(0, 5).forEach(f => console.log('  !', f));
 
+/* ============ 1b. СТРАНИЦЫ КАТЕГОРИЙ КОМАНДЫ ============ */
+// Порядок: бассейн → фитнес → ЦДП → SPA → кинезитерапия
+const CAT_ORDER = ['basseyn', 'fitnes-tsentr', 'detskiy-tsentr-plavaniya', 'spa-tsentr', 'kineziterapiya'];
+for (const slug of CAT_ORDER) {
+  const fp = path.join(SITE, 'team', slug, 'index.html');
+  if (!fs.existsSync(fp)) continue;
+  const html = fs.readFileSync(fp, 'utf8');
+  const people = [];
+  for (const ch of html.split('class="photo_mobile"').slice(1)) {
+    const seg = ch.slice(0, 3000);
+    const img = (seg.match(/^ style="background-image: url\('([^']+)'\)/) || [])[1];
+    const nm = (seg.match(/class="name">([^<]+)</) || [])[1];
+    const post = (seg.match(/class="post">([^<]*)</) || [])[1] || '';
+    const href = (seg.match(/class="read_more" href="([^"]+)"/) || [])[1];
+    if (!nm || !href) continue;
+    try {
+      if (fs.readFileSync(path.join(SITE, 'team', slug, href), 'utf8').includes('errortext')) continue;
+    } catch (e) { continue; }
+    people.push({ img: (img || '').replace(/^(\.\.\/)+/, ''), name: nm.trim(), post: post.trim(), href });
+  }
+  if (!people.length) continue;
+
+  const depth = 2;
+  const rr = '../'.repeat(depth);
+  const sp = lib.siteP(depth);
+  const catName = CATS[slug];
+  const cards = people.map(p => `        <a class="team-card" href="${p.href.replace(/index\.html$/, '')}index.html">
+          <figure><img src="${sp}${p.img}" alt="${lib.esc(p.name)}" loading="lazy"></figure>
+          <div class="team-card__name">${lib.esc(p.name)}</div>
+          <div class="team-card__role">${lib.esc(p.post)}</div>
+        </a>`).join('\n');
+  const others = CAT_ORDER.filter(s => s !== slug && fs.existsSync(path.join(SITE, 'team', s, 'index.html')))
+    .map(s => `<a href="${rr}team/${s}/index.html">${lib.esc(CATS[s])}</a>`).join('\n      ');
+  const word = people.length === 1 ? 'специалист'
+    : (people.length % 10 >= 2 && people.length % 10 <= 4 && (people.length < 12 || people.length > 14) ? 'специалиста' : 'специалистов');
+
+  const content = `  <div class="container">
+    ${lib.breadcrumbs(depth, lib.trailFromRel('team/' + slug, catName))}
+    <div class="page-head">
+      <h1>${lib.esc(catName)}</h1>
+      <p class="page-head__lede">${people.length} ${word} направления. Нажмите на карточку,
+      чтобы прочитать об образовании и опыте.</p>
+    </div>
+    <div class="filter-pills">
+      <a class="is-active" href="${rr}team/${slug}/index.html">${lib.esc(catName)}</a>
+      ${others}
+    </div>
+    <div class="team-grid reveal">
+${cards}
+    </div>
+    <div class="cta-band reveal-fill">
+      <div>
+        <h2>Записаться на занятие</h2>
+        <p class="cta-band__sub">Подберём тренера и удобное время.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--ghost-light" href="${rr}team/index.html">Вся команда</a>
+        <a class="btn btn--primary" href="${rr}zapis_cdp/index.html">Записаться</a>
+      </div>
+    </div>
+  </div>`;
+
+  write('team/' + slug, lib.shell(depth, {
+    title: catName + ' — команда «Олимпии»',
+    description: 'Тренеры и специалисты направления «' + catName + '» спорткомплекса «Олимпия» в Перми.',
+    active: 'team',
+    content
+  }));
+  console.log('  категория команды: ' + slug + ' (' + people.length + ')');
+}
+
 /* ============ 2. РАСПИСАНИЯ ============ */
 const SLOT_PX = 40;
 const DAY_START = 7 * 60 + 15; // 7:15
@@ -243,14 +314,15 @@ function schedTabs(current, depth) {
   </nav>`;
 }
 
-function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
+function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode, tracks) {
   const depth = rel.split('/').length;
   const rr = '../'.repeat(depth);
   const sp = lib.siteP(depth);
   const crumbs = lib.breadcrumbs(depth, lib.trailFromRel(rel, title));
   const isLanes = mode === 'lanes';
   const days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-  const pills = isLanes
+  // с интерактивной сеткой фильтр дней не нужен: видна вся неделя сразу
+  const pills = (isLanes && !tracks)
     ? `<div class="filter-pills" aria-label="День недели">
         ${days.map((d, i) =>
           `<button type="button"${i === 0 ? ' class="is-active"' : ''}>${d}</button>`
@@ -260,6 +332,14 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
   const note = isLanes
     ? 'Пример буднего дня из архива копии. Не касса и не запись.'
     : 'Пример недели. Актуальное расписание — по телефону.';
+  // интерактивная временная сетка вместо статичной доски
+  if (tracks) {
+    inner = `<div data-schedule="${tracks}"
+             data-schedule-src="${rr}data/schedule.json"
+             data-book-href="${rr}zapis_cdp/index.html">
+          <p class="tg__empty">Загружаем расписание…</p>
+        </div>`;
+  }
   return `  <div class="container">
     ${crumbs}
     <div class="page-head">
@@ -276,12 +356,16 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
     <section class="section" aria-label="Расписание">
       <div class="section-head reveal">
         <h2>Сетка</h2>
-        <p class="section-head__aside">Как на сайте комплекса.</p>
+        <p class="section-head__aside">${tracks
+          ? 'Нажмите на занятие — откроется описание и запись.'
+          : 'Как на сайте комплекса.'}</p>
       </div>
       ${pills}
       <div class="sched reveal">
         <div class="sched__meta">
-          <p class="sched__note">${note}</p>
+          <p class="sched__note">${tracks
+            ? 'Времена и залы — редактируемый образец: правятся в data/schedule.json. Названия и описания занятий взяты с сайта комплекса.'
+            : note}</p>
           <span class="sched__demo">пример</span>
         </div>
         ${inner}
@@ -311,12 +395,13 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
       title: 'Расписание большого бассейна — «Олимпия» Пермь',
       description: 'Свободное плавание и занятия в 50-метровом бассейне. Спорткомплекс «Олимпия», Пермь.',
       active: 'timetable',
+      scripts: ['js/schedule.js'],
       content: schedShell(rel,
         'Расписание большого бассейна',
         'Свободное плавание и занятия в 50-метровом бассейне.',
         'upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg',
         'Большой бассейн «Олимпии»',
-        laneBoard(cards), 'lanes')
+        laneBoard(cards), 'lanes', 'pool')
     }));
     console.log('  расписание: ' + rel);
   }
@@ -329,6 +414,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
       title: 'Расписание групповых занятий — «Олимпия» Пермь',
       description: 'Групповые программы фитнес-центра: залы и аквааэробика.',
       active: 'timetable',
+      scripts: ['js/schedule.js'],
       content: schedShell(rel,
         'Расписание групповых занятий',
         'Групповые программы фитнес-центра: залы и аквааэробика.',
@@ -342,7 +428,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
           [['08:00–08:50', 'Утренняя группа', 'Зал аэробики'], ['19:00–19:45', 'AQUA INTERVAL', 'Бассейн']],
           [['10:00–10:45', 'AQUA DANCE', 'Бассейн'], ['11:00–11:45', 'AQUA FREESTYLE', 'Бассейн']],
           [['10:00–10:45', 'AQUA FREESTYLE', 'Бассейн']]
-        ]), 'week')
+        ]), 'week', 'group,aqua')
     }));
     console.log('  расписание: ' + rel);
   }
@@ -355,6 +441,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
       title: 'Расписание дежурных групп — «Олимпия» Пермь',
       description: 'Дежурные группы Центра детского плавания.',
       active: 'timetable',
+      scripts: ['js/schedule.js'],
       content: schedShell(rel,
         'Расписание дежурных групп центра плавания',
         'Дежурные группы Центра детского плавания.',
@@ -368,7 +455,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
           [['16:00–16:45', 'Дежурная 9–10 лет', 'Детский бассейн'], ['18:00–18:45', 'Дежурная 7–14 лет', 'Детский бассейн']],
           [['10:00–10:45', 'Дежурная 7–10 лет', 'Детский бассейн'], ['12:00–12:45', 'Дежурная 11–14 лет', 'Детский бассейн']],
           [['10:00–10:45', 'Дежурная 7–14 лет', 'Детский бассейн']]
-        ]), 'week')
+        ]), 'week', 'kids')
     }));
     console.log('  расписание: ' + rel);
   }
@@ -381,6 +468,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
       title: 'Расписание «Мама и малыш» — «Олимпия» Пермь',
       description: 'Совместные занятия для родителей с малышами в детском бассейне.',
       active: 'timetable',
+      scripts: ['js/schedule.js'],
       content: schedShell(rel,
         'Расписание занятий «Мама и малыш»',
         'Совместные занятия для родителей с малышами в детском бассейне.',
@@ -394,7 +482,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
           [['10:00–10:40', 'Мама и малыш', '2–3 года'], ['11:00–11:40', 'Мама и малыш', '1–2 года']],
           [['10:00–10:40', 'Мама и малыш', '0–1 год'], ['11:00–11:40', 'Мама и малыш', '1–2 года'], ['12:00–12:40', 'Мама и малыш', '2–3 года']],
           [['10:00–10:40', 'Мама и малыш', '0–3 года']]
-        ]), 'week')
+        ]), 'week', 'kids')
     }));
     console.log('  расписание: ' + rel);
   }
@@ -409,6 +497,7 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode) {
       title: 'Расписание кабинета ЭКГ — «Олимпия» Пермь',
       description: 'Работа кабинета ЭКГ для оформления справок-допусков.',
       active: 'timetable',
+      scripts: ['js/schedule.js'],
       content: schedShell(rel,
         'Расписание кабинета ЭКГ',
         'Работа кабинета ЭКГ для оформления справок-допусков. Перерыв 15:00–16:00, суббота и воскресенье — выходной.',

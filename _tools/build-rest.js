@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const lib = require('./redesign-lib');
+const norm = require('./normalize');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = path.join(ROOT, 'site');
@@ -190,7 +191,68 @@ function convert(rel) {
   const textLen = body.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
   if (textLen < 40 && !/<img|<table/i.test(body)) return null; // пустышка
 
-  // 6. Обёртка
+  // 6. Нормализация вёрстки: раскладываем контент по компонентам,
+  //    а не вываливаем старую разметку сплошным списком.
+  //    Пути в body уже разрешены выше, поэтому resolveUrl — тождественный.
+  const parts = norm.buildContent({ html: body, resolveUrl: u => u, title });
+  const sections = [];
+
+  if (parts.gallery.length) {
+    const figs = parts.gallery.slice(0, 12).map(u =>
+      `        <figure><img src="${u}" alt="" loading="lazy"></figure>`).join('\n');
+    sections.push(`    <section class="section" aria-label="Фотографии">
+      <div class="gallery-strip reveal">
+${figs}
+      </div>
+    </section>`);
+  }
+
+  if (parts.proseHtml.trim()) {
+    sections.push(`    <article class="article reveal">
+${parts.proseHtml}
+    </article>`);
+  }
+
+  if (parts.links.length) {
+    const seen = new Set();
+    const li = parts.links.filter(l => {
+      const k = l.href + '|' + l.text;
+      if (seen.has(k)) return false;
+      seen.add(k); return true;
+    }).slice(0, 14).map(l => `        <li>
+          <a class="ticket-row" href="${l.href}">
+            <span class="ticket-row__name">${lib.esc(l.text)}</span>
+          </a>
+        </li>`).join('\n');
+    sections.push(`    <section class="section" aria-label="Разделы">
+      <div class="section-head reveal"><h2>Смотрите также</h2></div>
+      <ul class="tickets-list reveal">
+${li}
+      </ul>
+    </section>`);
+  }
+
+  if (parts.qa.length) {
+    const items = parts.qa.map(it => `        <div class="qa-item">
+          <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
+            <span>${lib.esc(it.q)}</span>
+            <span class="dir-item__toggle" aria-hidden="true"></span>
+          </button></h3>
+          <div class="qa-item__body"><div><div class="qa-item__inner">${it.a}</div></div></div>
+        </div>`).join('\n');
+    sections.push(`    <section class="section" aria-label="Вопросы и ответы">
+      <div class="section-head reveal"><h2>Вопросы и ответы</h2></div>
+      <div class="reveal">
+${items}
+      </div>
+    </section>`);
+  }
+
+  // если нормализатор ничего не распознал — отдаём исходную разметку, чтобы не потерять контент
+  const bodyBlock = sections.length
+    ? sections.join('\n\n')
+    : `    <div class="article legacy-content" style="max-width: 100%">\n${body}\n    </div>`;
+
   const crumbs = lib.breadcrumbs(depth, lib.trailFromRel(outRel, title));
   const content = `  <div class="container">
     ${crumbs}
@@ -198,9 +260,7 @@ function convert(rel) {
       <h1>${lib.esc(title)}</h1>${lede ? `
       <p class="page-head__lede">${lib.esc(lede)}</p>` : ''}
     </div>
-    <div class="article legacy-content" style="max-width: 100%">
-${body}
-    </div>
+${bodyBlock}
   </div>`;
 
   return lib.shell(depth, {
