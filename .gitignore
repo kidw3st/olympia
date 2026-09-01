@@ -5,3 +5,4 @@ _tools/real-failures.json
 _tools/missing.json
 _tools/package*.json
 *.log
+_incoming/

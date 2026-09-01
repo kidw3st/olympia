@@ -1,33 +1,31 @@
 'use strict';
-// Универсальный конвертер: ВСЕ оставшиеся страницы копии -> новый дизайн.
-// Затем глобальная перепривязка ссылок: если страница пересобрана,
-// ссылки по всему редизайну ведут на неё, а не в старую копию.
+// Конвертер оставшихся страниц копии в новый дизайн — с нормализацией вёрстки:
+// контент раскладывается по компонентам (галерея, проза, услуги, вопрос-ответ),
+// мёртвые виджеты старого шаблона вырезаются.
 const fs = require('fs');
 const path = require('path');
 const lib = require('./redesign-lib');
+const norm = require('./normalize');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = path.join(ROOT, 'site');
 const OUT = path.join(ROOT, 'redesign');
 
-const SKIP_DIRS = new Set(['bitrix', 'local', 'upload', 'images', '_external',
-  'news', 'actions']); // news/actions уже собраны генератором статей
-const ALREADY = new Set([ // собраны вручную — не перетирать
+const SKIP_DIRS = new Set(['bitrix', 'local', 'upload', 'images', '_external', 'news', 'actions']);
+const ALREADY = new Set([
   '', 'pools', 'swimming_center', 'fitness_center', 'spa_center',
-  'center_kinesitherapy', 'contacts', 'price', 'faq', 'team', 'pravila',
-  'zapis_cdp'
+  'center_kinesitherapy', 'contacts', 'price', 'faq', 'team', 'pravila', 'zapis_cdp'
 ]);
-// спец-сборщик владеет этими деревьями (build-special.js)
 function specialOwned(rel) {
   return rel.startsWith('team/') || rel.startsWith('timetable/');
 }
 
-// активный пункт меню по разделу
 function activeFor(rel) {
   if (rel.startsWith('timetable')) return 'timetable';
   if (rel.startsWith('actions')) return 'actions';
   if (rel.startsWith('contacts')) return 'contacts';
   if (rel.startsWith('price')) return 'price';
+  if (/^(pools|swimming_center|fitness_center|spa_center|center_kinesitherapy)/.test(rel)) return 'dirs';
   return '';
 }
 
@@ -40,137 +38,163 @@ function listPages(dir, out, relBase) {
       if (relBase === '' && SKIP_DIRS.has(e.name)) continue;
       listPages(abs, out, rel);
     } else if (e.name === 'index.html') {
-      out.push(relBase); // '' для корня
+      out.push(relBase);
     }
   }
   return out;
 }
 
-function cutBalanced(html, startIdx) {
-  // startIdx указывает на '<div'; вернуть индекс конца закрывающего </div>
-  let i = html.indexOf('>', startIdx) + 1;
-  let depth = 1;
-  const re = /<div\b|<\/div>/g;
-  re.lastIndex = i;
-  let m;
-  while ((m = re.exec(html))) {
-    if (m[0] === '</div>') depth--; else depth++;
-    if (depth === 0) return m.index + 6;
-  }
-  return -1;
-}
-
-function removeBlock(html, markerRe) {
-  let m;
-  while ((m = markerRe.exec(html))) {
-    const open = html.lastIndexOf('<div', m.index);
-    if (open === -1) break;
-    const end = cutBalanced(html, open);
-    if (end === -1) break;
-    html = html.slice(0, open) + html.slice(end);
-    markerRe.lastIndex = 0;
-  }
-  return html;
-}
+// подписи разделов для хлебных крошек
+const SECTION_TITLES = {
+  pools: 'Бассейны',
+  swimming_center: 'Центр детского плавания',
+  fitness_center: 'Фитнес-центр',
+  spa_center: 'SPA-центр',
+  center_kinesitherapy: 'Центр кинезитерапии',
+  about: 'О комплексе',
+  info: 'Информация',
+  contacts: 'Контакты'
+};
 
 function convert(rel) {
   const src = path.join(SITE, rel, 'index.html');
   const html = fs.readFileSync(src, 'utf8');
+  const depth = rel === '' ? 0 : rel.split('/').length;
+  const rr = '../'.repeat(depth);
+  const sitePrefix = '../'.repeat(depth + 1) + 'site/';
 
-  // 1. Заголовок
+  // заголовок
   const h1m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
-  let title = h1m ? h1m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : '';
+  let title = h1m ? norm.clean(h1m[1]) : '';
   if (!title) {
     const tm = html.match(/<title>([^<]*)<\/title>/);
-    title = tm ? tm[1].split(' - ')[0].trim() : rel;
+    title = tm ? tm[1].split(' - ')[0].split(' — ')[0].trim() : rel;
   }
-
-  // 2. Лид из баннера (.description сразу после h1)
+  // лид из баннера
   let lede = '';
   if (h1m) {
-    const after = html.slice(h1m.index, h1m.index + 1200);
-    const dm = after.match(/class="description"[^>]*>([\s\S]*?)<\/div>/);
-    if (dm) lede = dm[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const dm = html.slice(h1m.index, h1m.index + 1400).match(/class="description"[^>]*>([\s\S]*?)<\/div>/);
+    if (dm) lede = norm.clean(dm[1]);
   }
+  if (lede.length > 320) lede = '';
 
-  // 3. Контент: от закрытия баннерной секции до футера
+  // тело: от конца баннера до футера
   let start = h1m ? html.indexOf('</section>', h1m.index) : -1;
-  if (start === -1) start = h1m ? h1m.index + h1m[0].length : html.indexOf('</header>') + 9;
+  if (start === -1) start = html.indexOf('</header>') + 9;
   else start += 10;
   let end = html.indexOf('<footer', start);
-  if (end === -1) end = html.search(/<div class="footer/);
-  if (end === -1 || end <= start) return null;
-  let body = html.slice(start, end);
+  if (end === -1) end = html.length;
+  const rawBody = html.slice(start, end);
 
-  // 4. Чистка
-  body = body.replace(/<script[\s\S]*?<\/script>/gi, '');
-  body = body.replace(/<style[\s\S]*?<\/style>/gi, '');
-  body = body.replace(/<link[^>]*>/gi, '');
-  body = body.replace(/<noscript[\s\S]*?<\/noscript>/gi, '');
-  body = body.replace(/<!--[\s\S]*?-->/g, '');
-  // наши крошки вместо битриксовых
-  body = body.replace(/<ul class="breadcrumbs"[\s\S]*?<\/ul>/gi, '');
-  // блоки подписки и обратной связи старого шаблона
-  body = removeBlock(body, /class="subscribe/g);
-  body = removeBlock(body, /class="contact_form/g);
-  body = removeBlock(body, /class="callback/g);
-  // пустые картинки
-  body = body.replace(/<img[^>]*src=""[^>]*>/gi, '');
+  // разрешение относительных путей исходной страницы
+  const resolveUrl = (u) => {
+    const s = String(u || '').trim();
+    if (!s) return null;
+    if (/^(https?:|mailto:|tel:|#|data:|javascript:)/i.test(s)) return s;
+    let r;
+    try { r = path.posix.normalize(path.posix.join('/', rel, s)); } catch (e) { return null; }
+    if (r.startsWith('..')) return null;
+    return sitePrefix + r.replace(/^\/+/, '');
+  };
 
-  // 5. Пути: относительные -> к копии site/ с учётом глубины страницы в редизайне
-  const depth = rel === '' ? 0 : rel.split('/').length;
-  const prefix = '../'.repeat(depth + 1) + 'site/';
-  const srcDir = rel; // от корня site
-  body = body.replace(/\b(src|href|data-src)="([^"]+)"/gi, (m0, attr, url) => {
-    const u = url.trim();
-    if (/^(https?:|mailto:|tel:|#|data:|javascript:)/i.test(u)) return m0;
-    let resolved;
-    try { resolved = path.posix.normalize(path.posix.join('/', srcDir, u)); }
-    catch (e) { return m0; }
-    if (resolved.startsWith('..')) return m0;
-    return attr + '="' + prefix + resolved.replace(/^\/+/, '') + '"';
-  });
-  // фоновые картинки в инлайн-стилях
-  body = body.replace(/url\('([^']+)'\)/gi, (m0, u) => {
-    if (/^(https?:|data:)/i.test(u)) return m0;
-    let resolved;
-    try { resolved = path.posix.normalize(path.posix.join('/', srcDir, u)); }
-    catch (e) { return m0; }
-    if (resolved.startsWith('..')) return m0;
-    return "url('" + prefix + resolved.replace(/^\/+/, '') + "')";
-  });
-  body = body.replace(/<img\b(?![^>]*loading=)/gi, '<img loading="lazy" ');
+  const parts = norm.buildContent({ html: rawBody, resolveUrl, title });
+  if (parts.textLen < 40 && !parts.gallery.length && !parts.qa.length) return null;
 
-  const textLen = body.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
-  if (textLen < 40 && !/<img|<table/i.test(body)) return null; // пустышка
+  // ---- сборка секций ----
+  const sections = [];
 
-  // 6. Обёртка
-  const crumbs = lib.breadcrumbs(depth, [
-    ['../'.repeat(depth) + 'index.html', 'Главная'],
-    [null, title]
-  ]);
+  if (parts.gallery.length) {
+    const figs = parts.gallery.slice(0, 9).map(u =>
+      `        <figure><img src="${u}" alt="" loading="lazy"></figure>`).join('\n');
+    sections.push(`    <section class="section" aria-label="Фотографии">
+      <div class="gallery-strip reveal">
+${figs}
+      </div>
+    </section>`);
+  }
+
+  if (parts.proseHtml.trim()) {
+    sections.push(`    <article class="article reveal">
+${parts.proseHtml}
+    </article>`);
+  }
+
+  if (parts.links.length) {
+    const seen = new Set();
+    const li = parts.links.filter(l => {
+      const k = l.href + l.text;
+      if (seen.has(k)) return false;
+      seen.add(k); return true;
+    }).slice(0, 14).map(l => `        <li>
+          <a class="ticket-row" href="${l.href}">
+            <span class="ticket-row__name">${norm.esc(l.text)}</span>
+          </a>
+        </li>`).join('\n');
+    sections.push(`    <section class="section" aria-label="Разделы">
+      <div class="section-head reveal"><h2>Смотрите также</h2></div>
+      <ul class="tickets-list reveal">
+${li}
+      </ul>
+    </section>`);
+  }
+
+  if (parts.qa.length) {
+    const items = parts.qa.map(it => `        <div class="qa-item">
+          <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
+            <span>${norm.esc(it.q)}</span>
+            <span class="dir-item__toggle" aria-hidden="true"></span>
+          </button></h3>
+          <div class="qa-item__body"><div><div class="qa-item__inner">${it.a}</div></div></div>
+        </div>`).join('\n');
+    sections.push(`    <section class="section" aria-label="Вопросы и ответы">
+      <div class="section-head reveal"><h2>Вопросы и ответы</h2></div>
+      <div class="reveal">
+${items}
+      </div>
+    </section>`);
+  }
+
+  // CTA
+  sections.push(`    <div class="cta-band reveal-fill">
+      <div>
+        <h2>Записаться в «Олимпию»</h2>
+        <p class="cta-band__sub">Горячая линия работает с 8:00 до 21:00.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--ghost-light" href="${rr}price/index.html">Цены</a>
+        <a class="btn btn--primary" href="${rr}zapis_cdp/index.html">Записаться</a>
+      </div>
+    </div>`);
+
+  // хлебные крошки с промежуточным разделом
+  const trail = [[rr + 'index.html', 'Главная']];
+  const seg = rel.split('/');
+  if (seg.length > 1 && SECTION_TITLES[seg[0]]) {
+    trail.push([rr + seg[0] + '/index.html', SECTION_TITLES[seg[0]]]);
+  }
+  trail.push([null, title]);
+
   const content = `  <div class="container">
-    ${crumbs}
+    ${lib.breadcrumbs(depth, trail)}
     <div class="page-head">
-      <h1>${lib.esc(title)}</h1>${lede ? `
-      <p class="page-head__lede">${lib.esc(lede)}</p>` : ''}
+      <h1>${norm.esc(title)}</h1>${lede ? `
+      <p class="page-head__lede">${norm.esc(lede)}</p>` : ''}
     </div>
-    <div class="article legacy-content" style="max-width: 100%">
-${body}
-    </div>
+${sections.join('\n\n')}
   </div>`;
 
   return lib.shell(depth, {
     title: title + ' — «Олимпия» Пермь',
-    description: lede || (title + ' — спортивный комплекс «Олимпия», Пермь.'),
+    description: (lede || title + ' — спорткомплекс «Олимпия», Пермь.').slice(0, 300),
     active: activeFor(rel),
     content
   });
 }
 
-// ---- конвертация ----
+// ---- запуск ----
 const pages = listPages(SITE, [], '');
-let done = 0, skipped = 0, failed = [];
+let done = 0, skipped = 0;
+const failed = [];
 for (const rel of pages) {
   if (ALREADY.has(rel) || specialOwned(rel)) { skipped++; continue; }
   try {
@@ -184,45 +208,5 @@ for (const rel of pages) {
     failed.push(rel + ' :: ' + e.message);
   }
 }
-console.log('Сконвертировано: ' + done + ', пропущено (уже есть): ' + skipped + ', не удалось: ' + failed.length);
-failed.slice(0, 20).forEach(f => console.log('  !', f));
-
-// ---- глобальная перепривязка: ссылки на копию -> на редизайн, если страница есть ----
-function walkHtml(d, out) {
-  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
-    const a = path.join(d, e.name);
-    if (e.isDirectory()) walkHtml(a, out);
-    else if (/\.html$/i.test(e.name)) out.push(a);
-  }
-  return out;
-}
-const redesignPages = new Set();
-walkHtml(OUT, []).forEach(f => {
-  redesignPages.add(path.relative(OUT, f).split(path.sep).join('/'));
-});
-
-let relinked = 0, filesTouched = 0;
-for (const f of walkHtml(OUT, [])) {
-  const dir = path.dirname(f);
-  let h = fs.readFileSync(f, 'utf8');
-  let n = 0;
-  h = h.replace(/\bhref="([^"]+)"/g, (m0, url) => {
-    const u = url.trim();
-    if (/^(https?:|mailto:|tel:|#|data:)/i.test(u)) return m0;
-    const [pathPart, hash] = [u.split('#')[0], u.includes('#') ? '#' + u.split('#')[1] : ''];
-    if (!/\/site\//.test(pathPart)) return m0;
-    if (!/index\.html$/.test(pathPart)) return m0;      // только страницы, не файлы
-    // абсолютный путь цели
-    const abs = path.resolve(dir, pathPart);
-    const relFromSite = path.relative(SITE, abs).split(path.sep).join('/');
-    if (relFromSite.startsWith('..')) return m0;
-    if (!redesignPages.has(relFromSite)) return m0;      // нет новой версии
-    const target = path.join(OUT, relFromSite);
-    let relLink = path.relative(dir, target).split(path.sep).join('/');
-    if (!relLink.startsWith('.')) relLink = './' + relLink;
-    n++;
-    return 'href="' + relLink + hash + '"';
-  });
-  if (n > 0) { fs.writeFileSync(f, h, 'utf8'); relinked += n; filesTouched++; }
-}
-console.log('Перепривязано ссылок на новый дизайн: ' + relinked + ' в ' + filesTouched + ' файлах');
+console.log('Нормализовано: ' + done + ', пропущено: ' + skipped + ', без контента: ' + failed.length);
+failed.slice(0, 12).forEach(f => console.log('  !', f));

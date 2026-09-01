@@ -458,9 +458,9 @@ ${sections}
 /* ============ КОМАНДА (извлечение) ============ */
 {
   const cats = [
-    ['detskiy-tsentr-plavaniya', 'Центр детского плавания'],
     ['basseyn', 'Бассейн'],
     ['fitnes-tsentr', 'Фитнес-центр'],
+    ['detskiy-tsentr-plavaniya', 'Центр детского плавания'],
     ['spa-tsentr', 'СПА-центр'],
     ['kineziterapiya', 'Кинезитерапия']
   ];

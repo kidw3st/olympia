@@ -51,28 +51,32 @@
     <nav class="crumbs" aria-label="Вы здесь"><ol><li><a href="../../index.html">Главная</a></li><li aria-current="page">Расписание групповых занятий</li></ol></nav>
     <div class="page-head">
       <h1>Расписание групповых занятий</h1>
-      <p class="page-head__lede">Групповые программы фитнес-центра: залы и аквааэробика. Актуальное расписание уточняйте
-      по телефону <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a> —
-      горячая линия работает с 8:00 до 21:00.</p>
+      <p class="page-head__lede">Групповые программы фитнес-центра: залы и аквааэробика. Нажмите на занятие, чтобы
+      прочитать описание и записаться. Уточнить детали можно по телефону
+      <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a>.</p>
     </div>
 
-    <section class="section" aria-label="Расписание">
-      <div class="section-head reveal">
-        <h2>Интерактивная сетка</h2>
-        <p class="section-head__aside">Сетка занятий формируется системой записи
-        и открывается в архивной версии страницы.</p>
+
+    <section class="section" aria-label="Сетка занятий" style="margin-top: clamp(28px, 4vw, 44px)">
+      <div class="sched" data-schedule="group,aqua"
+           data-schedule-src="../../data/schedule.json"
+           data-book-href="../../zapis_cdp/index.html">
+        <p class="sched__empty">Загружаем расписание…</p>
       </div>
+    </section>
+
+    <section class="section" aria-label="Полезное">
       <ul class="tickets-list reveal">
-        <li>
-          <a class="ticket-row" href="./index.html">
-            <span class="ticket-row__name">Открыть сетку занятий</span>
-            <span class="ticket-row__hint">архивная интерактивная версия</span>
-          </a>
-        </li>
         <li>
           <a class="ticket-row" href="../../contacts/index.html">
             <span class="ticket-row__name">Уточнить по телефону</span>
             <span class="ticket-row__hint">+7 (342) 2-56789-2, с 8:00 до 21:00</span>
+          </a>
+        </li>
+        <li>
+          <a class="ticket-row" href="./index.html">
+            <span class="ticket-row__name">Архивная версия страницы</span>
+            <span class="ticket-row__hint">исходный виджет системы записи</span>
           </a>
         </li>
       </ul>
@@ -151,5 +155,6 @@
 </footer>
 
 <script src="../../js/main.js" defer></script>
+<script src="../../js/schedule.js" defer></script>
 </body>
 </html>
