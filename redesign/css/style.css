@@ -2673,3 +2673,104 @@ body { transition: background-color 320ms ease, color 320ms ease; }
 @media (prefers-reduced-motion: reduce) {
   .js .gallery-strip > figure { transform: none; }
 }
+
+/* ============================================================
+   КОРПОРАТИВНЫМ КЛИЕНТАМ — условия и порядок действий
+   ============================================================ */
+.perks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 3vw, 40px);
+}
+@media (min-width: 620px) {
+  .perks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1000px) {
+  .perks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.perk {
+  background: var(--paper);
+  border-radius: var(--r-small);
+  padding: clamp(24px, 2.6vw, 32px);
+}
+.perk__icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin-bottom: 18px;
+}
+.perk__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--navy-ink);
+  margin: 0 0 10px;
+}
+.perk__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--mist);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  counter-reset: step;
+}
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(18px, 2.4vw, 32px);
+  align-items: start;
+  padding: clamp(22px, 2.6vw, 30px) 0;
+  border-top: 1px solid var(--hairline);
+}
+.step:last-child { border-bottom: 1px solid var(--hairline); }
+.step__num {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  color: var(--blue);
+  min-width: 1.4em;
+}
+.step__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  color: var(--navy-ink);
+  margin: 0 0 8px;
+}
+.step__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--mist);
+  max-width: 62ch;
+}
+
+/* в общий каскад появления */
+.js .perks > *,
+.js .steps > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
+}
+.js .perks > .is-in,
+.js .steps > .is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .perks > *, .js .steps > * { transform: none; transition: opacity 260ms ease; }
+}
+.no-motion .perks > *,
+.no-motion .steps > * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

@@ -317,6 +317,7 @@ window.__olMotion = true;
   // так работает и на списке из трёх карточек, и на ленте из трёхсот.
   var STAGGER = '.rows > *, .tickets-list > *, .hub-cards > *, .team-grid > *,' +
     '.gallery-strip > *, .lead-strip__grid > *, .dirs-list > *,' +
+    '.perks > *, .steps > *,' +
     '.class-day > *, .sauna-tabs > *';
   var SELECTOR = '.reveal, .reveal-fill, .section-head, ' + STAGGER;
 
