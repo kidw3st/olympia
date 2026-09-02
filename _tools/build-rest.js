@@ -6,6 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const lib = require('./redesign-lib');
 const norm = require('./normalize');
+const bank = require('./photo-bank');
+const PHOTOS = bank.load();
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = path.join(ROOT, 'site');
@@ -202,6 +204,21 @@ function convert(rel) {
   const parts = norm.buildContent({ html: body, resolveUrl: u => u, title });
   const sections = [];
 
+  // Страница без единой фотографии читается сплошным полотном. Ставим
+  // обложку раздела из архива — снимок настоящий, не заглушка.
+  if (!parts.gallery.length && !/<img/i.test(parts.proseHtml)) {
+    const section = outRel.split('/')[0];
+    const shot = bank.pickFor(
+      PHOTOS.byPage.get(section + '/' + rel) || PHOTOS.bySection.get(section),
+      outRel);
+    const file = bank.exportPhoto(shot);
+    if (file) {
+      sections.push(`    <figure class="page-cover reveal-fill">
+      <img src="${'../'.repeat(depth)}photos/${file}" alt="${lib.esc(title)} — «Олимпия»" loading="lazy">
+    </figure>`);
+    }
+  }
+
   if (parts.gallery.length) {
     const figs = parts.gallery.slice(0, 12).map(u =>
       `        <figure><img src="${u}" alt="" loading="lazy"></figure>`).join('\n');
@@ -336,3 +353,6 @@ for (const f of walkHtml(OUT, [])) {
   if (n > 0) { fs.writeFileSync(f, h, 'utf8'); relinked += n; filesTouched++; }
 }
 console.log('Перепривязано ссылок на новый дизайн: ' + relinked + ' в ' + filesTouched + ' файлах');
+
+// выгружаем обложки, которые понадобились страницам
+bank.flush().then(n => { if (n) console.log("Обложек выгружено: " + n); });

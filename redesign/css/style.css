@@ -1125,7 +1125,12 @@ body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotat
   margin-inline: auto;
   max-width: var(--page-max);
 }
+/* Цвет знака берётся из темы: в водном мире синий, в фитнесе — тёплый серый.
+   Раньше он был зашит в разметку и оставался синим на угольном подвале. */
+.footer-watermark { color: var(--blue-bright); }
+[data-theme="fitness"] .footer-watermark { color: #6f6b66; }
 .footer-watermark svg { display: block; width: 100%; height: auto; opacity: 0.16; }
+[data-theme="fitness"] .footer-watermark svg { opacity: 0.3; }
 
 /* ============================================================
    ВНУТРЕННИЕ СТРАНИЦЫ
@@ -1831,6 +1836,17 @@ body { transition: background-color 320ms ease, color 320ms ease; }
   color: var(--navy-ink);
   text-wrap: balance;
 }
+
+/* обложка страницы раздела: снимок вместо сплошного полотна текста */
+.page-cover {
+  margin: clamp(24px, 4vw, 40px) 0 0;
+  border-radius: var(--r-porthole);
+  overflow: hidden;
+  aspect-ratio: 21 / 9;
+  background: var(--ice-deep);
+}
+@media (max-width: 700px) { .page-cover { aspect-ratio: 16 / 9; } }
+.page-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* обложка материала: снимок над текстом, шире колонки чтения */
 .post__cover {

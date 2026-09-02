@@ -404,7 +404,7 @@ function footer(depth) {
     <svg viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg">
       <text x="50%" y="128" text-anchor="middle"
         font-family="Unbounded, sans-serif" font-weight="300" font-size="150"
-        letter-spacing="8" fill="#1668c0">ОЛИМПИЯ</text>
+        letter-spacing="8" fill="currentColor">ОЛИМПИЯ</text>
     </svg>
   </div>
 </footer>`;
