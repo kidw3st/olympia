@@ -1832,6 +1832,23 @@ body { transition: background-color 320ms ease, color 320ms ease; }
   text-wrap: balance;
 }
 
+/* обложка материала: снимок над текстом, шире колонки чтения */
+.post__cover {
+  margin: 0 0 clamp(26px, 4vw, 38px);
+  border-radius: var(--r-small);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--ice-deep);
+}
+@media (min-width: 900px) {
+  .post__cover {
+    width: calc(100% + 7rem);
+    margin-left: -3.5rem;
+    border-radius: var(--r-porthole);
+  }
+}
+.post__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 /* тело статьи */
 .post__body {
   font-size: clamp(17px, 1.35vw, 19px);

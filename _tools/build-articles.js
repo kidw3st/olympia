@@ -6,6 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const lib = require('./redesign-lib');
 const typo = require('./typography');
+const bank = require('./photo-bank');
+const PHOTOS = bank.load();
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = path.join(ROOT, 'site');
@@ -262,6 +264,10 @@ function buildSection(sec, lastmod) {
         slug: slug.name,
         title, body, rel,
         img: firstImage(body, path.join(OUT, sec.key, outCat, slug.name)),
+        // своё фото статьи из архива: ключ манифеста — section/page
+        bankPhoto: bank.exportPhoto(bank.pickFor(
+          PHOTOS.byPage.get(sec.key + '/' + sec.src + '/' + origCat + '/' + slug.name),
+          slug.name)),
         preview: textPreview(body, 160),
         lastmod: lastmod.get(urlPath) || ''
       });
@@ -305,7 +311,11 @@ function buildSection(sec, lastmod) {
         </div>
         <h1 class="post__title">${lib.esc(a.title)}</h1>
       </header>
-      <div class="post__body">
+${(!a.img && (a.bankPhoto || CAT_PHOTO[a.cat])) ? `      <figure class="post__cover">
+        <img src="${a.bankPhoto ? r + 'photos/' + a.bankPhoto : r + 'assets/' + CAT_PHOTO[a.cat]}"
+             alt="${lib.esc(a.catName)} — «Олимпия»" loading="lazy">
+      </figure>
+` : ''}      <div class="post__body">
 ${a.body}
       </div>
     </article>
@@ -376,6 +386,9 @@ function buildList(sec, articles) {
       // в статье путь с глубины 3 (../../../../site/...), в списке глубина 1 (../../site/...)
       const fixed = a.img.replace(/^(\.\.\/)+/, '../../');
       thumb = `<img src="${fixed}" alt="" loading="lazy">`;
+    } else if (a.bankPhoto) {
+      // собственное фото материала из архива
+      thumb = `<img src="../photos/${a.bankPhoto}" alt="" loading="lazy">`;
     } else if (CAT_PHOTO[a.cat]) {
       // своего фото нет — показываем снимок направления
       thumb = `<img src="../assets/${CAT_PHOTO[a.cat]}" alt="" loading="lazy">`;
@@ -434,3 +447,8 @@ for (const sec of SECTIONS) {
   total += articles.length; errTotal += errors.length;
 }
 console.log('Итого статей: ' + total + ', ошибок: ' + errTotal);
+
+// выгружаем в сайт только те снимки, которые действительно понадобились
+bank.flush().then(n => {
+  if (n) console.log('Фотографий выгружено в redesign/photos: ' + n);
+});
