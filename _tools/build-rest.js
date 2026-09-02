@@ -22,6 +22,7 @@ const ALREADY = new Set([
 ]);
 const SKIP_RELS = new Set([
   'pools/baths',            // собирается отдельно: карусель саун (build-baths.js)
+  'about/docs',             // собирается отдельно: список документов (build-docs.js)
   'fitness_center/aqua',
   'vpervye-v-olimpii',
   'price/freeze',

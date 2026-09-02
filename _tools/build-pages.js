@@ -93,6 +93,20 @@ ${opt.specs ? `
       ${specRows(opt.specs)}
     </section>
 ` : ''}
+    <section class="section" aria-label="Перед визитом">
+      <div class="section-head reveal">
+        <h2>Перед визитом</h2>
+        <p class="section-head__aside">Что взять с собой, какие документы нужны
+        и как всё устроено.</p>
+      </div>
+      ${rowList([
+        { href: R + 'visitors/rules/index.html', name: 'Правила посещения', hint: 'обязательно к прочтению' },
+        { href: R + 'visitors/first-visit/index.html', name: 'Я здесь впервые', hint: 'пошагово: от входа до бассейна' },
+        { href: R + 'visitors/parking/index.html', name: 'Парковка', hint: 'как доехать и где оставить машину' },
+        { href: R + 'visitors/faq/index.html', name: 'Вопросы и ответы', hint: 'о справках, абонементах и льготах' }
+      ])}
+    </section>
+
     ${ctaBand(opt.ctaTitle, opt.ctaSub, opt.ctaActions)}
   </div>`;
   return lib.shell(1, {
