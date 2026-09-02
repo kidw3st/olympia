@@ -51,8 +51,13 @@ document.documentElement.classList.add('js');
     var btn = it.querySelector('.dir-item__head');
     if (!btn) return;
     btn.addEventListener('click', function () {
-      // Всегда один открыт: повторный клик по открытому не схлопывает в пустоту.
-      if (!it.classList.contains('is-open')) activate(it);
+      if (it.classList.contains('is-open')) {
+        // повторный клик закрывает пункт; фото слева остаётся от него
+        it.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        activate(it);
+      }
     });
   });
 })();
@@ -308,4 +313,45 @@ document.documentElement.classList.add('js');
     });
   }, { rootMargin: '0px 0px -80px 0px', threshold: 0.1 });
   targets.forEach(function (el) { io.observe(el); });
+
+  // Подстраховка: элемент, скрытый через display:none на узком экране,
+  // наблюдателю не виден и остаётся обрезанным даже после расширения окна.
+  // Досматриваем такие вручную — при старте, после загрузки и на ресайзе.
+  function sweep() {
+    targets = targets.filter(function (el) {
+      if (el.classList.contains('is-in')) { io.unobserve(el); return false; }
+      var r = el.getBoundingClientRect();
+      var visible = r.width > 0 && r.height > 0 &&
+        r.top < window.innerHeight * 1.15 && r.bottom > -80;
+      if (visible) {
+        el.classList.add('is-in');
+        io.unobserve(el);
+        return false;
+      }
+      return true;
+    });
+  }
+  // Элемент, обрезанный clip-path: inset(100%), имеет нулевую видимую площадь,
+  // поэтому IntersectionObserver про него никогда не сообщит — замкнутый круг.
+  // Поэтому досматриваем по прокрутке собственной геометрией элемента.
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      sweep();
+      if (!targets.length) {
+        window.removeEventListener('scroll', onScroll);
+      }
+    });
+  }
+  requestAnimationFrame(sweep);
+  window.addEventListener('load', sweep);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(sweep, 150);
+  });
 })();

@@ -306,9 +306,17 @@ body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotat
 }
 
 .hero h1 {
-  font-size: clamp(1.6rem, 6.4vw, 4.9rem);
+  /* Предел подобран по самому длинному слову «ОЛИМПИЙСКОГО»: при большем
+     кегле оно не помещается в текстовую колонку и наезжает на фото. */
+  font-size: clamp(1.6rem, 4.3vw, 3.9rem);
   text-transform: uppercase;
   color: var(--navy-ink);
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+/* пока колонки не разделены, ширины хватает на более крупный кегль */
+@media (max-width: 979px) {
+  .hero h1 { font-size: clamp(1.7rem, 7.4vw, 3.4rem); }
 }
 .hero h1 .h1-accent { color: var(--blue); }
 
