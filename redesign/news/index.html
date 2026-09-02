@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=b8474da2">
+  <link rel="stylesheet" href="../css/style.css?v=f4f698e1">
 </head>
 <body>
 <header class="site-header">
@@ -88,6 +88,41 @@
       <h1>Новости и объявления</h1>
       <p class="page-head__lede">Объявления о режиме работы, соревнованиях и жизни комплекса. Скидки — в разделе «Акции».</p>
     </div>
+    <section class="lead-strip" aria-label="Сейчас актуально">
+      <h2 class="lead-strip__title">Сейчас актуально</h2>
+      <div class="lead-strip__grid">
+        <a class="lead-card lead-card--first" href="detskiy-tsentr-plavaniya6604/zapis-detey-v-tsentr-plavaniya-osen-2026/index.html">
+          <span class="lead-card__media"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">Центр детского плавания</span>
+              <time datetime="2026-08-25">25 авг 2026</time>
+            </span>
+            <span class="lead-card__title">Запись детей в Центр плавания «Осень 2026»</span>
+          </span>
+        </a>
+        <a class="lead-card" href="fitnes-tsentr/vnimanie-posetiteli-fitnes-tsentra-olimpiya-/index.html">
+          <span class="lead-card__media"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">Фитнес-центр</span>
+              <time datetime="2026-08-25">25 авг 2026</time>
+            </span>
+            <span class="lead-card__title">Внимание, посетители Фитнес-центра!</span>
+          </span>
+        </a>
+        <a class="lead-card" href="basseyn/vnimanie-posetiteli-bolshogo-basseyna-/index.html">
+          <span class="lead-card__media"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">Бассейны</span>
+              <time datetime="2026-08-24">24 авг 2026</time>
+            </span>
+            <span class="lead-card__title">Внимание, посетители Большого бассейна!</span>
+          </span>
+        </a>
+      </div>
+    </section>
     <div class="filter-pills" data-filter>
       <button data-cat="all" class="is-active">Все</button>
       <button data-cat="detskiy-tsentr-plavaniya6604">Центр детского плавания</button>
@@ -97,16 +132,21 @@
       <button data-cat="detskiy-tsentr-plavaniya">Центр детского плавания</button>
       <button data-cat="kineziterapiya">Кинезитерапия</button>
       </div>
-    <div class="filter-pills filter-pills--years" data-filter-year>
-      <span class="filter-pills__label">Период</span>
-      <button data-year="all" class="is-active">За всё время</button>
-      <button data-year="2026">2026</button>
-      <button data-year="2025">2025</button>
-      <button data-year="2024">2024</button>
-      <button data-year="2023">2023</button>
+    <div class="daterange" data-daterange>
+        <span class="daterange__label">Период</span>
+        <label class="daterange__field">
+          <span>с</span>
+          <input type="date" data-date-from min="2023-01-11" max="2026-08-25" aria-label="Дата начала периода">
+        </label>
+        <label class="daterange__field">
+          <span>по</span>
+          <input type="date" data-date-to min="2023-01-11" max="2026-08-25" aria-label="Дата конца периода">
+        </label>
+        <button type="button" class="daterange__reset" data-date-reset hidden>Сбросить</button>
+        <span class="daterange__count" data-date-count></span>
       </div>
     <ul class="rows">
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2026">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2026" data-date="2026-08-25">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/zapis-detey-v-tsentr-plavaniya-osen-2026/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -119,7 +159,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-08-25">
         <a class="row-link" href="fitnes-tsentr/vnimanie-posetiteli-fitnes-tsentra-olimpiya-/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -132,7 +172,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-24">
         <a class="row-link" href="basseyn/vnimanie-posetiteli-bolshogo-basseyna-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -145,7 +185,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-24">
         <a class="row-link" href="basseyn/vstrecha-s-chempionkoy-evropy-kiroy-manokhinoy/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -158,7 +198,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-18">
         <a class="row-link" href="basseyn/vnimanie-rezhim-raboty-sportkompleksa-s-14-iyulya-po-28-avgusta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -171,7 +211,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-08-18">
         <a class="row-link" href="spa-tsentr/vnimanie-rezhim-raboty-spa-tsentra-20-21-i-31-avgusta/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -184,7 +224,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-18">
         <a class="row-link" href="basseyn/zoloto-dve-bronzy-i-novyy-yunosheskiy-rekord-rossii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -197,7 +237,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-08-17">
         <a class="row-link" href="fitnes-tsentr/letnie-sobytiya-v-sportkomplekse-olimpiya-/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -210,7 +250,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-08-14">
         <a class="row-link" href="spa-tsentr/vnimanie-posetiteli-spa-tsentra/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -223,7 +263,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-14">
         <a class="row-link" href="basseyn/kira-manokhina-serebro-bronza-i-novyy-yunosheskiy-rekord-rossii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -236,7 +276,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-11">
         <a class="row-link" href="basseyn/teatralnye-istorii-v-olimpii-fotovystavka-andreya-chuntomova/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -249,7 +289,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-07">
         <a class="row-link" href="basseyn/idyem-na-festival-v-olimpiyu-11-avgusta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -262,7 +302,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-28">
         <a class="row-link" href="basseyn/my-v-top-10-sportivnykh-tsentrov-permi/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -275,7 +315,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-28">
         <a class="row-link" href="basseyn/yandeks-karty-otmetili-nash-sportkompleks-nagradoy-osobenno-khoroshee-mesto/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -288,7 +328,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-07-28">
         <a class="row-link" href="fitnes-tsentr/fitnes-tsentr-olimpiya-priznan-luchshim-fitnes-klubom-v-industrialnom-rayone-/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -301,7 +341,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-07-28">
         <a class="row-link" href="spa-tsentr/novyy-massazh-v-spa-tsentre/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -314,7 +354,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-07-28">
         <a class="row-link" href="spa-tsentr/novaya-avtorskaya-omolazhivayushchaya-programma-v-spa-tsentre/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -327,7 +367,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-07-27">
         <a class="row-link" href="fitnes-tsentr/vremennyy-perenos-zhenskikh-razdevalok-na-2-etazh-fitnes-tsentr/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -340,7 +380,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-23">
         <a class="row-link" href="basseyn/pervyy-den-pervenstva-rossii-po-plavaniyu-sredi-yuniorov-velikolepnyy-start-turnira/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -353,7 +393,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2026">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2026" data-date="2026-07-20">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-sorevnovaniy-tsentra-plavaniya-final-2026/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -366,7 +406,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-10">
         <a class="row-link" href="basseyn/eshchye-odna-medal-dobavlena-v-kollektsiyu-kiry-manokhinoy/index.html">
           <span class="row-link__thumb"><img src="../photos/news--eshchye-odna-medal-dobavlena-v-kollektsiyu-kiry-manokhinoy--novosti-i-ob-yavleniya--slide--c10799b4.jpg" alt="" loading="lazy" width="540" height="298"></span>
           <span class="row-link__body">
@@ -379,7 +419,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-09">
         <a class="row-link" href="basseyn/nashi-rebyata-za-dva-dnya-ustanovili-tretiy-yuniorskiy-mirovoy-rekord/index.html">
           <span class="row-link__thumb"><img src="../photos/news--nashi-rebyata-za-dva-dnya-ustanovili-tretiy-yuniorskiy-mirovoy-rekord--novosti-i-ob-yavleniya--slide--4957900a.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -392,7 +432,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-08">
         <a class="row-link" href="basseyn/pervaya-medal-s-pervenstva-evropy-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -405,7 +445,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-06">
         <a class="row-link" href="basseyn/chempionat-i-pervenstvo-rossii-po-podvodnomu-sportu-g-balakovo/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-i-pervenstvo-rossii-po-podvodnomu-sportu-g-balakovo--novosti-i-ob-yavleniya--slide--72be9e9f.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -418,7 +458,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-07-06">
         <a class="row-link" href="fitnes-tsentr/fitnes-idyet-v-basseyn-/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -431,7 +471,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-24">
         <a class="row-link" href="basseyn/ognennaya-novost-s-chempionata-rosssii-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -444,7 +484,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-23">
         <a class="row-link" href="basseyn/detskiy-basseyn-olimpik-otkryt-dlya-roditeley-s-detmi/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/943/2ynz80245w685mzn7crw1vza5wxmv6km.JPG" alt="" loading="lazy" width="1024" height="570"></span>
           <span class="row-link__body">
@@ -457,7 +497,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya" data-year="2026">
+      <li data-cat="detskiy-tsentr-plavaniya" data-year="2026" data-date="2026-06-22">
         <a class="row-link" href="detskiy-tsentr-plavaniya/mezhregionalnye-sorevnovaniya-po-plavaniyu-natsplav-deti-12-14-iyunya-g-izhevsk-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--mezhregionalnye-sorevnovaniya-po-plavaniyu-natsplav-deti-12-14-iyunya-g---novosti-i-ob-yavleniya--slide--36da408a.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -470,7 +510,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-11">
         <a class="row-link" href="basseyn/kira-manokhina-zavoevyvala-bronzu-na-chempionate-rossii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -483,7 +523,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-11">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-12-iyunya-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -496,7 +536,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="kineziterapiya" data-year="2026">
+      <li data-cat="kineziterapiya" data-year="2026" data-date="2026-06-11">
         <a class="row-link" href="kineziterapiya/den-otkrytykh-dverey-v-tsentre-kineziterapii-18-marta/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/740/avs3rb102ed2plptg6x0oq3o68mfw48o.jpg" alt="" loading="lazy" width="1024" height="683"></span>
           <span class="row-link__body">
@@ -509,7 +549,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-26">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-30-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -522,7 +562,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2026">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2026" data-date="2026-05-26">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/zapis-v-dezhurnye-gruppy-otrabotka-zanyatiy-tsentr-plavaniya/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/44c/nuc7ll60ycso3cjfjb5ubpxxj4mt8s2o.jpg" alt="" loading="lazy" width="1024" height="582"></span>
           <span class="row-link__body">
@@ -535,7 +575,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-25">
         <a class="row-link" href="basseyn/pervenstvo-goroda-po-podvodnomu-sportu-21-22-maya-itogi/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-goroda-po-podvodnomu-sportu-21-22-maya-itogi--novosti-i-ob-yavleniya--slide--1fc4cdf8.jpg" alt="" loading="lazy" width="720" height="635"></span>
           <span class="row-link__body">
@@ -548,7 +588,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-25">
         <a class="row-link" href="basseyn/xxvi-turnir-po-plavaniyu-uralskiy-delfin-g-osa-20-23-maya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--xxvi-turnir-po-plavaniyu-uralskiy-delfin-g-osa-20-23-maya--novosti-i-ob-yavleniya--slide--949c41f9.jpg" alt="" loading="lazy" width="1280" height="1707"></span>
           <span class="row-link__body">
@@ -561,7 +601,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-22">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-24-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -574,7 +614,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-21">
         <a class="row-link" href="basseyn/pervenstvo-goroda-po-podvodnomu-sportu-21-22-maya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-goroda-po-podvodnomu-sportu-21-22-maya--novosti-i-ob-yavleniya--slide--d9941679.jpg" alt="" loading="lazy" width="720" height="960"></span>
           <span class="row-link__body">
@@ -587,7 +627,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-15">
         <a class="row-link" href="basseyn/otkrytoe-pervenstvo-g-chelyabinska-po-vodnomu-polo-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--otkrytoe-pervenstvo-g-chelyabinska-po-vodnomu-polo--novosti-i-ob-yavleniya--slide--66e6d9d9.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -600,7 +640,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-14">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-17-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -613,7 +653,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-05-12">
         <a class="row-link" href="fitnes-tsentr/vnimanie-posetiteli-fitnes-tsentra-olimpiya/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -626,7 +666,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-05-06">
         <a class="row-link" href="fitnes-tsentr/itogi-38-go-kubka-rossii-po-bodibildingu/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -639,7 +679,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-05">
         <a class="row-link" href="basseyn/rezhim-raboty-v-mayskie-prazdniki/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -652,7 +692,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-05">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-6-7-i-8-i-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -665,7 +705,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-04-16">
         <a class="row-link" href="fitnes-tsentr/master-klass-zdorovaya-spina-v-fitnes-tsentre/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -678,7 +718,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-16">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-16-i-17-aprelya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -691,7 +731,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-04-16">
         <a class="row-link" href="fitnes-tsentr/fitnes-tsentr-olimpiya-nominanty-premii-2gis-2026/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -704,7 +744,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-15">
         <a class="row-link" href="basseyn/uspekh-valerii-kolobovoy-vtoroe-mesto-na-nauchno-prakticheskoy-konferentsii/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/8dd/5q60igh3iswshlft0dsfxbtgpgqdxwfq.jpg" alt="" loading="lazy" width="725" height="1024"></span>
           <span class="row-link__body">
@@ -717,7 +757,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-15">
         <a class="row-link" href="basseyn/dvukratnyy-olimpiyskiy-chempion-po-plavaniyu-rylov-evgeniy-v-olimpii-/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/3c9/9fi72htvq3epci53qnsr3cekerj90ofa.jpg" alt="" loading="lazy" width="1024" height="730"></span>
           <span class="row-link__body">
@@ -730,7 +770,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-14">
         <a class="row-link" href="basseyn/letniy-klass-plavanie-dlya-letnikh-lagerey-i-sadov/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -743,7 +783,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-04-14">
         <a class="row-link" href="fitnes-tsentr/vserossiyskie-sorevnovaniya-po-bodibildingu-titany-urala-2026-g-eekaterinburg/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -756,7 +796,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-04-08">
         <a class="row-link" href="fitnes-tsentr/vserossiyskie-sorevnovaniya-po-bodibildingu-zheleznyy-tron-g-chelyabinsk/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-bodibildingu-zheleznyy-tron-g-chelyabinsk--novosti-i-ob-yavleniya--slide--fa78a86f.jpg" alt="" loading="lazy" width="1280" height="1464"></span>
           <span class="row-link__body">
@@ -769,7 +809,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-06">
         <a class="row-link" href="basseyn/pervenstvo-kraya-po-plavaniyu-veselyy-delfin-itogi/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-kraya-po-plavaniyu-veselyy-delfin-itogi--novosti-i-ob-yavleniya--slide--f5b90564.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -782,7 +822,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-03">
         <a class="row-link" href="basseyn/pervenstvo-goroda-po-podvodnomu-sportu-2-3-aprelya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-goroda-po-podvodnomu-sportu-2-3-aprelya--novosti-i-ob-yavleniya--slide--64fc6fca.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -795,7 +835,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-04-02">
         <a class="row-link" href="fitnes-tsentr/posetiteli-fitnes-tsentra-vnimanie/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -808,7 +848,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-01">
         <a class="row-link" href="basseyn/master-klass-ot-chempiona-mira-i-evropy-sergeya-fesikova/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -821,7 +861,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-26">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-zima-2026/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -834,7 +874,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya" data-year="2026">
+      <li data-cat="detskiy-tsentr-plavaniya" data-year="2026" data-date="2026-03-26">
         <a class="row-link" href="detskiy-tsentr-plavaniya/pervenstvo-rossii-23-29-marta-g-saratov/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-23-29-marta-g-saratov--novosti-i-ob-yavleniya--slide--4df8e27b.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -847,7 +887,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-24">
         <a class="row-link" href="basseyn/sorevnovaniya-den-spinista-2026-g-kungur/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-den-spinista-2026-g-kungur--novosti-i-ob-yavleniya--slide--bf4c8c19.jpg" alt="" loading="lazy" width="1156" height="868"></span>
           <span class="row-link__body">
@@ -860,7 +900,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-03-23">
         <a class="row-link" href="fitnes-tsentr/kubok-permskogo-kraya-po-bodibildingu-21-marta-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--kubok-permskogo-kraya-po-bodibildingu-21-marta--novosti-i-ob-yavleniya--slide--8380e03b.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -873,7 +913,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-03-23">
         <a class="row-link" href="fitnes-tsentr/zhenskiy-den-v-fitnes-tsentre-26-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -886,7 +926,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-18">
         <a class="row-link" href="basseyn/tovarishcheskiy-match-po-vodnomu-polo-14-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -899,7 +939,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-11">
         <a class="row-link" href="basseyn/otlichnye-novosti-ot-olimpii-/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/580/fgzqqxhwxammasg2jggg07lv0skv2kd0.jpg" alt="" loading="lazy" width="724" height="1024"></span>
           <span class="row-link__body">
@@ -912,7 +952,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-11">
         <a class="row-link" href="basseyn/liga-plavaniya-bm-2026-1-etap-pamyati-l-i-monyakovoy/index.html">
           <span class="row-link__thumb"><img src="../photos/news--liga-plavaniya-bm-2026-1-etap-pamyati-l-i-monyakovoy--novosti-i-ob-yavleniya--slide--ebe14d99.jpg" alt="" loading="lazy" width="596" height="547"></span>
           <span class="row-link__body">
@@ -925,7 +965,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-03-04">
         <a class="row-link" href="spa-tsentr/novye-uslugi-v-spa-tsentre-/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -938,7 +978,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-03">
         <a class="row-link" href="basseyn/vnimanie-rezhim-raboty-sportkompleksa-8-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -951,7 +991,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-03">
         <a class="row-link" href="basseyn/vnimanie-rezhim-raboty-basseynov-6-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -964,7 +1004,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-02">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-po-plavaniyu-rustic-cup-1-etap-g-izhevsk-27-02-01-02/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -977,7 +1017,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-02">
         <a class="row-link" href="basseyn/itogi-pervogo-etapa-sorevnovaniy-put-chempiona-g-kirov/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-pervogo-etapa-sorevnovaniy-put-chempiona-g-kirov--novosti-i-ob-yavleniya--slide--27ae0264.jpg" alt="" loading="lazy" width="1280" height="961"></span>
           <span class="row-link__body">
@@ -990,7 +1030,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-24">
         <a class="row-link" href="basseyn/g-berezniki-22-fevralya-pervenstvo-kraya-po-vodnomu-polo/index.html">
           <span class="row-link__thumb"><img src="../photos/news--g-berezniki-22-fevralya-pervenstvo-kraya-po-vodnomu-polo--novosti-i-ob-yavleniya--slide--02b5e5b4.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -1003,7 +1043,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-20">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-23-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1016,7 +1056,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-13">
         <a class="row-link" href="basseyn/chempionat-i-pervenstvo-permskogo-kraya-po-plavaniyu-10-12-fevralya-itogi-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1029,7 +1069,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-11">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-s-9-po-12-fevralya-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1042,7 +1082,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-03">
         <a class="row-link" href="basseyn/pervenstvo-g-permi-po-plavaniyu-27-28-yanvarya-2025-itogi/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1055,7 +1095,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-30">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-podvodnomu-sportu-g-chelyabinsk-26-29-yanvarya-itogi/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-podvodnomu-sportu-g-chelyabinsk-26-29-yan--novosti-i-ob-yavleniya--slide--6159bb78.jpg" alt="" loading="lazy" width="1280" height="1706"></span>
           <span class="row-link__body">
@@ -1068,7 +1108,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-27">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseyna-27-i-28-yanvarya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1081,7 +1121,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-27">
         <a class="row-link" href="basseyn/itogi-pervogo-dnya-pervenstva-g-permi-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1094,7 +1134,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-23">
         <a class="row-link" href="basseyn/uspekh-permskikh-plovtsov-v-2025-godu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1107,7 +1147,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-22">
         <a class="row-link" href="basseyn/mezhregionalnye-sorevnovaniya-po-plavaniyu-v-g-chelyabinsk-21-22-yanvarya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--mezhregionalnye-sorevnovaniya-po-plavaniyu-v-g-chelyabinsk-21-22-yanvary--novosti-i-ob-yavleniya--slide--15abee1e.jpg" alt="" loading="lazy" width="1280" height="1073"></span>
           <span class="row-link__body">
@@ -1120,7 +1160,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-12-29">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-osen-2025/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1133,7 +1173,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-12-26">
         <a class="row-link" href="basseyn/prednovogodniy-turnir-vodnomu-polo-g-berezniki/index.html">
           <span class="row-link__thumb"><img src="../photos/news--prednovogodniy-turnir-vodnomu-polo-g-berezniki--novosti-i-ob-yavleniya--slide--d5055cf8.jpg" alt="" loading="lazy" width="924" height="964"></span>
           <span class="row-link__body">
@@ -1146,7 +1186,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-12-25">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-osen-2025-15-22-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1159,7 +1199,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-12-22">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-po-plavaniyu-uralskaya-liga-plavaniya-usl-g-pervouralsk/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-sorevnovaniy-po-plavaniyu-uralskaya-liga-plavaniya-usl-g-pervoural--novosti-i-ob-yavleniya--slide--f5f72332.jpg" alt="" loading="lazy" width="762" height="594"></span>
           <span class="row-link__body">
@@ -1172,7 +1212,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-11-17">
         <a class="row-link" href="basseyn/yunyy-sportsmen-vyigral-mezhregionalnye-sorevnovaniya-po-plavaniyu-v-g-kirov-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1185,7 +1225,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-11-11">
         <a class="row-link" href="basseyn/sorevnovaniya-tsentra-plavaniya-osen-2025-15-22-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1198,7 +1238,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-11-07">
         <a class="row-link" href="fitnes-tsentr/vnimanie-rezhim-raboty-fitnes-tsentra-12-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -1211,7 +1251,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-11-06">
         <a class="row-link" href="basseyn/vnimanie-ogranicheniya-raboty-basseyna-s-11-po-14-noyabrya-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1224,7 +1264,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-11-05">
         <a class="row-link" href="basseyn/pozdravlyaem-s-dnyem-rozhdeniya-manokhinu-kiru/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1237,7 +1277,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-10-29">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-s-1-po-4-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1250,7 +1290,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-10-27">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-po-plavaniyu-rustic-cup-4-etap-g-izhevsk-24-10-26-10/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-sorevnovaniy-po-plavaniyu-rustic-cup-4-etap-g-izhevsk-24-10-26-10--novosti-i-ob-yavleniya--slide--09ca3731.jpg" alt="" loading="lazy" width="988" height="1280"></span>
           <span class="row-link__body">
@@ -1263,7 +1303,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-10-22">
         <a class="row-link" href="fitnes-tsentr/pozdravlyaem-gladkikh-valeriyu-i-timoninu-valeriyu-/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0a4/dfauwwev5ppuc9m2jedfiwhrtattcilb.jpg" alt="" loading="lazy" width="787" height="758"></span>
           <span class="row-link__body">
@@ -1276,7 +1316,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-09-26">
         <a class="row-link" href="basseyn/vnimanie-ogranichenie-raboty-basseynov-4-oktyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1289,7 +1329,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-09-22">
         <a class="row-link" href="basseyn/final-pervenstva-permskogo-kraya-po-vodnomu-polo-g-berezniki/index.html">
           <span class="row-link__thumb"><img src="../photos/news--final-pervenstva-permskogo-kraya-po-vodnomu-polo-g-berezniki--novosti-i-ob-yavleniya--slide--8b30b001.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -1302,7 +1342,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-09-15">
         <a class="row-link" href="basseyn/itogi-kraevykh-sorevnovaniy-po-plavaniyu-s-10-po-12-sentyabrya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-kraevykh-sorevnovaniy-po-plavaniyu-s-10-po-12-sentyabrya--novosti-i-ob-yavleniya--slide--ff587fc3.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -1315,7 +1355,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-09-12">
         <a class="row-link" href="fitnes-tsentr/vnimanie-sorevnovaniya-v-fitnes-tsentre-13-i-14-sentyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -1328,7 +1368,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-09-03">
         <a class="row-link" href="basseyn/kira-manokhina-serebryanyy-prizyer-pervenstva-mira/index.html">
           <span class="row-link__thumb"><img src="../photos/news--kira-manokhina-serebryanyy-prizyer-pervenstva-mira--novosti-i-ob-yavleniya--slide--cafd3991.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -1341,7 +1381,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-09-02">
         <a class="row-link" href="basseyn/rezhim-raboty-basseyna-6-aprelya-ogranichenie-kolichestva-dorozhek/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1354,7 +1394,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-08-29">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/zapis-na-ekg-i-enterobioz/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -1367,7 +1407,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-08-27">
         <a class="row-link" href="spa-tsentr/spa-tsentr-otkryt-s-27-08-2025g/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -1380,7 +1420,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-08-25">
         <a class="row-link" href="spa-tsentr/spa-tsentr-i-prokat-vremenno-ne-rabotayut-otkrytie-vo-vtornik-27-09-23/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -1393,7 +1433,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-07-11">
         <a class="row-link" href="basseyn/14-iyulya-sportkompleks-zakryt/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1406,7 +1446,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-07-01">
         <a class="row-link" href="basseyn/itogi-pervenstva-rossii-po-podvodnomu-sportu-g-balakovo-25-29-iyunya/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/c09/niw7ddwj981t52t9ni44gr8jd1iu3rom.jpg" alt="" loading="lazy" width="768" height="1024"></span>
           <span class="row-link__body">
@@ -1419,7 +1459,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-06-26">
         <a class="row-link" href="basseyn/bronza-na-pervenstve-mira-v-gretsii-2025g/index.html">
           <span class="row-link__thumb"><img src="../../site/tender/photo_2025-06-26_09-44-25.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -1432,7 +1472,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-06-03">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-12-i-13-iyunya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1445,7 +1485,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-06-03">
         <a class="row-link" href="basseyn/izmeneniya-v-raspisanii-akvaaerobiki/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1458,7 +1498,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-06-02">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-turnira-posvyashchennogo-dnyu-zashchity-detey-g-pervouralsk/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-turnira-posvyashchennogo-dnyu-zashchity-detey-g-pervouralsk--novosti-i-ob-yavleniya--slide--c117305b.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -1471,7 +1511,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-06-02">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-vypusknykh-sorevnovaniy-tsentra-plavaniya-25-maya-2025g/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -1484,7 +1524,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-05-28">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/finalnye-sorevnovaniya-tsentra-plavaniya-18-05-2025g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--finalnye-sorevnovaniya-tsentra-plavaniya-18-05-2025g--itogi-vserossiyskih-sorevnovaniy-po-plavaniyu-yunost-rossii-g-chelyabins--slide--3cc0c5c5.jpg" alt="" loading="lazy" width="528" height="396"></span>
           <span class="row-link__body">
@@ -1497,7 +1537,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-21">
         <a class="row-link" href="basseyn/itogi-pervenstva-kraya-po-vodnomu-polo-17-05-25/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-pervenstva-kraya-po-vodnomu-polo-17-05-25--novosti-i-ob-yavleniya--slide--21f58426.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -1510,7 +1550,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-05-20">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/protokol-sorevnovaniy-tsentra-plavaniya-zima-2025/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -1523,7 +1563,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-16">
         <a class="row-link" href="basseyn/ogranicheniya-raboty-basseyna-24-i-25-maya-2024-g/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1536,7 +1576,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-16">
         <a class="row-link" href="basseyn/pozdravlyaem-s-pobedoy-vospitannikov-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1549,7 +1589,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-14">
         <a class="row-link" href="basseyn/itogi-3-go-dnya-sorevnovaniy-po-plavaniyu-pervenstvo-rossii-g-ekaterinburg/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-3-go-dnya-sorevnovaniy-po-plavaniyu-pervenstvo-rossii-g-ekaterinbu--novosti-i-ob-yavleniya--slide--50660749.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -1562,7 +1602,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-13">
         <a class="row-link" href="basseyn/vtoroy-den-sorevnovaniy-pervenstvo-rossii-g-ekaterinburg-2025g/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/30d/e0yav9tjcwo2izrz0uf37erk1hbjxpzk.jpg" alt="" loading="lazy" width="768" height="1024"></span>
           <span class="row-link__body">
@@ -1575,7 +1615,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-13">
         <a class="row-link" href="basseyn/pervyy-den-sorevnovaniy-po-plavaniyu-pervenstvo-rossii-g-ekaterinburg/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervyy-den-sorevnovaniy-po-plavaniyu-pervenstvo-rossii-g-ekaterinburg--novosti-i-ob-yavleniya--slide--e71ad623.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -1588,7 +1628,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-13">
         <a class="row-link" href="basseyn/chempionat-rossii-po-podvodnomu-sportu-g-novosibirsk-2025-g/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/402/082ijlanbmzn4j64vbsktp8iq7q5ijlz.jpg" alt="" loading="lazy" width="768" height="1024"></span>
           <span class="row-link__body">
@@ -1601,7 +1641,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-05-12">
         <a class="row-link" href="basseyn/pozdravlyaem-s-pobedoy-komandu-olimpii/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/9e5/xp2ihwwwlhu5eerd8xbaewkgilr4lnj6.jpg" alt="" loading="lazy" width="768" height="1024"></span>
           <span class="row-link__body">
@@ -1614,7 +1654,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-04-30">
         <a class="row-link" href="fitnes-tsentr/itogi-37-kubka-rossii-po-bodibildingu-i-fitnesu-g-ulyanovsk-2025g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-37-kubka-rossii-po-bodibildingu-i-fitnesu-g-ulyanovsk-2025g--novosti-i-ob-yavleniya--slide--b1c0d391.jpg" alt="" loading="lazy" width="590" height="407"></span>
           <span class="row-link__body">
@@ -1627,7 +1667,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-30">
         <a class="row-link" href="basseyn/mayskie-prazdniki-v-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1640,7 +1680,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-29">
         <a class="row-link" href="basseyn/profilaktika-salmonelleza/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1653,7 +1693,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-29">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-programmy-klass-vesna-2025/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-sorevnovaniy-programmy-klass-vesna-2025--novosti-i-ob-yavleniya--slide--27d1059e.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -1666,7 +1706,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-24">
         <a class="row-link" href="basseyn/ogranichenie-raboty-basseyna-27-aprelya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1679,7 +1719,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-23">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-po-plavaniyu-g-kazan-19-210-aprelya-natsplav-deti-lll-etap/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-sorevnovaniy-po-plavaniyu-g-kazan-19-210-aprelya-natsplav-deti-lll--novosti-i-ob-yavleniya--slide--9c34cea3.jpg" alt="" loading="lazy" width="1280" height="961"></span>
           <span class="row-link__body">
@@ -1692,7 +1732,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-18">
         <a class="row-link" href="basseyn/itogi-matchevykh-vstrech-g-chelyabinsk-2025g/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/ee4/7cusqhm5vgntm3rmvg1qcvx3kpzrw9ls.jpg" alt="" loading="lazy" width="1024" height="768"></span>
           <span class="row-link__body">
@@ -1705,7 +1745,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-04-16">
         <a class="row-link" href="fitnes-tsentr/itogi-kubka-permskogo-kraya-po-bodibildingu-2025/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-kubka-permskogo-kraya-po-bodibildingu-2025--novosti-i-ob-yavleniya--slide--ea5eea3d.jpg" alt="" loading="lazy" width="1280" height="720"></span>
           <span class="row-link__body">
@@ -1718,7 +1758,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-16">
         <a class="row-link" href="basseyn/15-aprelya-tretiy-den-chempionata-rossii-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/385/p9i8ete0h3pn9tiynxi36ilih18e0f80.jpg" alt="" loading="lazy" width="932" height="1024"></span>
           <span class="row-link__body">
@@ -1731,7 +1771,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-14">
         <a class="row-link" href="basseyn/polozhenie-testovykh-sorevnovaniy-po-plavaniyu-vesna-2025/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1744,7 +1784,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-08">
         <a class="row-link" href="basseyn/9-aprelya-ogranichenie-raboty-basseyna/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1757,7 +1797,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-04-07">
         <a class="row-link" href="fitnes-tsentr/chempionat-udmurtii-po-bodibildingu-5-aprelya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-udmurtii-po-bodibildingu-5-aprelya--novosti-i-ob-yavleniya--60997f41.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -1770,7 +1810,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-04-02">
         <a class="row-link" href="basseyn/2-etap-rustic-cup-g-izhevsk/index.html">
           <span class="row-link__thumb"><img src="../photos/news--2-etap-rustic-cup-g-izhevsk--novosti-i-ob-yavleniya--87b0a65e.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -1783,7 +1823,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-03-31">
         <a class="row-link" href="fitnes-tsentr/itogi-vserossiyskogo-turnira-zheleznyy-tron-g-chelyabinsk/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-vserossiyskogo-turnira-zheleznyy-tron-g-chelyabinsk--novosti-i-ob-yavleniya--slide--796c1036.jpg" alt="" loading="lazy" width="1179" height="1505"></span>
           <span class="row-link__body">
@@ -1796,7 +1836,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-31">
         <a class="row-link" href="basseyn/pervenstvo-rossii-po-podvodnomu-sportu-v-g-tomsk-24-30-marta-2025g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-po-podvodnomu-sportu-v-g-tomsk-24-30-marta-2025g--novosti-i-ob-yavleniya--slide--6f925fed.jpg" alt="" loading="lazy" width="1280" height="896"></span>
           <span class="row-link__body">
@@ -1809,7 +1849,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-27">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-po-plavaniyu-ll-etap-pervenstva-bardymskogo-munitsipalnogo-okruga/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-sorevnovaniy-po-plavaniyu-ll-etap-pervenstva-bardymskogo-munitsipa--novosti-i-ob-yavleniya--slide--54d14f58.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -1822,7 +1862,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-27">
         <a class="row-link" href="basseyn/30-marta-kolichestvo-dorozhek-dlya-svobodnogo-plavaniya-ogranicheno/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1835,7 +1875,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-26">
         <a class="row-link" href="basseyn/pozdravlyaem-s-pobedoy-vospitannikov-olimpii-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pozdravlyaem-s-pobedoy-vospitannikov-olimpii--novosti-i-ob-yavleniya--slide--f73ce6ac.jpg" alt="" loading="lazy" width="1280" height="721"></span>
           <span class="row-link__body">
@@ -1848,7 +1888,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-03-14">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/sertifikaty-uchastnikov-sorevnovaniy-tsentra-plavaniya-zima-2025/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -1861,7 +1901,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-03-13">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-pervenstva-permi-po-plavaniyu-14-15-marta-2024g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-pervenstva-permi-po-plavaniyu-14-15-marta-2024g--novosti-i-ob-yavleniya--slide--8cbf3610.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -1874,7 +1914,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-03-10">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-sorevnovaniy-pervenstva-po-podvodnomu-sportu-g-ekaterinburg-08-09-03-25/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -1887,7 +1927,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-03">
         <a class="row-link" href="basseyn/pozdravlyaem-s-pobedoy-vospitannikov-po-vodnomu-polo/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1900,7 +1940,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-02-26">
         <a class="row-link" href="basseyn/rezhim-raboty-basseyna-4-marta-s-5-po-7-marta-pervenstvo-permskogo-kraya-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1913,7 +1953,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-02-26">
         <a class="row-link" href="basseyn/issledovanie-na-enterobioz-v-sportkomplekse3933/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1926,7 +1966,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-02-20">
         <a class="row-link" href="basseyn/izmeneniya-v-gruppakh-tsentra-plavaniya-01-03-25-15-03-25/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1939,7 +1979,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-02-19">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-chempionata-i-pervenstva-permskogo-kraya-po-plavaniyu-11-13-fevralya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-chempionata-i-pervenstva-permskogo-kraya-po-plavaniyu-11-13-fevral--novosti-i-ob-yavleniya--slide--9ecd4371.jpg" alt="" loading="lazy" width="1191" height="775"></span>
           <span class="row-link__body">
@@ -1952,7 +1992,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-02-13">
         <a class="row-link" href="fitnes-tsentr/permskaya-sila-2025-vserossiyskiy-masterskiy-turnir-po-silovym-vidam-sporta-nap-22-23-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -1965,7 +2005,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-02-05">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-plavatelnogo-turnira-natsplav-deti-i-etap-g-izhevsk-1-2-02-25/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-plavatelnogo-turnira-natsplav-deti-i-etap-g-izhevsk-1-2-02-25--novosti-i-ob-yavleniya--slide--c261e935.jpg" alt="" loading="lazy" width="1026" height="688"></span>
           <span class="row-link__body">
@@ -1978,7 +2018,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-02-04">
         <a class="row-link" href="basseyn/rezhim-raboty-basseyna-10-13-fevralya-chempionat-permskogo-kraya-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -1991,7 +2031,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2025" data-date="2025-01-17">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-otkrytogo-pervenstva-po-vodnomu-polo-sredi-yunoshey/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-otkrytogo-pervenstva-po-vodnomu-polo-sredi-yunoshey--novosti-i-ob-yavleniya--slide--4a629600.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -2004,7 +2044,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-01-16">
         <a class="row-link" href="basseyn/protokol-sorevnovaniy-masters-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2017,7 +2057,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-26">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-konkursa-sportivnaya-elita-prikamya-2024/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-konkursa-sportivnaya-elita-prikamya-2024--novosti-i-ob-yavleniya--slide--7365832c.jpg" alt="" loading="lazy" width="1280" height="852"></span>
           <span class="row-link__body">
@@ -2030,7 +2070,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-20">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-vserossiyskikh-sorevnovaniy-po-podvodnomu-sportu-snezhnye-lasty-g-tomsk-13-17-12-24/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-vserossiyskikh-sorevnovaniy-po-podvodnomu-sportu-snezhnye-lasty-g---novosti-i-ob-yavleniya--slide--069abd87.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -2043,7 +2083,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-20">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-turnira-po-plavaniyu-put-chempiona-g-kirov-24/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-turnira-po-plavaniyu-put-chempiona-g-kirov-24--novosti-i-ob-yavleniya--slide--a0cd119a.jpg" alt="" loading="lazy" width="1280" height="887"></span>
           <span class="row-link__body">
@@ -2056,7 +2096,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-20">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-vserossiyskikh-sorevnovaniy-po-plavaniyu-yunost-rossii-g-chelyabinsk-24/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -2069,7 +2109,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-12-17">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-osen-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2082,7 +2122,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-12-13">
         <a class="row-link" href="basseyn/chempionat-permskogo-kraya-po-mini-vodnomu-polo-21-12-24/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2095,7 +2135,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-12-12">
         <a class="row-link" href="basseyn/xi-permskiy-kraevoy-semeynyy-forum-13-14-dekabrya-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2108,7 +2148,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-12-11">
         <a class="row-link" href="fitnes-tsentr/vnimanie-zakrytie-fitnes-tsentra-na-pereezd-/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2121,7 +2161,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-09">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-pervenstva-goroda-po-podvodnomu-sportu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--rezultaty-pervenstva-goroda-po-podvodnomu-sportu--novosti-i-ob-yavleniya--slide--38010c31.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -2134,7 +2174,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-09">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-vserossiyskikh-sorevnovaniy-po-plavaniyu-rezerv-rossii-2024/index.html">
           <span class="row-link__thumb"><img src="../photos/news--rezultaty-vserossiyskikh-sorevnovaniy-po-plavaniyu-rezerv-rossii-2024--novosti-i-ob-yavleniya--slide--91cdf782.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2147,7 +2187,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-12-05">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-vserossiyskikh-sorevnovaniy-po-plavaniyu-rezerv-rossii-20232517/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -2160,7 +2200,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-12-03">
         <a class="row-link" href="fitnes-tsentr/gran-pri-perm-2024-otkrytyy-kubok-urala-po-silovym-vidam-sporta-nap-7-8-dekabrya-24/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2173,7 +2213,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-12-02">
         <a class="row-link" href="basseyn/kubok-zolotogo-koltsa-finalnyy-turnir-goda-plavanie-g-moskva-30-11-01-12-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2186,7 +2226,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-11-29">
         <a class="row-link" href="basseyn/pervenstvo-permskogo-kraya-po-plavaniyu-11-14-noyabrya-2024-itogi/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-permskogo-kraya-po-plavaniyu-11-14-noyabrya-2024-itogi--novosti-i-ob-yavleniya--slide--a208b33b.jpg" alt="" loading="lazy" width="1280" height="855"></span>
           <span class="row-link__body">
@@ -2199,7 +2239,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-11-20">
         <a class="row-link" href="basseyn/prisoedinyaysya-k-svoim/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/a01/odszi9xn6bg0ija3mahctahflz4fl640.jpg" alt="" loading="lazy" width="723" height="1024"></span>
           <span class="row-link__body">
@@ -2212,7 +2252,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-11-08">
         <a class="row-link" href="basseyn/pervenstvo-permskogo-kraya-po-plavaniya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2225,7 +2265,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-11-01">
         <a class="row-link" href="basseyn/chempionat-i-pervenstvo-po-plavaniyu-pfo-25-28-oktyabrya-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2238,7 +2278,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-29">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-2-i-4-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2251,7 +2291,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-29">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-podvodnomu-plavaniyu-23-27-oktyabrya-2024/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-podvodnomu-plavaniyu-23-27-oktyabrya-2024--novosti-i-ob-yavleniya--slide--e25e0279.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -2264,7 +2304,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-10-29">
         <a class="row-link" href="fitnes-tsentr/chempionat-urfo-po-bodibildingu-28-09-2024/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-urfo-po-bodibildingu-28-09-2024--novosti-i-ob-yavleniya--slide--51922a6f.jpg" alt="" loading="lazy" width="1280" height="851"></span>
           <span class="row-link__body">
@@ -2277,7 +2317,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-25">
         <a class="row-link" href="basseyn/sorevnovaniya-tsentra-plavaniya-osen-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2290,7 +2330,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-08">
         <a class="row-link" href="basseyn/tsentralnaya-lestnitsa-vremenno-zakryta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2303,7 +2343,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-07">
         <a class="row-link" href="basseyn/chempionat-permskogo-kraya-po-plavaniyu-2024-g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-permskogo-kraya-po-plavaniyu-2024-g--novosti-i-ob-yavleniya--slide--aab6847e.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2316,7 +2356,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-03">
         <a class="row-link" href="basseyn/5-etap-kubka-zolotogo-koltsa-po-plavaniyu-28-29-sentyabrya-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2329,7 +2369,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-10-02">
         <a class="row-link" href="fitnes-tsentr/rezultaty-vserossiyskogo-masterskogo-turnira-po-silovym-vidam-sporta-region59-14-sentyabrya-2024-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--rezultaty-vserossiyskogo-masterskogo-turnira-po-silovym-vidam-sporta-reg--novosti-i-ob-yavleniya--slide--821d49eb.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2342,7 +2382,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-10-01">
         <a class="row-link" href="basseyn/v-etap-respublikanskikh-sorevnovaniy-po-plavaniyu-rustic-cup-v-g-izhevsk-2024-g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--v-etap-respublikanskikh-sorevnovaniy-po-plavaniyu-rustic-cup-v-g-izhevsk--novosti-i-ob-yavleniya--slide--3e814187.jpg" alt="" loading="lazy" width="1280" height="992"></span>
           <span class="row-link__body">
@@ -2355,7 +2395,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-09-19">
         <a class="row-link" href="basseyn/kafe-na-smotrovoy-ploshchadke-otkryto/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2368,7 +2408,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-09-13">
         <a class="row-link" href="fitnes-tsentr/vserossiyskiy-masterskiy-turnir-po-silovym-vidam-sporta-region59-14-sentyabrya-2024-v-fitnes-tsentre/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2381,7 +2421,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-09-06">
         <a class="row-link" href="basseyn/corevnovaniya-po-plavaniyu-v-ramkakh-xii-letney-spartakiady-uchashchikhsya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--corevnovaniya-po-plavaniyu-v-ramkakh-xii-letney-spartakiady-uchashchikhs--novosti-i-ob-yavleniya--slide--f90685c7.jpg" alt="" loading="lazy" width="1280" height="912"></span>
           <span class="row-link__body">
@@ -2394,7 +2434,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-09-06">
         <a class="row-link" href="basseyn/otkrytoe-pervenstvo-vengrii-po-plavaniyu-2024-g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--otkrytoe-pervenstvo-vengrii-po-plavaniyu-2024-g--novosti-i-ob-yavleniya--slide--d66b4b91.jpg" alt="" loading="lazy" width="960" height="878"></span>
           <span class="row-link__body">
@@ -2407,7 +2447,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-09-06">
         <a class="row-link" href="basseyn/chempionat-mira-po-podvodnomu-sportu-v-g-belgrade-serbiya-10-17-iyulya-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-mira-po-podvodnomu-sportu-v-g-belgrade-serbiya-10-17-iyulya--novosti-i-ob-yavleniya--slide--b4d39068.jpg" alt="" loading="lazy" width="1200" height="1600"></span>
           <span class="row-link__body">
@@ -2420,7 +2460,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-08-29">
         <a class="row-link" href="basseyn/trenirovka-po-evakuatsii-30-08-2024-v-10-00/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2433,7 +2473,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-08-28">
         <a class="row-link" href="basseyn/detskiy-basseyn-olimpik-otkryt-dlya-roditeley-s-detmi-do-10-let/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2446,7 +2486,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-08-08">
         <a class="row-link" href="fitnes-tsentr/izmenenie-raboty-rezhima-sportkompleksa-10-17-avgusta/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2459,7 +2499,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-08-07">
         <a class="row-link" href="basseyn/otkryt-kabinet-ekg-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2472,7 +2512,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-06-24">
         <a class="row-link" href="basseyn/mezhdunarodnye-sorevnovaniya-sportivnye-igry-stran-briks-v-g-kazan-19-21-iyunya-2024-g/index.html">
           <span class="row-link__thumb"><img src="../photos/news--mezhdunarodnye-sorevnovaniya-sportivnye-igry-stran-briks-v-g-kazan-19-21--novosti-i-ob-yavleniya--slide--04921f2e.jpg" alt="" loading="lazy" width="1280" height="713"></span>
           <span class="row-link__body">
@@ -2485,7 +2525,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-06-10">
         <a class="row-link" href="basseyn/rezhim-raboty-12-06-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2498,7 +2538,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-06-07">
         <a class="row-link" href="basseyn/otkryt-nabor-v-sportivnye-gruppy-detey-2013-2014-g-r/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2511,7 +2551,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-06-06">
         <a class="row-link" href="basseyn/pervenstvo-goroda-po-podvodnomu-sportu-03-04-iyunya-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-goroda-po-podvodnomu-sportu-03-04-iyunya--novosti-i-ob-yavleniya--slide--5473634d.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -2524,7 +2564,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-06-04">
         <a class="row-link" href="fitnes-tsentr/desyatyy-natsionalnyy-chempionat-po-silovym-vidam-sporta-nap-permskiy-period-18-19-maya-2024-goda-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--desyatyy-natsionalnyy-chempionat-po-silovym-vidam-sporta-nap-permskiy-pe--novosti-i-ob-yavleniya--slide--f20c88aa.jpg" alt="" loading="lazy" width="1280" height="852"></span>
           <span class="row-link__body">
@@ -2537,7 +2577,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-06-03">
         <a class="row-link" href="basseyn/sorevnovaniya-po-vodnomu-polo-8-iyunya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2550,7 +2590,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-06-03">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/itogi-pervenstva-pfo-po-vodnomu-polo-26-30-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -2563,7 +2603,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-05-31">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-vypusknykh-sorevnovaniy-tsentra-plavaniya-26-05-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -2576,7 +2616,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-05-29">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-sorevnovaniy-tsentra-plavaniya-final-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -2589,7 +2629,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-27">
         <a class="row-link" href="basseyn/itogi-pervogo-kraevogo-festivalya-proekta-umeyu-plavat-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2602,7 +2642,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-27">
         <a class="row-link" href="basseyn/itogi-xxiv-otkrytyy-turnir-po-plavaniyu-uralskiy-delfin/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2615,7 +2655,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-23">
         <a class="row-link" href="basseyn/sorevnovaniya-po-vodnomu-polo-14-17-maya-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-po-vodnomu-polo-14-17-maya--novosti-i-ob-yavleniya--slide--96907822.jpg" alt="" loading="lazy" width="1200" height="810"></span>
           <span class="row-link__body">
@@ -2628,7 +2668,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-17">
         <a class="row-link" href="basseyn/rezhim-raboty-bolshogo-basseyna-19-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2641,7 +2681,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-05-15">
         <a class="row-link" href="fitnes-tsentr/permskiy-period-2024-18-19-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2654,7 +2694,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-15">
         <a class="row-link" href="basseyn/narodnaya-premiya-sportivnyy-tsentr-goroda/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2667,7 +2707,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-13">
         <a class="row-link" href="basseyn/sorevnovaniya-kubok-zolotogo-koltsa-v-g-kazani/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-kubok-zolotogo-koltsa-v-g-kazani--novosti-i-ob-yavleniya--slide--7f6fb0f8.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2680,7 +2720,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-07">
         <a class="row-link" href="basseyn/rezhim-raboty-s-27-04-2024-po-12-05-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2693,7 +2733,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-07">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-vesna-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2706,7 +2746,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-06">
         <a class="row-link" href="basseyn/rezhim-raboty-bolshogo-basseyna-26-maya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2719,7 +2759,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-06">
         <a class="row-link" href="basseyn/pervenstvo-rossii-po-plavaniyu-sredi-yunoshey-i-devushek/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-po-plavaniyu-sredi-yunoshey-i-devushek--novosti-i-ob-yavleniya--slide--2b31d69c.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2732,7 +2772,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-05-03">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-programmy-klass-28-04-2024-goda/index.html">
           <span class="row-link__thumb"><img src="../photos/news--itogi-sorevnovaniy-programmy-klass-28-04-2024-goda--novosti-i-ob-yavleniya--slide--98e488d8.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2745,7 +2785,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-04-24">
         <a class="row-link" href="fitnes-tsentr/chempiony-i-prizery-po-bodibildingu-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempiony-i-prizery-po-bodibildingu--novosti-i-ob-yavleniya--slide--e00c3644.jpg" alt="" loading="lazy" width="853" height="780"></span>
           <span class="row-link__body">
@@ -2758,7 +2798,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-04-18">
         <a class="row-link" href="basseyn/kabinet-ekg-vremenno-ne-rabotaet-do-30-04-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2771,7 +2811,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-04-16">
         <a class="row-link" href="basseyn/sorevnovaniya-po-plavaniyu-28-aprelya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2784,7 +2824,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-04-05">
         <a class="row-link" href="basseyn/sorevnovaniya-tsentra-plavaniya-vesna-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2797,7 +2837,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-03-26">
         <a class="row-link" href="basseyn/chempionat-i-pervenstvo-pfo-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-i-pervenstvo-pfo-po-plavaniyu--novosti-i-ob-yavleniya--slide--5ecc5ff4.jpg" alt="" loading="lazy" width="1280" height="1214"></span>
           <span class="row-link__body">
@@ -2810,7 +2850,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-03-19">
         <a class="row-link" href="basseyn/besplatnaya-zamorozka-klubnykh-kart/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2823,7 +2863,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-03-14">
         <a class="row-link" href="basseyn/itogi-sorevnovaniy-pervenstva-permskogo-kraya-po-plavaniyu-veselyy-delfin-s-5-7-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2836,7 +2876,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-03-14">
         <a class="row-link" href="basseyn/itogi-chempionata-i-pervenstva-permskogo-kraya-po-plavaniyu-s-14-16-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2849,7 +2889,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-03-01">
         <a class="row-link" href="basseyn/grafik-raboty-sportkompleksa-8-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2862,7 +2902,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-02-28">
         <a class="row-link" href="fitnes-tsentr/zhenskiy-den-v-fitnes-tsentre-5-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2875,7 +2915,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-02-28">
         <a class="row-link" href="basseyn/kubok-zolotogo-koltsa-24-25-fevralya-2024/index.html">
           <span class="row-link__thumb"><img src="../photos/news--kubok-zolotogo-koltsa-24-25-fevralya-2024--novosti-i-ob-yavleniya--slide--3198118b.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -2888,7 +2928,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-02-26">
         <a class="row-link" href="basseyn/ogranichenie-raboty-basseyna-27-28-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2901,7 +2941,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-02-21">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-plavaniyu-v-lastakh-v-g-chelyabinsk-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-plavaniyu-v-lastakh-v-g-chelyabinsk--novosti-i-ob-yavleniya--slide--4801297a.jpg" alt="" loading="lazy" width="960" height="1280"></span>
           <span class="row-link__body">
@@ -2914,7 +2954,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-02-19">
         <a class="row-link" href="basseyn/kubok-rossii-po-podvodnomu-sportu-fevral-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2927,7 +2967,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-02-08">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/i-etap-respublikanskikh-sorevnovaniy-po-plavaniyu-rustic-cap-2024/index.html">
           <span class="row-link__thumb"><img src="../photos/news--i-etap-respublikanskikh-sorevnovaniy-po-plavaniyu-rustic-cap-2024--novosti-i-ob-yavleniya--slide--d9c71c17.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -2940,7 +2980,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-01-29">
         <a class="row-link" href="basseyn/grafik-provedeniya-roditelskikh-sobraniy-tsentra-plavaniya-zima-2023-2024/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2953,7 +2993,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-01-25">
         <a class="row-link" href="fitnes-tsentr/pervenstvo-permi-po-mma-27-yanvarya/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -2966,7 +3006,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-01-23">
         <a class="row-link" href="basseyn/sorevnovaniya-programmy-klass-2023-goda/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-programmy-klass-2023-goda--novosti-i-ob-yavleniya--slide--698a467e.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -2979,7 +3019,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-01-17">
         <a class="row-link" href="basseyn/dopolnitelnye-gruppy-po-profilaktike-ploskostopiya-i-skolioza/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -2992,7 +3032,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-01-16">
         <a class="row-link" href="basseyn/nalogovyy-vychet-za-uslugi-sportkompleksa/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3005,7 +3045,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-01-15">
         <a class="row-link" href="basseyn/zakrytie-glubokovodnogo-basseyna-i-gidromassazhnoy-zony/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/251/2517ffbbf597786e565a0fc42027a7c7.png" alt="" loading="lazy" width="389" height="70"></span>
           <span class="row-link__body">
@@ -3018,7 +3058,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-01-10">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/respublikanskie-sorevnovaniya-po-plavaniyu-na-prizy-deda-moroza-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -3031,7 +3071,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2024" data-date="2024-01-10">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/vserossiyskie-sorevnovaniya-po-podvodnomu-sportu-dekabr-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -3044,7 +3084,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-12-20">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-po-vodnomu-polo-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3057,7 +3097,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-12-18">
         <a class="row-link" href="basseyn/sportivnaya-yelka-19-dekabrya-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3070,7 +3110,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="kineziterapiya" data-year="2023">
+      <li data-cat="kineziterapiya" data-year="2023" data-date="2023-12-16">
         <a class="row-link" href="kineziterapiya/23-12-23-tsentr-kineziterapii/index.html">
           <span class="row-link__thumb"><img src="../photos/news--23-12-23-tsentr-kineziterapii--mezhregional-nye-sorevnovaniya-po-plavaniyu-natsplav-deti-12-14-iyunya-g--slide--e81fddc7.jpg" alt="" loading="lazy" width="464" height="396"></span>
           <span class="row-link__body">
@@ -3083,7 +3123,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-12-14">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-snezhnye-lasty-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3096,7 +3136,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-12-11">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-plavaniyu-yunost-rossii-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3109,7 +3149,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-12-05">
         <a class="row-link" href="basseyn/ogranichenie-raboty-basseyna-10-dekabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3122,7 +3162,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-11-24">
         <a class="row-link" href="basseyn/chempionat-permskogo-plavaniya-po-sinkhronnomu-plavaniyu-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3135,7 +3175,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-11-24">
         <a class="row-link" href="basseyn/ogranichenie-raboty-basseyna-2-dekabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3148,7 +3188,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-11-13">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/vi-etap-respublikanskikh-detskikh-sorevnovaniy-rustic-cup/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -3161,7 +3201,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-11-13">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/rezultaty-chempionata-i-pervenstvoa-privolzhskogo-federalnogo-okruga-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--rezultaty-chempionata-i-pervenstvoa-privolzhskogo-federalnogo-okruga-po---novosti-i-ob-yavleniya--slide--f23a6d50.jpg" alt="" loading="lazy" width="960" height="626"></span>
           <span class="row-link__body">
@@ -3174,7 +3214,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-11-09">
         <a class="row-link" href="basseyn/ogranichenie-raboty-basseyna-s-14-po-16-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3187,7 +3227,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-11-08">
         <a class="row-link" href="basseyn/parkovka-dlya-roditeli-detey-tsentra-plavaniya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3200,7 +3240,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-11-02">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-6-noyabrya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3213,7 +3253,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-11-02">
         <a class="row-link" href="basseyn/ostorozhno-gololed/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3226,7 +3266,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-10-25">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/sorevnovaniya-po-plavaniyu-na-kubok-urala-v-chelyabinske-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-po-plavaniyu-na-kubok-urala-v-chelyabinske-2023--novosti-i-ob-yavleniya--slide--df63883d.jpg" alt="" loading="lazy" width="720" height="707"></span>
           <span class="row-link__body">
@@ -3239,7 +3279,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-10-20">
         <a class="row-link" href="basseyn/27-oktyabrya-ogranicheniya-raboty-basseyna/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3252,7 +3292,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-10-13">
         <a class="row-link" href="basseyn/vklyuchenie-goryachey-vody-13-10-v-17-30/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3265,7 +3305,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-10-12">
         <a class="row-link" href="basseyn/chempionat-permskogo-kraya-po-plavaniyu-osen-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-permskogo-kraya-po-plavaniyu-osen-2023--novosti-i-ob-yavleniya--slide--2d92c762.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -3278,7 +3318,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-10-03">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/v-etap-kubka-rustic-cup-v-g-izhevsk-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--v-etap-kubka-rustic-cup-v-g-izhevsk--novosti-i-ob-yavleniya--slide--0a3eb1c6.jpg" alt="" loading="lazy" width="1280" height="959"></span>
           <span class="row-link__body">
@@ -3291,7 +3331,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2023">
+      <li data-cat="fitnes-tsentr" data-year="2023" data-date="2023-09-29">
         <a class="row-link" href="fitnes-tsentr/chempionat-permskogo-kraya-i-udmurtskoy-respubliki-po-bodibildingu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--chempionat-permskogo-kraya-i-udmurtskoy-respubliki-po-bodibildingu--chempionat-permskogo-kraya-i-udmurtskoy-respubliki-po-bodibildingu--slide--559ef954.jpg" alt="" loading="lazy" width="540" height="359"></span>
           <span class="row-link__body">
@@ -3304,7 +3344,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-09-29">
         <a class="row-link" href="basseyn/30-sentyabrya-ogranichenie-raboty-basseyna-i-izmenenie-raspisaniya-v-tsentre-plavaniya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3317,7 +3357,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-09-28">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/pervenstvo-permskogo-kraya-po-vodnomu-polo-2023-goda/index.html">
           <span class="row-link__thumb"><img src="../assets/kids-training.jpg" alt="" loading="lazy" width="800" height="533"></span>
           <span class="row-link__body">
@@ -3330,7 +3370,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-09-11">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/osen-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--osen-2023--novosti-i-ob-yavleniya--8d8f4264.jpg" alt="" loading="lazy" width="1101" height="600"></span>
           <span class="row-link__body">
@@ -3343,7 +3383,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-08-24">
         <a class="row-link" href="basseyn/programma-obucheniya-bezopasnosti-na-vode/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3356,7 +3396,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-08-14">
         <a class="row-link" href="basseyn/5-zolotykh-medaley-na-ii-igrakh-stran-sng-plavanie/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3369,7 +3409,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2023">
+      <li data-cat="fitnes-tsentr" data-year="2023" data-date="2023-07-12">
         <a class="row-link" href="fitnes-tsentr/turnir-po-podyemu-shtangi-v-fitnes-tsentre/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -3382,7 +3422,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-06-28">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-podvodnomu-sportu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-podvodnomu-sportu--novosti-i-ob-yavleniya--slide--61e7e8fc.jpg" alt="" loading="lazy" width="1120" height="744"></span>
           <span class="row-link__body">
@@ -3395,7 +3435,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-06-28">
         <a class="row-link" href="basseyn/18-y-chempionat-mira-po-plavaniyu-v-lastakh-cmas-sredi-yuniorov/index.html">
           <span class="row-link__thumb"><img src="../photos/news--18-y-chempionat-mira-po-plavaniyu-v-lastakh-cmas-sredi-yuniorov--novosti-i-ob-yavleniya--slide--c0f5fbba.jpg" alt="" loading="lazy" width="1280" height="837"></span>
           <span class="row-link__body">
@@ -3408,7 +3448,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-06-14">
         <a class="row-link" href="basseyn/kubok-po-mini-vodnomu-polo-sredi-lyubiteley/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3421,7 +3461,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-05-29">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/uralskiy-delfin/index.html">
           <span class="row-link__thumb"><img src="../photos/news--uralskiy-delfin--novosti-i-ob-yavleniya--slide--67ab6b13.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -3434,7 +3474,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-05-26">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-final-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3447,7 +3487,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-05-22">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-plavaniyu-veselyy-delfin/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-plavaniyu-veselyy-delfin--novosti-i-ob-yavleniya--slide--4a60e84d.jpg" alt="" loading="lazy" width="1280" height="853"></span>
           <span class="row-link__body">
@@ -3460,7 +3500,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-05-17">
         <a class="row-link" href="basseyn/pervenstvo-rossii-po-podvodnomu-sportu-yaroslavl/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-po-podvodnomu-sportu-yaroslavl--novosti-i-ob-yavleniya--slide--b5c32aa6.jpg" alt="" loading="lazy" width="1280" height="1010"></span>
           <span class="row-link__body">
@@ -3473,7 +3513,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-05-11">
         <a class="row-link" href="basseyn/pervenstvo-po-plavaniyu-salyut-pobedy/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-po-plavaniyu-salyut-pobedy--novosti-i-ob-yavleniya--slide--5e074b06.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -3486,7 +3526,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-05-05">
         <a class="row-link" href="basseyn/pervenstvo-rossii-po-plavaniyu-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-po-plavaniyu-2023--novosti-i-ob-yavleniya--slide--d934c374.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -3499,7 +3539,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-05-05">
         <a class="row-link" href="basseyn/rezultaty-sorevnovaniy-tsentra-plavaniya-vesna-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3512,7 +3552,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-04-26">
         <a class="row-link" href="basseyn/pervenstvo-permi-po-plavaniyu-v-laste-24-25-aprelya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-permi-po-plavaniyu-v-laste-24-25-aprelya--novosti-i-ob-yavleniya--slide--a5812be7.jpg" alt="" loading="lazy" width="1024" height="768"></span>
           <span class="row-link__body">
@@ -3525,7 +3565,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-04-05">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-permskaya-volna/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-permskaya-volna--novosti-i-ob-yavleniya--slide--c59e6fba.jpg" alt="" loading="lazy" width="1024" height="683"></span>
           <span class="row-link__body">
@@ -3538,7 +3578,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-04-04">
         <a class="row-link" href="basseyn/vserossiyskikh-sorevnovaniy-po-vodnomu-polo-zolotoy-myach/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskikh-sorevnovaniy-po-vodnomu-polo-zolotoy-myach--novosti-i-ob-yavleniya--slide--88bd1823.jpg" alt="" loading="lazy" width="527" height="411"></span>
           <span class="row-link__body">
@@ -3551,7 +3591,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2023">
+      <li data-cat="fitnes-tsentr" data-year="2023" data-date="2023-03-30">
         <a class="row-link" href="fitnes-tsentr/kubok-permskogo-kraya-i-chempionat-udmurtii-po-bodibildingu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--kubok-permskogo-kraya-i-chempionat-udmurtii-po-bodibildingu--novosti-i-ob-yavleniya--slide--4ee14a39.jpg" alt="" loading="lazy" width="1012" height="768"></span>
           <span class="row-link__body">
@@ -3564,7 +3604,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-30">
         <a class="row-link" href="basseyn/sorevnovaniya-po-plavaniyu-rustic-cup-2-etap/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-po-plavaniyu-rustic-cup-2-etap--novosti-i-ob-yavleniya--slide--19325dd2.jpg" alt="" loading="lazy" width="1024" height="718"></span>
           <span class="row-link__body">
@@ -3577,7 +3617,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-30">
         <a class="row-link" href="basseyn/pervenstvo-rossii-po-podvodnomu-sportu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-po-podvodnomu-sportu--novosti-i-ob-yavleniya--slide--9b709e72.jpg" alt="" loading="lazy" width="1006" height="768"></span>
           <span class="row-link__body">
@@ -3590,7 +3630,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-20">
         <a class="row-link" href="basseyn/pervenstvo-rossii-po-vodnomu-polo/index.html">
           <span class="row-link__thumb"><img src="../photos/news--pervenstvo-rossii-po-vodnomu-polo--novosti-i-ob-yavleniya--e6a0d61f.jpg" alt="" loading="lazy" width="1024" height="768"></span>
           <span class="row-link__body">
@@ -3603,7 +3643,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-20">
         <a class="row-link" href="basseyn/detskaya-sektsiya-triatlona-na-baze-sportkompleksa-olimpiya/index.html">
           <span class="row-link__thumb"><img src="../photos/news--detskaya-sektsiya-triatlona-na-baze-sportkompleksa-olimpiya--novosti-i-ob-yavleniya--slide--9a23d35a.jpg" alt="" loading="lazy" width="1280" height="738"></span>
           <span class="row-link__body">
@@ -3616,7 +3656,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-17">
         <a class="row-link" href="basseyn/sorevnovaniya-po-fridayvingu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3629,7 +3669,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-16">
         <a class="row-link" href="basseyn/grafik-sorevnovaniy/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3642,7 +3682,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-13">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-plavaniyu-mad-wave-classic-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-plavaniyu-mad-wave-classic-2023--novosti-i-ob-yavleniya--slide--ab1a28e4.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -3655,7 +3695,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-10">
         <a class="row-link" href="basseyn/veselyy-delfin-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--veselyy-delfin-2023--novosti-i-ob-yavleniya--slide--5f1e8ffe.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -3668,7 +3708,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2023">
+      <li data-cat="fitnes-tsentr" data-year="2023" data-date="2023-03-10">
         <a class="row-link" href="fitnes-tsentr/permskaya-sila-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--permskaya-sila-2023--novosti-i-ob-yavleniya--slide--af5f7393.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -3681,7 +3721,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-06">
         <a class="row-link" href="basseyn/plavanie-vzroslyy-i-rebenok/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/596/0qppvh9w6falyz36fa50irqljdhgbyyt.jpg" alt="" loading="lazy" width="880" height="880"></span>
           <span class="row-link__body">
@@ -3694,7 +3734,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-06">
         <a class="row-link" href="basseyn/1-etap-turnira-kubok-zolotogo-koltsa-2023/index.html">
           <span class="row-link__thumb"><img src="../photos/news--1-etap-turnira-kubok-zolotogo-koltsa-2023--pervenstvo-goroda-po-podvodnomu-sportu-21-22-maya--slide--d4fb4e02.jpg" alt="" loading="lazy" width="528" height="396"></span>
           <span class="row-link__body">
@@ -3707,7 +3747,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-03-03">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-8-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3720,7 +3760,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-02-22">
         <a class="row-link" href="basseyn/izmenenie-rezhima-28-fevralya-3-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3733,7 +3773,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-02-21">
         <a class="row-link" href="basseyn/rezultaty-zima-2023/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3746,7 +3786,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-02-16">
         <a class="row-link" href="basseyn/rezhim-raboty-sportkompleksa-23-24-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3759,7 +3799,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-02-15">
         <a class="row-link" href="basseyn/sorevnovaniya-po-plavaniyu-rustic-cup-g-izhevsk-1-etap/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-po-plavaniyu-rustic-cup-g-izhevsk-1-etap--novosti-i-ob-yavleniya--slide--80c47bd2.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -3772,7 +3812,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-02-06">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-vodnomu-polo-zolotoy-myach-/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-vodnomu-polo-zolotoy-myach--novosti-i-ob-yavleniya--slide--4da91b70.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -3785,7 +3825,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-01-31">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-podvodnomu-sportu-g-chelyabinsk/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-podvodnomu-sportu-g-chelyabinsk--novosti-i-ob-yavleniya--slide--a22906ff.jpg" alt="" loading="lazy" width="1280" height="700"></span>
           <span class="row-link__body">
@@ -3798,7 +3838,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-01-31">
         <a class="row-link" href="basseyn/3-tur-pervenstva-rossii-po-vodnomu-polo/index.html">
           <span class="row-link__thumb"><img src="../photos/news--3-tur-pervenstva-rossii-po-vodnomu-polo--novosti-i-ob-yavleniya--1a508696.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -3811,7 +3851,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-01-23">
         <a class="row-link" href="basseyn/rezhim-raboty-25-26-yanvarya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3824,7 +3864,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-01-17">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/sorevnovaniya-po-plavaniyu-rustic-cup/index.html">
           <span class="row-link__thumb"><img src="../photos/news--sorevnovaniya-po-plavaniyu-rustic-cup--novosti-i-ob-yavleniya--slide--17ddf7fb.jpg" alt="" loading="lazy" width="1280" height="958"></span>
           <span class="row-link__body">
@@ -3837,7 +3877,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023">
+      <li data-cat="detskiy-tsentr-plavaniya6604" data-year="2023" data-date="2023-01-17">
         <a class="row-link" href="detskiy-tsentr-plavaniya6604/mezhregionalnye-sorevnovaniya-po-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--mezhregionalnye-sorevnovaniya-po-plavaniyu--novosti-i-ob-yavleniya--slide--a6cbca34.jpg" alt="" loading="lazy" width="1280" height="960"></span>
           <span class="row-link__body">
@@ -3850,7 +3890,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-01-12">
         <a class="row-link" href="basseyn/novogodniy-turnir-na-prizy-deda-moroza/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/ae6/y0j9moq4u38mfalxd12wcqv7dl6sufs0.jpg" alt="" loading="lazy" width="1024" height="768"></span>
           <span class="row-link__body">
@@ -3863,7 +3903,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-01-12">
         <a class="row-link" href="basseyn/vserossiyskie-sorevnovaniya-po-podvodnomu-plavaniyu/index.html">
           <span class="row-link__thumb"><img src="../photos/news--vserossiyskie-sorevnovaniya-po-podvodnomu-plavaniyu--novosti-i-ob-yavleniya--slide--17969a33.jpg" alt="" loading="lazy" width="1280" height="576"></span>
           <span class="row-link__body">
@@ -3876,7 +3916,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-01-11">
         <a class="row-link" href="basseyn/prednovogodniy-turnir-polo/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -3973,6 +4013,6 @@
   </div>
 </div>
 
-<script src="../js/main.js?v=1c8cfae6" defer></script>
+<script src="../js/main.js?v=7e97bcd3" defer></script>
 </body>
 </html>

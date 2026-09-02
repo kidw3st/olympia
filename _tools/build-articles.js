@@ -368,15 +368,24 @@ function buildList(sec, articles) {
     ...cats.map(c => `<button data-cat="${c}">${lib.esc(CAT_NAMES[c] || c)}</button>`),
     '</div>'].join('\n      ');
 
-  // фильтр по годам — по убыванию, только годы, где что-то есть
-  const years = [...new Set(sorted.map(a => (a.lastmod || '').slice(0, 4)).filter(Boolean))]
-    .sort((a, b) => b.localeCompare(a));
-  const yearPills = years.length > 1
-    ? ['<div class="filter-pills filter-pills--years" data-filter-year>',
-      '<span class="filter-pills__label">Период</span>',
-      '<button data-year="all" class="is-active">За всё время</button>',
-      ...years.map(y => `<button data-year="${y}">${y}</button>`),
-      '</div>'].join('\n      ')
+  // Выбор периода датами: люди ищут «что было в мае», а не «что было в 2024»
+  const dates = sorted.map(a => (a.lastmod || '').slice(0, 10)).filter(Boolean).sort();
+  const minDate = dates[0] || '';
+  const maxDate = dates[dates.length - 1] || '';
+  const yearPills = dates.length > 1
+    ? `<div class="daterange" data-daterange>
+        <span class="daterange__label">Период</span>
+        <label class="daterange__field">
+          <span>с</span>
+          <input type="date" data-date-from min="${minDate}" max="${maxDate}" aria-label="Дата начала периода">
+        </label>
+        <label class="daterange__field">
+          <span>по</span>
+          <input type="date" data-date-to min="${minDate}" max="${maxDate}" aria-label="Дата конца периода">
+        </label>
+        <button type="button" class="daterange__reset" data-date-reset hidden>Сбросить</button>
+        <span class="daterange__count" data-date-count></span>
+      </div>`
     : '';
 
   const rowsHtml = sorted.map(a => {
@@ -394,7 +403,8 @@ function buildList(sec, articles) {
       thumb = `<img src="../assets/${CAT_PHOTO[a.cat]}" alt="" loading="lazy">`;
     }
     const year = a.lastmod ? a.lastmod.slice(0, 4) : '';
-    return `      <li data-cat="${a.cat}" data-year="${year}">
+    const day = a.lastmod ? a.lastmod.slice(0, 10) : '';
+    return `      <li data-cat="${a.cat}" data-year="${year}" data-date="${day}">
         <a class="row-link" href="${a.cat}/${a.slug}/index.html">
           <span class="row-link__thumb">${thumb}</span>
           <span class="row-link__body">
@@ -409,6 +419,32 @@ function buildList(sec, articles) {
       </li>`;
   }).join('\n');
 
+  // Ведущий блок: три свежих материала крупно, чтобы главное было видно
+  // сразу и не приходилось искать его в длинной ленте.
+  const leadItems = sorted.filter(a => a.lastmod).slice(0, 3);
+  const leadHtml = leadItems.length === 3 ? `    <section class="lead-strip" aria-label="Сейчас актуально">
+      <h2 class="lead-strip__title">${sec.key === 'news' ? 'Сейчас актуально' : 'Успейте воспользоваться'}</h2>
+      <div class="lead-strip__grid">
+${leadItems.map((a, i) => {
+    let img = '';
+    if (a.img) img = a.img.replace(/^(\.\.\/)+/, '../../');
+    else if (a.bankPhoto) img = '../photos/' + a.bankPhoto;
+    else if (CAT_PHOTO[a.cat]) img = '../assets/' + CAT_PHOTO[a.cat];
+    return `        <a class="lead-card${i === 0 ? ' lead-card--first' : ''}" href="${a.cat}/${a.slug}/index.html">
+          <span class="lead-card__media">${img ? `<img src="${img}" alt="" loading="lazy">` : ''}</span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">${lib.esc(a.catName)}</span>
+              <time datetime="${a.lastmod.slice(0, 10)}">${fmtDate(a.lastmod)}</time>
+            </span>
+            <span class="lead-card__title">${lib.esc(a.title)}</span>
+          </span>
+        </a>`;
+  }).join('\n')}
+      </div>
+    </section>
+` : '';
+
   const content = `  <div class="container">
     ${lib.breadcrumbs(1, lib.trailFromRel(sec.key, sec.crumb))}
     <div class="page-head">
@@ -417,7 +453,7 @@ function buildList(sec, articles) {
         ? 'Объявления о режиме работы, соревнованиях и жизни комплекса. Скидки — в разделе «Акции».'
         : 'Маркетинговые предложения: скидки и спецпредложения. Режим работы — в новостях.'}</p>
     </div>
-    ${pills}
+${leadHtml}    ${pills}
     ${yearPills}
     <ul class="rows">
 ${rowsHtml}

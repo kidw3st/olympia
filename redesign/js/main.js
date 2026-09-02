@@ -172,34 +172,57 @@ document.documentElement.classList.add('js');
     });
   });
 
-  // Фильтр по году публикации работает вместе с фильтром по разделу
-  var yearBar = document.querySelector('.filter-pills[data-filter-year]');
-  if (yearBar) {
-    yearBar.addEventListener('click', function (e) {
-      var btn = e.target.closest('button[data-year]');
-      if (!btn) return;
-      Array.prototype.slice.call(yearBar.querySelectorAll('button')).forEach(function (b) {
-        b.classList.toggle('is-active', b === btn);
-      });
-      window.__rowFilter = window.__rowFilter || { cat: 'all', year: 'all' };
-      window.__rowFilter.year = btn.getAttribute('data-year');
+  // Выбор периода датами работает вместе с фильтром по разделу
+  var range = document.querySelector('[data-daterange]');
+  if (range) {
+    var from = range.querySelector('[data-date-from]');
+    var to = range.querySelector('[data-date-to]');
+    var reset = range.querySelector('[data-date-reset]');
+
+    function syncRange() {
+      window.__rowFilter = window.__rowFilter || { cat: 'all' };
+      window.__rowFilter.from = from && from.value ? from.value : '';
+      window.__rowFilter.to = to && to.value ? to.value : '';
+      // конец периода не может быть раньше начала
+      if (from && to) {
+        to.min = from.value || to.getAttribute('min') || '';
+        from.max = to.value || from.getAttribute('max') || '';
+      }
+      if (reset) reset.hidden = !(window.__rowFilter.from || window.__rowFilter.to);
       applyRowFilters();
-    });
+    }
+    if (from) from.addEventListener('change', syncRange);
+    if (to) to.addEventListener('change', syncRange);
+    if (reset) {
+      reset.addEventListener('click', function () {
+        if (from) from.value = '';
+        if (to) to.value = '';
+        syncRange();
+      });
+    }
   }
 
   function applyRowFilters() {
-    var f = window.__rowFilter || { cat: 'all', year: 'all' };
+    var f = window.__rowFilter || { cat: 'all' };
     var rows = Array.prototype.slice.call(document.querySelectorAll('.rows > li[data-cat]'));
     var shown = 0;
     rows.forEach(function (li) {
-      var okCat = f.cat === 'all' || li.getAttribute('data-cat') === f.cat;
-      var okYear = f.year === 'all' || li.getAttribute('data-year') === f.year;
-      var hide = !(okCat && okYear);
+      var okCat = !f.cat || f.cat === 'all' || li.getAttribute('data-cat') === f.cat;
+      var d = li.getAttribute('data-date') || '';
+      // даты в формате ГГГГ-ММ-ДД сравниваются как строки
+      var okFrom = !f.from || (d && d >= f.from);
+      var okTo = !f.to || (d && d <= f.to);
+      var hide = !(okCat && okFrom && okTo);
       li.classList.toggle('is-hidden', hide);
       if (!hide) shown++;
     });
     var empty = document.querySelector('[data-rows-empty]');
     if (empty) empty.hidden = shown !== 0;
+    var counter = document.querySelector('[data-date-count]');
+    if (counter) {
+      var total = rows.length;
+      counter.textContent = shown === total ? '' : 'Найдено: ' + shown;
+    }
   }
 })();
 

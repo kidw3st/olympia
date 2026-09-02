@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=b8474da2">
+  <link rel="stylesheet" href="../css/style.css?v=f4f698e1">
 </head>
 <body>
 <header class="site-header">
@@ -88,6 +88,41 @@
       <h1>Акции и специальные предложения</h1>
       <p class="page-head__lede">Маркетинговые предложения: скидки и спецпредложения. Режим работы — в новостях.</p>
     </div>
+    <section class="lead-strip" aria-label="Сейчас актуально">
+      <h2 class="lead-strip__title">Успейте воспользоваться</h2>
+      <div class="lead-strip__grid">
+        <a class="lead-card lead-card--first" href="fitnes-tsentr/start-sezona-2026-2027/index.html">
+          <span class="lead-card__media"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">Фитнес-центр</span>
+              <time datetime="2026-08-26">26 авг 2026</time>
+            </span>
+            <span class="lead-card__title">Старт сезона 26/27! Клубные карты до -20%</span>
+          </span>
+        </a>
+        <a class="lead-card" href="basseyn/basseyn-besplatno-dlya-detey-do-14-let-/index.html">
+          <span class="lead-card__media"><img src="../photos/actions--basseyn-besplatno-dlya-detey-do-14-let--spravka-dopusk-so-skidkoy-20-dlya-uchastnikov-zabegov--832e0ebd.jpg" alt="" loading="lazy" width="300" height="300"></span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">Бассейны</span>
+              <time datetime="2026-08-26">26 авг 2026</time>
+            </span>
+            <span class="lead-card__title">Бассейны бесплатно для детей до 10 лет</span>
+          </span>
+        </a>
+        <a class="lead-card" href="basseyn/pravila-povedeniya-na-vode/index.html">
+          <span class="lead-card__media"><img src="../photos/actions--pravila-povedeniya-na-vode--start-sezona-26-27-klubnye-karty-do-20--fd3962ca.jpg" alt="" loading="lazy" width="300" height="300"></span>
+          <span class="lead-card__body">
+            <span class="lead-card__meta">
+              <span class="lead-card__cat">Бассейны</span>
+              <time datetime="2026-08-24">24 авг 2026</time>
+            </span>
+            <span class="lead-card__title">Правила поведения на воде!</span>
+          </span>
+        </a>
+      </div>
+    </section>
     <div class="filter-pills" data-filter>
       <button data-cat="all" class="is-active">Все</button>
       <button data-cat="fitnes-tsentr">Фитнес-центр</button>
@@ -95,16 +130,21 @@
       <button data-cat="spa-tsentr">SPA-центр</button>
       <button data-cat="kineziterapiya">Кинезитерапия</button>
       </div>
-    <div class="filter-pills filter-pills--years" data-filter-year>
-      <span class="filter-pills__label">Период</span>
-      <button data-year="all" class="is-active">За всё время</button>
-      <button data-year="2026">2026</button>
-      <button data-year="2025">2025</button>
-      <button data-year="2024">2024</button>
-      <button data-year="2023">2023</button>
+    <div class="daterange" data-daterange>
+        <span class="daterange__label">Период</span>
+        <label class="daterange__field">
+          <span>с</span>
+          <input type="date" data-date-from min="2023-09-22" max="2026-08-26" aria-label="Дата начала периода">
+        </label>
+        <label class="daterange__field">
+          <span>по</span>
+          <input type="date" data-date-to min="2023-09-22" max="2026-08-26" aria-label="Дата конца периода">
+        </label>
+        <button type="button" class="daterange__reset" data-date-reset hidden>Сбросить</button>
+        <span class="daterange__count" data-date-count></span>
       </div>
     <ul class="rows">
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-08-26">
         <a class="row-link" href="fitnes-tsentr/start-sezona-2026-2027/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -117,7 +157,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-26">
         <a class="row-link" href="basseyn/basseyn-besplatno-dlya-detey-do-14-let-/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--basseyn-besplatno-dlya-detey-do-14-let--spravka-dopusk-so-skidkoy-20-dlya-uchastnikov-zabegov--832e0ebd.jpg" alt="" loading="lazy" width="300" height="300"></span>
           <span class="row-link__body">
@@ -130,7 +170,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-24">
         <a class="row-link" href="basseyn/pravila-povedeniya-na-vode/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--pravila-povedeniya-na-vode--start-sezona-26-27-klubnye-karty-do-20--fd3962ca.jpg" alt="" loading="lazy" width="300" height="300"></span>
           <span class="row-link__body">
@@ -143,7 +183,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-08-24">
         <a class="row-link" href="fitnes-tsentr/fitnes-idyet-v-basseyn-besplatno/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -156,7 +196,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-08-12">
         <a class="row-link" href="basseyn/programma-loyalnosti-svobodnoe-plavanie/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -169,7 +209,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-08-03">
         <a class="row-link" href="fitnes-tsentr/prodlevaem-sezonnye-klubnye-karty-8-mesyatsev-/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -182,7 +222,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-28">
         <a class="row-link" href="basseyn/spravka-dopusk-dlya-uchastnikov-zabegov/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -195,7 +235,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-01">
         <a class="row-link" href="basseyn/zharkoe-leto-v-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -208,7 +248,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-07-01">
         <a class="row-link" href="spa-tsentr/skidka-15-na-pressoterapiyu-/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -221,7 +261,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-07-01">
         <a class="row-link" href="basseyn/letnie-karty-olimpii/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--letnie-karty-olimpii--programma-loyal-nosti-svobodnoe-plavanie--ad5ba7e2.jpg" alt="" loading="lazy" width="300" height="200"></span>
           <span class="row-link__body">
@@ -234,7 +274,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-30">
         <a class="row-link" href="basseyn/leto-v-basseynakh-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -247,7 +287,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-30">
         <a class="row-link" href="basseyn/leto-kruglyy-god-/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -260,7 +300,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="kineziterapiya" data-year="2026">
+      <li data-cat="kineziterapiya" data-year="2026" data-date="2026-06-23">
         <a class="row-link" href="kineziterapiya/skidki-15-v-tsentre-kineziterapii-olimpiya/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/fcd/fcd75576170a067abfd74cd23ea037b4.jpg" alt="" loading="lazy" width="616" height="471"></span>
           <span class="row-link__body">
@@ -273,7 +313,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-02">
         <a class="row-link" href="basseyn/akva-layt/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--akva-layt--aktsii--slide--ecd65b49.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -286,7 +326,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-06-02">
         <a class="row-link" href="basseyn/superleto-v-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -299,7 +339,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-05-26">
         <a class="row-link" href="fitnes-tsentr/fitnes-dlya-vsekh-50-na-klubnye-karty/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -312,7 +352,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-05-06">
         <a class="row-link" href="basseyn/mayskie-prazdniki-v-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -325,7 +365,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-13">
         <a class="row-link" href="basseyn/predmayskoe-nastroenie-skidka-30-na-vse-klubnye-karty-90-dney/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -338,7 +378,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-10">
         <a class="row-link" href="basseyn/lgotnye-tseny-dlya-pensionerov/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/d29/d290f159a8502e03f1a8894418834087.png" alt="" loading="lazy" width="468" height="132"></span>
           <span class="row-link__body">
@@ -351,7 +391,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-04-03">
         <a class="row-link" href="basseyn/aktsiya-privedite-firmu-i-poluchite-abonement/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--aktsiya-privedite-firmu-i-poluchite-abonement--aktsii--slide--f7c877a1.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -364,7 +404,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-03-30">
         <a class="row-link" href="spa-tsentr/znakomstvo-s-masterom-po-30-04-2026-pechenkina-larisa/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -377,7 +417,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-03-30">
         <a class="row-link" href="spa-tsentr/znakomstvo-s-masterom-po-31-03-2026-kosmetik-estetist-beklemyshev-aleksey/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -390,7 +430,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-30">
         <a class="row-link" href="basseyn/rozygrysh-iphone17promax/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -403,7 +443,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2026">
+      <li data-cat="fitnes-tsentr" data-year="2026" data-date="2026-03-30">
         <a class="row-link" href="fitnes-tsentr/kiberponedelnik-50-na-fitnes-i-plavanie/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -416,7 +456,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-17">
         <a class="row-link" href="basseyn/dlya-uchastnikov-svo/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -429,7 +469,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-11">
         <a class="row-link" href="basseyn/vesennie-skidki-v-olimpii-do-30-na-basseyn-fitnes-i-spa/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -442,7 +482,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-03-02">
         <a class="row-link" href="basseyn/zhenshchinam-skidka-50-na-razovye-fitnes-i-basseyn/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -455,7 +495,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-25">
         <a class="row-link" href="basseyn/-30-dney-zamorozki-na-klubnye-karty-360-dney/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--30-dney-zamorozki-na-klubnye-karty-360-dney--l-gotnye-tseny-dlya-pensionerov--slide--cefc16dc.jpg" alt="" loading="lazy" width="1280" height="923"></span>
           <span class="row-link__body">
@@ -468,7 +508,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-02-25">
         <a class="row-link" href="spa-tsentr/goryashchie-predlozheniya-v-spa-tsentre/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--goryashchie-predlozheniya-v-spa-tsentre--goryaschie-predlozheniya-v-spa-tsentre--slide--ac2abdb6.jpg" alt="" loading="lazy" width="640" height="640"></span>
           <span class="row-link__body">
@@ -481,7 +521,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-02-16">
         <a class="row-link" href="basseyn/vremya-muzhskikh-podarkov/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -494,7 +534,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2026">
+      <li data-cat="spa-tsentr" data-year="2026" data-date="2026-02-04">
         <a class="row-link" href="spa-tsentr/u-vas-skoro-den-rozhdeniya/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -507,7 +547,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-26">
         <a class="row-link" href="basseyn/mama-i-malysh-pervaya-trenirovka-besplatno/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/90b/e525j0qd2hnnygnuhf4giitgxlkyhzel.png" alt="" loading="lazy" width="600" height="600"></span>
           <span class="row-link__body">
@@ -520,7 +560,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-26">
         <a class="row-link" href="basseyn/lgotnye-tseny-dlya-mnogodetnykh-po-budnyam/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -533,7 +573,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-26">
         <a class="row-link" href="basseyn/schastlivye-chasy-v-olimpii/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -546,7 +586,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-21">
         <a class="row-link" href="basseyn/vozvrashchenie-v-olimpiyu/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -559,7 +599,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-20">
         <a class="row-link" href="basseyn/khalyava-lovis-dni-studenta-/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0b9/3bqqvouibn37eaabxr00o3wve7z7tsx8.png" alt="" loading="lazy" width="988" height="247"></span>
           <span class="row-link__body">
@@ -572,7 +612,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-14">
         <a class="row-link" href="basseyn/spetsialnaya-tsena-na-plavanie-dlya-studentov/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -585,7 +625,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-13">
         <a class="row-link" href="basseyn/chay-dnya-v-spa-tsentre/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--chay-dnya-v-spa-tsentre--aktsii--slide--d8a8d112.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -598,7 +638,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2026">
+      <li data-cat="basseyn" data-year="2026" data-date="2026-01-05">
         <a class="row-link" href="basseyn/derzhim-starye-tseny-do-kontsa-yanvarya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -611,7 +651,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-12-25">
         <a class="row-link" href="basseyn/podarochnaya-karta-ideya-dlya-podarka/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--podarochnaya-karta-ideya-dlya-podarka--programma-loyal-nosti-v-fitnes-tsentre--c5a3f7ed.jpg" alt="" loading="lazy" width="300" height="200"></span>
           <span class="row-link__body">
@@ -624,7 +664,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-08-22">
         <a class="row-link" href="spa-tsentr/letniy-massazh-so-skidkoy-20/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -637,7 +677,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-06-17">
         <a class="row-link" href="fitnes-tsentr/aktsiya-privedi-druga-v-fitnes-/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--aktsiya-privedi-druga-v-fitnes--sezonnye-klubnye-karty-8-mesyatsev--slide--5b88a015.jpg" alt="" loading="lazy" width="1280" height="854"></span>
           <span class="row-link__body">
@@ -650,7 +690,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-06-02">
         <a class="row-link" href="basseyn/skidka-40-na-karty-fitnes-fitnes-plavanie-i-plavanie/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/613/gk85r19942t8xv7dru814dq04cuw0zcm.png" alt="" loading="lazy" width="1024" height="190"></span>
           <span class="row-link__body">
@@ -663,7 +703,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-28">
         <a class="row-link" href="basseyn/kiberponedelnik-50-na-fitnes/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -676,7 +716,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-03-05">
         <a class="row-link" href="basseyn/zhenshchinam-skidka-50-na-razovye-poseshcheniya-08-03-2025-fitnes-basseyn/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--zhenshchinam-skidka-50-na-razovye-poseshcheniya-08-03-2025-fitnes-bassey--besplatnye-zanyatiya-akvaaerobikoy-dlya-posetiteley-basseynov-v-pn-i-cht--3012a7db.jpg" alt="" loading="lazy" width="300" height="200"></span>
           <span class="row-link__body">
@@ -689,7 +729,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-02-26">
         <a class="row-link" href="spa-tsentr/skidka-15-na-meditsinskiy-massazh-s-1-po-10-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -702,7 +742,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-02-18">
         <a class="row-link" href="spa-tsentr/skidka-23-na-obshchiy-massazh-60-minut-dlya-muzhchin-21-23-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -715,7 +755,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-02-13">
         <a class="row-link" href="basseyn/skidka-30-dlya-korporativnykh-klientov-na-abonementy-po-7-marta/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -728,7 +768,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-02-11">
         <a class="row-link" href="basseyn/basseyn-besplatno-dlya-detey-do-10-let-23-fevralya/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -741,7 +781,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-02-07">
         <a class="row-link" href="fitnes-tsentr/muzhchinam-skidka-23-na-klubnye-karty-fitnes/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -754,7 +794,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="kineziterapiya" data-year="2025">
+      <li data-cat="kineziterapiya" data-year="2025" data-date="2025-01-31">
         <a class="row-link" href="kineziterapiya/skidka-50-na-konsultatsiyu-vracha-kineziterapevta/index.html">
           <span class="row-link__thumb"><img src="../assets/kinesi-gym.jpg" alt="" loading="lazy" width="1280" height="853"></span>
           <span class="row-link__body">
@@ -767,7 +807,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2025">
+      <li data-cat="basseyn" data-year="2025" data-date="2025-01-24">
         <a class="row-link" href="basseyn/skidki-dlya-studentov-na-plavanie-i-fitnes-25-01-25/index.html">
           <span class="row-link__thumb"><img src="../assets/lanes-overhead.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -780,7 +820,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-01-23">
         <a class="row-link" href="spa-tsentr/krasivyy-vozrast-skidka-10-v-spa/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -793,7 +833,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2025">
+      <li data-cat="spa-tsentr" data-year="2025" data-date="2025-01-23">
         <a class="row-link" href="spa-tsentr/programma-loyalnosti-spa/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -806,7 +846,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2025">
+      <li data-cat="fitnes-tsentr" data-year="2025" data-date="2025-01-16">
         <a class="row-link" href="fitnes-tsentr/skidka-10-pri-pokupke-dvukh-i-bolee-klubnykh-kart/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -819,7 +859,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2024">
+      <li data-cat="basseyn" data-year="2024" data-date="2024-12-17">
         <a class="row-link" href="basseyn/skidka-50-na-razovye-poseshcheniya-29-31-dekabrya/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0b9/3bqqvouibn37eaabxr00o3wve7z7tsx8.png" alt="" loading="lazy" width="988" height="247"></span>
           <span class="row-link__body">
@@ -832,7 +872,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr" data-year="2024">
+      <li data-cat="spa-tsentr" data-year="2024" data-date="2024-12-12">
         <a class="row-link" href="spa-tsentr/skidki-do-15-na-spa-protsedury-litso/index.html">
           <span class="row-link__thumb"><img src="../assets/spa-massage.jpg" alt="" loading="lazy" width="1456" height="1600"></span>
           <span class="row-link__body">
@@ -845,7 +885,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="2024">
+      <li data-cat="fitnes-tsentr" data-year="2024" data-date="2024-10-31">
         <a class="row-link" href="fitnes-tsentr/meditsinskoe-testirovanie-organizma-ms-fit-so-skidkoy-60/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -858,7 +898,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="2023">
+      <li data-cat="basseyn" data-year="2023" data-date="2023-09-22">
         <a class="row-link" href="basseyn/den-rozhdeniya-v-olimpii/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/d29/d290f159a8502e03f1a8894418834087.png" alt="" loading="lazy" width="468" height="132"></span>
           <span class="row-link__body">
@@ -871,7 +911,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="basseyn" data-year="">
+      <li data-cat="basseyn" data-year="" data-date="">
         <a class="row-link" href="basseyn/klubnye-karty-v-rassrochku-bez-pereplaty/index.html">
           <span class="row-link__thumb"><img src="../photos/actions--klubnye-karty-v-rassrochku-bez-pereplaty--aktsii--92ee1124.jpg" alt="" loading="lazy" width="600" height="400"></span>
           <span class="row-link__body">
@@ -884,7 +924,7 @@
           </span>
         </a>
       </li>
-      <li data-cat="fitnes-tsentr" data-year="">
+      <li data-cat="fitnes-tsentr" data-year="" data-date="">
         <a class="row-link" href="fitnes-tsentr/programma-loyalnosti-v-fitnes-tsentre/index.html">
           <span class="row-link__thumb"><img src="../assets/fitness-hall.jpg" alt="" loading="lazy" width="1600" height="1067"></span>
           <span class="row-link__body">
@@ -981,6 +1021,6 @@
   </div>
 </div>
 
-<script src="../js/main.js?v=1c8cfae6" defer></script>
+<script src="../js/main.js?v=7e97bcd3" defer></script>
 </body>
 </html>
