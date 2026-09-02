@@ -1,6 +1,9 @@
 'use strict';
-// Прогрессивное улучшение: без JS контент виден полностью.
+// Класс js ставит инлайн-скрипт в head — до первой отрисовки, чтобы
+// анимируемые блоки не мигали. Здесь только отметка, что сценарий поднялся:
+// без неё страховка в head через 3,5 с показывает всё как есть.
 document.documentElement.classList.add('js');
+window.__olMotion = true;
 
 /* ---------- Мобильное меню ---------- */
 (function () {
@@ -158,12 +161,14 @@ document.documentElement.classList.add('js');
         Array.prototype.slice.call(document.querySelectorAll('section.section[data-cat]')).forEach(function (sec) {
           sec.classList.toggle('is-hidden', cat !== 'all' && sec.getAttribute('data-cat') !== cat);
         });
+        if (window.__revealSweep) window.__revealSweep();
         return;
       }
       if (kind === 'timetable') {
         Array.prototype.slice.call(document.querySelectorAll('.tickets-list > li[data-cat], .hub-cards > li[data-cat]')).forEach(function (li) {
           li.classList.toggle('is-hidden', cat !== 'all' && li.getAttribute('data-cat') !== cat);
         });
+        if (window.__revealSweep) window.__revealSweep();
         return;
       }
       window.__rowFilter = window.__rowFilter || { cat: 'all', year: 'all' };
@@ -219,6 +224,7 @@ document.documentElement.classList.add('js');
     var empty = document.querySelector('[data-rows-empty]');
     if (empty) empty.hidden = shown !== 0;
     var counter = document.querySelector('[data-date-count]');
+    if (window.__revealSweep) window.__revealSweep();
     if (counter) {
       var total = rows.length;
       counter.textContent = shown === total ? '' : 'Найдено: ' + shown;
@@ -297,25 +303,51 @@ document.documentElement.classList.add('js');
   fetch(src).then(function (r) { return r.json(); }).then(function (data) {
     ['pools', 'fitness', 'lockers'].forEach(function (key) {
       var el = bar.querySelector('[data-occ="' + key + '"]');
-      if (el && data[key] != null) el.textContent = data[key];
+      if (!el || data[key] == null) return;
+      if (window.__countUp) window.__countUp(el, data[key]);
+      else el.textContent = data[key];
     });
   }).catch(function () {});
 })();
 
 /* ---------- Появление при скролле («вода наполняет») ---------- */
 (function () {
-  var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-fill'));
+  // Каскад: карточки одного списка всплывают друг за другом, а не разом.
+  // Задержку считаем по пачке, которую наблюдатель отдал за один раз, —
+  // так работает и на списке из трёх карточек, и на ленте из трёхсот.
+  var STAGGER = '.rows > *, .tickets-list > *, .hub-cards > *, .team-grid > *,' +
+    '.gallery-strip > *, .lead-strip__grid > *, .dirs-list > *,' +
+    '.class-day > *, .sauna-tabs > *';
+  var SELECTOR = '.reveal, .reveal-fill, .section-head, ' + STAGGER;
+
+  var targets;
+  try {
+    targets = Array.prototype.slice.call(document.querySelectorAll(SELECTOR));
+  } catch (e) {
+    targets = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-fill'));
+  }
   if (!targets.length) return;
+
   if (!('IntersectionObserver' in window)) {
     targets.forEach(function (el) { el.classList.add('is-in'); });
     return;
   }
+
+  var STEP = 70, MAX_STEPS = 7;
+  // Высота экрана: в редких окружениях (превью, печать) innerHeight равен нулю,
+  // и тогда ни один блок не считался бы видимым — страница осталась бы пустой.
+  function vh() { return window.innerHeight || document.documentElement.clientHeight || 800; }
+  function show(el, order) {
+    if (order) el.style.transitionDelay = Math.min(order, MAX_STEPS) * STEP + 'ms';
+    el.classList.add('is-in');
+  }
+
   var io = new IntersectionObserver(function (entries) {
+    var order = 0;
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        io.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      show(entry.target, order++);
+      io.unobserve(entry.target);
     });
   }, { rootMargin: '0px 0px -80px 0px', threshold: 0.1 });
   targets.forEach(function (el) { io.observe(el); });
@@ -324,13 +356,14 @@ document.documentElement.classList.add('js');
   // наблюдателю не виден и остаётся обрезанным даже после расширения окна.
   // Досматриваем такие вручную — при старте, после загрузки и на ресайзе.
   function sweep() {
+    var order = 0;
     targets = targets.filter(function (el) {
       if (el.classList.contains('is-in')) { io.unobserve(el); return false; }
       var r = el.getBoundingClientRect();
       var visible = r.width > 0 && r.height > 0 &&
-        r.top < window.innerHeight * 1.15 && r.bottom > -80;
+        r.top < vh() * 1.15 && r.bottom > -80;
       if (visible) {
-        el.classList.add('is-in');
+        show(el, order++);
         io.unobserve(el);
         return false;
       }
@@ -360,4 +393,123 @@ document.documentElement.classList.add('js');
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(sweep, 150);
   });
+  // после смены фильтра часть карточек показывается заново — досмотреть
+  window.__revealSweep = sweep;
 })();
+
+/* ---------- Шапка уплотняется, когда страница ушла вверх ---------- */
+(function () {
+  var root = document.documentElement;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    root.classList.toggle('is-scrolled', window.pageYOffset > 40);
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  update();
+})();
+
+/* ---------- Полоса прочитанного в статье ---------- */
+(function () {
+  var article = document.querySelector('article.post');
+  if (!article) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var bar = document.createElement('div');
+  bar.className = 'read-progress';
+  bar.setAttribute('role', 'progressbar');
+  bar.setAttribute('aria-label', 'Прочитано');
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var box = article.getBoundingClientRect();
+    // отсчёт: от появления верха статьи до ухода её низа за верх экрана
+    var h = window.innerHeight || document.documentElement.clientHeight || 800;
+    var total = box.height - h;
+    // короткая заметка помещается на экран целиком — отмерять нечего
+    if (total <= 0) { bar.style.opacity = '0'; return; }
+    bar.style.opacity = '';
+    var done = Math.max(0, Math.min(1, (-box.top) / total));
+    bar.style.transform = 'scaleX(' + done + ')';
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* ---------- Обложки: снимок отстаёт от прокрутки ---------- */
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var imgs = Array.prototype.slice.call(document.querySelectorAll(
+    '.hero-porthole img, .page-cover img, .post__cover img, .dirpage-hero__media img'));
+  if (!imgs.length) return;
+
+  var AMP = 14;              // ход в пикселях в каждую сторону
+  var live = [];
+
+  function paint() {
+    var h = window.innerHeight || document.documentElement.clientHeight || 800;
+    live.forEach(function (img) {
+      var box = img.parentNode.getBoundingClientRect();
+      // -1 — блок ниже экрана, +1 — выше; 0 — ровно по центру
+      var t = ((box.top + box.height / 2) - h / 2) / (h / 2 + box.height / 2);
+      t = Math.max(-1, Math.min(1, t));
+      img.style.transform = 'translate3d(0,' + (t * AMP).toFixed(1) + 'px,0) scale(1.08)';
+    });
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking || !live.length) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; paint(); });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var i = live.indexOf(e.target);
+        if (e.isIntersecting && i < 0) live.push(e.target);
+        else if (!e.isIntersecting && i >= 0) live.splice(i, 1);
+      });
+      paint();
+    }, { rootMargin: '120px 0px' });
+    imgs.forEach(function (img) { io.observe(img); });
+  } else {
+    live = imgs;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', paint);
+  paint();
+})();
+
+/* ---------- Числа набегают, а не появляются ---------- */
+window.__countUp = function (el, value) {
+  var target = parseInt(value, 10);
+  if (isNaN(target)) { el.textContent = value; return; }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = String(target);
+    return;
+  }
+  var dur = 900, start = null;
+  function frame(now) {
+    if (start === null) start = now;
+    var p = Math.min(1, (now - start) / dur);
+    // замедление к концу — число «доезжает», а не обрывается
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = String(Math.round(target * eased));
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+};

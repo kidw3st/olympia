@@ -2523,3 +2523,153 @@ body { transition: background-color 320ms ease, color 320ms ease; }
   .tg-backdrop { transition: opacity 200ms ease, visibility 0s; }
 }
 
+
+/* ============================================================
+   ДВИЖЕНИЕ — каскады, подчёркивания, глубина
+   Правило: движение объясняет структуру, а не украшает.
+   Ничего не двигается под курсором — только при прокрутке.
+   ============================================================ */
+
+/* ---------- Каскад: карточки списка всплывают друг за другом ---------- */
+.js :is(.rows, .tickets-list, .hub-cards, .team-grid, .gallery-strip,
+        .lead-strip__grid, .dirs-list, .class-day, .sauna-tabs) > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
+}
+.js :is(.rows, .tickets-list, .hub-cards, .team-grid, .gallery-strip,
+        .lead-strip__grid, .dirs-list, .class-day, .sauna-tabs) > .is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Заголовок раздела: линия дочерчивается ---------- */
+.js .section-head h2 { position: relative; }
+.js .section-head h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 56px;
+  height: 3px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 620ms var(--ease-out) 140ms;
+}
+.js .section-head.is-in h2::after { transform: scaleX(1); }
+.js[data-theme="fitness"] .section-head h2::after { background: var(--action); }
+
+/* ---------- Полоса прочитанного в статье ---------- */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  background: var(--action);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ---------- Обложки: лёгкий сдвиг при прокрутке ---------- */
+.js :is(.hero-porthole, .page-cover, .post__cover, .dirpage-hero__media) img {
+  will-change: transform;
+}
+
+/* ---------- Пилюли сценариев в герое — в общий каскад ---------- */
+.scenario-pills {
+  opacity: 1;
+  transform: none;
+  transition: opacity 500ms var(--ease-out) 260ms, transform 500ms var(--ease-out) 260ms;
+}
+@starting-style {
+  .scenario-pills { opacity: 0; transform: translateY(14px); }
+}
+
+/* ---------- Шапка уплотняется, когда страница ушла вверх ---------- */
+.nav-pill { transition: padding 260ms var(--ease-out), background-color 260ms ease; }
+.is-scrolled .nav-pill {
+  padding-block: 8px;
+  background: var(--depth);
+}
+
+/* ---------- Прокрутка к якорям ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within { scroll-behavior: smooth; }
+}
+
+/* ---------- Уважение к настройкам и страховка ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js :is(.rows, .tickets-list, .hub-cards, .team-grid, .gallery-strip,
+          .lead-strip__grid, .dirs-list, .class-day, .sauna-tabs) > * {
+    transform: none;
+    transition: opacity 260ms ease;
+  }
+  .js .section-head h2::after { transition: none; transform: scaleX(1); }
+  .nav-pill { transition: none; }
+  .scenario-pills { transition: none; }
+  .js :is(.hero-porthole, .page-cover, .post__cover, .dirpage-hero__media) img {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+/* Если сценарий не поднялся — показать всё как есть, ничего не пряча */
+.no-motion :is(.reveal, .reveal-fill),
+.no-motion :is(.rows, .tickets-list, .hub-cards, .team-grid, .gallery-strip,
+               .lead-strip__grid, .dirs-list, .class-day, .sauna-tabs) > * {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  transition: none !important;
+}
+.no-motion .section-head h2::after { transform: scaleX(1); }
+
+/* ---------- Вода в CTA-полосе: две волны разной скорости ---------- */
+.cta-band { position: relative; overflow: hidden; }
+.cta-band > * { position: relative; z-index: 1; }
+.cta-band::before,
+.cta-band::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -240px;
+  bottom: 0;
+  background-repeat: repeat-x;
+  background-position: bottom left;
+  background-size: 240px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+.cta-band::before {
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='40' viewBox='0 0 240 40'%3E%3Cpath d='M0 20 Q 30 6 60 20 T 120 20 T 180 20 T 240 20 V40 H0 Z' fill='%23ffffff' fill-opacity='0.09'/%3E%3C/svg%3E");
+  animation: wave-drift 26s linear infinite;
+}
+.cta-band::after {
+  height: 28px;
+  background-size: 240px 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='28' viewBox='0 0 240 28'%3E%3Cpath d='M0 14 Q 30 26 60 14 T 120 14 T 180 14 T 240 14 V28 H0 Z' fill='%23ffffff' fill-opacity='0.06'/%3E%3C/svg%3E");
+  animation: wave-drift 38s linear infinite reverse;
+}
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-240px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-band::before, .cta-band::after { animation: none; }
+}
+
+/* ---------- Плитки галереи появляются иначе: подбором, а не подъёмом ---------- */
+.js .gallery-strip > figure {
+  transform: translateY(10px) scale(0.97);
+  transition: opacity 560ms var(--ease-out), transform 560ms var(--ease-out);
+}
+.js .gallery-strip > figure.is-in { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .gallery-strip > figure { transform: none; }
+}
