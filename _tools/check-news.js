@@ -48,7 +48,9 @@ for (const section of ['news', 'actions']) {
     if (/[ \t]{3,}/.test(text)) add('лишние пробелы', f);
     if (/!{2,}|\?{2,}/.test(text)) add('повторные ! или ?', f);
     if (/Уважаемые\s+(?:клиенты|посетители|родители)/i.test(text)) add('«Уважаемые…» отдельной строкой', f);
-    if (/<font\b|<span\b/i.test(body)) add('остатки font/span', f);
+    // <span class="li-note"> ставим мы сами — это не остаток вёрстки Битрикса
+    if (/<font\b/i.test(body) || /<span(?![^>]*class=")/i.test(body) ||
+        /<span[^>]*style=/i.test(body)) add('остатки font/span', f);
     if (/\s-\s/.test(text)) add('дефис вместо тире', f);
     if (/"/.test(text)) add('прямые кавычки', f);
     if (/style="/i.test(body)) add('инлайн-стили', f);
