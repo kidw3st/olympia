@@ -298,6 +298,21 @@ ${occupancyBar(depth)}
 <a class="sticky-cta" href="${r}price/index.html">Выбрать абонемент</a>`;
 }
 
+// Версия файла для обхода кэша: пока адрес css/js не меняется, браузеры
+// отдают посетителям старую версию, и правки до них просто не доходят.
+const _verCache = {};
+function assetVer(rel) {
+  if (_verCache[rel]) return _verCache[rel];
+  let v = '1';
+  try {
+    const buf = require('fs').readFileSync(
+      require('path').join(__dirname, '..', 'redesign', rel));
+    v = require('crypto').createHash('sha1').update(buf).digest('hex').slice(0, 8);
+  } catch (e) { /* файла нет — версия по умолчанию */ }
+  _verCache[rel] = v;
+  return v;
+}
+
 // Нейтральная иконка «скачать приложение» в стиле сайта.
 // Логотипы магазинов — товарные знаки, поэтому не воспроизводим их.
 function storeIcon() {
@@ -412,7 +427,7 @@ function shell(depth, opt) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${r}css/style.css">${opt.head || ''}
+  <link rel="stylesheet" href="${r}css/style.css?v=${assetVer('css/style.css')}">${opt.head || ''}
 </head>
 <body>
 ${header(depth, opt.active || '')}
@@ -425,7 +440,7 @@ ${footer(depth)}
 
 ${cookieBanner(depth)}
 
-<script src="${r}js/main.js" defer></script>${(opt.scripts || []).map(s => `\n<script src="${r}${s}" defer></script>`).join('')}
+<script src="${r}js/main.js?v=${assetVer('js/main.js')}" defer></script>${(opt.scripts || []).map(s => `\n<script src="${r}${s}?v=${assetVer(s)}" defer></script>`).join('')}
 </body>
 </html>
 `;

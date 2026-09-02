@@ -45,6 +45,39 @@ for (const f of walk(OUT, [])) {
 }
 console.log('Перепривязано: ' + relinked + ' ссылок в ' + touched + ' файлах');
 
+// Ссылки в старую копию на страницы, которых нет в новом дизайне и которые
+// битые ещё в оригинале, разворачиваем в обычный текст: иначе посетитель
+// проваливается из редизайна в старый сайт.
+const deadCache = new Map();
+function isDeadTarget(abs) {
+  if (deadCache.has(abs)) return deadCache.get(abs);
+  let dead = true;
+  try {
+    dead = fs.readFileSync(abs, 'utf8').includes('errortext');
+  } catch (e) { dead = true; }
+  deadCache.set(abs, dead);
+  return dead;
+}
+
+let unlinked = 0, unlinkedFiles = 0;
+for (const f of walk(OUT, [])) {
+  const dir = path.dirname(f);
+  let h = fs.readFileSync(f, 'utf8');
+  let n = 0;
+  h = h.replace(/<a\b[^>]*href="([^"]*\/site\/[^"]*\.html)"[^>]*>([\s\S]*?)<\/a>/gi,
+    (m0, href, inner) => {
+      const abs = path.resolve(dir, href.split('#')[0]);
+      const relFromSite = path.relative(SITE, abs).split(path.sep).join('/');
+      if (relFromSite.startsWith('..')) return m0;
+      if (redesignPages.has(relFromSite)) return m0;   // новая версия есть — оставит relink выше
+      if (!isDeadTarget(abs)) return m0;               // страница живая — пусть ведёт в архив
+      n++;
+      return inner;                                     // разворачиваем в текст
+    });
+  if (n > 0) { fs.writeFileSync(f, h, 'utf8'); unlinked += n; unlinkedFiles++; }
+}
+console.log('Развёрнуто в текст (битые ссылки в архив): ' + unlinked + ' в ' + unlinkedFiles + ' файлах');
+
 // Ремонт: ссылки внутрь редизайна на несуществующие страницы -> назад к копии
 let repaired = 0, repairedFiles = 0;
 for (const f of walk(OUT, [])) {
