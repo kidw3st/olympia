@@ -2204,18 +2204,23 @@ body { transition: background-color 320ms ease, color 320ms ease; }
   transition: border-color 200ms ease;
 }
 .lead-card:hover { border-color: var(--blue); }
-/* Карточки в строке одной высоты, поэтому фото забирает всё свободное
-   место: иначе под короткими заголовками зияет пустая плашка. */
+/* Фото одной высоты у всех карточек — тогда нижняя граница снимков
+   идёт единой линией. Текст занимает остаток, поэтому карточки
+   выравниваются по высоте без пустых плашек. */
 .lead-card { height: 100%; }
 .lead-card__media {
   display: block;
-  flex: 1 1 auto;
-  min-height: 190px;
+  flex: 0 0 auto;
+  height: 210px;
   background: var(--ice-deep);
   overflow: hidden;
 }
+.lead-card__body { flex: 1 1 auto; }
+@media (min-width: 760px) {
+  .lead-card__media { height: 240px; }
+}
 @media (min-width: 1040px) {
-  .lead-card--first .lead-card__media { min-height: 320px; }
+  .lead-card__media { height: 260px; }
 }
 .lead-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .lead-card__body {
