@@ -21,6 +21,7 @@ const ALREADY = new Set([
   'zapis_cdp', 'visitors', 'legal', 'timetable', 'kupit-online'
 ]);
 const SKIP_RELS = new Set([
+  'pools/baths',            // собирается отдельно: карусель саун (build-baths.js)
   'fitness_center/aqua',
   'vpervye-v-olimpii',
   'price/freeze',

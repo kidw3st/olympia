@@ -2043,6 +2043,77 @@ body { transition: background-color 320ms ease, color 320ms ease; }
 }
 .row-link:hover .row-link__date { color: var(--blue); }
 
+/* ============================================================
+   БАНИ И САУНЫ: выбор по названию, у каждой своё фото и описание
+   ============================================================ */
+.saunas { margin-top: clamp(28px, 4vw, 44px); }
+.sauna-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: clamp(22px, 3vw, 32px);
+}
+.sauna-tab {
+  border: 1px solid var(--hairline);
+  background: transparent;
+  color: var(--navy-ink);
+  border-radius: var(--r-pill);
+  padding: 11px 22px;
+  min-height: 44px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.sauna-tab:hover { border-color: var(--navy-ink); }
+.sauna-tab.is-active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.sauna-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(22px, 3.5vw, 44px);
+  align-items: start;
+}
+@media (min-width: 940px) {
+  .sauna-panel { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+}
+/* панель проявляется мягко, чтобы смена читалась как одно движение */
+.sauna-panel.is-active { animation: sauna-in 320ms var(--ease-out) both; }
+@keyframes sauna-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sauna-panel.is-active { animation: none; }
+}
+
+.sauna-panel__media {
+  margin: 0;
+  border-radius: var(--r-porthole);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--ice-deep);
+}
+.sauna-panel__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sauna-panel__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  color: var(--navy-ink);
+  margin-bottom: 16px;
+}
+.sauna-panel__text { font-size: 16.5px; line-height: 1.62; color: var(--navy-ink); }
+.sauna-panel__text p { margin: 0 0 1.1em; }
+.sauna-panel__text ul { margin: 0 0 1.1em; padding-left: 1.3em; }
+.sauna-panel__text li { margin-bottom: 0.5em; }
+.sauna-panel__text li::marker { color: var(--blue); }
+.sauna-panel__text b, .sauna-panel__text strong { font-weight: 600; }
+
 /* ---------- выбор периода датами ---------- */
 .daterange {
   display: flex;
@@ -2133,13 +2204,19 @@ body { transition: background-color 320ms ease, color 320ms ease; }
   transition: border-color 200ms ease;
 }
 .lead-card:hover { border-color: var(--blue); }
+/* Карточки в строке одной высоты, поэтому фото забирает всё свободное
+   место: иначе под короткими заголовками зияет пустая плашка. */
+.lead-card { height: 100%; }
 .lead-card__media {
   display: block;
-  aspect-ratio: 16 / 9;
+  flex: 1 1 auto;
+  min-height: 190px;
   background: var(--ice-deep);
   overflow: hidden;
 }
-.lead-card--first .lead-card__media { aspect-ratio: 4 / 3; }
+@media (min-width: 1040px) {
+  .lead-card--first .lead-card__media { min-height: 320px; }
+}
 .lead-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .lead-card__body {
   display: flex;
