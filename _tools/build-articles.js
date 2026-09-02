@@ -140,9 +140,68 @@ function sanitizeBody(html, srcDirFromSiteRoot, depth) {
   return out.trim();
 }
 
-function firstImage(bodyHtml) {
-  const m = bodyHtml.match(/<img[^>]*src="([^"]+)"/i);
-  return m ? m[1] : null;
+// Размеры картинки по заголовку файла — нужны, чтобы отличить фотографию
+// от узкой полосы-кнопки, из которой миниатюра вырезает бессмысленный кусок.
+const imgSizeCache = new Map();
+function imageSize(abs) {
+  if (imgSizeCache.has(abs)) return imgSizeCache.get(abs);
+  let res = null;
+  try {
+    const buf = fs.readFileSync(abs);
+    if (buf.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) {
+      res = { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
+    } else if (buf[0] === 0xff && buf[1] === 0xd8) {
+      let i = 2;
+      while (i < buf.length - 9) {
+        if (buf[i] !== 0xff) { i++; continue; }
+        const mk = buf[i + 1];
+        if (mk >= 0xc0 && mk <= 0xcf && mk !== 0xc4 && mk !== 0xc8 && mk !== 0xcc) {
+          res = { h: buf.readUInt16BE(i + 5), w: buf.readUInt16BE(i + 7) };
+          break;
+        }
+        i += 2 + buf.readUInt16BE(i + 2);
+      }
+    } else if (buf.slice(0, 4).toString() === 'GIF8') {
+      res = { w: buf.readUInt16LE(6), h: buf.readUInt16LE(8) };
+    }
+  } catch (e) { res = null; }
+  imgSizeCache.set(abs, res);
+  return res;
+}
+
+// Картинки-кнопки старого сайта («Записаться.jpg», «Купить онлайн»)
+// в миниатюре превращаются в обрезок с обрубленными буквами.
+const BUTTON_LIKE = /(записаться|запись|купить|онлайн|кнопк|баннер|button|banner|podrobnee|подробнее)/i;
+
+function firstImage(bodyHtml, articleDir) {
+  const re = /<img[^>]*>/gi;
+  let m;
+  let fallback = null;
+  while ((m = re.exec(bodyHtml))) {
+    const tag = m[0];
+    const src = (tag.match(/\bsrc="([^"]+)"/i) || [])[1];
+    if (!src) continue;
+    const label = ((tag.match(/\balt="([^"]*)"/i) || [])[1] || '') + ' ' +
+      ((tag.match(/\btitle="([^"]*)"/i) || [])[1] || '') + ' ' + src;
+    if (BUTTON_LIKE.test(label)) continue;              // подпись выдаёт кнопку
+    // внешние картинки (эмодзи и иконки соцсетей) в превью не годятся
+    if (/^https?:/i.test(src) || /\/emoji\//i.test(src)) continue;
+
+    // пути в теле статьи относительные — резолвим от каталога самой статьи
+    let size = null;
+    if (articleDir && !/^(https?:|data:)/i.test(src)) {
+      try {
+        size = imageSize(path.resolve(articleDir, decodeURIComponent(src.split('?')[0])));
+      } catch (e) { size = null; }
+    }
+    if (size && size.w && size.h) {
+      const ratio = size.w / size.h;
+      if (ratio > 2.6 || ratio < 0.4) { fallback = fallback || src; continue; } // полоса
+      if (size.w < 120 || size.h < 90) { fallback = fallback || src; continue; } // иконка
+    }
+    return src;
+  }
+  return fallback;   // ничего подходящего — пусть будет хоть что-то
 }
 
 function textPreview(bodyHtml, len) {
@@ -150,7 +209,19 @@ function textPreview(bodyHtml, len) {
   return t.length > len ? t.slice(0, len - 1).replace(/\s+\S*$/, '') + '…' : t;
 }
 
-const waveThumb = `<span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span>`;
+// У большинства новостей своей картинки нет. Вместо одинакового знака
+// подставляем фото направления — список перестаёт быть безликим.
+const CAT_PHOTO = {
+  'basseyn': 'lanes-overhead.jpg',
+  'detskiy-tsentr-plavaniya': 'kids-training.jpg',
+  'detskiy-tsentr-plavaniya6604': 'kids-training.jpg',
+  'fitnes-tsentr': 'fitness-hall.jpg',
+  'spa-tsentr': 'spa-massage.jpg',
+  'kineziterapiya': 'kinesi-gym.jpg',
+  'company': 'hero-pool-50m.jpg'
+};
+
+const waveThumb =`<span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span>`;
 
 function buildSection(sec, lastmod) {
   const srcRoot = path.join(SITE, sec.src);
@@ -190,7 +261,7 @@ function buildSection(sec, lastmod) {
         catName: CAT_NAMES[outCat] || outCat,
         slug: slug.name,
         title, body, rel,
-        img: firstImage(body),
+        img: firstImage(body, path.join(OUT, sec.key, outCat, slug.name)),
         preview: textPreview(body, 160),
         lastmod: lastmod.get(urlPath) || ''
       });
@@ -305,6 +376,9 @@ function buildList(sec, articles) {
       // в статье путь с глубины 3 (../../../../site/...), в списке глубина 1 (../../site/...)
       const fixed = a.img.replace(/^(\.\.\/)+/, '../../');
       thumb = `<img src="${fixed}" alt="" loading="lazy">`;
+    } else if (CAT_PHOTO[a.cat]) {
+      // своего фото нет — показываем снимок направления
+      thumb = `<img src="../assets/${CAT_PHOTO[a.cat]}" alt="" loading="lazy">`;
     }
     const year = a.lastmod ? a.lastmod.slice(0, 4) : '';
     return `      <li data-cat="${a.cat}" data-year="${year}">
