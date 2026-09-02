@@ -43,6 +43,11 @@ function specialOwned(rel) {
     SKIP_RELS.has(rel);
 }
 
+// угольно-оранжевый мир — фитнес и кинезитерапия
+function themeFor(rel) {
+  return /^(fitness_center|center_kinesitherapy)(\/|$)/.test(rel) ? 'fitness' : '';
+}
+
 // активный пункт меню по разделу
 function activeFor(rel) {
   if (rel.startsWith('timetable')) return 'timetable';
@@ -267,6 +272,7 @@ ${bodyBlock}
     title: title + ' — «Олимпия» Пермь',
     description: lede || (title + ' — спортивный комплекс «Олимпия», Пермь.'),
     active: activeFor(rel),
+    theme: themeFor(rel),
     content
   });
 }

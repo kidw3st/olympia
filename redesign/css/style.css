@@ -1514,6 +1514,244 @@ body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotat
 .app-links--footer a { font-size: 13px; padding: 8px 14px; }
 
 /* ============================================================
+   ТЕМА «ФИТНЕС» — уголь, тёплый серый, оранжевый.
+   Включается атрибутом data-theme="fitness" на <html>:
+   тем же набором токенов, поэтому вся вёрстка перекрашивается целиком.
+   Контрасты проверены: оранжевый кнопок 4.56:1 с белым,
+   ссылки 4.65:1 на канвасе, вторичный текст 4.76:1.
+   ============================================================ */
+[data-theme="fitness"] {
+  --ice: #f2f0ed;
+  --ice-deep: #e6e3de;
+  --paper: #faf9f7;
+  --navy: #1a1a1c;
+  --navy-ink: #17171a;
+  --depth: #101012;
+  --blue: #c94f08;
+  --blue-bright: #b84806;
+  --red: #e2620f;
+  --action: #c94f08;
+  --action-press: #a8420a;
+  --mist: #6b6a66;
+  --mist-dark: #b3aea6;
+  --hairline: #d5d1cb;
+  --hairline-dark: #3a3a3f;
+}
+/* плавная смена мира при переключении раздела */
+body { transition: background-color 320ms ease, color 320ms ease; }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
+
+/* ---------- выпадающие разделы в шапке ---------- */
+.nav-group { position: relative; }
+.nav-group__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 0;
+  color: #e7eef6;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+.nav-group__btn:hover,
+.nav-group__btn[aria-expanded="true"] { color: #fff; background: rgba(255,255,255,0.10); }
+.nav-group__btn::after {
+  content: "";
+  width: 6px; height: 6px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 220ms var(--ease-out);
+}
+.nav-group__btn[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+
+.nav-group__menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 268px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-small);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transform-origin: top left;
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), visibility 0s linear 200ms;
+  z-index: 60;
+}
+.nav-group__menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+.nav-group__menu a {
+  display: block;
+  padding: 11px 14px;
+  border-radius: 10px;
+  color: var(--navy-ink);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.nav-group__menu a small {
+  display: block;
+  font-weight: 400;
+  font-size: 12.5px;
+  color: var(--mist);
+  margin-top: 2px;
+}
+.nav-group__menu a:hover { background: var(--ice-deep); color: var(--blue); }
+.nav-group__menu a:hover small { color: var(--blue); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-group__menu { transform: none; }
+}
+
+/* ---------- уведомление о cookie ---------- */
+.cookie-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(8, 26, 46, 0.28);
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.has-cookie .cookie-backdrop { opacity: 1; }
+/* размываем страницу, но не сам баннер */
+.has-cookie .site-header,
+.has-cookie main,
+.has-cookie .site-footer,
+.has-cookie .occupancy,
+.has-cookie .sticky-cta {
+  filter: blur(4px);
+  transition: filter 280ms ease;
+  pointer-events: none;
+}
+
+.cookie {
+  position: fixed;
+  z-index: 95;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 16px);
+  width: min(560px, calc(100% - 32px));
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-porthole);
+  padding: clamp(22px, 4vw, 32px);
+  opacity: 0;
+  transition: opacity 280ms var(--ease-out), transform 280ms var(--ease-out);
+}
+.has-cookie .cookie { opacity: 1; transform: translate(-50%, 0); }
+.cookie__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--navy-ink);
+  margin: 0;
+}
+.cookie__text {
+  margin-top: 12px;
+  color: var(--mist);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.cookie__actions {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie { transform: translate(-50%, 0); }
+  .has-cookie .site-header, .has-cookie main,
+  .has-cookie .site-footer, .has-cookie .occupancy,
+  .has-cookie .sticky-cta { transition: none; }
+}
+
+/* иконка магазина приложений */
+.app-link { display: inline-flex; align-items: center; gap: 8px; }
+.app-link__icon { flex-shrink: 0; }
+
+/* группы разделов в мобильном меню */
+.mobile-menu__group {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--mist-dark);
+  margin-top: 18px;
+  padding-bottom: 4px;
+}
+.mobile-menu__group:first-child { margin-top: 0; }
+.mobile-menu a.mobile-menu__sub {
+  font-size: clamp(20px, 5vw, 28px);
+  padding: 8px 0 8px 16px;
+  border-bottom: 0;
+}
+
+/* ---------- карточка списка новостей и акций ---------- */
+.row-link__body { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.row-link__excerpt {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--mist);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (max-width: 699px) { .row-link__excerpt { -webkit-line-clamp: 3; } }
+.row-link__meta {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  white-space: nowrap;
+}
+@media (min-width: 700px) { .row-link__meta { display: flex; } }
+.row-link__date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-ink);
+  font-variant-numeric: tabular-nums;
+}
+.row-link:hover .row-link__date { color: var(--blue); }
+
+.filter-pills--years {
+  align-items: center;
+  margin-top: 12px;
+}
+.filter-pills__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-right: 4px;
+}
+.rows-empty {
+  padding: 40px 4px;
+  color: var(--mist);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* ============================================================
    ВРЕМЕННАЯ СЕТКА РАСПИСАНИЯ (timegrid)
    Кликабельные занятия с описанием + три уровня масштаба.
    ============================================================ */

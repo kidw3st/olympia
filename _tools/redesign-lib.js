@@ -230,8 +230,33 @@ function occupancyBar(depth) {
 
 function header(depth, active) {
   const r = p(depth);
+  // Два направления вместо общего пункта «Направления».
+  // Вода — синий мир, фитнес — угольно-оранжевый (переключается data-theme).
+  const GROUPS = [
+    {
+      id: 'swim', title: 'Плавание', theme: '',
+      items: [
+        [r + 'pools/index.html', 'Бассейны', '50 метров, детский, гидромассаж, сауны'],
+        [r + 'swimming_center/index.html', 'Центр детского плавания', 'Обучение с раннего возраста'],
+        [r + 'spa_center/index.html', 'SPA-центр', 'Массаж, ритуалы, восстановление']
+      ]
+    },
+    {
+      id: 'fitness', title: 'Фитнес', theme: 'fitness',
+      items: [
+        [r + 'fitness_center/index.html', 'Фитнес-центр', '3500 м², тренажёры и групповые'],
+        [r + 'center_kinesitherapy/index.html', 'Кинезитерапия', 'Реабилитация движением']
+      ]
+    }
+  ];
+  const groupsHtml = GROUPS.map(g => `<li class="nav-group" data-nav-group="${g.id}"${g.theme ? ` data-theme-preview="${g.theme}"` : ''}>
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-${g.id}">${g.title}</button>
+        <div class="nav-group__menu" id="navmenu-${g.id}">
+          ${g.items.map(i => `<a href="${i[0]}">${esc(i[1])}<small>${esc(i[2])}</small></a>`).join('\n          ')}
+        </div>
+      </li>`).join('\n      ');
+
   const links = [
-    ['dirs', r + 'index.html#dirs', 'Направления'],
     ['timetable', r + 'timetable/index.html', 'Расписание'],
     ['price', r + 'price/index.html', 'Цены'],
     ['actions', r + 'actions/index.html', 'Акции'],
@@ -239,10 +264,15 @@ function header(depth, active) {
     ['team', r + 'team/index.html', 'Команда'],
     ['contacts', r + 'contacts/index.html', 'Контакты']
   ];
-  const li = links.map(l =>
-    `<li><a href="${l[1]}"${l[0] === active && l[0] !== 'dirs' ? ' aria-current="page"' : ''}>${l[2]}</a></li>`
+  const li = groupsHtml + '\n      ' + links.map(l =>
+    `<li><a href="${l[1]}"${l[0] === active ? ' aria-current="page"' : ''}>${l[2]}</a></li>`
   ).join('\n      ');
-  const mob = links.map(l => `<a href="${l[1]}">${l[2]}</a>`).join('\n  ');
+
+  const mobGroups = GROUPS.map(g =>
+    `<span class="mobile-menu__group">${g.title}</span>\n  ` +
+    g.items.map(i => `<a class="mobile-menu__sub" href="${i[0]}">${esc(i[1])}</a>`).join('\n  ')
+  ).join('\n  ');
+  const mob = mobGroups + '\n  ' + links.map(l => `<a href="${l[1]}">${l[2]}</a>`).join('\n  ');
   return `<header class="site-header">
   <nav class="nav-pill" aria-label="Главная навигация">
     <a class="nav-logo" href="${r}index.html" aria-label="Олимпия — на главную">
@@ -268,6 +298,31 @@ ${occupancyBar(depth)}
 <a class="sticky-cta" href="${r}price/index.html">Выбрать абонемент</a>`;
 }
 
+// Нейтральная иконка «скачать приложение» в стиле сайта.
+// Логотипы магазинов — товарные знаки, поэтому не воспроизводим их.
+function storeIcon() {
+  return '<svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ' +
+    'aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/>' +
+    '<path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg>';
+}
+
+function cookieBanner(depth) {
+  const r = p(depth);
+  return `<div class="cookie-backdrop" data-cookie-backdrop hidden></div>
+<div class="cookie" data-cookie role="dialog" aria-modal="true"
+     aria-labelledby="cookie-title" aria-describedby="cookie-text" hidden>
+  <h2 class="cookie__title" id="cookie-title">Мы используем cookie</h2>
+  <p class="cookie__text" id="cookie-text">Файлы cookie помогают сайту работать
+  и запоминать ваши настройки. Продолжая пользоваться сайтом, вы соглашаетесь
+  с <a href="${r}legal/fz152/index.html">политикой обработки персональных данных</a>.</p>
+  <div class="cookie__actions">
+    <button type="button" class="btn btn--primary" data-cookie-accept>Принять</button>
+    <a class="btn btn--ghost" href="${r}legal/fz152/index.html">Подробнее</a>
+  </div>
+</div>`;
+}
+
 function footer(depth) {
   const r = p(depth);
   return `<footer class="site-footer">
@@ -291,9 +346,9 @@ function footer(depth) {
           </a>
         </div>
         <div class="app-links app-links--footer">
-          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
-          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
-          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+          <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">${storeIcon()}<span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">${storeIcon()}<span>AppGallery</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">${storeIcon()}<span>RuStore</span></a>
         </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
@@ -342,7 +397,7 @@ function shell(depth, opt) {
     ? `\n  <link rel="canonical" href="${esc(opt.canonical)}">`
     : '';
   return `<!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"${opt.theme ? ` data-theme="${esc(opt.theme)}"` : ''}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -367,6 +422,8 @@ ${opt.content}
 </main>
 
 ${footer(depth)}
+
+${cookieBanner(depth)}
 
 <script src="${r}js/main.js" defer></script>${(opt.scripts || []).map(s => `\n<script src="${r}${s}" defer></script>`).join('')}
 </body>
@@ -440,5 +497,6 @@ function ctaBand(title, sub, actions) {
 module.exports = {
   shell, header, footer, breadcrumbs, trailFromRel, redirectPage,
   rowList, cardList, ctaBand, esc, p, siteP, absUrl, normalizeRel,
+  cookieBanner, storeIcon,
   DIR_LABELS, TEAM_CATS, NEWS_CATS, VISITOR_PAGES, LEGAL_PAGES
 };

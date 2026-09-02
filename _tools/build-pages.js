@@ -98,6 +98,7 @@ ${opt.specs ? `
   return lib.shell(1, {
     title: opt.h1 + ' — «Олимпия» Пермь',
     description: opt.metaDesc,
+    theme: opt.theme || '',
     content
   });
 }
@@ -192,6 +193,7 @@ write('swimming_center/index.html', dirPage({
 /* ============ 3. ФИТНЕС-ЦЕНТР ============ */
 write('fitness_center/index.html', dirPage({
   rel: 'fitness_center',
+  theme: 'fitness',
   h1: 'Фитнес-центр',
   lede: 'Самый большой фитнес-центр Пермского края: более 3500 м² под одной крышей с бассейнами.',
   metaDesc: 'Фитнес-центр «Олимпии» в Перми: тренажёрный зал 1600 м², оборудование Technogym и Matrix, групповые программы, аквааэробика, доступ в 50-метровый бассейн.',
@@ -266,6 +268,7 @@ write('spa_center/index.html', dirPage({
 /* ============ 5. КИНЕЗИТЕРАПИЯ ============ */
 write('center_kinesitherapy/index.html', dirPage({
   rel: 'center_kinesitherapy',
+  theme: 'fitness',
   h1: 'Центр кинезитерапии',
   lede: 'Движение — естественное лекарственное средство.',
   metaDesc: 'Центр кинезитерапии «Олимпии» в Перми: реабилитация опорно-двигательного аппарата, ЛФК, кинезиотейпирование, плантоскопия, медицинский массаж.',

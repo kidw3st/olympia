@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="fitness">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,21 @@
       <img class="nav-logo__img" src="../../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
-      <li><a href="../../index.html#dirs">Направления</a></li>
+      <li class="nav-group" data-nav-group="swim">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-swim">Плавание</button>
+        <div class="nav-group__menu" id="navmenu-swim">
+          <a href="../../pools/index.html">Бассейны<small>50 метров, детский, гидромассаж, сауны</small></a>
+          <a href="../../swimming_center/index.html">Центр детского плавания<small>Обучение с раннего возраста</small></a>
+          <a href="../../spa_center/index.html">SPA-центр<small>Массаж, ритуалы, восстановление</small></a>
+        </div>
+      </li>
+      <li class="nav-group" data-nav-group="fitness" data-theme-preview="fitness">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-fitness">Фитнес</button>
+        <div class="nav-group__menu" id="navmenu-fitness">
+          <a href="../../fitness_center/index.html">Фитнес-центр<small>3500 м², тренажёры и групповые</small></a>
+          <a href="../../center_kinesitherapy/index.html">Кинезитерапия<small>Реабилитация движением</small></a>
+        </div>
+      </li>
       <li><a href="../../timetable/index.html">Расписание</a></li>
       <li><a href="../../price/index.html">Цены</a></li>
       <li><a href="../../actions/index.html">Акции</a></li>
@@ -46,7 +60,13 @@
   </div>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="../../index.html#dirs">Направления</a>
+  <span class="mobile-menu__group">Плавание</span>
+  <a class="mobile-menu__sub" href="../../pools/index.html">Бассейны</a>
+  <a class="mobile-menu__sub" href="../../swimming_center/index.html">Центр детского плавания</a>
+  <a class="mobile-menu__sub" href="../../spa_center/index.html">SPA-центр</a>
+  <span class="mobile-menu__group">Фитнес</span>
+  <a class="mobile-menu__sub" href="../../fitness_center/index.html">Фитнес-центр</a>
+  <a class="mobile-menu__sub" href="../../center_kinesitherapy/index.html">Кинезитерапия</a>
   <a href="../../timetable/index.html">Расписание</a>
   <a href="../../price/index.html">Цены</a>
   <a href="../../actions/index.html">Акции</a>
@@ -183,9 +203,9 @@
           </a>
         </div>
         <div class="app-links app-links--footer">
-          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
-          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
-          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+          <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>AppGallery</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>RuStore</span></a>
         </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
@@ -226,6 +246,19 @@
     </svg>
   </div>
 </footer>
+
+<div class="cookie-backdrop" data-cookie-backdrop hidden></div>
+<div class="cookie" data-cookie role="dialog" aria-modal="true"
+     aria-labelledby="cookie-title" aria-describedby="cookie-text" hidden>
+  <h2 class="cookie__title" id="cookie-title">Мы используем cookie</h2>
+  <p class="cookie__text" id="cookie-text">Файлы cookie помогают сайту работать
+  и запоминать ваши настройки. Продолжая пользоваться сайтом, вы соглашаетесь
+  с <a href="../../legal/fz152/index.html">политикой обработки персональных данных</a>.</p>
+  <div class="cookie__actions">
+    <button type="button" class="btn btn--primary" data-cookie-accept>Принять</button>
+    <a class="btn btn--ghost" href="../../legal/fz152/index.html">Подробнее</a>
+  </div>
+</div>
 
 <script src="../../js/main.js" defer></script>
 </body>

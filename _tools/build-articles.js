@@ -38,8 +38,11 @@ function loadLastmod() {
     // карты скачаны в /tmp при обходе; вместо них читаем из site, если сохранены
   }
   // Карты сайта лежат в самой копии? Нет — тянем из manifest не выйдет. Читаем локальные sm-файлы, если есть.
+  // Карты сайта лежат в проекте: путь /tmp в Git Bash и в Node резолвится по-разному,
+  // из-за чего даты молча терялись.
+  const MAPS_DIR = path.join(__dirname, 'sitemaps');
   for (const name of ['sm-8.xml', 'sm-3.xml', 'sm-33.xml', 'sm-18.xml']) {
-    const fp = '/tmp/' + name;
+    const fp = path.join(MAPS_DIR, name);
     try {
       const xml = fs.readFileSync(fp, 'utf8');
       const re = /<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g;
@@ -217,6 +220,14 @@ ${a.body}
   return { articles, errors };
 }
 
+const MONTHS_SHORT = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн',
+  'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+function fmtDate(iso) {
+  const d = String(iso).slice(0, 10).split('-');
+  if (d.length !== 3) return '';
+  return Number(d[2]) + ' ' + MONTHS_SHORT[Number(d[1]) - 1] + ' ' + d[0];
+}
+
 function buildList(sec, articles) {
   // сортировка: по lastmod убыв., без даты — в конец в исходном порядке
   const sorted = articles.slice().sort((a, b) => (b.lastmod || '').localeCompare(a.lastmod || ''));
@@ -227,6 +238,17 @@ function buildList(sec, articles) {
     ...cats.map(c => `<button data-cat="${c}">${lib.esc(CAT_NAMES[c] || c)}</button>`),
     '</div>'].join('\n      ');
 
+  // фильтр по годам — по убыванию, только годы, где что-то есть
+  const years = [...new Set(sorted.map(a => (a.lastmod || '').slice(0, 4)).filter(Boolean))]
+    .sort((a, b) => b.localeCompare(a));
+  const yearPills = years.length > 1
+    ? ['<div class="filter-pills filter-pills--years" data-filter-year>',
+      '<span class="filter-pills__label">Период</span>',
+      '<button data-year="all" class="is-active">За всё время</button>',
+      ...years.map(y => `<button data-year="${y}">${y}</button>`),
+      '</div>'].join('\n      ')
+    : '';
+
   const rowsHtml = sorted.map(a => {
     // миниатюра: img уже с путём глубины 3; для списка глубина 1 — пересчёт
     let thumb = waveThumb;
@@ -235,11 +257,18 @@ function buildList(sec, articles) {
       const fixed = a.img.replace(/^(\.\.\/)+/, '../../');
       thumb = `<img src="${fixed}" alt="" loading="lazy">`;
     }
-    return `      <li data-cat="${a.cat}">
+    const year = a.lastmod ? a.lastmod.slice(0, 4) : '';
+    return `      <li data-cat="${a.cat}" data-year="${year}">
         <a class="row-link" href="${a.cat}/${a.slug}/index.html">
           <span class="row-link__thumb">${thumb}</span>
-          <span class="row-link__title">${lib.esc(a.title)}</span>
-          <span class="row-link__cat">${lib.esc(a.catName)}</span>
+          <span class="row-link__body">
+            <span class="row-link__title">${lib.esc(a.title)}</span>
+            ${a.preview ? `<span class="row-link__excerpt">${lib.esc(a.preview.slice(0, 130))}</span>` : ''}
+          </span>
+          <span class="row-link__meta">
+            ${a.lastmod ? `<time class="row-link__date" datetime="${a.lastmod.slice(0, 10)}">${fmtDate(a.lastmod)}</time>` : ''}
+            <span class="row-link__cat">${lib.esc(a.catName)}</span>
+          </span>
         </a>
       </li>`;
   }).join('\n');
@@ -253,9 +282,12 @@ function buildList(sec, articles) {
         : 'Маркетинговые предложения: скидки и спецпредложения. Режим работы — в новостях.'}</p>
     </div>
     ${pills}
+    ${yearPills}
     <ul class="rows">
 ${rowsHtml}
     </ul>
+    <p class="rows-empty" data-rows-empty hidden>За выбранный период в этом разделе
+    ничего нет. Снимите фильтр или выберите другой год.</p>
   </div>`;
 
   const page = lib.shell(1, {

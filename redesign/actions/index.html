@@ -23,7 +23,21 @@
       <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#dirs">Направления</a></li>
+      <li class="nav-group" data-nav-group="swim">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-swim">Плавание</button>
+        <div class="nav-group__menu" id="navmenu-swim">
+          <a href="../pools/index.html">Бассейны<small>50 метров, детский, гидромассаж, сауны</small></a>
+          <a href="../swimming_center/index.html">Центр детского плавания<small>Обучение с раннего возраста</small></a>
+          <a href="../spa_center/index.html">SPA-центр<small>Массаж, ритуалы, восстановление</small></a>
+        </div>
+      </li>
+      <li class="nav-group" data-nav-group="fitness" data-theme-preview="fitness">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-fitness">Фитнес</button>
+        <div class="nav-group__menu" id="navmenu-fitness">
+          <a href="../fitness_center/index.html">Фитнес-центр<small>3500 м², тренажёры и групповые</small></a>
+          <a href="../center_kinesitherapy/index.html">Кинезитерапия<small>Реабилитация движением</small></a>
+        </div>
+      </li>
       <li><a href="../timetable/index.html">Расписание</a></li>
       <li><a href="../price/index.html">Цены</a></li>
       <li><a href="../actions/index.html" aria-current="page">Акции</a></li>
@@ -46,7 +60,13 @@
   </div>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html#dirs">Направления</a>
+  <span class="mobile-menu__group">Плавание</span>
+  <a class="mobile-menu__sub" href="../pools/index.html">Бассейны</a>
+  <a class="mobile-menu__sub" href="../swimming_center/index.html">Центр детского плавания</a>
+  <a class="mobile-menu__sub" href="../spa_center/index.html">SPA-центр</a>
+  <span class="mobile-menu__group">Фитнес</span>
+  <a class="mobile-menu__sub" href="../fitness_center/index.html">Фитнес-центр</a>
+  <a class="mobile-menu__sub" href="../center_kinesitherapy/index.html">Кинезитерапия</a>
   <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
@@ -68,440 +88,816 @@
     </div>
     <div class="filter-pills" data-filter>
       <button data-cat="all" class="is-active">Все</button>
-      <button data-cat="basseyn">Бассейны</button>
       <button data-cat="fitnes-tsentr">Фитнес-центр</button>
-      <button data-cat="kineziterapiya">Кинезитерапия</button>
+      <button data-cat="basseyn">Бассейны</button>
       <button data-cat="spa-tsentr">SPA-центр</button>
+      <button data-cat="kineziterapiya">Кинезитерапия</button>
+      </div>
+    <div class="filter-pills filter-pills--years" data-filter-year>
+      <span class="filter-pills__label">Период</span>
+      <button data-year="all" class="is-active">За всё время</button>
+      <button data-year="2026">2026</button>
+      <button data-year="2025">2025</button>
+      <button data-year="2024">2024</button>
+      <button data-year="2023">2023</button>
       </div>
     <ul class="rows">
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/-30-dney-zamorozki-na-klubnye-karty-360-dney/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">+30 дней &amp;quot;заморозки&amp;quot;  в подарок к картам 360 дней!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/aktsiya-privedite-firmu-i-poluchite-abonement/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Приведите фирму, и получите АБОНЕМЕНТ и скидку</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/akva-layt/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Бесплатные занятия аквааэробикой для посетителей бассейнов в пн и чт!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/basseyn-besplatno-dlya-detey-do-10-let-23-fevralya/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Бассейн бесплатно для детей до 10 лет 23 февраля</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/basseyn-besplatno-dlya-detey-do-14-let-/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Бассейны бесплатно для детей до 10 лет</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/chay-dnya-v-spa-tsentre/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Чай дня в спа-центре</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/den-rozhdeniya-v-olimpii/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/d29/d290f159a8502e03f1a8894418834087.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка 30% на плавание в день рождения</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/derzhim-starye-tseny-do-kontsa-yanvarya/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Держим старые цены до конца января</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/dlya-uchastnikov-svo/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Скидка 25% для ветеранов боевых действий СВО</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/khalyava-lovis-dni-studenta-/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0b9/3bqqvouibn37eaabxr00o3wve7z7tsx8.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Дни студента!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/kiberponedelnik-50-na-fitnes/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/8da/8daffb2b509d0a9c2d89e3bb4286cd46.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Киберпонедельник -50% на Фитнес!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/klubnye-karty-v-rassrochku-bez-pereplaty/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Клубные карты в рассрочку без переплаты!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/letnie-karty-olimpii/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Летние карты -45%</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/leto-kruglyy-god-/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Лето круглый год!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/leto-v-basseynakh-olimpii/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Лето в бассейнах Олимпии!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/lgotnye-tseny-dlya-mnogodetnykh-po-budnyam/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Льготные цены для многодетных по будням</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/lgotnye-tseny-dlya-pensionerov/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/d29/d290f159a8502e03f1a8894418834087.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Льготные цены для Пенсионеров</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/mama-i-malysh-pervaya-trenirovka-besplatno/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/90b/e525j0qd2hnnygnuhf4giitgxlkyhzel.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Мама и малыш: первая тренировка бесплатно</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/mayskie-prazdniki-v-olimpii/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Майские праздники в Олимпии</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/podarochnaya-karta-ideya-dlya-podarka/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Подарочная карта - идея для подарка!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/pravila-povedeniya-na-vode/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Правила поведения на воде!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/predmayskoe-nastroenie-skidka-30-na-vse-klubnye-karty-90-dney/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/384/bdicujn7exo9rn2fpczggrwrp5xtj9of.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Предмайское настроение! Скидка -50% на клубные карты 120 дней</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/programma-loyalnosti-svobodnoe-plavanie/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Программа лояльности &amp;quot;Свободное плавание&amp;quot;</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/rozygrysh-iphone17promax/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Розыгрыш iPhone в Фитнес-центре!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/schastlivye-chasy-v-olimpii/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Счастливые часы в Олимпии</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/skidka-30-dlya-korporativnykh-klientov-na-abonementy-po-7-marta/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Скидка 30% для корпоративных клиентов на разовые посещения по 7 марта</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/skidka-40-na-karty-fitnes-fitnes-plavanie-i-plavanie/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/613/gk85r19942t8xv7dru814dq04cuw0zcm.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка 40% на карты «Фитнес», «Фитнес+Плавание» и «Плавание»</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/skidka-50-na-razovye-poseshcheniya-29-31-dekabrya/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0b9/3bqqvouibn37eaabxr00o3wve7z7tsx8.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка -50% на разовые посещения 29-31 декабря</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/skidki-dlya-studentov-na-plavanie-i-fitnes-25-01-25/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Скидки для студентов на плавание и фитнес 25.01.25 до 50%</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/spetsialnaya-tsena-na-plavanie-dlya-studentov/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Специальная цена на плавание для студентов</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/spravka-dopusk-dlya-uchastnikov-zabegov/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Справка-допуск со скидкой -20% для участников забегов!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/superleto-v-olimpii/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Суперлето в Олимпии!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/vesennie-skidki-v-olimpii-do-30-na-basseyn-fitnes-i-spa/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/53f/4h5mfh2sou5u034fi4vlmesawldqet1n.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Весенние скидки в Олимпии до -30% на бассейн, фитнес и спа!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/vozvrashchenie-v-olimpiyu/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Возвращение в Олимпию!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/vremya-muzhskikh-podarkov/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Время мужских подарков!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/zharkoe-leto-v-olimpii/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Жаркое лето в «Олимпии!»</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/zhenshchinam-skidka-50-na-razovye-fitnes-i-basseyn/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Женщинам скидка 50% на разовые посещения фитнес и бассейн!</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="basseyn">
-        <a class="row-link" href="basseyn/zhenshchinam-skidka-50-na-razovye-poseshcheniya-08-03-2025-fitnes-basseyn/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Женщинам скидка 50% на разовые посещения 08.03.2025 (фитнес, бассейн)</span>
-          <span class="row-link__cat">Бассейны</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/aktsiya-privedi-druga-v-fitnes-/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Акция &amp;quot;Приведи друга в Фитнес!&amp;quot;</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/fitnes-dlya-vsekh-50-na-klubnye-karty/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Фитнес для всех: скидка 50% на клубные карты!</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/fitnes-idyet-v-basseyn-besplatno/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Фитнес идёт в бассейн бесплатно!</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/kiberponedelnik-50-na-fitnes-i-plavanie/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/3a6/3a600e7e679c7e7a2d04f6b9e311a3e9.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Киберпонедельник -50% на Фитнес и Бассейн!</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/meditsinskoe-testirovanie-organizma-ms-fit-so-skidkoy-60/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Медицинское тестирование организма MS Fit со скидкой 60%</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/muzhchinam-skidka-23-na-klubnye-karty-fitnes/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Мужчинам скидка 23% на клубные карты &amp;quot;Фитнес&amp;quot; 21-23 февраля</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/prodlevaem-sezonnye-klubnye-karty-8-mesyatsev-/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Сезонные клубные карты 8 месяцев!</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/programma-loyalnosti-v-fitnes-tsentre/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Программа лояльности в фитнес-центре</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
-        <a class="row-link" href="fitnes-tsentr/skidka-10-pri-pokupke-dvukh-i-bolee-klubnykh-kart/index.html">
-          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Скидка 10% при покупке двух и более клубных карт в фитнес центре</span>
-          <span class="row-link__cat">Фитнес-центр</span>
-        </a>
-      </li>
-      <li data-cat="fitnes-tsentr">
+      <li data-cat="fitnes-tsentr" data-year="2026">
         <a class="row-link" href="fitnes-tsentr/start-sezona-2026-2027/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/384/bdicujn7exo9rn2fpczggrwrp5xtj9of.png" alt="" loading="lazy"></span>
-          <span class="row-link__title">Старт сезона 26/27! Клубные карты до -20%</span>
-          <span class="row-link__cat">Фитнес-центр</span>
+          <span class="row-link__body">
+            <span class="row-link__title">Старт сезона 26/27! Клубные карты до -20%</span>
+            <span class="row-link__excerpt">Уральское лето подходит к концу, а в «Олимпии» Вас по‑прежнему ждут отличные предложения! Только с 17 по 31 августа: Скидка 20% на</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-08-26">26 авг 2026</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
         </a>
       </li>
-      <li data-cat="kineziterapiya">
-        <a class="row-link" href="kineziterapiya/skidka-50-na-konsultatsiyu-vracha-kineziterapevta/index.html">
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/basseyn-besplatno-dlya-detey-do-14-let-/index.html">
           <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Скидка 50% на консультацию врача-кинезитерапевта по 31.03.25</span>
-          <span class="row-link__cat">Кинезитерапия</span>
+          <span class="row-link__body">
+            <span class="row-link__title">Бассейны бесплатно для детей до 10 лет</span>
+            <span class="row-link__excerpt">« Дни знаний» в Олимпии! С 29 августа по 1 сентября бассейны бесплатно для детей до 10 лет Уважаемые Гости Спорткомплекса, приглаш</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-08-26">26 авг 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="kineziterapiya">
-        <a class="row-link" href="kineziterapiya/skidki-15-v-tsentre-kineziterapii-olimpiya/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/fcd/fcd75576170a067abfd74cd23ea037b4.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидки -15% при покупке реабилитационного курса в Центре кинезитерапии</span>
-          <span class="row-link__cat">Кинезитерапия</span>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/pravila-povedeniya-na-vode/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Правила поведения на воде!</span>
+            <span class="row-link__excerpt">Играйте и&amp;nbsp;получайте подарки! Мы знаем, как важно для вас проводить время с детьми с пользой и удовольствием. Поэтому мы подго</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-08-24">24 авг 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/goryashchie-predlozheniya-v-spa-tsentre/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">&amp;quot;Горящие предложения&amp;quot; в СПА-центре!</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="fitnes-tsentr" data-year="2026">
+        <a class="row-link" href="fitnes-tsentr/fitnes-idyet-v-basseyn-besplatno/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Фитнес идёт в бассейн бесплатно!</span>
+            <span class="row-link__excerpt">С 24 августа по 10 сентября владельцы действующих клубных карт и абонементов «Фитнес» могут бесплатно посещать бассейны «Олимпии».</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-08-24">24 авг 2026</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/krasivyy-vozrast-skidka-10-v-spa/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Красивый возраст. Скидка 10% в СПА</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/programma-loyalnosti-svobodnoe-plavanie/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Программа лояльности &amp;quot;Свободное плавание&amp;quot;</span>
+            <span class="row-link__excerpt">В течение 10 дней после окончания срока действия имеющейся клубной карты или последнего посещения по имеющемуся именному абонемент</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-08-12">12 авг 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/letniy-massazh-so-skidkoy-20/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Продлеваем летний массаж со скидкой 20%</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="fitnes-tsentr" data-year="2026">
+        <a class="row-link" href="fitnes-tsentr/prodlevaem-sezonnye-klubnye-karty-8-mesyatsev-/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Сезонные клубные карты 8 месяцев!</span>
+            <span class="row-link__excerpt">Август - время для Вашей максимальной выгоды!* Только в августе&amp;nbsp;для Вас специальное предложение -&amp;nbsp; Сезонные клубные&amp;nbsp</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-08-03">3 авг 2026</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/programma-loyalnosti-spa/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Программа лояльности в спа центре</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/spravka-dopusk-dlya-uchastnikov-zabegov/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Справка-допуск со скидкой -20% для участников забегов!</span>
+            <span class="row-link__excerpt">Время не ждет — успей оформить медицинскую справку-допуск для участия в забегах и марафонах со скидкой -20%!&amp;nbsp; &amp;nbsp; Наименов</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-07-28">28 июл 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/skidka-15-na-meditsinskiy-massazh-s-1-po-10-marta/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка 15% на медицинский массаж с 1 по 10 марта</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/zharkoe-leto-v-olimpii/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Жаркое лето в «Олимпии!»</span>
+            <span class="row-link__excerpt">Специальные летние предложения: 1. Скидка -30% на все разовые посещения бассейнов детские, взрослые и льготные. Еженедельно по пят</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-07-01">1 июл 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
+      <li data-cat="spa-tsentr" data-year="2026">
         <a class="row-link" href="spa-tsentr/skidka-15-na-pressoterapiyu-/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка -20% на прессотерапию</span>
-          <span class="row-link__cat">SPA-центр</span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка -20% на прессотерапию</span>
+            <span class="row-link__excerpt">Скидка -20% на прессотерапию с 1 июля по 31 августа 2026 г.: &amp;nbsp; Наименование &amp;nbsp; &amp;nbsp; Стоимость процедуры (руб.) &amp;nbsp; &amp;</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-07-01">1 июл 2026</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/skidka-23-na-obshchiy-massazh-60-minut-dlya-muzhchin-21-23-fevralya/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка 23% на общий массаж 60 минут для мужчин 21-23 февраля</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/letnie-karty-olimpii/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Летние карты -45%</span>
+            <span class="row-link__excerpt">С 1 по 31 июля на летние карты &quot;Фитнес&quot; скидка -45% &amp;nbsp; Фитнес 90 дней полного дня&amp;nbsp; &amp;nbsp;25 700 руб.&amp;nbsp; &amp;nbsp;&amp;nbsp; 1</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-07-01">1 июл 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/skidki-do-15-na-spa-protsedury-litso/index.html">
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/leto-v-basseynakh-olimpii/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Лето в бассейнах Олимпии!</span>
+            <span class="row-link__excerpt">Мы приготовили для Вас специальное летнее предложение на плавание: Летние абонементы в бассейн со скидкой до -30%. Наименование&amp;nb</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-06-30">30 июн 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/leto-kruglyy-god-/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Лето круглый год!</span>
+            <span class="row-link__excerpt">Продолжаем Вас радовать выгодными предложениями в Спорткомплексе «Олимпия». С 15 по 30 июня скидка до -20% на все годовые клубные </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-06-30">30 июн 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="kineziterapiya" data-year="2026">
+        <a class="row-link" href="kineziterapiya/skidki-15-v-tsentre-kineziterapii-olimpiya/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/fcd/fcd75576170a067abfd74cd23ea037b4.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидки -15% при покупке реабилитационного курса в Центре кинезитерапии</span>
+            <span class="row-link__excerpt">Уважаемые посетители центра Кинезитерапии! Мы рады сообщить, что в центре Кинезитерапии действует АКЦИЯ: Скидка 15 % — на покупку </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-06-23">23 июн 2026</time>
+            <span class="row-link__cat">Кинезитерапия</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/akva-layt/index.html">
           <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
-          <span class="row-link__title">Скидки до 15% на спа-процедуры (лицо)</span>
-          <span class="row-link__cat">SPA-центр</span>
+          <span class="row-link__body">
+            <span class="row-link__title">Бесплатные занятия аквааэробикой для посетителей бассейнов в пн и чт!</span>
+            <span class="row-link__excerpt">Занятия &quot;аква-лайт&quot; — легкий и приятный вариант аквааэробики. Специализированная программа для людей старше 50 лет. Аквафитнес тре</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-06-02">2 июн 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
-        <a class="row-link" href="spa-tsentr/u-vas-skoro-den-rozhdeniya/index.html">
-          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Скидка -15% в день рождения в СПА центре</span>
-          <span class="row-link__cat">SPA-центр</span>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/superleto-v-olimpii/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Суперлето в Олимпии!</span>
+            <span class="row-link__excerpt">Скидка -50% на клубную карту карты 30 дней&amp;nbsp;«Фитнес+Плавание»: &amp;nbsp; Клубная карта полного дня&amp;nbsp; &amp;nbsp; Старая цена, руб.</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-06-02">2 июн 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
+      <li data-cat="fitnes-tsentr" data-year="2026">
+        <a class="row-link" href="fitnes-tsentr/fitnes-dlya-vsekh-50-na-klubnye-karty/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Фитнес для всех: скидка 50% на клубные карты!</span>
+            <span class="row-link__excerpt">Скидка 50% на клубные карты 180 дней&amp;nbsp;«Фитнес» и «Фитнес+Плавание»: &amp;nbsp; Клубная карта полного дня &amp;nbsp; &amp;nbsp; Старая цена</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-05-26">26 мая 2026</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/mayskie-prazdniki-v-olimpii/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Майские праздники в Олимпии</span>
+            <span class="row-link__excerpt">Майские праздники – это идеальное время, чтобы провести их всей семьей в&amp;nbsp;« Олимпии», зарядиться энергией и отличным настроени</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-05-06">6 мая 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/predmayskoe-nastroenie-skidka-30-na-vse-klubnye-karty-90-dney/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/384/bdicujn7exo9rn2fpczggrwrp5xtj9of.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Предмайское настроение! Скидка -50% на клубные карты 120 дней</span>
+            <span class="row-link__excerpt">Радуем Вас&amp;nbsp;скидками в Спорткомплексе «Олимпия». Скидка -50% на&amp;nbsp;клубные карты&amp;nbsp; Плавание, Фитнес, Фитнес+Плавание 120</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-04-13">13 апр 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/lgotnye-tseny-dlya-pensionerov/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/d29/d290f159a8502e03f1a8894418834087.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Льготные цены для Пенсионеров</span>
+            <span class="row-link__excerpt">Специальные цены на посещение бассейнов Спорткомплекса для пенсионеров. Наименование Время Длительность посещения&amp;nbsp; &amp;nbsp;&amp;nbs</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-04-10">10 апр 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/aktsiya-privedite-firmu-i-poluchite-abonement/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Приведите фирму, и получите АБОНЕМЕНТ и скидку</span>
+            <span class="row-link__excerpt">Как получить абонемент в «Олимпию» на 5 посещений в подарок и скидку для всей компании 15%? Вариант №1: Корпоративное посещение «О</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-04-03">3 апр 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2026">
         <a class="row-link" href="spa-tsentr/znakomstvo-s-masterom-po-30-04-2026-pechenkina-larisa/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Знакомство с мастером по 30.04.2026 Печенкина Лариса</span>
-          <span class="row-link__cat">SPA-центр</span>
+          <span class="row-link__body">
+            <span class="row-link__title">Знакомство с мастером по 30.04.2026 Печенкина Лариса</span>
+            <span class="row-link__excerpt">С 1 по 30 апреля приглашаем на массаж, акция &quot;Знакомство с мастером&quot;. Первый раз в спа-центре Олимпия? Еще не были на массаже? Для</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-30">30 мар 2026</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
         </a>
       </li>
-      <li data-cat="spa-tsentr">
+      <li data-cat="spa-tsentr" data-year="2026">
         <a class="row-link" href="spa-tsentr/znakomstvo-s-masterom-po-31-03-2026-kosmetik-estetist-beklemyshev-aleksey/index.html">
           <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
-          <span class="row-link__title">Знакомство с мастером по 31.03.2026 Беклемышевым Алексеем</span>
-          <span class="row-link__cat">SPA-центр</span>
+          <span class="row-link__body">
+            <span class="row-link__title">Знакомство с мастером по 31.03.2026 Беклемышевым Алексеем</span>
+            <span class="row-link__excerpt">С 1 по 31 марта приглашаем на массаж, акция &quot;Знакомство с мастером&quot;. Первый раз в спа-центре Олимпия? Еще не были на массаже? Для </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-30">30 мар 2026</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/rozygrysh-iphone17promax/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Розыгрыш iPhone в Фитнес-центре!</span>
+            <span class="row-link__excerpt">Время инвестировать в себя - и выигрывать по-крупному! Фитнес-центр&amp;nbsp;«Олимпия» запускает розыгрыш, где главным призом станет..</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-30">30 мар 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="fitnes-tsentr" data-year="2026">
+        <a class="row-link" href="fitnes-tsentr/kiberponedelnik-50-na-fitnes-i-plavanie/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/3a6/3a600e7e679c7e7a2d04f6b9e311a3e9.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Киберпонедельник -50% на Фитнес и Бассейн!</span>
+            <span class="row-link__excerpt">Только с 30 по 31 марта скидка 50% на все клубные карты 180 дней полного дня: &amp;nbsp; Фитнес&amp;nbsp; &amp;nbsp; 40 700 руб. &amp;nbsp;20 350 </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-30">30 мар 2026</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/dlya-uchastnikov-svo/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 25% для ветеранов боевых действий СВО</span>
+            <span class="row-link__excerpt">Скидка 25% в Олимпии для ветеранов боевых действий СВО и их детей до 18 лет. Скидка предоставляется на разовые посещения, именные </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-17">17 мар 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/vesennie-skidki-v-olimpii-do-30-na-basseyn-fitnes-i-spa/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/53f/4h5mfh2sou5u034fi4vlmesawldqet1n.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Весенние скидки в Олимпии до -30% на бассейн, фитнес и спа!</span>
+            <span class="row-link__excerpt">С 1&amp;nbsp;по 15 марта&amp;nbsp;скидки в Олимпии на абонементы и клубные карты&amp;nbsp;«Фитнес», «Фитнес+Плавание» и&amp;nbsp;«СПА». Скидка 30%</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-11">11 мар 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/zhenshchinam-skidka-50-na-razovye-fitnes-i-basseyn/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Женщинам скидка 50% на разовые посещения фитнес и бассейн!</span>
+            <span class="row-link__excerpt">Для женщин 8 марта скидка&amp;nbsp; 50% на &amp;nbsp;разовые посещения: -&amp;nbsp; Плавание ; -&amp;nbsp; Фитнес и&amp;nbsp; Фитнес + плавание . Дети</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-03-02">2 мар 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/-30-dney-zamorozki-na-klubnye-karty-360-dney/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">+30 дней &amp;quot;заморозки&amp;quot;  в подарок к картам 360 дней!</span>
+            <span class="row-link__excerpt">Уважаемые клиенты, спешим порадовать Вас! С 25 по 28 февраля&amp;nbsp;при покупке клубных карт 360 дней&amp;nbsp; &amp;nbsp;+30 дней бесплатно</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-02-25">25 фев 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2026">
+        <a class="row-link" href="spa-tsentr/goryashchie-predlozheniya-v-spa-tsentre/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">&amp;quot;Горящие предложения&amp;quot; в СПА-центре!</span>
+            <span class="row-link__excerpt">Приятнейшие события для наших постоянных клиентов! Если вы внимательно следите за нашими обновлениями в группе&amp;nbsp; СПА-центра &amp;n</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-02-25">25 фев 2026</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/vremya-muzhskikh-podarkov/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Время мужских подарков!</span>
+            <span class="row-link__excerpt">Мужская сила заслуживает лучшего! Мы приготовили подарки для мужчин 23 февраля: Скидка -23% на клубные карты с 21 по 23 февраля: &amp;</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-02-16">16 фев 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2026">
+        <a class="row-link" href="spa-tsentr/u-vas-skoro-den-rozhdeniya/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка -15% в день рождения в СПА центре</span>
+            <span class="row-link__excerpt">Каждому имениннику мы дарим скидку 15% на массаж,&amp;nbsp;спа-процедуры по уходу за лицом и телом, микротоковую терапию. Этой скидкой</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-02-04">4 фев 2026</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/mama-i-malysh-pervaya-trenirovka-besplatno/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/90b/e525j0qd2hnnygnuhf4giitgxlkyhzel.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Мама и малыш: первая тренировка бесплатно</span>
+            <span class="row-link__excerpt">«Мама и малыш» — программа групповых занятий в бассейне для детей от 3-х месяцев до 4-х&amp;nbsp;лет.&amp;nbsp;Занятия проходят под руково</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-26">26 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/lgotnye-tseny-dlya-mnogodetnykh-po-budnyam/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Льготные цены для многодетных по будням</span>
+            <span class="row-link__excerpt">Специальные цены на посещение бассейнов Спорткомплекса для многодетных семей. Наименование Время Длительность посещения&amp;nbsp; &amp;nbs</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-26">26 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/schastlivye-chasy-v-olimpii/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Счастливые часы в Олимпии</span>
+            <span class="row-link__excerpt">Счастливые часы для посещения бассейнов Спорткомплекса по выгодным ценам. Наименование Время Длительность посещения&amp;nbsp; &amp;nbsp;&amp;n</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-26">26 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/vozvrashchenie-v-olimpiyu/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Возвращение в Олимпию!</span>
+            <span class="row-link__excerpt">Январь - лучшее время вернуться в&amp;nbsp;«Олимпию»!&amp;nbsp; Хватит откладывать на &quot;потом&quot;! &quot;Потом&quot; – это прямо сейчас! Специальное&amp;nbs</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-21">21 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/khalyava-lovis-dni-studenta-/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0b9/3bqqvouibn37eaabxr00o3wve7z7tsx8.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Дни студента!</span>
+            <span class="row-link__excerpt">В честь дня студента с 25 по 31 января скидки студентам до 50%! 25 января скидка 50% на все разовые посещения: Плавание; Фитнес; Ф</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-20">20 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/spetsialnaya-tsena-na-plavanie-dlya-studentov/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Специальная цена на плавание для студентов</span>
+            <span class="row-link__excerpt">Еще только учитесь? Специальные цены на посещение бассейнов Спорткомплекса для студентов очных дневных отделений высших и средних </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-14">14 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/chay-dnya-v-spa-tsentre/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Чай дня в спа-центре</span>
+            <span class="row-link__excerpt">Приглашаем на чай! ЧАЙ ДНЯ -50% Приходите отдохнуть и окунуться в атмосферу удовольствия: фитобар, чай и различные процедуры, кото</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-13">13 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2026">
+        <a class="row-link" href="basseyn/derzhim-starye-tseny-do-kontsa-yanvarya/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/712/712ed46d795e247cf6b9ac721b064406.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Держим старые цены до конца января</span>
+            <span class="row-link__excerpt">Ян варь - лучший месяц, чтобы начать! Начать новую жизнь, начать больше уделять времени себе, своим родным и близким, начать вопло</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2026-01-05">5 янв 2026</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/podarochnaya-karta-ideya-dlya-podarka/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Подарочная карта - идея для подарка!</span>
+            <span class="row-link__excerpt">Находитесь в поисках полезного и впечатляющего подарка на Новый Год? Выбирайте подарочные карты Спорткомплекса «Олимпия»! Подарочн</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-12-25">25 дек 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2025">
+        <a class="row-link" href="spa-tsentr/letniy-massazh-so-skidkoy-20/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Продлеваем летний массаж со скидкой 20%</span>
+            <span class="row-link__excerpt">&amp;nbsp;Общий разовый &amp;nbsp; Старая цена, руб. &amp;nbsp;Новая цена по акции, руб. &amp;nbsp;Массаж 60 минут &amp;nbsp; 2870 &amp;nbsp; 2296 &amp;nbsp;М</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-08-22">22 авг 2025</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="fitnes-tsentr" data-year="2025">
+        <a class="row-link" href="fitnes-tsentr/aktsiya-privedi-druga-v-fitnes-/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Акция &amp;quot;Приведи друга в Фитнес!&amp;quot;</span>
+            <span class="row-link__excerpt">Приходите с друзьями в Фитнес-центр и получайте выгоду вместе! Отличные тренировки в отличном фитнесе становятся ещё лучше, когда </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-06-17">17 июн 2025</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/skidka-40-na-karty-fitnes-fitnes-plavanie-i-plavanie/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/613/gk85r19942t8xv7dru814dq04cuw0zcm.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 40% на карты «Фитнес», «Фитнес+Плавание» и «Плавание»</span>
+            <span class="row-link__excerpt">Начни лето в Олимпии! &amp;nbsp; &amp;nbsp;Летняя Клубная карта полного дня &amp;nbsp;Старая цена, руб. &amp;nbsp;Новая цена, руб . Фитнес, 90 дне</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-06-02">2 июн 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/kiberponedelnik-50-na-fitnes/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/8da/8daffb2b509d0a9c2d89e3bb4286cd46.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Киберпонедельник -50% на Фитнес!</span>
+            <span class="row-link__excerpt">Только 31 марта&amp;nbsp;скидка&amp;nbsp;50% на&amp;nbsp;клубные карты Фитнес Скидка -50% на все клубные карты 90 дней.&amp;nbsp;&amp;nbsp; &amp;nbsp; Клу</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-03-28">28 мар 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/zhenshchinam-skidka-50-na-razovye-poseshcheniya-08-03-2025-fitnes-basseyn/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Женщинам скидка 50% на разовые посещения 08.03.2025 (фитнес, бассейн)</span>
+            <span class="row-link__excerpt">Для женщин 8 марта скидка 50% на &amp;nbsp;разовые посещения: - Плавание ; - Фитнес и&amp;nbsp; Фитнес + плавание . Дети до 10 лет бесплат</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-03-05">5 мар 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2025">
+        <a class="row-link" href="spa-tsentr/skidka-15-na-meditsinskiy-massazh-s-1-po-10-marta/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 15% на медицинский массаж с 1 по 10 марта</span>
+            <span class="row-link__excerpt">Приглашаем на массажи в СПА центр! Весна - лучшее время, чтобы порадовать себя! А мы порадуем вас специальным предложением: с 1 по</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-02-26">26 фев 2025</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2025">
+        <a class="row-link" href="spa-tsentr/skidka-23-na-obshchiy-massazh-60-minut-dlya-muzhchin-21-23-fevralya/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 23% на общий массаж 60 минут для мужчин 21-23 февраля</span>
+            <span class="row-link__excerpt">Скидка 23% на общий массаж продолжительностью 60 минут Старая цена: 2590 руб. Цена процедуры по акции: 1994 руб. После массажа вы </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-02-18">18 фев 2025</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/skidka-30-dlya-korporativnykh-klientov-na-abonementy-po-7-marta/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 30% для корпоративных клиентов на разовые посещения по 7 марта</span>
+            <span class="row-link__excerpt">С 10 февраля по 7&amp;nbsp;марта&amp;nbsp;приобретайте разовые посещения и абонементы до 4-х посещений (включительно) со скидкой 30%: Плав</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-02-13">13 фев 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/basseyn-besplatno-dlya-detey-do-10-let-23-fevralya/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Бассейн бесплатно для детей до 10 лет 23 февраля</span>
+            <span class="row-link__excerpt">Приглашаем 23 февраля &amp;nbsp; детей до 10 лет посетить бассейн бесплатно,&amp;nbsp;в сопровождении взрослого. График работы Спорткомпле</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-02-11">11 фев 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="fitnes-tsentr" data-year="2025">
+        <a class="row-link" href="fitnes-tsentr/muzhchinam-skidka-23-na-klubnye-karty-fitnes/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Мужчинам скидка 23% на клубные карты &amp;quot;Фитнес&amp;quot; 21-23 февраля</span>
+            <span class="row-link__excerpt">С 21 по 23 февраля скидка 23% на все клубные карты &quot;Фитнес&quot; продолжительностью 30, 90 и 180 дней для мужчин В «Олимпии» самый боль</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-02-07">7 фев 2025</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="kineziterapiya" data-year="2025">
+        <a class="row-link" href="kineziterapiya/skidka-50-na-konsultatsiyu-vracha-kineziterapevta/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 50% на консультацию врача-кинезитерапевта по 31.03.25</span>
+            <span class="row-link__excerpt">До конца марта в Центре Кинезитерапии &quot;Олимпия&quot; скидка 50% на первичный прием врача-кинезитерапевта! Консультация состоит из двух </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-01-31">31 янв 2025</time>
+            <span class="row-link__cat">Кинезитерапия</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2025">
+        <a class="row-link" href="basseyn/skidki-dlya-studentov-na-plavanie-i-fitnes-25-01-25/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидки для студентов на плавание и фитнес 25.01.25 до 50%</span>
+            <span class="row-link__excerpt">В честь дня студента 25&amp;nbsp;января скидки студентам до 50%! Скидка 50% на все разовые посещения по тарифам: Плавание взрослые Пла</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-01-24">24 янв 2025</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2025">
+        <a class="row-link" href="spa-tsentr/krasivyy-vozrast-skidka-10-v-spa/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Красивый возраст. Скидка 10% в СПА</span>
+            <span class="row-link__excerpt">Скидка 10% предоставляется на услуги спа центра для: женщин 55 лет и старше по предъявлению документа, подтверждающего достижение </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-01-23">23 янв 2025</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2025">
+        <a class="row-link" href="spa-tsentr/programma-loyalnosti-spa/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Программа лояльности в спа центре</span>
+            <span class="row-link__excerpt">Уважаемые гости спа центра!&amp;nbsp; С 1 февраля 2024 года в спа центре действует&amp;nbsp; скидка 10% на абонементы по тарифам: - массаж</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-01-23">23 янв 2025</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="fitnes-tsentr" data-year="2025">
+        <a class="row-link" href="fitnes-tsentr/skidka-10-pri-pokupke-dvukh-i-bolee-klubnykh-kart/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 10% при покупке двух и более клубных карт в фитнес центре</span>
+            <span class="row-link__excerpt">При единовременной покупке от 2х и более клубных карт &quot;Фитнес&quot; и/или&amp;nbsp; &quot;Фитнес + плавание&quot; 360 дней - предоставляется скидка 1</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2025-01-16">16 янв 2025</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2024">
+        <a class="row-link" href="basseyn/skidka-50-na-razovye-poseshcheniya-29-31-dekabrya/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/0b9/3bqqvouibn37eaabxr00o3wve7z7tsx8.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка -50% на разовые посещения 29-31 декабря</span>
+            <span class="row-link__excerpt">Успеть до Нового Года! Завершаем год вместе! Идём в Олимпию!&amp;nbsp; С 29 по 31 декабря Скидка 50% на разовые посещения в режиме &quot;Св</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2024-12-17">17 дек 2024</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="spa-tsentr" data-year="2024">
+        <a class="row-link" href="spa-tsentr/skidki-do-15-na-spa-protsedury-litso/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидки до 15% на спа-процедуры (лицо)</span>
+            <span class="row-link__excerpt">В преддверии Нового года всегда хочется выглядеть обворожительно! Поэтому предлагаем вам сходить в наш СПА-центр на массаж тела и </span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2024-12-12">12 дек 2024</time>
+            <span class="row-link__cat">SPA-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="fitnes-tsentr" data-year="2024">
+        <a class="row-link" href="fitnes-tsentr/meditsinskoe-testirovanie-organizma-ms-fit-so-skidkoy-60/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/54b/znluwp50ievw631q2hj2nzxy8v0dmqhb.jpg" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Медицинское тестирование организма MS Fit со скидкой 60%</span>
+            <span class="row-link__excerpt">До конца декабря скидка на&amp;nbsp;медицинское тестирование организма на сенсорном аппарате MS Fit Новая цена - 390 руб Старая цена -</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2024-10-31">31 окт 2024</time>
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="2023">
+        <a class="row-link" href="basseyn/den-rozhdeniya-v-olimpii/index.html">
+          <span class="row-link__thumb"><img src="../../site/upload/medialibrary/d29/d290f159a8502e03f1a8894418834087.png" alt="" loading="lazy"></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Скидка 30% на плавание в день рождения</span>
+            <span class="row-link__excerpt">У вас День Рождения? Порадуйте себя! 5 дней до и после вашего дня рождения приглашаем вас посетить бассейны Спорткомплекса со скид</span>
+          </span>
+          <span class="row-link__meta">
+            <time class="row-link__date" datetime="2023-09-22">22 сен 2023</time>
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="basseyn" data-year="">
+        <a class="row-link" href="basseyn/klubnye-karty-v-rassrochku-bez-pereplaty/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Клубные карты в рассрочку без переплаты!</span>
+            <span class="row-link__excerpt">Олимпия стала доступнее! Вы можете купить с беспроцентной рассрочкой клубные годовые карты «Плавание»,&amp;nbsp;«Фитнес + плавание», «</span>
+          </span>
+          <span class="row-link__meta">
+            
+            <span class="row-link__cat">Бассейны</span>
+          </span>
+        </a>
+      </li>
+      <li data-cat="fitnes-tsentr" data-year="">
+        <a class="row-link" href="fitnes-tsentr/programma-loyalnosti-v-fitnes-tsentre/index.html">
+          <span class="row-link__thumb"><span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span></span>
+          <span class="row-link__body">
+            <span class="row-link__title">Программа лояльности в фитнес-центре</span>
+            <span class="row-link__excerpt">Программа лояльности для клиентов фитнес-центра Олимпия! Теперь продлить клубные карты&amp;nbsp;«‎Фитнес»&amp;nbsp;и&amp;nbsp;«‎Фитнес+Плавани</span>
+          </span>
+          <span class="row-link__meta">
+            
+            <span class="row-link__cat">Фитнес-центр</span>
+          </span>
         </a>
       </li>
     </ul>
+    <p class="rows-empty" data-rows-empty hidden>За выбранный период в этом разделе
+    ничего нет. Снимите фильтр или выберите другой год.</p>
   </div>
 </main>
 
@@ -526,9 +922,9 @@
           </a>
         </div>
         <div class="app-links app-links--footer">
-          <a class="btn btn--ghost-light" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">App Store</a>
-          <a class="btn btn--ghost-light" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">AppGallery</a>
-          <a class="btn btn--ghost-light" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">RuStore</a>
+          <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>AppGallery</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>RuStore</span></a>
         </div>
       </div>
       <nav class="footer-col" aria-label="Направления">
@@ -544,7 +940,7 @@
       <nav class="footer-col" aria-label="Посетителям">
         <h3>Посетителям</h3>
         <ul>
-          <li><a href="../visitors/index.html">Посетителям</a></li>
+          <li><a href="../visitors/faq/index.html">Вопросы и ответы</a></li>
           <li><a href="../timetable/index.html">Расписание</a></li>
           <li><a href="../price/index.html">Цены</a></li>
           <li><a href="../visitors/first-visit/index.html">Первый визит</a></li>
@@ -569,6 +965,19 @@
     </svg>
   </div>
 </footer>
+
+<div class="cookie-backdrop" data-cookie-backdrop hidden></div>
+<div class="cookie" data-cookie role="dialog" aria-modal="true"
+     aria-labelledby="cookie-title" aria-describedby="cookie-text" hidden>
+  <h2 class="cookie__title" id="cookie-title">Мы используем cookie</h2>
+  <p class="cookie__text" id="cookie-text">Файлы cookie помогают сайту работать
+  и запоминать ваши настройки. Продолжая пользоваться сайтом, вы соглашаетесь
+  с <a href="../legal/fz152/index.html">политикой обработки персональных данных</a>.</p>
+  <div class="cookie__actions">
+    <button type="button" class="btn btn--primary" data-cookie-accept>Принять</button>
+    <a class="btn btn--ghost" href="../legal/fz152/index.html">Подробнее</a>
+  </div>
+</div>
 
 <script src="../js/main.js" defer></script>
 </body>

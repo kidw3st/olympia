@@ -57,6 +57,90 @@ document.documentElement.classList.add('js');
   });
 })();
 
+/* ---------- Уведомление о cookie ---------- */
+(function () {
+  var box = document.querySelector('[data-cookie]');
+  var backdrop = document.querySelector('[data-cookie-backdrop]');
+  if (!box) return;
+  var KEY = 'olympia-cookie-ok';
+  var stored = null;
+  try { stored = localStorage.getItem(KEY); } catch (e) { stored = null; }
+  if (stored === '1') return;
+
+  box.hidden = false;
+  if (backdrop) backdrop.hidden = false;
+  // размытие включаем следующим кадром, чтобы отработал переход
+  requestAnimationFrame(function () {
+    document.documentElement.classList.add('has-cookie');
+  });
+
+  function accept() {
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    document.documentElement.classList.remove('has-cookie');
+    setTimeout(function () {
+      box.hidden = true;
+      if (backdrop) backdrop.hidden = true;
+    }, 280);
+  }
+  var btn = box.querySelector('[data-cookie-accept]');
+  if (btn) btn.addEventListener('click', accept);
+})();
+
+/* ---------- Разделы в шапке: выпадающие меню + смена мира ---------- */
+(function () {
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
+  if (!groups.length) return;
+  var html = document.documentElement;
+  var pageTheme = html.getAttribute('data-theme') || '';
+
+  function closeAll(except) {
+    groups.forEach(function (g) {
+      if (g === except) return;
+      var btn = g.querySelector('.nav-group__btn');
+      var menu = g.querySelector('.nav-group__menu');
+      if (menu) menu.classList.remove('is-open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    // вернуть собственную тему страницы, если ничего не открыто
+    var anyOpen = groups.some(function (g) {
+      return g.querySelector('.nav-group__menu.is-open');
+    });
+    if (!anyOpen) {
+      if (pageTheme) html.setAttribute('data-theme', pageTheme);
+      else html.removeAttribute('data-theme');
+    }
+  }
+
+  groups.forEach(function (g) {
+    var btn = g.querySelector('.nav-group__btn');
+    var menu = g.querySelector('.nav-group__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var willOpen = !menu.classList.contains('is-open');
+      closeAll(g);
+      menu.classList.toggle('is-open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+      // мир раздела: фитнес перекрашивает страницу, вода возвращает исходный
+      var preview = g.getAttribute('data-theme-preview');
+      if (willOpen) {
+        if (preview) html.setAttribute('data-theme', preview);
+        else if (pageTheme) html.setAttribute('data-theme', pageTheme);
+        else html.removeAttribute('data-theme');
+      } else {
+        closeAll(null);
+      }
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-group')) closeAll(null);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeAll(null);
+  });
+})();
+
 /* ---------- Вопрос-ответ (независимые аккордеоны) ---------- */
 (function () {
   var items = Array.prototype.slice.call(document.querySelectorAll('.qa-item'));
@@ -94,12 +178,41 @@ document.documentElement.classList.add('js');
         });
         return;
       }
-      var rows = Array.prototype.slice.call(document.querySelectorAll('.rows > li[data-cat]'));
-      rows.forEach(function (li) {
-        li.classList.toggle('is-hidden', cat !== 'all' && li.getAttribute('data-cat') !== cat);
-      });
+      window.__rowFilter = window.__rowFilter || { cat: 'all', year: 'all' };
+      window.__rowFilter.cat = cat;
+      applyRowFilters();
     });
   });
+
+  // Фильтр по году публикации работает вместе с фильтром по разделу
+  var yearBar = document.querySelector('.filter-pills[data-filter-year]');
+  if (yearBar) {
+    yearBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-year]');
+      if (!btn) return;
+      Array.prototype.slice.call(yearBar.querySelectorAll('button')).forEach(function (b) {
+        b.classList.toggle('is-active', b === btn);
+      });
+      window.__rowFilter = window.__rowFilter || { cat: 'all', year: 'all' };
+      window.__rowFilter.year = btn.getAttribute('data-year');
+      applyRowFilters();
+    });
+  }
+
+  function applyRowFilters() {
+    var f = window.__rowFilter || { cat: 'all', year: 'all' };
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.rows > li[data-cat]'));
+    var shown = 0;
+    rows.forEach(function (li) {
+      var okCat = f.cat === 'all' || li.getAttribute('data-cat') === f.cat;
+      var okYear = f.year === 'all' || li.getAttribute('data-year') === f.year;
+      var hide = !(okCat && okYear);
+      li.classList.toggle('is-hidden', hide);
+      if (!hide) shown++;
+    });
+    var empty = document.querySelector('[data-rows-empty]');
+    if (empty) empty.hidden = shown !== 0;
+  }
 })();
 
 /* ---------- Льготы на таблице карт ---------- */
