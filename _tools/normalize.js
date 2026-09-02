@@ -155,6 +155,23 @@ function buildContent(opt) {
     .replace(/<!--[\s\S]*?-->/g, '');
   body = stripBlocks(body, DEAD_WIDGETS);
 
+  // Ссылка, внутри которой только пробелы или пустые обёртки, — невидимая
+  // цель для клика: развернём её содержимое наружу.
+  body = body.replace(/<a\b[^>]*>([\s\S]*?)<\/a>/gi, (m0, inner) => {
+    if (/<img|<svg/i.test(inner)) return m0;
+    const text = inner.replace(/<[^>]+>/g, '').replace(/&nbsp;/gi, ' ').trim();
+    return text ? m0 : inner;
+  });
+  // ссылка в никуда: пустой протокол вместо адреса
+  body = body.replace(/<a\b[^>]*href="https?:\/\/"[^>]*>([\s\S]*?)<\/a>/gi, '$1');
+  // <a> без адреса — остаток крошек Битрикса (текущая страница была ссылкой);
+  // разворачиваем в текст, иначе выглядит кликабельным, но не ведёт никуда
+  body = body.replace(/<a(?![^>]*\bhref=)[^>]*>([\s\S]*?)<\/a>/gi, '$1');
+  // якоря старого формата <a name="…"> переводим в современный id
+  body = body.replace(/<a\s+name="([^"]+)"[^>]*>\s*<\/a>/gi, '<span id="$1"></span>');
+  // картинки без источника
+  body = body.replace(/<img[^>]*\bsrc=""[^>]*>/gi, '');
+
   // 2. Извлекаем составляющие
   const qa = extractQA(body);
   // QA-блоки убираем из тела, чтобы не задваивать
@@ -174,10 +191,13 @@ function buildContent(opt) {
   const reLink = /<a[^>]*class="[^"]*\b(?:read_more|simple_red_btn|more)\b[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   let lm;
   while ((lm = reLink.exec(body))) {
-    const href = resolveUrl(lm[1]);
+    const raw = (lm[1] || '').trim();
+    // якоря-заглушки старого шаблона ведут в никуда — в новый список не берём
+    if (!raw || raw === '#' || /^javascript:/i.test(raw)) continue;
+    const href = resolveUrl(raw);
     const text = clean(lm[2]);
     if (href && text && text.length > 2 && !/подробнее/i.test(text)) {
-      links.push({ href, text });
+      links.push({ href, text: text.charAt(0).toUpperCase() + text.slice(1) });
     }
   }
 

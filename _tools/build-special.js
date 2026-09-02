@@ -74,6 +74,14 @@ for (const cat of Object.keys(CATS)) {
     // чистка и пути в биографии
     bio = bio.replace(/<script[\s\S]*?<\/script>/gi, '')
       .replace(/\sstyle="[^"]*"/gi, '')
+      // ссылка, внутри которой одни пробелы, кликается в пустоту
+      .replace(/<a\b[^>]*>([\s\S]*?)<\/a>/gi, (m0, inner) => {
+        if (/<img|<svg/i.test(inner)) return m0;
+        const t = inner.replace(/<[^>]+>/g, '').replace(/&nbsp;/gi, ' ').trim();
+        return t ? m0 : inner;
+      })
+      .replace(/<a\b[^>]*href="https?:\/\/"[^>]*>([\s\S]*?)<\/a>/gi, '$1')
+      .replace(/<a(?![^>]*\bhref=)[^>]*>([\s\S]*?)<\/a>/gi, '$1')
       .replace(/\b(src|href)="([^"]+)"/gi, (m0, attr, url) => {
         const u = url.trim();
         if (/^(https?:|mailto:|tel:|#|data:)/i.test(u)) return m0;

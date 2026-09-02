@@ -248,7 +248,10 @@ ${nav.join('\n')}
   </div>`;
     const page = lib.shell(3, {
       title: a.title + ' — «Олимпия» Пермь',
-      description: a.preview,
+      // у страницы без текста (только фото) описанием служит заголовок
+      description: a.preview && a.preview.length > 20
+        ? a.preview
+        : a.title + ' — ' + a.catName + ', спорткомплекс «Олимпия», Пермь.',
       active: a.sec === 'actions' ? 'actions' : 'news',
       content
     });
