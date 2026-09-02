@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const lib = require('./redesign-lib');
+const typo = require('./typography');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = path.join(ROOT, 'site');
@@ -74,11 +75,25 @@ function extractDescription(html) {
   return null;
 }
 
+// Сущности в заголовке нужно раскодировать до экранирования, иначе
+// «&quot;Осень 2026&quot;» уходит в вёрстку как видимый набор символов.
+function decodeEntities(s) {
+  return String(s)
+    .replace(/&quot;/gi, '"').replace(/&laquo;/gi, '«').replace(/&raquo;/gi, '»')
+    .replace(/&nbsp;/gi, ' ').replace(/&mdash;/gi, '—').replace(/&ndash;/gi, '–')
+    .replace(/&#(\d+);/g, (m, d) => String.fromCharCode(Number(d)))
+    .replace(/&amp;/gi, '&');
+}
+
 function extractTitle(descHtml, fileHtml) {
   const m = descHtml.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
-  if (m) return m[1].replace(/<[^>]+>/g, '').trim();
-  const t = fileHtml.match(/<title>([^<]+)<\/title>/);
-  return t ? t[1].trim() : 'Без названия';
+  let raw = m ? m[1].replace(/<[^>]+>/g, '').trim() : '';
+  if (!raw) {
+    const t = fileHtml.match(/<title>([^<]+)<\/title>/);
+    raw = t ? t[1].trim() : 'Без названия';
+  }
+  // те же правила, что и в тексте: ёлочки, тире, лишние пробелы
+  return typo.fixText(decodeEntities(raw)).replace(/\s{2,}/g, ' ').trim();
 }
 
 function stripMainTitle(descHtml) {
@@ -156,7 +171,7 @@ function buildSection(sec, lastmod) {
       const title = extractTitle(desc, html);
       const srcDirFromSiteRoot = [sec.src, cat.name, slug.name].join('/');
       const depth = 3; // redesign/<sec>/<cat>/<slug>/index.html -> глубина 3 от redesign/
-      const body = sanitizeBody(stripMainTitle(desc), srcDirFromSiteRoot, depth);
+      const body = typo.polish(sanitizeBody(stripMainTitle(desc), srcDirFromSiteRoot, depth));
       const hasText = body.replace(/<[^>]+>/g, '').trim().length >= 3;
       const hasImg = /<img\b/i.test(body);
       if (!hasText && !hasImg) { errors.push('ПУСТО: ' + srcDirFromSiteRoot); continue; }
@@ -183,20 +198,51 @@ function buildSection(sec, lastmod) {
   }
 
   // рендер статей
+  // соседи для навигации: свежие выше, поэтому prev — новее, next — старее
+  const byDate = articles.slice()
+    .sort((x, y) => (y.lastmod || '').localeCompare(x.lastmod || ''));
+  byDate.forEach((a, i) => {
+    a.prev = byDate[i - 1] || null;
+    a.next = byDate[i + 1] || null;
+  });
+
   for (const a of articles) {
     const r = '../'.repeat(3);
     const crumbs = lib.breadcrumbs(3, lib.trailFromRel([a.sec, a.cat, a.slug].join('/'), a.title));
+    const secWord = a.sec === 'news' ? 'новости' : 'акции';
+    const nav = [];
+    if (a.prev) {
+      nav.push(`      <a class="article-nav__item article-nav__item--prev" href="${r + a.sec}/${a.prev.cat}/${a.prev.slug}/index.html">
+        <span class="article-nav__dir">Предыдущая</span>
+        <span class="article-nav__title">${lib.esc(a.prev.title)}</span>
+      </a>`);
+    }
+    if (a.next) {
+      nav.push(`      <a class="article-nav__item article-nav__item--next" href="${r + a.sec}/${a.next.cat}/${a.next.slug}/index.html">
+        <span class="article-nav__dir">Следующая</span>
+        <span class="article-nav__title">${lib.esc(a.next.title)}</span>
+      </a>`);
+    }
+
     const content = `  <div class="container">
     ${crumbs}
-    <div class="page-head">
-      <h1>${lib.esc(a.title)}</h1>
-      <p class="page-head__lede">${lib.esc(a.catName)}</p>
-    </div>
-    <article class="article">
+    <article class="post">
+      <header class="post__head">
+        <div class="post__meta">
+          <a class="post__cat" href="${r + a.sec}/index.html">${lib.esc(a.catName)}</a>
+          ${a.lastmod ? `<time class="post__date" datetime="${a.lastmod.slice(0, 10)}">${fmtDate(a.lastmod)}</time>` : ''}
+        </div>
+        <h1 class="post__title">${lib.esc(a.title)}</h1>
+      </header>
+      <div class="post__body">
 ${a.body}
+      </div>
     </article>
+${nav.length ? `    <nav class="article-nav" aria-label="Другие ${secWord}">
+${nav.join('\n')}
+    </nav>` : ''}
     <div class="article-footer">
-      <a class="btn btn--ghost" href="${r + a.sec}/index.html">Все ${a.sec === 'news' ? 'новости' : 'акции'}</a>
+      <a class="btn btn--ghost" href="${r + a.sec}/index.html">Все ${secWord}</a>
       <a class="btn btn--primary" href="${r}price/index.html">Выбрать абонемент</a>
     </div>
   </div>`;
