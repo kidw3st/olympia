@@ -218,14 +218,16 @@ function breadcrumbs(depth, trail) {
     <script type="application/ld+json">${JSON.stringify(ld)}</script>`;
 }
 
+// Загрузка комплекса живёт внутри навигационной пилюли вторым рядом:
+// это часть шапки, а не отдельная полоса под ней.
 function occupancyBar(depth) {
   const r = p(depth);
   return `<div class="occupancy" data-occupancy data-src="${r}js/occupancy.json">
-    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
-    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
-    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
-    <span class="occupancy__demo">демо</span>
-  </div>`;
+      <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+      <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+      <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+      <span class="occupancy__demo">демо</span>
+    </div>`;
 }
 
 function header(depth, active) {
@@ -249,7 +251,7 @@ function header(depth, active) {
       ]
     }
   ];
-  const groupsHtml = GROUPS.map(g => `<li class="nav-group" data-nav-group="${g.id}"${g.theme ? ` data-theme-preview="${g.theme}"` : ''}>
+  const groupsHtml = GROUPS.map(g => `<li class="nav-group" data-nav-group="${g.id}">
         <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-${g.id}">${g.title}</button>
         <div class="nav-group__menu" id="navmenu-${g.id}">
           ${g.items.map(i => `<a href="${i[0]}">${esc(i[1])}<small>${esc(i[2])}</small></a>`).join('\n          ')}
@@ -275,6 +277,7 @@ function header(depth, active) {
   const mob = mobGroups + '\n  ' + links.map(l => `<a href="${l[1]}">${l[2]}</a>`).join('\n  ');
   return `<header class="site-header">
   <nav class="nav-pill" aria-label="Главная навигация">
+    <div class="nav-pill__row">
     <a class="nav-logo" href="${r}index.html" aria-label="Олимпия — на главную">
       <img class="nav-logo__img" src="${r}assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
@@ -286,9 +289,10 @@ function header(depth, active) {
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
+    </div>
+    ${occupancyBar(depth)}
   </nav>
 </header>
-${occupancyBar(depth)}
 
 <div class="mobile-menu" id="mobile-menu">
   ${mob}

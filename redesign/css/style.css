@@ -1344,10 +1344,26 @@ body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotat
 @media (min-width: 800px) {
   .gallery-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-.gallery-strip figure { margin: 0; }
+/* Пропорции держит рамка, а не картинка: у картинок проставлены реальные
+   размеры файла, и они перебивали aspect-ratio — плитки разъезжались. */
+.gallery-strip figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.gallery-strip figure > img,
+.gallery-strip figure > a {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-small);
+  overflow: hidden;
+  background: var(--ice-deep);
+}
 .gallery-strip img {
   display: block;
   width: 100%;
+  height: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--r-small);
@@ -1427,6 +1443,28 @@ body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotat
 .nav-links a[aria-current="page"] {
   color: #fff;
   background: rgba(255,255,255,0.12);
+}
+
+/* Загрузка комплекса — нижняя строка навигационной пилюли,
+   отделена волосяной линией, а не отдельной плашкой под шапкой. */
+.nav-pill { flex-direction: column; align-items: stretch; gap: 0; }
+.nav-pill__row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+.nav-pill .occupancy {
+  width: auto;
+  max-width: none;
+  margin: 10px 0 0;
+  padding: 10px 2px 0;
+  background: transparent;
+  border-top: 1px solid var(--hairline-dark);
+  border-radius: 0;
+}
+@media (max-width: 700px) {
+  .nav-pill .occupancy { gap: 6px 14px; font-size: 11.5px; }
 }
 
 .occupancy {

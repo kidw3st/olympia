@@ -95,9 +95,6 @@ document.documentElement.classList.add('js');
 (function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
   if (!groups.length) return;
-  var html = document.documentElement;
-  var pageTheme = html.getAttribute('data-theme') || '';
-
   function closeAll(except) {
     groups.forEach(function (g) {
       if (g === except) return;
@@ -106,14 +103,6 @@ document.documentElement.classList.add('js');
       if (menu) menu.classList.remove('is-open');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
-    // вернуть собственную тему страницы, если ничего не открыто
-    var anyOpen = groups.some(function (g) {
-      return g.querySelector('.nav-group__menu.is-open');
-    });
-    if (!anyOpen) {
-      if (pageTheme) html.setAttribute('data-theme', pageTheme);
-      else html.removeAttribute('data-theme');
-    }
   }
 
   groups.forEach(function (g) {
@@ -126,15 +115,9 @@ document.documentElement.classList.add('js');
       closeAll(g);
       menu.classList.toggle('is-open', willOpen);
       btn.setAttribute('aria-expanded', String(willOpen));
-      // мир раздела: фитнес перекрашивает страницу, вода возвращает исходный
-      var preview = g.getAttribute('data-theme-preview');
-      if (willOpen) {
-        if (preview) html.setAttribute('data-theme', preview);
-        else if (pageTheme) html.setAttribute('data-theme', pageTheme);
-        else html.removeAttribute('data-theme');
-      } else {
-        closeAll(null);
-      }
+      // Палитру раздела меняет только сама страница раздела: в открытом
+      // меню человек ещё выбирает из двух пунктов, перекрашивать рано.
+      if (!willOpen) closeAll(null);
     });
   });
 

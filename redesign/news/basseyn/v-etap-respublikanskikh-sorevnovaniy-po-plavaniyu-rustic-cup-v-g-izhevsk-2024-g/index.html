@@ -14,11 +14,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../css/style.css?v=5009a80e">
+  <link rel="stylesheet" href="../../../css/style.css?v=f49f20dc">
 </head>
 <body>
 <header class="site-header">
   <nav class="nav-pill" aria-label="Главная навигация">
+    <div class="nav-pill__row">
     <a class="nav-logo" href="../../../index.html" aria-label="Олимпия — на главную">
       <img class="nav-logo__img" src="../../../assets/logo-white.png" alt="Олимпия" width="1366" height="115" fetchpriority="high" decoding="async">
     </a>
@@ -31,7 +32,7 @@
           <a href="../../../spa_center/index.html">SPA-центр<small>Массаж, ритуалы, восстановление</small></a>
         </div>
       </li>
-      <li class="nav-group" data-nav-group="fitness" data-theme-preview="fitness">
+      <li class="nav-group" data-nav-group="fitness">
         <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-fitness">Фитнес</button>
         <div class="nav-group__menu" id="navmenu-fitness">
           <a href="../../../fitness_center/index.html">Фитнес-центр<small>3500 м², тренажёры и групповые</small></a>
@@ -50,14 +51,15 @@
     <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
+    </div>
+    <div class="occupancy" data-occupancy data-src="../../../js/occupancy.json">
+      <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
+      <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
+      <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
+      <span class="occupancy__demo">демо</span>
+    </div>
   </nav>
 </header>
-<div class="occupancy" data-occupancy data-src="../../../js/occupancy.json">
-    <span class="occupancy__item">В бассейнах <strong data-occ="pools">—</strong></span>
-    <span class="occupancy__item">В фитнесе <strong data-occ="fitness">—</strong></span>
-    <span class="occupancy__item">Шкафчиков <strong data-occ="lockers">—</strong></span>
-    <span class="occupancy__demo">демо</span>
-  </div>
 
 <div class="mobile-menu" id="mobile-menu">
   <span class="mobile-menu__group">Плавание</span>
@@ -353,6 +355,6 @@
   </div>
 </div>
 
-<script src="../../../js/main.js?v=d4cedf01" defer></script>
+<script src="../../../js/main.js?v=1c8cfae6" defer></script>
 </body>
 </html>
