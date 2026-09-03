@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=adec8866">
+  <link rel="stylesheet" href="../css/style.css?v=1c35f730">
 </head>
 <body>
 <header class="site-header">
@@ -223,12 +223,26 @@
   <p class="cookie__text" id="cookie-text">Файлы cookie помогают сайту работать
   и запоминать ваши настройки. Продолжая пользоваться сайтом, вы соглашаетесь
   с <a href="../legal/fz152/index.html">политикой обработки персональных данных</a>.</p>
+  <div class="cookie__more" id="cookie-more"><div><div class="cookie__more-inner">
+    <dl>
+      <dt>Обязательные</dt>
+      <dd>Одна запись в вашем браузере: что вы закрыли это уведомление. Она
+      никуда не отправляется и нужна, чтобы окно не появлялось при каждом
+      переходе по сайту.</dd>
+      <dt>Аналитические</dt>
+      <dd>Счётчики посещаемости показывают, какие разделы читают. На этой
+      версии сайта они не подключены.</dd>
+    </dl>
+    <p>Полный перечень, назначение и сроки хранения —
+    в <a href="../legal/fz152/index.html">политике обработки персональных данных</a>.</p>
+  </div></div></div>
   <div class="cookie__actions">
     <button type="button" class="btn btn--primary" data-cookie-accept>Принять</button>
-    <a class="btn btn--ghost" href="../legal/fz152/index.html">Подробнее</a>
+    <button type="button" class="btn btn--ghost" data-cookie-more
+            aria-expanded="false" aria-controls="cookie-more">Подробнее</button>
   </div>
 </div>
 
-<script src="../js/main.js?v=dd25d7f3" defer></script>
+<script src="../js/main.js?v=ca9fa191" defer></script>
 </body>
 </html>

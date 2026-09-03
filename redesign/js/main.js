@@ -82,6 +82,18 @@ window.__olMotion = true;
     document.documentElement.classList.add('has-cookie');
   });
 
+  // «Подробнее» раскрывает состав cookie здесь же: уводить на политику
+  // бессмысленно — там это же окно снова закроет собой текст.
+  var more = box.querySelector('[data-cookie-more]');
+  var panel = box.querySelector('#cookie-more');
+  if (more && panel) {
+    more.addEventListener('click', function () {
+      var open = box.classList.toggle('is-detailed');
+      more.setAttribute('aria-expanded', String(open));
+      more.textContent = open ? 'Свернуть' : 'Подробнее';
+    });
+  }
+
   function accept() {
     try { localStorage.setItem(KEY, '1'); } catch (e) {}
     document.documentElement.classList.remove('has-cookie');

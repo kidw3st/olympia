@@ -2591,11 +2591,8 @@ body { transition: background-color 320ms ease, color 320ms ease; }
 }
 
 /* ---------- Шапка уплотняется, когда страница ушла вверх ---------- */
-.nav-pill { transition: padding 260ms var(--ease-out), background-color 260ms ease; }
-.is-scrolled .nav-pill {
-  padding-block: 8px;
-  background: var(--depth);
-}
+.nav-pill { transition: padding 260ms var(--ease-out); }
+.is-scrolled .nav-pill { padding-block: 8px; }
 
 /* ---------- Прокрутка к якорям ---------- */
 @media (prefers-reduced-motion: no-preference) {
@@ -2773,4 +2770,36 @@ body { transition: background-color 320ms ease, color 320ms ease; }
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
+}
+
+/* ---------- Подробности о cookie: раскрываются в самом окне ---------- */
+.cookie__more {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms var(--ease-out);
+}
+.cookie.is-detailed .cookie__more { grid-template-rows: 1fr; }
+.cookie__more > div { overflow: hidden; }
+.cookie__more-inner {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--mist);
+  /* на невысоком экране подробности прокручиваются, окно не вылезает */
+  max-height: min(46vh, 360px);
+  overflow-y: auto;
+}
+.cookie__more-inner dl { margin: 0; }
+.cookie__more-inner dt {
+  font-weight: 600;
+  color: var(--navy-ink);
+  margin-top: 14px;
+}
+.cookie__more-inner dt:first-child { margin-top: 0; }
+.cookie__more-inner dd { margin: 4px 0 0; }
+.cookie__more-inner p { margin: 16px 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  .cookie__more { transition: none; }
 }
