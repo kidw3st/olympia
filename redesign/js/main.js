@@ -155,6 +155,48 @@ window.__olMotion = true;
       btn.setAttribute('aria-expanded', String(open));
     });
   });
+
+  var faqBar = document.querySelector('.filter-pills[data-filter="faq"]');
+  var faqSearch = document.querySelector('[data-faq-search]');
+  var faqEmpty = document.querySelector('[data-faq-empty]');
+  var faqCat = 'all';
+  var faqQ = '';
+
+  function applyFaq() {
+    var shown = 0;
+    items.forEach(function (it) {
+      var cat = it.getAttribute('data-cat') || '';
+      var text = (it.getAttribute('data-q') || '') + ' ' + (it.textContent || '').toLowerCase();
+      var okCat = faqCat === 'all' || cat === faqCat;
+      var okQ = !faqQ || text.indexOf(faqQ) !== -1;
+      var show = okCat && okQ;
+      it.classList.toggle('is-hidden', !show);
+      if (show) shown++;
+    });
+    Array.prototype.slice.call(document.querySelectorAll('[data-faq-section]')).forEach(function (sec) {
+      var any = sec.querySelector('.qa-item:not(.is-hidden)');
+      sec.classList.toggle('is-hidden', !any);
+    });
+    if (faqEmpty) faqEmpty.hidden = shown > 0;
+  }
+
+  if (faqBar) {
+    faqBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-cat]');
+      if (!btn) return;
+      faqCat = btn.getAttribute('data-cat') || 'all';
+      Array.prototype.slice.call(faqBar.querySelectorAll('button')).forEach(function (b) {
+        b.classList.toggle('is-active', b === btn);
+      });
+      applyFaq();
+    });
+  }
+  if (faqSearch) {
+    faqSearch.addEventListener('input', function () {
+      faqQ = (faqSearch.value || '').trim().toLowerCase();
+      applyFaq();
+    });
+  }
 })();
 
 /* ---------- Фильтр списков по категории ---------- */

@@ -1,3 +1,6 @@
+olympia-site-photos/
+olympia-site-photos.zip
+_export/
 _tools/node_modules/
 _tools/*.log
 _tools/manifest*.json

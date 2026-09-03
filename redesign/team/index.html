@@ -15,14 +15,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=1c35f730">
+  <link rel="stylesheet" href="../css/style.css?v=04a6f380">
 </head>
 <body>
 <header class="site-header">
   <nav class="nav-pill" aria-label="Главная навигация">
     <div class="nav-pill__row">
     <a class="nav-logo" href="../index.html" aria-label="Олимпия — на главную">
-      <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115" fetchpriority="high" decoding="async">
+      <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
       <li class="nav-group" data-nav-group="swim">
@@ -38,6 +38,17 @@
         <div class="nav-group__menu" id="navmenu-fitness">
           <a href="../fitness_center/index.html">Фитнес-центр<small>3500 м², тренажёры и групповые</small></a>
           <a href="../center_kinesitherapy/index.html">Кинезитерапия<small>Реабилитация движением</small></a>
+        </div>
+      </li>
+      <li class="nav-group" data-nav-group="booking">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-booking">Запись</button>
+        <div class="nav-group__menu" id="navmenu-booking">
+          <a href="../zapis_cdp/index.html">Центр детского плавания<small>Запись ребёнка на занятия</small></a>
+          <a href="../timetable/mama-i-malysh/index.html">Мама и малыш<small>Расписание занятий</small></a>
+          <a href="../timetable/group-cp/index.html">Дежурные группы ЦП<small>Центр плавания</small></a>
+          <a href="https://dikidi.net/870188">SPA-центр<small>Онлайн-запись dikidi</small></a>
+          <a href="../timetable/group/index.html">Групповые программы<small>Фитнес и аква</small></a>
+          <a href="https://dikidi.ru/1529440">ЭКГ<small>Запись на ЭКГ</small></a>
         </div>
       </li>
       <li><a href="../timetable/index.html">Расписание</a></li>
@@ -70,6 +81,13 @@
   <span class="mobile-menu__group">Фитнес</span>
   <a class="mobile-menu__sub" href="../fitness_center/index.html">Фитнес-центр</a>
   <a class="mobile-menu__sub" href="../center_kinesitherapy/index.html">Кинезитерапия</a>
+  <span class="mobile-menu__group">Запись</span>
+  <a class="mobile-menu__sub" href="../zapis_cdp/index.html">Центр детского плавания</a>
+  <a class="mobile-menu__sub" href="../timetable/mama-i-malysh/index.html">Мама и малыш</a>
+  <a class="mobile-menu__sub" href="../timetable/group-cp/index.html">Дежурные группы ЦП</a>
+  <a class="mobile-menu__sub" href="https://dikidi.net/870188">SPA-центр</a>
+  <a class="mobile-menu__sub" href="../timetable/group/index.html">Групповые программы</a>
+  <a class="mobile-menu__sub" href="https://dikidi.ru/1529440">ЭКГ</a>
   <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
@@ -92,708 +110,152 @@
     </div>
     <div class="filter-pills" data-filter="team">
       <button type="button" data-cat="all" class="is-active">Все</button>
-      <button type="button" data-cat="basseyn">Бассейн</button>
-      <button type="button" data-cat="fitnes-tsentr">Фитнес-центр</button>
       <button type="button" data-cat="detskiy-tsentr-plavaniya">Центр детского плавания</button>
-      <button type="button" data-cat="spa-tsentr">СПА-центр</button>
       <button type="button" data-cat="kineziterapiya">Кинезитерапия</button>
+      <button type="button" data-cat="spa-tsentr">СПА-центр</button>
+      <button type="button" data-cat="fitnes-tsentr">Фитнес-центр</button>
+      <button type="button" data-cat="basseyn">Бассейн</button>
     </div>
 
-    <section class="section" data-cat="basseyn" aria-label="Бассейн">
-      <div class="section-head reveal">
-        <h2>Бассейн</h2>
-      </div>
-      <div class="team-grid reveal">
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/ustinova-lyudmila-vladimirovna/index.html">
-        <figure><img src="../../site/upload/iblock/e8d/gjg9hu4rfyoufhtsc8y94gr1lx33dju8.jpg" alt="Устинова Людмила Владимировна" loading="lazy" width="1351" height="1354"></figure>
-        <div class="team-card__name">Устинова Людмила Владимировна</div>
-        <div class="team-card__role">Руководитель Центра плавания</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/kyrova-anastasiya-vitalevna/index.html">
-        <figure><img src="../../site/upload/iblock/ec4/mczeyzmzyy5acjnpjoekvcpli3hf0ltn.jpg" alt="Шубина (Кырова) Анастасия Витальевна" loading="lazy" width="1432" height="1473"></figure>
-        <div class="team-card__name">Шубина (Кырова) Анастасия Витальевна</div>
-        <div class="team-card__role">Заведующий центром кинезитерапии, врач-кинезитерапевт</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/vinogradov-anatoliy-vitalevich/index.html">
-        <figure><img src="../../site/upload/iblock/f22/prlbedxoj89z3vs5rc0dg4s1gaqflazf.jpg" alt="Виноградов Анатолий Витальевич" loading="lazy" width="1365" height="1302"></figure>
-        <div class="team-card__name">Виноградов Анатолий Витальевич</div>
-        <div class="team-card__role">Старший тренер по спортивному плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/bolotov-vadim-gennadevich/index.html">
-        <figure><img src="../../site/upload/iblock/10a/i8r479e39dsgvy7atzp06wl8h0a43922.jpg" alt="Болотов Вадим Геннадьевич" loading="lazy" width="1320" height="1409"></figure>
-        <div class="team-card__name">Болотов Вадим Геннадьевич</div>
-        <div class="team-card__role">врач-кинезитерапевт</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/russkikh-sergey-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/4d4/tfuqf8suds37q95hiqxulbk0znvwal6s.jpg" alt="Русских Сергей Сергеевич" loading="lazy" width="1258" height="1336"></figure>
-        <div class="team-card__name">Русских Сергей Сергеевич</div>
-        <div class="team-card__role">врач-кинезитерапевт</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/ermilov-aleksandr-olegovich/index.html">
-        <figure><img src="../../site/upload/iblock/623/bv29b1x431swqj1ukwfgp16w0mt980wg.jpg" alt="Ермилов Александр Олегович" loading="lazy" width="1476" height="1506"></figure>
-        <div class="team-card__name">Ермилов Александр Олегович</div>
-        <div class="team-card__role">врач-кинезитерапевт</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/kolpakov-vladimir-arkadevich/index.html">
-        <figure><img src="../../site/upload/iblock/2c1/9lxmhghcfu736jpbdu2iuwwy6fz3z3x8.jpg" alt="Колпаков Владимир Аркадьевич" loading="lazy" width="1365" height="1275"></figure>
-        <div class="team-card__name">Колпаков Владимир Аркадьевич</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по спортивному плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/chunzhin-dmitriy-evgenevich/index.html">
-        <figure><img src="../../site/upload/iblock/1cd/46vuue6x35y4ht16vijvuigm2o3mph67.jpg" alt="Чунжин Дмитрий" loading="lazy" width="1292" height="1366"></figure>
-        <div class="team-card__name">Чунжин Дмитрий</div>
-        <div class="team-card__role">старший инструктор-методист</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/tiunova-elena-nikolaevna/index.html">
-        <figure><img src="../../site/upload/iblock/4e0/8y7om1cxvw6qdllwojm81z9wvba2i8ma.jpg" alt="Тиунова Елена" loading="lazy" width="1240" height="1405"></figure>
-        <div class="team-card__name">Тиунова Елена</div>
-        <div class="team-card__role">инструктор-методист</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../kineziterapiya/golubtsova-olesya/index.html">
-        <figure><img src="../../site/upload/iblock/dea/2uy0sc8ls003st4ycpuf4tncnkjoy8gx.jpg" alt="Голубцова Олеся" loading="lazy" width="1205" height="1289"></figure>
-        <div class="team-card__name">Голубцова Олеся</div>
-        <div class="team-card__role">инструктор-методист</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/orekhov-andrey-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/333/ioog5nhyegninlnegjxw6y6c4vf4l9y4.jpg" alt="Орехов Андрей Сергеевич" loading="lazy" width="1365" height="1216"></figure>
-        <div class="team-card__name">Орехов Андрей Сергеевич</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/murzina-irina/index.html">
-        <figure><img src="../../site/upload/iblock/681/4nau619qdzmwldvw7oqjh5o7vuqnel5c.jpg" alt="Мурзина Ирина" loading="lazy" width="1621" height="1727"></figure>
-        <div class="team-card__name">Мурзина Ирина</div>
-        <div class="team-card__role">Врач-физиотерапевт, косметолог</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/nizamova-marina-shamilevna/index.html">
-        <figure><img src="../../site/upload/iblock/3bc/bhmb1xyn50oc8785vtvh54v3mw5hksfa.jpg" alt="Низамова Марина Шамилевна" loading="lazy" width="1105" height="1042"></figure>
-        <div class="team-card__name">Низамова Марина Шамилевна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/maltsev-aleksandr-pavlovich/index.html">
-        <figure><img src="../../site/upload/iblock/20b/tl3ln4y2q8v3glisnlsd9183gzjvrusj.jpg" alt="Мальцев Александр Павлович" loading="lazy" width="1365" height="1195"></figure>
-        <div class="team-card__name">Мальцев Александр Павлович</div>
-        <div class="team-card__role">Тренер по плаванию и водному поло</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/kurochkina-natalya/index.html">
-        <figure><img src="../../site/upload/iblock/cb3/6owuif9x8lp9oxppp5k6tm3nqkks0eje.JPG" alt="Курочкина Наталья" loading="lazy" width="1600" height="1600"></figure>
-        <div class="team-card__name">Курочкина Наталья</div>
-        <div class="team-card__role">Косметолог</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/pushkareva-svetlana-anatolevna-/index.html">
-        <figure><img src="../../site/upload/iblock/ded/ki9fzu5fsgclj4807u8opp7i58la7msq.jpg" alt="Пушкарева Светлана Анатольевна" loading="lazy" width="1365" height="1192"></figure>
-        <div class="team-card__name">Пушкарева Светлана Анатольевна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по плаванию в ластах</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/konkina-tatyana/index.html">
-        <figure><img src="../../site/upload/iblock/753/pttiufrym6okrazevofm1l58fpdbiw08.jpg" alt="Конькина Татьяна" loading="lazy" width="1364" height="1481"></figure>
-        <div class="team-card__name">Конькина Татьяна</div>
-        <div class="team-card__role">Медицинская сестра по массажу, косметолог - эстетист</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/kuznetsova-yuliya-/index.html">
-        <figure><img src="../../site/upload/iblock/c4d/zqnl27mck4y2p86l77ncwyee4qfnz9uj.jpg" alt="Кузнецова Юлия" loading="lazy" width="1720" height="1851"></figure>
-        <div class="team-card__name">Кузнецова Юлия</div>
-        <div class="team-card__role">Медицинская сестра по массажу</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/sokolova-darya-sergeevna/index.html">
-        <figure><img src="../../site/upload/iblock/dc9/1mswvceniq07488bdbi5h0fs578ej467.jpg" alt="Соколова Дарья Сергеевна" loading="lazy" width="1365" height="1107"></figure>
-        <div class="team-card__name">Соколова Дарья Сергеевна</div>
-        <div class="team-card__role">Тренер по плаванию, проведение занятий по профилактике нарушения осанки</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/eliseeva-olga/index.html">
-        <figure><img src="../../site/upload/iblock/619/619b71b2b696df3a868ccc8d037ae37f.jpeg" alt="Елисеева Ольга" loading="lazy" width="853" height="828"></figure>
-        <div class="team-card__name">Елисеева Ольга</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/bolotov-konstantin/index.html">
-        <figure><img src="../../site/upload/iblock/ceb/1tmedg13dkxq43tfqpruir3hha3em2ht.JPG" alt="Болотов Константин" loading="lazy" width="2284" height="2227"></figure>
-        <div class="team-card__name">Болотов Константин</div>
-        <div class="team-card__role">Медицинский брат по массажу</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/galygina-ekaterina-vladilenovna/index.html">
-        <figure><img src="../../site/upload/iblock/94f/8nimvi90la2z5mnc0vn1akzuh9wyjwt0.jpg" alt="Галыгина Екатерина Владиленовна" loading="lazy" width="1365" height="1394"></figure>
-        <div class="team-card__name">Галыгина Екатерина Владиленовна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, тренер по обучению плаванию детей</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/chernykh-polina/index.html">
-        <figure><img src="../../site/upload/iblock/d68/rtele6hhm0txornriaqmdgunv3x6ubk8.jpg" alt="Черных Полина" loading="lazy" width="1713" height="1828"></figure>
-        <div class="team-card__name">Черных Полина</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/pogudin-sergey-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/84e/3gbnoe9sdpov9um0fj2kp4ffpqphy4db.jpg" alt="Погудин Сергей Сергеевич" loading="lazy" width="1365" height="1265"></figure>
-        <div class="team-card__name">Погудин Сергей Сергеевич</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/belyaeva-tatyana-ivanovna/index.html">
-        <figure><img src="../../site/upload/iblock/1dc/qnw87hja4jf0w2us14qbe882epzr6oms.jpg" alt="Беляева Татьяна Ивановна" loading="lazy" width="1365" height="1274"></figure>
-        <div class="team-card__name">Беляева Татьяна Ивановна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по обучению плаванию с детьми младшего возраста</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/belyaev-vladimir-ivanovich/index.html">
-        <figure><img src="../../site/upload/iblock/f2e/3uaeevyk5vf9duoqcqsa3g58zegdthnv.jpg" alt="Беляев Владимир Иванович" loading="lazy" width="1365" height="1265"></figure>
-        <div class="team-card__name">Беляев Владимир Иванович</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/sycheva-nadezhda/index.html">
-        <figure><img src="../../site/upload/iblock/614/9i7w50laiyc8dov0qok0xgm9ar7c6886.jpg" alt="Сычева Надежда" loading="lazy" width="1851" height="2041"></figure>
-        <div class="team-card__name">Сычева Надежда</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/shchebekova-tatyana-vladimirovna/index.html">
-        <figure><img src="../../site/upload/iblock/074/irq7npechnt4s0ptebl3t9jge9ldjysi.jpg" alt="Щебекова Екатерина Ивановна" loading="lazy" width="1365" height="1302"></figure>
-        <div class="team-card__name">Щебекова Екатерина Ивановна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/melekhin-denis/index.html">
-        <figure><img src="../../site/upload/iblock/2aa/2aafa6bc69e2b592c05cf93ca5ca12a4.jpg" alt="Мелехин Денис" loading="lazy" width="607" height="587"></figure>
-        <div class="team-card__name">Мелехин Денис</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../spa-tsentr/beklemyshev-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/a66/7ud11jj1izf62rlk9lghff867bxeyewd.JPG" alt="Беклемышев Алексей" loading="lazy" width="1600" height="1380"></figure>
-        <div class="team-card__name">Беклемышев Алексей</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/mishlanova-svetlana-yurevna/index.html">
-        <figure><img src="../../site/upload/iblock/f36/m7h722czrktsrjdgn4go6ierfm8whz1i.jpg" alt="Мишланова Светлана Юрьевна" loading="lazy" width="1329" height="1280"></figure>
-        <div class="team-card__name">Мишланова Светлана Юрьевна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/kurganskaya-anna-vasilevna/index.html">
-        <figure><img src="../../site/upload/iblock/231/ughawz0c8muesyujxw7tvchvmwy93vn6.jpg" alt="Хафизова (Курганская) Анна Васильевна" loading="lazy" width="1365" height="1282"></figure>
-        <div class="team-card__name">Хафизова (Курганская) Анна Васильевна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/gagarina-tatyana-anatolevna/index.html">
-        <figure><img src="../../site/upload/iblock/0b5/ff2je9z0cko9zvjuvoy00h1i93vxuyl0.jpg" alt="Гагарина Татьяна Анатольевна" loading="lazy" width="1229" height="1075"></figure>
-        <div class="team-card__name">Гагарина Татьяна Анатольевна</div>
-        <div class="team-card__role">Специалист по программе «Класс», тренер по обучению плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/ushakova-kseniya-aleksandrovna/index.html">
-        <figure><img src="../../site/upload/iblock/5ee/m1rhjjmst2ygdwn5jf7c1mon8kxkk9l2.jpg" alt="Ушакова Ксения Александровна" loading="lazy" width="1365" height="1186"></figure>
-        <div class="team-card__name">Ушакова Ксения Александровна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/bayvarovskaya-tatyana-aleksandrovna/index.html">
-        <figure><img src="../../site/upload/iblock/422/s2s3fs83oclh3di9gcdxyow6x3x9e739.jpg" alt="Байваровская Татьяна Александровна" loading="lazy" width="1365" height="1210"></figure>
-        <div class="team-card__name">Байваровская Татьяна Александровна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по плаванию по программе «Класс»</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/chirkov-pavel/index.html">
-        <figure><img src="../../site/upload/iblock/542/54224f1b9adb93127d0aea5b09ba42f0.jpg" alt="Чирков Павел" loading="lazy" width="645" height="463"></figure>
-        <div class="team-card__name">Чирков Павел</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/gilyeva-svetlana-aleksandrovna/index.html">
-        <figure><img src="../../site/upload/iblock/c4f/ltabjrgxzaj3cxesuxdirwiq8c2r3g4s.jpg" alt="Гилёва Светлана Александровна" loading="lazy" width="1365" height="1282"></figure>
-        <div class="team-card__name">Гилёва Светлана Александровна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по плаванию программы «Класс»</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/lobanov-viktor-yurevich/index.html">
-        <figure><img src="../../site/upload/iblock/af5/ny3mm1tsjl5wn8xp0q6fbxszkf65d1yx.jpg" alt="Лобанов Виктор Юрьевич" loading="lazy" width="1600" height="1619"></figure>
-        <div class="team-card__name">Лобанов Виктор Юрьевич</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/desenko-pavel-vladimirovich/index.html">
-        <figure><img src="../../site/upload/iblock/047/8ckj8al48a1edjifda9kn6cz4maoqfy6.jpg" alt="Десенко Павел Владимирович" loading="lazy" width="1365" height="1102"></figure>
-        <div class="team-card__name">Десенко Павел Владимирович</div>
-        <div class="team-card__role">Тренер по плаванию.</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/pupyreva-antonina-borisovna/index.html">
-        <figure><img src="../../site/upload/iblock/90f/f6mi5rmlfxqwtma12pjbamfapm83kd4d.jpg" alt="Пупырева Антонина Борисовна" loading="lazy" width="1365" height="1170"></figure>
-        <div class="team-card__name">Пупырева Антонина Борисовна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/plotnikov-ivan/index.html">
-        <figure><img src="../../site/upload/iblock/c40/c40ef59d1470c352463f09f8d649b896.jpg" alt="Плотников Иван" loading="lazy" width="1600" height="1388"></figure>
-        <div class="team-card__name">Плотников Иван</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/kolobova-valeriya-alekseevna/index.html">
-        <figure><img src="../../site/upload/iblock/600/yz2taz03wi1hehho0eihha0gboxac37y.jpg" alt="Колобова Валерия Алексеевна" loading="lazy" width="1365" height="1128"></figure>
-        <div class="team-card__name">Колобова Валерия Алексеевна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, проведение занятий по профилактике нарушения осанки</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/ushakova-sofya-andreevna/index.html">
-        <figure><img src="../../site/upload/iblock/828/4bmmemzaah3zjoaj6c8l9gpt87tk9htt.JPG" alt="Ушакова Софья Андреевна" loading="lazy" width="1600" height="1388"></figure>
-        <div class="team-card__name">Ушакова Софья Андреевна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../detskiy-tsentr-plavaniya/kozhevnikova-ekaterina-vyacheslavovna/index.html">
-        <figure><img src="../../site/upload/iblock/87f/4i8czr56au7pycj1my7ykbz2ozbq8iw2.JPG" alt="Кожевникова Екатерина Вячеславовна" loading="lazy" width="1600" height="1444"></figure>
-        <div class="team-card__name">Кожевникова Екатерина Вячеславовна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/gutsunaeva-yuliya/index.html">
-        <figure><img src="../../site/upload/iblock/457/4573e4c63079f9e2104c2af0bb970688.jpg" alt="Гуцунаева Юлия" loading="lazy" width="2329" height="2096"></figure>
-        <div class="team-card__name">Гуцунаева Юлия</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/korotkikh-aleksandr/index.html">
-        <figure><img src="../../site/upload/iblock/515/5154a5cd9a98a3ae9e043ba743b30a5a.jpg" alt="Коротких Александр" loading="lazy" width="2329" height="2381"></figure>
-        <div class="team-card__name">Коротких Александр</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/yarmolenko-anton/index.html">
-        <figure><img src="../../site/upload/iblock/228/97azv9kyi559oc13ym0kon3per8bzbbh.jpg" alt="Ярмоленко Антон" loading="lazy" width="1280" height="1280"></figure>
-        <div class="team-card__name">Ярмоленко Антон</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/skiba-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/415/z9l2jtot7z6b9kojh263hwub4hbmc9b3.jpg" alt="Скиба Алексей" loading="lazy" width="1280" height="1280"></figure>
-        <div class="team-card__name">Скиба Алексей</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/pikhtovnikov-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/750/750722f7d0ff775d7705b35577c11ccc.jpg" alt="Пихтовников Алексей" loading="lazy" width="2322" height="2139"></figure>
-        <div class="team-card__name">Пихтовников Алексей</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/basseyn/../fitnes-tsentr/painov-vadim-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/6b2/6b29a79c102ef9eb63185681f6856f1b.jpg" alt="Паинов Вадим" loading="lazy" width="2189" height="2324"></figure>
-        <div class="team-card__name">Паинов Вадим</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      </div>
-    </section>
-    <section class="section" data-cat="fitnes-tsentr" aria-label="Фитнес-центр">
-      <div class="section-head reveal">
-        <h2>Фитнес-центр</h2>
-      </div>
-      <div class="team-grid reveal">
-      <a class="team-card" href="../team/fitnes-tsentr/eliseeva-olga/index.html">
-        <figure><img src="../../site/upload/iblock/619/619b71b2b696df3a868ccc8d037ae37f.jpeg" alt="Елисеева Ольга" loading="lazy" width="853" height="828"></figure>
-        <div class="team-card__name">Елисеева Ольга</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/melekhin-denis/index.html">
-        <figure><img src="../../site/upload/iblock/2aa/2aafa6bc69e2b592c05cf93ca5ca12a4.jpg" alt="Мелехин Денис" loading="lazy" width="607" height="587"></figure>
-        <div class="team-card__name">Мелехин Денис</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/chirkov-pavel/index.html">
-        <figure><img src="../../site/upload/iblock/542/54224f1b9adb93127d0aea5b09ba42f0.jpg" alt="Чирков Павел" loading="lazy" width="645" height="463"></figure>
-        <div class="team-card__name">Чирков Павел</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/plotnikov-ivan/index.html">
-        <figure><img src="../../site/upload/iblock/c40/c40ef59d1470c352463f09f8d649b896.jpg" alt="Плотников Иван" loading="lazy" width="1600" height="1388"></figure>
-        <div class="team-card__name">Плотников Иван</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/gutsunaeva-yuliya/index.html">
-        <figure><img src="../../site/upload/iblock/457/4573e4c63079f9e2104c2af0bb970688.jpg" alt="Гуцунаева Юлия" loading="lazy" width="2329" height="2096"></figure>
-        <div class="team-card__name">Гуцунаева Юлия</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/korotkikh-aleksandr/index.html">
-        <figure><img src="../../site/upload/iblock/515/5154a5cd9a98a3ae9e043ba743b30a5a.jpg" alt="Коротких Александр" loading="lazy" width="2329" height="2381"></figure>
-        <div class="team-card__name">Коротких Александр</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/yarmolenko-anton/index.html">
-        <figure><img src="../../site/upload/iblock/228/97azv9kyi559oc13ym0kon3per8bzbbh.jpg" alt="Ярмоленко Антон" loading="lazy" width="1280" height="1280"></figure>
-        <div class="team-card__name">Ярмоленко Антон</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/skiba-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/415/z9l2jtot7z6b9kojh263hwub4hbmc9b3.jpg" alt="Скиба Алексей" loading="lazy" width="1280" height="1280"></figure>
-        <div class="team-card__name">Скиба Алексей</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/pikhtovnikov-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/750/750722f7d0ff775d7705b35577c11ccc.jpg" alt="Пихтовников Алексей" loading="lazy" width="2322" height="2139"></figure>
-        <div class="team-card__name">Пихтовников Алексей</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/painov-vadim-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/6b2/6b29a79c102ef9eb63185681f6856f1b.jpg" alt="Паинов Вадим" loading="lazy" width="2189" height="2324"></figure>
-        <div class="team-card__name">Паинов Вадим</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/chistyakov-ilya-mikhaylovich/index.html">
-        <figure><img src="../../site/upload/iblock/d87/d87e923bae954073ac384687e8c3951a.jpg" alt="Чистяков Илья" loading="lazy" width="2079" height="2270"></figure>
-        <div class="team-card__name">Чистяков Илья</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/istomina-olga/index.html">
-        <figure><img src="../../site/upload/iblock/d0e/d0e9e4cdd149a19af4e62b86a778e480.jpg" alt="Истомина Ольга" loading="lazy" width="1600" height="1606"></figure>
-        <div class="team-card__name">Истомина Ольга</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/bychikhin-denis/index.html">
-        <figure><img src="../../site/upload/iblock/fac/54p6myf4thu5wovktbf0xbrkd4cr1fnk.png" alt="Бычихин Денис" loading="lazy" width="1437" height="1343"></figure>
-        <div class="team-card__name">Бычихин Денис</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/kharina-olga/index.html">
-        <figure><img src="../../site/upload/iblock/7e7/i9elsi9cj7l67ne6g0ljcgcl3d0ec6fn.png" alt="Харина Ольга" loading="lazy" width="1600" height="1290"></figure>
-        <div class="team-card__name">Харина Ольга</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/zhurkin-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/445/2qrs73qzw22jsa3xs4419wea4omdprho.png" alt="Журкин Алексей" loading="lazy" width="1600" height="1330"></figure>
-        <div class="team-card__name">Журкин Алексей</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/yazeva-mariya/index.html">
-        <figure><img src="../../site/upload/iblock/cbf/f90yb17tr8p2mmfjc1c3635fuc0evxb1.jpg" alt="Язева Мария" loading="lazy" width="960" height="855"></figure>
-        <div class="team-card__name">Язева Мария</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/mineev-aleksandr/index.html">
-        <figure><img src="../../site/upload/iblock/752/s4ai2ztbq5ixpknt8wbmm7n7smckh5hq.jpg" alt="Минеев Александр" loading="lazy" width="855" height="889"></figure>
-        <div class="team-card__name">Минеев Александр</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/dolgomirova-valeriya/index.html">
-        <figure><img src="../../site/upload/iblock/a44/42eq2au22tqdpw0zb0m0et9vf8ig0mnb.jpg" alt="Долгомирова Валерия" loading="lazy" width="539" height="496"></figure>
-        <div class="team-card__name">Долгомирова Валерия</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/kushnarev-dmitriy/index.html">
-        <figure><img src="../../site/upload/iblock/5b6/fswjzh1h4sr6bzmw261dl1b6edx1mwe9.jpg" alt="Кушнарев Дмитрий" loading="lazy" width="706" height="706"></figure>
-        <div class="team-card__name">Кушнарев Дмитрий</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/filippov-ignat/index.html">
-        <figure><img src="../../site/upload/iblock/45d/l8x8w3xbamo24wpoeczkrl5nnsfowwje.JPG" alt="Филиппов Игнат" loading="lazy" width="2685" height="2649"></figure>
-        <div class="team-card__name">Филиппов Игнат</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/shoshin-stefan/index.html">
-        <figure><img src="../../site/upload/iblock/192/19243b1d2235ad89d5d83f7acf610e0f.jpg" alt="Шошин Стефан" loading="lazy" width="1600" height="1627"></figure>
-        <div class="team-card__name">Шошин Стефан</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/moskovaya-nadezhda/index.html">
-        <figure><img src="../../site/upload/iblock/93a/wfveyt6o670mw471o2ona7cz0c84yv2c.jpg" alt="Московая Надежда" loading="lazy" width="960" height="934"></figure>
-        <div class="team-card__name">Московая Надежда</div>
-        <div class="team-card__role">Персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/khusainov-rustam/index.html">
-        <figure><img src="../../site/upload/iblock/d21/d21816a9cd141a74a3aafebb6dc2efd8.jpg" alt="Хусаинов Рустам" loading="lazy" width="1600" height="1587"></figure>
-        <div class="team-card__name">Хусаинов Рустам</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/toropova-kseniya/index.html">
-        <figure><img src="../../site/upload/iblock/0fb/0fb70fcf0227d589e09c8b2e91887c90.jpg" alt="Торопова Ксения" loading="lazy" width="2322" height="1996"></figure>
-        <div class="team-card__name">Торопова Ксения</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/zhuravleva-elena/index.html">
-        <figure><img src="../../site/upload/iblock/b55/5lhcrxee5enn35itdc1mw6rzhxwou8da.jpg" alt="Журавлева Елена" loading="lazy" width="1600" height="1552"></figure>
-        <div class="team-card__name">Журавлева Елена</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/epishina-darya/index.html">
-        <figure><img src="../../site/upload/iblock/99f/99f2bf050ab083f92e686962c8d8a6dd.JPG" alt="Епишина Дарья" loading="lazy" width="2209" height="2192"></figure>
-        <div class="team-card__name">Епишина Дарья</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/komarova-svetlana/index.html">
-        <figure><img src="../../site/upload/iblock/2ed/2edd2eb692603581bac595dae7b6ed6c.JPG" alt="Комарова Светлана" loading="lazy" width="1600" height="1472"></figure>
-        <div class="team-card__name">Комарова Светлана</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/nurmagomedova-khadi/index.html">
-        <figure><img src="../../site/upload/iblock/19e/ijn0vg6ywmqqnys3vx4z1q17jhya27q7.jpg" alt="Нурмагомедова Хади" loading="lazy" width="1600" height="1866"></figure>
-        <div class="team-card__name">Нурмагомедова Хади</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/shitoeva-darya/index.html">
-        <figure><img src="../../site/upload/iblock/c10/61aue8d0kk8g3ghoylxr3pjwqla2hk7w.JPG" alt="Шитоева Дарья" loading="lazy" width="2756" height="2799"></figure>
-        <div class="team-card__name">Шитоева Дарья</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/gladkikh-valeriya/index.html">
-        <figure><img src="../../site/upload/iblock/792/4rqopi069in45dv6wbln2j713je1i8gy.JPG" alt="Гладких Валерия" loading="lazy" width="2659" height="2295"></figure>
-        <div class="team-card__name">Гладких Валерия</div>
-        <div class="team-card__role">персональный тренер</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/vshivkova-yuliya/index.html">
-        <figure><img src="../../site/upload/iblock/767/7673196634b7ab4ab8659b82246000a2.jpg" alt="Вшивкова Юлия" loading="lazy" width="2319" height="1847"></figure>
-        <div class="team-card__name">Вшивкова Юлия</div>
-        <div class="team-card__role">руководитель направления групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/kostareva-liliya/index.html">
-        <figure><img src="../../site/upload/iblock/639/639b59d8e6909ec3bd6947763ade8ae7.jpg" alt="Костарева Лилия" loading="lazy" width="2329" height="2151"></figure>
-        <div class="team-card__name">Костарева Лилия</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/gudkova-anna/index.html">
-        <figure><img src="../../site/upload/iblock/31d/31d55dd4695df3e0882c5cab4928a0fb.jpg" alt="Гудкова Анна" loading="lazy" width="2329" height="2456"></figure>
-        <div class="team-card__name">Гудкова Анна</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/tsyplenkova-tatyana/index.html">
-        <figure><img src="../../site/upload/iblock/2d5/2d58cee47af5a80766973585e8431026.jpg" alt="Цыпленкова Татьяна" loading="lazy" width="2236" height="2318"></figure>
-        <div class="team-card__name">Цыпленкова Татьяна</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/olesya-golubtsova/index.html">
-        <figure><img src="../../site/upload/iblock/602/6024aeea958e7faf40b5b33dce1783ad.jpg" alt="Голубцова Олеся" loading="lazy" width="2324" height="2313"></figure>
-        <div class="team-card__name">Голубцова Олеся</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/malukhina-tatyana/index.html">
-        <figure><img src="../../site/upload/iblock/168/1689c7749c0cdf1e1697c2d5832f9d09.jpg" alt="Малухина Татьяна" loading="lazy" width="1600" height="1605"></figure>
-        <div class="team-card__name">Малухина Татьяна</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/ivanov-dmitriy/index.html">
-        <figure><img src="../../site/upload/iblock/e2c/e2ce513732f1e2c3f205c8c0e7141125.jpg" alt="Иванов Дмитрий" loading="lazy" width="1996" height="1907"></figure>
-        <div class="team-card__name">Иванов Дмитрий</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/usmanov-ruslan/index.html">
-        <figure><img src="../../site/upload/iblock/b57/b5753bdce1f399a9af98078fced81937.jpg" alt="Усманов Руслан" loading="lazy" width="2324" height="2260"></figure>
-        <div class="team-card__name">Усманов Руслан</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/malukhin-andrey-borisovich/index.html">
-        <figure><img src="../../site/upload/iblock/275/275d12939c53df0166ee97ce7b6434b5.jpg" alt="Малухин Андрей" loading="lazy" width="2329" height="2369"></figure>
-        <div class="team-card__name">Малухин Андрей</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/ivanova-alyena/index.html">
-        <figure><img src="../../site/upload/iblock/b24/bb0wasuh67vxd49spuzcd3hlbt7z8bil.JPG" alt="Иванова Алёна" loading="lazy" width="3465" height="2627"></figure>
-        <div class="team-card__name">Иванова Алёна</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/vagin-ignatiy/index.html">
-        <figure><img src="../../site/upload/iblock/583/gmle523e4xoza8prjrn1p2l1znmu1lnp.JPG" alt="Вагин Игнатий" loading="lazy" width="1600" height="1891"></figure>
-        <div class="team-card__name">Вагин Игнатий</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/zolkina-valeriya/index.html">
-        <figure><img src="../../site/upload/iblock/32d/0tnjjk5kx4evq7d6xf3391eh4ucyced0.JPG" alt="Золкина Валерия" loading="lazy" width="2742" height="2389"></figure>
-        <div class="team-card__name">Золкина Валерия</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      <a class="team-card" href="../team/fitnes-tsentr/serebryakova-anastasiya/index.html">
-        <figure><img src="../../site/upload/iblock/08c/ckdefbol6f3r1fi5vv535sir6j4xaeyu.JPG" alt="Серебрякова Анастасия" loading="lazy" width="3451" height="2563"></figure>
-        <div class="team-card__name">Серебрякова Анастасия</div>
-        <div class="team-card__role">инструктор групповых программ</div>
-      </a>
-      </div>
-    </section>
     <section class="section" data-cat="detskiy-tsentr-plavaniya" aria-label="Центр детского плавания">
       <div class="section-head reveal">
         <h2>Центр детского плавания</h2>
       </div>
       <div class="team-grid reveal">
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/ustinova-lyudmila-vladimirovna/index.html">
-        <figure><img src="../../site/upload/iblock/e8d/gjg9hu4rfyoufhtsc8y94gr1lx33dju8.jpg" alt="Устинова Людмила Владимировна" loading="lazy" width="1351" height="1354"></figure>
+        <figure><img src="../../site/upload/iblock/b2d/dwh8e2fzsr6b33dmy0nki8pbg077ui66.jpg" alt="Устинова Людмила Владимировна" style="object-position:50.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Устинова Людмила Владимировна</div>
         <div class="team-card__role">Руководитель Центра плавания</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/vinogradov-anatoliy-vitalevich/index.html">
-        <figure><img src="../../site/upload/iblock/f22/prlbedxoj89z3vs5rc0dg4s1gaqflazf.jpg" alt="Виноградов Анатолий Витальевич" loading="lazy" width="1365" height="1302"></figure>
+        <figure><img src="../../site/upload/iblock/d86/w5ri042ncqr0x24r40j4jz74qehpw5d9.jpg" alt="Виноградов Анатолий Витальевич" style="object-position:55.8% 18%" loading="lazy"></figure>
         <div class="team-card__name">Виноградов Анатолий Витальевич</div>
         <div class="team-card__role">Старший тренер по спортивному плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/kolpakov-vladimir-arkadevich/index.html">
-        <figure><img src="../../site/upload/iblock/2c1/9lxmhghcfu736jpbdu2iuwwy6fz3z3x8.jpg" alt="Колпаков Владимир Аркадьевич" loading="lazy" width="1365" height="1275"></figure>
+        <figure><img src="../../site/upload/iblock/961/t6fq9skglzm7s667d3rpzd6uspucqhhe.jpg" alt="Колпаков Владимир Аркадьевич" style="object-position:58.4% 18%" loading="lazy"></figure>
         <div class="team-card__name">Колпаков Владимир Аркадьевич</div>
         <div class="team-card__role">Тренер по плаванию, тренер по спортивному плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/orekhov-andrey-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/333/ioog5nhyegninlnegjxw6y6c4vf4l9y4.jpg" alt="Орехов Андрей Сергеевич" loading="lazy" width="1365" height="1216"></figure>
+        <figure><img src="../../site/upload/iblock/a40/ktlmu34vpur842a816j8f6mjmlcx29az.jpg" alt="Орехов Андрей Сергеевич" style="object-position:52% 18%" loading="lazy"></figure>
         <div class="team-card__name">Орехов Андрей Сергеевич</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/nizamova-marina-shamilevna/index.html">
-        <figure><img src="../../site/upload/iblock/3bc/bhmb1xyn50oc8785vtvh54v3mw5hksfa.jpg" alt="Низамова Марина Шамилевна" loading="lazy" width="1105" height="1042"></figure>
+        <figure><img src="../../site/upload/iblock/e73/2mwfhk8nwllsl8sf4bb72eo4ba0dwkd1.jpg" alt="Низамова Марина Шамилевна" style="object-position:52.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Низамова Марина Шамилевна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/maltsev-aleksandr-pavlovich/index.html">
-        <figure><img src="../../site/upload/iblock/20b/tl3ln4y2q8v3glisnlsd9183gzjvrusj.jpg" alt="Мальцев Александр Павлович" loading="lazy" width="1365" height="1195"></figure>
+        <figure><img src="../../site/upload/iblock/ad2/up1jyg2dnz0ey2h4z8aezjqndp4qm1dx.jpg" alt="Мальцев Александр Павлович" style="object-position:58.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Мальцев Александр Павлович</div>
         <div class="team-card__role">Тренер по плаванию и водному поло</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/pushkareva-svetlana-anatolevna-/index.html">
-        <figure><img src="../../site/upload/iblock/ded/ki9fzu5fsgclj4807u8opp7i58la7msq.jpg" alt="Пушкарева Светлана Анатольевна" loading="lazy" width="1365" height="1192"></figure>
+        <figure><img src="../../site/upload/iblock/9f8/r08yphtnx0w3xkx8i1sfr3ij3l71jgbs.jpg" alt="Пушкарева Светлана Анатольевна" style="object-position:59.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Пушкарева Светлана Анатольевна</div>
         <div class="team-card__role">Тренер по плаванию, тренер по плаванию в ластах</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/sokolova-darya-sergeevna/index.html">
-        <figure><img src="../../site/upload/iblock/dc9/1mswvceniq07488bdbi5h0fs578ej467.jpg" alt="Соколова Дарья Сергеевна" loading="lazy" width="1365" height="1107"></figure>
+        <figure><img src="../../site/upload/iblock/89b/g0zd28nw0jcvfy4jc6l5tk4pogzulncq.jpg" alt="Соколова Дарья Сергеевна" style="object-position:58.6% 18%" loading="lazy"></figure>
         <div class="team-card__name">Соколова Дарья Сергеевна</div>
         <div class="team-card__role">Тренер по плаванию, проведение занятий по профилактике нарушения осанки</div>
       </a>
-      <a class="team-card" href="../team/detskiy-tsentr-plavaniya/../basseyn/galygina-ekaterina-vladilenovna/index.html">
-        <figure><img src="../../site/upload/iblock/94f/8nimvi90la2z5mnc0vn1akzuh9wyjwt0.jpg" alt="Галыгина Екатерина Владиленовна" loading="lazy" width="1365" height="1394"></figure>
-        <div class="team-card__name">Галыгина Екатерина Владиленовна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, тренер по обучению плаванию детей</div>
-      </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/pogudin-sergey-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/84e/3gbnoe9sdpov9um0fj2kp4ffpqphy4db.jpg" alt="Погудин Сергей Сергеевич" loading="lazy" width="1365" height="1265"></figure>
+        <figure><img src="../../site/upload/iblock/40d/f2kv8rtk15pxbc1125wjsjzlnhgxxzps.jpg" alt="Погудин Сергей Сергеевич" style="object-position:57.8% 18%" loading="lazy"></figure>
         <div class="team-card__name">Погудин Сергей Сергеевич</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/belyaeva-tatyana-ivanovna/index.html">
-        <figure><img src="../../site/upload/iblock/1dc/qnw87hja4jf0w2us14qbe882epzr6oms.jpg" alt="Беляева Татьяна Ивановна" loading="lazy" width="1365" height="1274"></figure>
+        <figure><img src="../../site/upload/iblock/d33/yxwrgh09dmramyo2nv7ss5kftoptmf4a.jpg" alt="Беляева Татьяна Ивановна" style="object-position:54.3% 18%" loading="lazy"></figure>
         <div class="team-card__name">Беляева Татьяна Ивановна</div>
         <div class="team-card__role">Тренер по плаванию, тренер по обучению плаванию с детьми младшего возраста</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/belyaev-vladimir-ivanovich/index.html">
-        <figure><img src="../../site/upload/iblock/f2e/3uaeevyk5vf9duoqcqsa3g58zegdthnv.jpg" alt="Беляев Владимир Иванович" loading="lazy" width="1365" height="1265"></figure>
+        <figure><img src="../../site/upload/iblock/1f0/ja4ie5e41sth7wbg87h4sidnkydet9mp.jpg" alt="Беляев Владимир Иванович" style="object-position:59.2% 18%" loading="lazy"></figure>
         <div class="team-card__name">Беляев Владимир Иванович</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/shchebekova-tatyana-vladimirovna/index.html">
-        <figure><img src="../../site/upload/iblock/074/irq7npechnt4s0ptebl3t9jge9ldjysi.jpg" alt="Щебекова Екатерина Ивановна" loading="lazy" width="1365" height="1302"></figure>
+        <figure><img src="../../site/upload/iblock/e24/z7g2ym5o9aa2bvk34os94y9c3nqzbw70.jpg" alt="Щебекова Екатерина Ивановна" style="object-position:52% 18%" loading="lazy"></figure>
         <div class="team-card__name">Щебекова Екатерина Ивановна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/mishlanova-svetlana-yurevna/index.html">
-        <figure><img src="../../site/upload/iblock/f36/m7h722czrktsrjdgn4go6ierfm8whz1i.jpg" alt="Мишланова Светлана Юрьевна" loading="lazy" width="1329" height="1280"></figure>
+        <figure><img src="../../site/upload/iblock/8e7/ybm2bkip4jrnifx2hmwjdjjpoo4h41ah.jpg" alt="Мишланова Светлана Юрьевна" style="object-position:57.6% 18%" loading="lazy"></figure>
         <div class="team-card__name">Мишланова Светлана Юрьевна</div>
         <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию</div>
       </a>
-      <a class="team-card" href="../team/detskiy-tsentr-plavaniya/../basseyn/kurganskaya-anna-vasilevna/index.html">
-        <figure><img src="../../site/upload/iblock/231/ughawz0c8muesyujxw7tvchvmwy93vn6.jpg" alt="Хафизова (Курганская) Анна Васильевна" loading="lazy" width="1365" height="1282"></figure>
-        <div class="team-card__name">Хафизова (Курганская) Анна Васильевна</div>
-        <div class="team-card__role">Тренер по плаванию</div>
-      </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/gagarina-tatyana-anatolevna/index.html">
-        <figure><img src="../../site/upload/iblock/0b5/ff2je9z0cko9zvjuvoy00h1i93vxuyl0.jpg" alt="Гагарина Татьяна Анатольевна" loading="lazy" width="1229" height="1075"></figure>
+        <figure><img src="../../site/upload/iblock/f79/l9ct486efve6l3onedzwqyhbb2akd7jl.jpg" alt="Гагарина Татьяна Анатольевна" style="object-position:58.2% 18%" loading="lazy"></figure>
         <div class="team-card__name">Гагарина Татьяна Анатольевна</div>
         <div class="team-card__role">Специалист по программе «Класс», тренер по обучению плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/ushakova-kseniya-aleksandrovna/index.html">
-        <figure><img src="../../site/upload/iblock/5ee/m1rhjjmst2ygdwn5jf7c1mon8kxkk9l2.jpg" alt="Ушакова Ксения Александровна" loading="lazy" width="1365" height="1186"></figure>
+        <figure><img src="../../site/upload/iblock/8c9/twqi32id5151rjrn0dqkmdx3m1dqp9bj.jpg" alt="Ушакова Ксения Александровна" style="object-position:56.7% 18%" loading="lazy"></figure>
         <div class="team-card__name">Ушакова Ксения Александровна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/bayvarovskaya-tatyana-aleksandrovna/index.html">
-        <figure><img src="../../site/upload/iblock/422/s2s3fs83oclh3di9gcdxyow6x3x9e739.jpg" alt="Байваровская Татьяна Александровна" loading="lazy" width="1365" height="1210"></figure>
+        <figure><img src="../../site/upload/iblock/bff/k9jh57fop4ctcjb5z39mrec4s8tu264j.jpg" alt="Байваровская Татьяна Александровна" style="object-position:53.8% 18%" loading="lazy"></figure>
         <div class="team-card__name">Байваровская Татьяна Александровна</div>
         <div class="team-card__role">Тренер по плаванию, тренер по плаванию по программе «Класс»</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/gilyeva-svetlana-aleksandrovna/index.html">
-        <figure><img src="../../site/upload/iblock/c4f/ltabjrgxzaj3cxesuxdirwiq8c2r3g4s.jpg" alt="Гилёва Светлана Александровна" loading="lazy" width="1365" height="1282"></figure>
+        <figure><img src="../../site/upload/iblock/040/5anc2js6a4k8mho95qxuau2ga63q6vq6.jpg" alt="Гилёва Светлана Александровна" style="object-position:54% 18%" loading="lazy"></figure>
         <div class="team-card__name">Гилёва Светлана Александровна</div>
         <div class="team-card__role">Тренер по плаванию, тренер по плаванию программы «Класс»</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/lobanov-viktor-yurevich/index.html">
-        <figure><img src="../../site/upload/iblock/af5/ny3mm1tsjl5wn8xp0q6fbxszkf65d1yx.jpg" alt="Лобанов Виктор Юрьевич" loading="lazy" width="1600" height="1619"></figure>
+        <figure><img src="../../site/upload/iblock/858/brisc01lr4l1fub4z291d64cmofzst60.jpg" alt="Лобанов Виктор Юрьевич" style="object-position:58.2% 18%" loading="lazy"></figure>
         <div class="team-card__name">Лобанов Виктор Юрьевич</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/desenko-pavel-vladimirovich/index.html">
-        <figure><img src="../../site/upload/iblock/047/8ckj8al48a1edjifda9kn6cz4maoqfy6.jpg" alt="Десенко Павел Владимирович" loading="lazy" width="1365" height="1102"></figure>
+        <figure><img src="../../site/upload/iblock/3c7/zofbd1vm539zwug8pkytdlmv6mijjc0e.jpg" alt="Десенко Павел Владимирович" style="object-position:53.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Десенко Павел Владимирович</div>
         <div class="team-card__role">Тренер по плаванию.</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/pupyreva-antonina-borisovna/index.html">
-        <figure><img src="../../site/upload/iblock/90f/f6mi5rmlfxqwtma12pjbamfapm83kd4d.jpg" alt="Пупырева Антонина Борисовна" loading="lazy" width="1365" height="1170"></figure>
+        <figure><img src="../../site/upload/iblock/526/8jeeu8tpuuuf105448xtx407c59z60y1.jpg" alt="Пупырева Антонина Борисовна" style="object-position:58.3% 18%" loading="lazy"></figure>
         <div class="team-card__name">Пупырева Антонина Борисовна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
-      <a class="team-card" href="../team/detskiy-tsentr-plavaniya/../basseyn/kolobova-valeriya-alekseevna/index.html">
-        <figure><img src="../../site/upload/iblock/600/yz2taz03wi1hehho0eihha0gboxac37y.jpg" alt="Колобова Валерия Алексеевна" loading="lazy" width="1365" height="1128"></figure>
-        <div class="team-card__name">Колобова Валерия Алексеевна</div>
-        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, проведение занятий по профилактике нарушения осанки</div>
-      </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/ushakova-sofya-andreevna/index.html">
-        <figure><img src="../../site/upload/iblock/828/4bmmemzaah3zjoaj6c8l9gpt87tk9htt.JPG" alt="Ушакова Софья Андреевна" loading="lazy" width="1600" height="1388"></figure>
+        <figure><img src="../../site/upload/iblock/916/rgixrny9g66cjhzlohoigl6zakjupgdk.jpg" alt="Ушакова Софья Андреевна" style="object-position:54.1% 18%" loading="lazy"></figure>
         <div class="team-card__name">Ушакова Софья Андреевна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/kozhevnikova-ekaterina-vyacheslavovna/index.html">
-        <figure><img src="../../site/upload/iblock/87f/4i8czr56au7pycj1my7ykbz2ozbq8iw2.JPG" alt="Кожевникова Екатерина Вячеславовна" loading="lazy" width="1600" height="1444"></figure>
+        <figure><img src="../../site/upload/iblock/7f3/umapj3poegz0v319vqn9i2l563ti8p0q.jpg" alt="Кожевникова Екатерина Вячеславовна" style="object-position:57.5% 18%" loading="lazy"></figure>
         <div class="team-card__name">Кожевникова Екатерина Вячеславовна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/saraeva-darya-yurevna/index.html">
-        <figure><img src="../../site/upload/iblock/490/zxn6t6hnehwcqj66apxq1mhprgdswihd.png" alt="Сараева Дарья Юрьевна" loading="lazy" width="1365" height="1506"></figure>
+        <figure><img src="../../site/upload/iblock/f02/ifq9wulzg8akynx38hj046tpad2avwkf.png" alt="Сараева Дарья Юрьевна" style="object-position:58.7% 18%" loading="lazy"></figure>
         <div class="team-card__name">Сараева Дарья Юрьевна</div>
         <div class="team-card__role">Тренер по плаванию, тренер по программе «КЛАСС», персональный тренер</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/burtsev-mikhail-aleksandrovich/index.html">
-        <figure><img src="../../site/upload/iblock/e25/ewg8y2b3wmbn46cw7f39ifzbn7hbo0kk.jpg" alt="Бурцев Михаил Александрович" loading="lazy" width="852" height="852"></figure>
+        <figure><img src="../../site/upload/iblock/f96/8e6nbfi741scjf2h8cyjt5alyuh85d2g.png" alt="Бурцев Михаил Александрович" style="object-position:64.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Бурцев Михаил Александрович</div>
         <div class="team-card__role">тренер по плаванию высшей категории, персональный тренер по обучению плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/maksimova-lyudmila-leonidovna-/index.html">
-        <figure><img src="../../site/upload/iblock/022/xwvizp7761i0w9fm9d8u4maomhfnp2u5.jpg" alt="Максимова Людмила Леонидовна" loading="lazy" width="853" height="1007"></figure>
+        <figure><img src="../../site/upload/iblock/a99/rl9082f8fhyxm4nmwgdnlaj1h0xv60nm.png" alt="Максимова Людмила Леонидовна" style="object-position:68.2% 18%" loading="lazy"></figure>
         <div class="team-card__name">Максимова Людмила Леонидовна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
       <a class="team-card" href="../team/detskiy-tsentr-plavaniya/usova-elizaveta-denisovna/index.html">
-        <figure><img src="../../site/upload/iblock/35b/3tp45gu0vvlriuzz645wqf6tu9z0zqz8.jpg" alt="Усова Елизавета Денисовна" loading="lazy" width="1600" height="1729"></figure>
+        <figure><img src="../../site/upload/iblock/c48/vu7dn6te8f07puss1ym7jkis0gyxn78w.jpg" alt="Усова Елизавета Денисовна" style="object-position:54.5% 18%" loading="lazy"></figure>
         <div class="team-card__name">Усова Елизавета Денисовна</div>
         <div class="team-card__role">Тренер по плаванию</div>
       </a>
-      </div>
-    </section>
-    <section class="section" data-cat="spa-tsentr" aria-label="СПА-центр">
-      <div class="section-head reveal">
-        <h2>СПА-центр</h2>
-      </div>
-      <div class="team-grid reveal">
-      <a class="team-card" href="../team/spa-tsentr/murzina-irina/index.html">
-        <figure><img src="../../site/upload/iblock/681/4nau619qdzmwldvw7oqjh5o7vuqnel5c.jpg" alt="Мурзина Ирина" loading="lazy" width="1621" height="1727"></figure>
-        <div class="team-card__name">Мурзина Ирина</div>
-        <div class="team-card__role">Врач-физиотерапевт, косметолог</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/kurochkina-natalya/index.html">
-        <figure><img src="../../site/upload/iblock/cb3/6owuif9x8lp9oxppp5k6tm3nqkks0eje.JPG" alt="Курочкина Наталья" loading="lazy" width="1600" height="1600"></figure>
-        <div class="team-card__name">Курочкина Наталья</div>
-        <div class="team-card__role">Косметолог</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/konkina-tatyana/index.html">
-        <figure><img src="../../site/upload/iblock/753/pttiufrym6okrazevofm1l58fpdbiw08.jpg" alt="Конькина Татьяна" loading="lazy" width="1364" height="1481"></figure>
-        <div class="team-card__name">Конькина Татьяна</div>
-        <div class="team-card__role">Медицинская сестра по массажу, косметолог - эстетист</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/kuznetsova-yuliya-/index.html">
-        <figure><img src="../../site/upload/iblock/c4d/zqnl27mck4y2p86l77ncwyee4qfnz9uj.jpg" alt="Кузнецова Юлия" loading="lazy" width="1720" height="1851"></figure>
-        <div class="team-card__name">Кузнецова Юлия</div>
-        <div class="team-card__role">Медицинская сестра по массажу</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/bolotov-konstantin/index.html">
-        <figure><img src="../../site/upload/iblock/ceb/1tmedg13dkxq43tfqpruir3hha3em2ht.JPG" alt="Болотов Константин" loading="lazy" width="2284" height="2227"></figure>
-        <div class="team-card__name">Болотов Константин</div>
-        <div class="team-card__role">Медицинский брат по массажу</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/chernykh-polina/index.html">
-        <figure><img src="../../site/upload/iblock/d68/rtele6hhm0txornriaqmdgunv3x6ubk8.jpg" alt="Черных Полина" loading="lazy" width="1713" height="1828"></figure>
-        <div class="team-card__name">Черных Полина</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/sycheva-nadezhda/index.html">
-        <figure><img src="../../site/upload/iblock/614/9i7w50laiyc8dov0qok0xgm9ar7c6886.jpg" alt="Сычева Надежда" loading="lazy" width="1851" height="2041"></figure>
-        <div class="team-card__name">Сычева Надежда</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/beklemyshev-aleksey/index.html">
-        <figure><img src="../../site/upload/iblock/a66/7ud11jj1izf62rlk9lghff867bxeyewd.JPG" alt="Беклемышев Алексей" loading="lazy" width="1600" height="1380"></figure>
-        <div class="team-card__name">Беклемышев Алексей</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/pechenkina-larisa/index.html">
-        <figure><img src="../../site/upload/iblock/d04/3dp7evxx71x152ibnf152y9jqwhto2xc.png" alt="Печенкина Лариса" loading="lazy" width="768" height="772"></figure>
-        <div class="team-card__name">Печенкина Лариса</div>
-        <div class="team-card__role">Медицинская сестра по массажу</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/odirmatova-lola/index.html">
-        <figure><img src="../../site/upload/iblock/f6c/p6a7we29qlvg4y0bpghxx0pmz8jr23ab.png" alt="Одирматова Лола" loading="lazy" width="960" height="824"></figure>
-        <div class="team-card__name">Одирматова Лола</div>
-        <div class="team-card__role">Косметик-эстетист, специалист по массажу.</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/kanina-nina/index.html">
-        <figure><img src="../../site/upload/iblock/3d6/liibl6bcr4yrbje7lbgfn65kxq1kqlai.jpg" alt="Канина Нина" loading="lazy" width="700" height="700"></figure>
-        <div class="team-card__name">Канина Нина</div>
-        <div class="team-card__role">Косметолог-эстетист</div>
-      </a>
-      <a class="team-card" href="../team/spa-tsentr/kopytov-evgeniy/index.html">
-        <figure><img src="../../site/upload/iblock/924/qtm5jhm4bc7s7161r6fkfme2dqo8s11t.JPG" alt="Копытов Евгений" loading="lazy" width="2679" height="2574"></figure>
-        <div class="team-card__name">Копытов Евгений</div>
-        <div class="team-card__role">Косметик-эстетист, Косметик-эстетист, специалист по массажу.</div>
+      <a class="team-card" href="../team/detskiy-tsentr-plavaniya/kolobova-valeriya-alekseevna/index.html">
+        <figure><img src="../../site/upload/iblock/c9a/k1fjfpc095onj54h6lc2ilp4v7wtpqfs.jpg" alt="Колобова Валерия Алексеевна" style="object-position:57.6% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Колобова Валерия Алексеевна</div>
+        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, проведение занятий по профилактике нарушения осанки</div>
       </a>
       </div>
     </section>
@@ -803,59 +265,370 @@
       </div>
       <div class="team-grid reveal">
       <a class="team-card" href="../team/kineziterapiya/kyrova-anastasiya-vitalevna/index.html">
-        <figure><img src="../../site/upload/iblock/ec4/mczeyzmzyy5acjnpjoekvcpli3hf0ltn.jpg" alt="Шубина (Кырова) Анастасия Витальевна" loading="lazy" width="1432" height="1473"></figure>
+        <figure><img src="../../site/upload/iblock/4dd/xb8o8y3vuscn9fnsipd3j6l8pmd2dcjv.jpg" alt="Шубина (Кырова) Анастасия Витальевна" style="object-position:50.5% 18%" loading="lazy"></figure>
         <div class="team-card__name">Шубина (Кырова) Анастасия Витальевна</div>
         <div class="team-card__role">Заведующий центром кинезитерапии, врач-кинезитерапевт</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/bolotov-vadim-gennadevich/index.html">
-        <figure><img src="../../site/upload/iblock/10a/i8r479e39dsgvy7atzp06wl8h0a43922.jpg" alt="Болотов Вадим Геннадьевич" loading="lazy" width="1320" height="1409"></figure>
+        <figure><img src="../../site/upload/iblock/be4/ghupxhca9ojc5fo1kfn9ajwsx6s0gdeu.jpg" alt="Болотов Вадим Геннадьевич" style="object-position:52.9% 18%" loading="lazy"></figure>
         <div class="team-card__name">Болотов Вадим Геннадьевич</div>
         <div class="team-card__role">врач-кинезитерапевт</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/russkikh-sergey-sergeevich/index.html">
-        <figure><img src="../../site/upload/iblock/4d4/tfuqf8suds37q95hiqxulbk0znvwal6s.jpg" alt="Русских Сергей Сергеевич" loading="lazy" width="1258" height="1336"></figure>
+        <figure><img src="../../site/upload/iblock/0d8/cxlf5gbq9dlgg57qm8u332ancoes6pe3.jpg" alt="Русских Сергей Сергеевич" style="object-position:53.4% 18%" loading="lazy"></figure>
         <div class="team-card__name">Русских Сергей Сергеевич</div>
         <div class="team-card__role">врач-кинезитерапевт</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/ermilov-aleksandr-olegovich/index.html">
-        <figure><img src="../../site/upload/iblock/623/bv29b1x431swqj1ukwfgp16w0mt980wg.jpg" alt="Ермилов Александр Олегович" loading="lazy" width="1476" height="1506"></figure>
+        <figure><img src="../../site/upload/iblock/5a8/ly9ckqek8jcoaen9y8z2xub9nllu7z5y.jpg" alt="Ермилов Александр Олегович" style="object-position:55.2% 18%" loading="lazy"></figure>
         <div class="team-card__name">Ермилов Александр Олегович</div>
         <div class="team-card__role">врач-кинезитерапевт</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/chunzhin-dmitriy-evgenevich/index.html">
-        <figure><img src="../../site/upload/iblock/1cd/46vuue6x35y4ht16vijvuigm2o3mph67.jpg" alt="Чунжин Дмитрий" loading="lazy" width="1292" height="1366"></figure>
+        <figure><img src="../../site/upload/iblock/45d/qqgy696jamcccwyrg1hhsdxirgz7g4cz.jpg" alt="Чунжин Дмитрий" style="object-position:53.4% 18%" loading="lazy"></figure>
         <div class="team-card__name">Чунжин Дмитрий</div>
         <div class="team-card__role">старший инструктор-методист</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/tiunova-elena-nikolaevna/index.html">
-        <figure><img src="../../site/upload/iblock/4e0/8y7om1cxvw6qdllwojm81z9wvba2i8ma.jpg" alt="Тиунова Елена" loading="lazy" width="1240" height="1405"></figure>
+        <figure><img src="../../site/upload/iblock/01d/5s7pgr755rfouzlf7hzv26vmt4e3r7mf.jpg" alt="Тиунова Елена" style="object-position:52.7% 18%" loading="lazy"></figure>
         <div class="team-card__name">Тиунова Елена</div>
         <div class="team-card__role">инструктор-методист</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/golubtsova-olesya/index.html">
-        <figure><img src="../../site/upload/iblock/dea/2uy0sc8ls003st4ycpuf4tncnkjoy8gx.jpg" alt="Голубцова Олеся" loading="lazy" width="1205" height="1289"></figure>
+        <figure><img src="../../site/upload/iblock/ef2/mm6gcl0my97snfmnp42m0dpeqyxtyu0r.jpg" alt="Голубцова Олеся" style="object-position:57.5% 18%" loading="lazy"></figure>
         <div class="team-card__name">Голубцова Олеся</div>
         <div class="team-card__role">инструктор-методист</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/svetlana/index.html">
-        <figure><img src="../../site/upload/iblock/f41/gtd52214whq4xt84wkaqb151obxiuj1u.jpg" alt="Фотеева Светлана" loading="lazy" width="1490" height="1482"></figure>
+        <figure><img src="../../site/upload/iblock/3a8/l4ila5uxelzaop2m0t3eaz0oqd8w8fqw.jpg" alt="Фотеева Светлана" style="object-position:57.4% 18%" loading="lazy"></figure>
         <div class="team-card__name">Фотеева Светлана</div>
         <div class="team-card__role">инструктор-методист</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/natalya/index.html">
-        <figure><img src="../../site/upload/iblock/cbf/8mkzrilyn8zrx41qwu1d0xocbdurbhph.jpg" alt="Денисова Наталья" loading="lazy" width="1600" height="1583"></figure>
+        <figure><img src="../../site/upload/iblock/b5e/k8hp5junycbjfyx8kyampt1h9nqpklp7.jpg" alt="Денисова Наталья" style="object-position:59.7% 18%" loading="lazy"></figure>
         <div class="team-card__name">Денисова Наталья</div>
         <div class="team-card__role">инструктор-методист</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/sorokina-yuliya-/index.html">
-        <figure><img src="../../site/upload/iblock/e75/ofsobqyajng7p9wenqijiwfkf4j71b6i.jpg" alt="Сорокина Юлия" loading="lazy" width="1500" height="1574"></figure>
+        <figure><img src="../../site/upload/iblock/744/ifdi1w4ymx3hi4wikw7ly80vsuciwmey.jpg" alt="Сорокина Юлия" style="object-position:60.3% 18%" loading="lazy"></figure>
         <div class="team-card__name">Сорокина Юлия</div>
         <div class="team-card__role">инструктор-методист</div>
       </a>
       <a class="team-card" href="../team/kineziterapiya/rosokha-tatyana/index.html">
-        <figure><img src="../../site/upload/iblock/0bd/iw70ggw0qgxljg16un0h1xj8baq0ie8h.jpg" alt="Росоха Татьяна" loading="lazy" width="1300" height="1340"></figure>
+        <figure><img src="../../site/upload/iblock/6d6/m7865r2rrxp0sgoxlj9hks5ua47f59s2.jpg" alt="Росоха Татьяна" style="object-position:57.7% 18%" loading="lazy"></figure>
         <div class="team-card__name">Росоха Татьяна</div>
         <div class="team-card__role">инструктор-методист</div>
+      </a>
+      </div>
+    </section>
+    <section class="section" data-cat="spa-tsentr" aria-label="СПА-центр">
+      <div class="section-head reveal">
+        <h2>СПА-центр</h2>
+      </div>
+      <div class="team-grid reveal">
+      <a class="team-card" href="../team/spa-tsentr/murzina-irina/index.html">
+        <figure><img src="../../site/upload/iblock/9d7/o3ksl5766gvpx1g339mnlj1pkr7erlgo.jpg" alt="Мурзина Ирина" style="object-position:56.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Мурзина Ирина</div>
+        <div class="team-card__role">Врач-физиотерапевт, косметолог</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/kurochkina-natalya/index.html">
+        <figure><img src="../../site/upload/iblock/bbe/bbe16fbef58f9f73780fd5480cf279ee.png" alt="Курочкина Наталья" style="object-position:57.7% 20.7%" loading="lazy"></figure>
+        <div class="team-card__name">Курочкина Наталья</div>
+        <div class="team-card__role">Косметолог</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/konkina-tatyana/index.html">
+        <figure><img src="../../site/upload/iblock/0f1/zdrscqchmgkotrj54a6ydj1s6wjtc9jx.jpg" alt="Конькина Татьяна" style="object-position:59.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Конькина Татьяна</div>
+        <div class="team-card__role">Медицинская сестра по массажу, косметолог - эстетист</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/kuznetsova-yuliya-/index.html">
+        <figure><img src="../../site/upload/iblock/f51/5p6030wqj2xvenwifoj55c8vj0v3fo0d.jpg" alt="Кузнецова Юлия" style="object-position:54.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Кузнецова Юлия</div>
+        <div class="team-card__role">Медицинская сестра по массажу</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/bolotov-konstantin/index.html">
+        <figure><img src="../../site/upload/iblock/5c5/2r60bzrvdegh6xhfvxsnaaap2g9i1bim.jpg" alt="Болотов Константин" style="object-position:57.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Болотов Константин</div>
+        <div class="team-card__role">Медицинский брат по массажу</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/chernykh-polina/index.html">
+        <figure><img src="../../site/upload/iblock/2e6/qmi5wrbi3s0cg8cgfsui10siwqx8q31i.jpg" alt="Черных Полина" style="object-position:57.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Черных Полина</div>
+        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/sycheva-nadezhda/index.html">
+        <figure><img src="../../site/upload/iblock/912/szpk9siy3kebwf8hlsjurodjtog7500i.jpg" alt="Сычева Надежда" style="object-position:54% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Сычева Надежда</div>
+        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/beklemyshev-aleksey/index.html">
+        <figure><img src="../../site/upload/iblock/8e3/f2p7ezdrrt79k97gqfrkqw6b8kttn9e5.jpg" alt="Беклемышев Алексей" style="object-position:59.4% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Беклемышев Алексей</div>
+        <div class="team-card__role">Косметик-эстетист, специалист по массажу</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/pechenkina-larisa/index.html">
+        <figure><img src="../../site/upload/iblock/8b7/uz26jlj1a0nciq5tc13mk01bw4uygojt.png" alt="Печенкина Лариса" style="object-position:58.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Печенкина Лариса</div>
+        <div class="team-card__role">Медицинская сестра по массажу</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/odirmatova-lola/index.html">
+        <figure><img src="../../site/upload/iblock/f9d/pq82yjlrmouqtan66o0geci1k7oqkh0y.png" alt="Одирматова Лола" style="object-position:58.7% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Одирматова Лола</div>
+        <div class="team-card__role">Косметик-эстетист, специалист по массажу.</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/kanina-nina/index.html">
+        <figure><img src="../../site/upload/iblock/6ac/j8289qi1lpus18ahdw5ycxbz05virwgx.jpg" alt="Канина Нина" style="object-position:63.1% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Канина Нина</div>
+        <div class="team-card__role">Косметолог-эстетист</div>
+      </a>
+      <a class="team-card" href="../team/spa-tsentr/kopytov-evgeniy/index.html">
+        <figure><img src="../../site/upload/iblock/e64/k2qcdsiaoljdu2va6io7lxvb33r8bq6z.jpg" alt="Копытов Евгений" style="object-position:58.5% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Копытов Евгений</div>
+        <div class="team-card__role">Косметик-эстетист, Косметик-эстетист, специалист по массажу.</div>
+      </a>
+      </div>
+    </section>
+    <section class="section" data-cat="fitnes-tsentr" aria-label="Фитнес-центр">
+      <div class="section-head reveal">
+        <h2>Фитнес-центр</h2>
+      </div>
+      <div class="team-grid reveal">
+      <a class="team-card" href="../team/fitnes-tsentr/eliseeva-olga/index.html">
+        <figure><img src="../../site/upload/iblock/285/77vj1tlfesji88196nfpg4zbnmvm77tj.jpg" alt="Елисеева Ольга" style="object-position:53.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Елисеева Ольга</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/melekhin-denis/index.html">
+        <figure><img src="../../site/upload/iblock/74c/jm9qz40hql5v6a13kfvctr7n3zi52xae.jpg" alt="Мелехин Денис" style="object-position:54.5% 20%" loading="lazy"></figure>
+        <div class="team-card__name">Мелехин Денис</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/chirkov-pavel/index.html">
+        <figure><img src="../../site/upload/iblock/de8/zucfij71lqd3yok0h3tjuebksj8ttdwd.png" alt="Чирков Павел" style="object-position:52.2% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Чирков Павел</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/plotnikov-ivan/index.html">
+        <figure><img src="../../site/upload/iblock/457/28ab4ahi36mkvm80hbwcjwp7aii59jc7.png" alt="Плотников Иван" style="object-position:55.6% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Плотников Иван</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/gutsunaeva-yuliya/index.html">
+        <figure><img src="../../site/upload/iblock/458/f10me8uowz6qpzqn5rm32uw3qhormaj2.png" alt="Гуцунаева Юлия" style="object-position:56.5% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Гуцунаева Юлия</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/korotkikh-aleksandr/index.html">
+        <figure><img src="../../site/upload/iblock/cf9/vpwp6e5blxibuv6zy088ptef0pcqowv0.png" alt="Коротких Александр" style="object-position:52.7% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Коротких Александр</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/yarmolenko-anton/index.html">
+        <figure><img src="../../site/upload/iblock/f19/0vdcxhmm6uva7lyalp2333uquczo2e41.jpg" alt="Ярмоленко Антон" style="object-position:65.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Ярмоленко Антон</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/skiba-aleksey/index.html">
+        <figure><img src="../../site/upload/iblock/d3f/qw06zh07jjwewvn6m2pmboiodm5edl7g.jpg" alt="Скиба Алексей" style="object-position:65.6% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Скиба Алексей</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/pikhtovnikov-aleksey/index.html">
+        <figure><img src="../../site/upload/iblock/626/sbdrrivp0ypsedmbem2ck20zw205ose7.png" alt="Пихтовников Алексей" style="object-position:52.5% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Пихтовников Алексей</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/painov-vadim-sergeevich/index.html">
+        <figure><img src="../../site/upload/iblock/092/soiks2ez7wuh2z6etgm1z8qo3t289r7m.jpg" alt="Паинов Вадим" style="object-position:75% 19.6%" loading="lazy"></figure>
+        <div class="team-card__name">Паинов Вадим</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/chistyakov-ilya-mikhaylovich/index.html">
+        <figure><img src="../../site/upload/iblock/a1f/c5jwheg46etgfqjxuc4p2jzw6ie7w266.png" alt="Чистяков Илья" style="object-position:54.8% 32.5%" loading="lazy"></figure>
+        <div class="team-card__name">Чистяков Илья</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/istomina-olga/index.html">
+        <figure><img src="../../site/upload/iblock/878/yr1irqb86wnbcyg1c7bxk2p2ywfmq1h4.png" alt="Истомина Ольга" style="object-position:56.2% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Истомина Ольга</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/bychikhin-denis/index.html">
+        <figure><img src="../../site/upload/iblock/05e/mt2x926ih3ac8z9mqoa9gjze0vy552p3.jpg" alt="Бычихин Денис" style="object-position:65.2% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Бычихин Денис</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/kharina-olga/index.html">
+        <figure><img src="../../site/upload/iblock/399/43hc78d3v0q8dfp1zfsqti26t9t05m0n.jpg" alt="Харина Ольга" style="object-position:61.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Харина Ольга</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/zhurkin-aleksey/index.html">
+        <figure><img src="../../site/upload/iblock/292/abvq3dq6p4uv5born1jo7n242yc0mr6m.jpg" alt="Журкин Алексей" style="object-position:63.2% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Журкин Алексей</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/yazeva-mariya/index.html">
+        <figure><img src="../../site/upload/iblock/4c6/squh3cbfno7khj3q1ou93bbf5137aqsb.jpg" alt="Язева Мария" style="object-position:64.4% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Язева Мария</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/mineev-aleksandr/index.html">
+        <figure><img src="../../site/upload/iblock/784/b7u51gv89i9qqnksd4e1752kgnr62p0f.jpg" alt="Минеев Александр" style="object-position:63.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Минеев Александр</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/dolgomirova-valeriya/index.html">
+        <figure><img src="../../site/upload/iblock/2ce/7h00yzhz9jfeg9i7c4lh411uuzrywesx.jpg" alt="Долгомирова Валерия" style="object-position:62.6% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Долгомирова Валерия</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/kushnarev-dmitriy/index.html">
+        <figure><img src="../../site/upload/iblock/f77/4q2431ukzm0y7g7rfyp0wsyfibcxe1qt.jpg" alt="Кушнарев Дмитрий" style="object-position:49.9% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Кушнарев Дмитрий</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/filippov-ignat/index.html">
+        <figure><img src="../../site/upload/iblock/ffa/ramndtnbb7yjgsd0cnd9m7u75k527yjy.jpg" alt="Филиппов Игнат" style="object-position:57.5% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Филиппов Игнат</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/shoshin-stefan/index.html">
+        <figure><img src="../../site/upload/iblock/96f/sw5t0btvk2u0fw8tmrtn4r2ounxuz3hq.png" alt="Шошин Стефан" style="object-position:53.1% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Шошин Стефан</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/moskovaya-nadezhda/index.html">
+        <figure><img src="../../site/upload/iblock/319/j37es145ivyl11bpqg6yyewi75nm4i9m.jpg" alt="Московая Надежда" style="object-position:50.7% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Московая Надежда</div>
+        <div class="team-card__role">Персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/khusainov-rustam/index.html">
+        <figure><img src="../../site/upload/iblock/5cf/stwo0915gfc12ldg2nkafylox0pu2hz2.jpg" alt="Хусаинов Рустам" style="object-position:35% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Хусаинов Рустам</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/toropova-kseniya/index.html">
+        <figure><img src="../../site/upload/iblock/8c7/2yxbr8k597a7egsdyk4tzgn3oq51pxcl.png" alt="Торопова Ксения" style="object-position:54.2% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Торопова Ксения</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/zhuravleva-elena/index.html">
+        <figure><img src="../../site/upload/iblock/cf2/gc5yiv6ywkhgep7fetaadnzz4ytw11jr.jpg" alt="Журавлева Елена" style="object-position:57.1% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Журавлева Елена</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/epishina-darya/index.html">
+        <figure><img src="../../site/upload/iblock/28e/c8zd1mi1zi2xyotgcbm5w7ewpunpwuom.jpg" alt="Епишина Дарья" style="object-position:53% 19.2%" loading="lazy"></figure>
+        <div class="team-card__name">Епишина Дарья</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/komarova-svetlana/index.html">
+        <figure><img src="../../site/upload/iblock/02b/f38t61ci8qja1fm3zfjiwozizefw0kil.png" alt="Комарова Светлана" style="object-position:52.1% 21.7%" loading="lazy"></figure>
+        <div class="team-card__name">Комарова Светлана</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/nurmagomedova-khadi/index.html">
+        <figure><img src="../../site/upload/iblock/556/6cqujq6fmv33g9dfst5sm789una3ytey.jpg" alt="Нурмагомедова Хади" style="object-position:54.7% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Нурмагомедова Хади</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/shitoeva-darya/index.html">
+        <figure><img src="../../site/upload/iblock/788/sd0lqls8hpf248lt9ipefh0balcg0oft.jpg" alt="Шитоева Дарья" style="object-position:51.6% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Шитоева Дарья</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/gladkikh-valeriya/index.html">
+        <figure><img src="../../site/upload/iblock/61b/jkl2lrkxvqcmq4p5v7yy8vw2dng36g4b.jpg" alt="Гладких Валерия" style="object-position:51.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Гладких Валерия</div>
+        <div class="team-card__role">персональный тренер</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/vshivkova-yuliya/index.html">
+        <figure><img src="../../site/upload/iblock/02f/1z77eshd6bxst9wod6fo290a3qq9pp1f.png" alt="Вшивкова Юлия" style="object-position:52.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Вшивкова Юлия</div>
+        <div class="team-card__role">руководитель направления групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/kostareva-liliya/index.html">
+        <figure><img src="../../site/upload/iblock/f45/0579ndp07bmjxwswck43y08yrwqp0ezp.jpg" alt="Костарева Лилия" style="object-position:55.8% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Костарева Лилия</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/gudkova-anna/index.html">
+        <figure><img src="../../site/upload/iblock/c29/wybduzphs3aouji21deyef2ssnn27st5.jpg" alt="Гудкова Анна" style="object-position:57% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Гудкова Анна</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/tsyplenkova-tatyana/index.html">
+        <figure><img src="../../site/upload/iblock/807/id0xz5ymqhl424oy92zffcgq4hs1j067.png" alt="Цыпленкова Татьяна" style="object-position:54.2% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Цыпленкова Татьяна</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/olesya-golubtsova/index.html">
+        <figure><img src="../../site/upload/iblock/fc7/199ub0pli9omuk7sirqvj9hj63d27sye.jpg" alt="Голубцова Олеся" style="object-position:55.9% 18.4%" loading="lazy"></figure>
+        <div class="team-card__name">Голубцова Олеся</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/malukhina-tatyana/index.html">
+        <figure><img src="../../site/upload/iblock/7b2/4fgitsltp6q38esegxs8w9tqmcda6xac.jpg" alt="Малухина Татьяна" style="object-position:51.9% 18.4%" loading="lazy"></figure>
+        <div class="team-card__name">Малухина Татьяна</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/ivanov-dmitriy/index.html">
+        <figure><img src="../../site/upload/iblock/512/512f554789a513e95e032ebe62508d8d.jpg" alt="Иванов Дмитрий" style="object-position:50.8% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Иванов Дмитрий</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/usmanov-ruslan/index.html">
+        <figure><img src="../../site/upload/iblock/b97/gz96hnms3b055p445ersftltt0fbruex.jpg" alt="Усманов Руслан" style="object-position:55.1% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Усманов Руслан</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/malukhin-andrey-borisovich/index.html">
+        <figure><img src="../../site/upload/iblock/208/208ac332b296ee5938948e621b425eeb.png" alt="Малухин Андрей" style="object-position:59.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Малухин Андрей</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/ivanova-alyena/index.html">
+        <figure><img src="../../site/upload/iblock/2cc/ughzg5dvvm9zkmhrg9et6pl11sc8dqmm.jpg" alt="Иванова Алёна" style="object-position:54.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Иванова Алёна</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/vagin-ignatiy/index.html">
+        <figure><img src="../../site/upload/iblock/751/cnejeklzvrq12nnzuc38wzn3hgz3swly.jpg" alt="Вагин Игнатий" style="object-position:53.7% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Вагин Игнатий</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/zolkina-valeriya/index.html">
+        <figure><img src="../../site/upload/iblock/9c6/4s030bj2tqqrc72rqtquk96kmom2xkdh.jpg" alt="Золкина Валерия" style="object-position:51.1% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Золкина Валерия</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      <a class="team-card" href="../team/fitnes-tsentr/serebryakova-anastasiya/index.html">
+        <figure><img src="../../site/upload/iblock/d91/eboawmoyucjlgng8str19nzxqekjyk0t.jpg" alt="Серебрякова Анастасия" style="object-position:52.5% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Серебрякова Анастасия</div>
+        <div class="team-card__role">инструктор групповых программ</div>
+      </a>
+      </div>
+    </section>
+    <section class="section" data-cat="basseyn" aria-label="Бассейн">
+      <div class="section-head reveal">
+        <h2>Бассейн</h2>
+      </div>
+      <div class="team-grid reveal">
+      <a class="team-card" href="../team/basseyn/galygina-ekaterina-vladilenovna/index.html">
+        <figure><img src="../../site/upload/iblock/292/gywg1ilgwz5ln9aa76ak4wswdtiu3a7h.jpg" alt="Галыгина Екатерина Владиленовна" style="object-position:54% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Галыгина Екатерина Владиленовна</div>
+        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, тренер по обучению плаванию детей</div>
+      </a>
+      <a class="team-card" href="../team/basseyn/kurganskaya-anna-vasilevna/index.html">
+        <figure><img src="../../site/upload/iblock/733/hnlxamin5q5rhst224g3uz4skty4lb75.jpg" alt="Хафизова (Курганская) Анна Васильевна" style="object-position:58.3% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Хафизова (Курганская) Анна Васильевна</div>
+        <div class="team-card__role">Тренер по плаванию</div>
+      </a>
+      <a class="team-card" href="../team/basseyn/kolobova-valeriya-alekseevna/index.html">
+        <figure><img src="../../site/upload/iblock/c9a/k1fjfpc095onj54h6lc2ilp4v7wtpqfs.jpg" alt="Колобова Валерия Алексеевна" style="object-position:57.6% 18%" loading="lazy"></figure>
+        <div class="team-card__name">Колобова Валерия Алексеевна</div>
+        <div class="team-card__role">Тренер по плаванию, тренер по грудничковому плаванию, проведение занятий по профилактике нарушения осанки</div>
       </a>
       </div>
     </section>
@@ -867,7 +640,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a class="nav-logo" href="../index.html" aria-label="Олимпия">
-          <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115" loading="lazy" decoding="async">
+          <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
         </a>
         <p>Спортивный комплекс в Перми: бассейны, детское плавание,
         фитнес, SPA и кинезитерапия.</p>
@@ -884,6 +657,7 @@
         </div>
         <div class="app-links app-links--footer">
           <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://play.google.com/store/apps/details?id=com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>Google Play</span></a>
           <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>AppGallery</span></a>
           <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>RuStore</span></a>
         </div>
@@ -954,6 +728,6 @@
   </div>
 </div>
 
-<script src="../js/main.js?v=ca9fa191" defer></script>
+<script src="../js/main.js?v=bdf33eb1" defer></script>
 </body>
 </html>

@@ -30,6 +30,11 @@ function balanced(html, startIdx) {
   return '';
 }
 
+const teamFocal = require('./team-focal');
+if (teamFocal.hasSharp) {
+  require('child_process').execFileSync(process.execPath, [path.join(__dirname, 'team-focal.js')], { stdio: 'inherit' });
+}
+
 /* ============ 1. ПРОФИЛИ СОТРУДНИКОВ ============ */
 const CATS = {
   'basseyn': 'Бассейн',
@@ -100,11 +105,17 @@ for (const cat of Object.keys(CATS)) {
 
     const rr = '../'.repeat(depth);
     const crumbs = lib.breadcrumbs(depth, lib.trailFromRel(rel, name));
+    let imgPos = '';
+    if (photoAbs) {
+      const relImg = photoAbs.replace(/^(\.\.\/)+site\//, '');
+      const focal = teamFocal.getFocalSync(relImg);
+      if (focal) imgPos = ` style="object-position:${teamFocal.focalStyle(focal, 'profile')}"`;
+    }
     const content = `  <div class="container">
     ${crumbs}
-    <div class="dirpage-hero" style="margin-top: clamp(20px, 3vw, 36px)">
+    <div class="dirpage-hero team-profile" style="margin-top: clamp(20px, 3vw, 36px)">
       ${photoAbs ? `<figure class="dirpage-hero__media reveal-fill" style="aspect-ratio: 4 / 4.4">
-        <img src="${photoAbs}" alt="${lib.esc(name)}" style="object-position: top">
+        <img src="${photoAbs}" alt="${lib.esc(name)}"${imgPos} loading="lazy">
       </figure>` : ''}
       <div class="reveal">
         <div class="page-head" style="padding-top: 0">
@@ -135,36 +146,27 @@ console.log('Профили сотрудников: ' + persons + ', не уда
 personFail.slice(0, 5).forEach(f => console.log('  !', f));
 
 /* ============ 1b. СТРАНИЦЫ КАТЕГОРИЙ КОМАНДЫ ============ */
-// Порядок: бассейн → фитнес → ЦДП → SPA → кинезитерапия
-const CAT_ORDER = ['basseyn', 'fitnes-tsentr', 'detskiy-tsentr-plavaniya', 'spa-tsentr', 'kineziterapiya'];
+const teamOrder = require('./team-order');
+const CAT_ORDER = teamOrder.TEAM_CAT_ORDER;
 for (const slug of CAT_ORDER) {
-  const fp = path.join(SITE, 'team', slug, 'index.html');
-  if (!fs.existsSync(fp)) continue;
-  const html = fs.readFileSync(fp, 'utf8');
-  const people = [];
-  for (const ch of html.split('class="photo_mobile"').slice(1)) {
-    const seg = ch.slice(0, 3000);
-    const img = (seg.match(/^ style="background-image: url\('([^']+)'\)/) || [])[1];
-    const nm = (seg.match(/class="name">([^<]+)</) || [])[1];
-    const post = (seg.match(/class="post">([^<]*)</) || [])[1] || '';
-    const href = (seg.match(/class="read_more" href="([^"]+)"/) || [])[1];
-    if (!nm || !href) continue;
-    try {
-      if (fs.readFileSync(path.join(SITE, 'team', slug, href), 'utf8').includes('errortext')) continue;
-    } catch (e) { continue; }
-    people.push({ img: (img || '').replace(/^(\.\.\/)+/, ''), name: nm.trim(), post: post.trim(), href });
-  }
+  const catDir = path.join(SITE, 'team', slug);
+  if (!fs.existsSync(catDir)) continue;
+  const people = teamOrder.loadPeople(SITE, slug);
   if (!people.length) continue;
 
   const depth = 2;
   const rr = '../'.repeat(depth);
   const sp = lib.siteP(depth);
   const catName = CATS[slug];
-  const cards = people.map(p => `        <a class="team-card" href="${p.href.replace(/index\.html$/, '')}index.html">
-          <figure><img src="${sp}${p.img}" alt="${lib.esc(p.name)}" loading="lazy"></figure>
+  const cards = people.map(p => {
+    const pos = p.img ? (teamFocal.getFocalSync(p.img) ? teamFocal.focalStyle(teamFocal.getFocalSync(p.img), 'card') : '50% 22%') : '';
+    const posAttr = pos ? ` style="object-position:${pos}"` : '';
+    return `        <a class="team-card" href="${p.href}">
+          <figure><img src="${p.img ? sp + p.img : rr + 'assets/lanes-overhead.jpg'}" alt="${lib.esc(p.name)}"${posAttr} loading="lazy"></figure>
           <div class="team-card__name">${lib.esc(p.name)}</div>
           <div class="team-card__role">${lib.esc(p.post)}</div>
-        </a>`).join('\n');
+        </a>`;
+  }).join('\n');
   const others = CAT_ORDER.filter(s => s !== slug && fs.existsSync(path.join(SITE, 'team', s, 'index.html')))
     .map(s => `<a href="${rr}team/${s}/index.html">${lib.esc(CATS[s])}</a>`).join('\n      ');
   const word = people.length === 1 ? 'специалист'
@@ -550,7 +552,10 @@ function schedShell(rel, title, ledeTxt, photo, photoAlt, inner, mode, tracks) {
         <h2>Группа</h2>
         <ul class="tickets-list">
           <li data-age="0-3"><a class="ticket-row" href="${rr}swimming_center/mnm/index.html"><span class="ticket-row__name">Мама и малыш</span><span class="ticket-row__hint">первые занятия вместе</span></a></li>
-          <li data-age="4-6"><a class="ticket-row" href="${rr}swimming_center/forkids/index.html"><span class="ticket-row__name">Обучение плаванию</span><span class="ticket-row__hint">с раннего возраста</span></a></li>
+          <li data-age="4-6" class="ticket-row-wrap">
+            <a class="ticket-row" href="${rr}swimming_center/forkids/index.html"><span class="ticket-row__name">Обучение плаванию</span><span class="ticket-row__hint">с раннего возраста</span></a>
+            <a class="ticket-info" href="${rr}swimming_center/training/index.html" title="Подробнее об обучении плаванию" aria-label="Подробнее об обучении плаванию">i</a>
+          </li>
           <li data-age="7-14"><a class="ticket-row" href="${rr}timetable/group-cp/index.html"><span class="ticket-row__name">Дежурные группы</span><span class="ticket-row__hint">по расписанию ЦДП</span></a></li>
           <li data-age="7-14"><a class="ticket-row" href="${rr}swimming_center/sport/index.html"><span class="ticket-row__name">Спортивное плавание</span><span class="ticket-row__hint">путь в большой спорт</span></a></li>
         </ul>

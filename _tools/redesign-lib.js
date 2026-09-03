@@ -249,6 +249,17 @@ function header(depth, active) {
         [r + 'fitness_center/index.html', 'Фитнес-центр', '3500 м², тренажёры и групповые'],
         [r + 'center_kinesitherapy/index.html', 'Кинезитерапия', 'Реабилитация движением']
       ]
+    },
+    {
+      id: 'booking', title: 'Запись', theme: '',
+      items: [
+        [r + 'zapis_cdp/index.html', 'Центр детского плавания', 'Запись ребёнка на занятия'],
+        [r + 'timetable/mama-i-malysh/index.html', 'Мама и малыш', 'Расписание занятий'],
+        [r + 'timetable/group-cp/index.html', 'Дежурные группы ЦП', 'Центр плавания'],
+        ['https://dikidi.net/870188', 'SPA-центр', 'Онлайн-запись dikidi'],
+        [r + 'timetable/group/index.html', 'Групповые программы', 'Фитнес и аква'],
+        ['https://dikidi.ru/1529440', 'ЭКГ', 'Запись на ЭКГ']
+      ]
     }
   ];
   const groupsHtml = GROUPS.map(g => `<li class="nav-group" data-nav-group="${g.id}">
@@ -380,6 +391,7 @@ function footer(depth) {
         </div>
         <div class="app-links app-links--footer">
           <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener">${storeIcon()}<span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://play.google.com/store/apps/details?id=com.itrack.sportivnyjkompl648840" rel="noopener">${storeIcon()}<span>Google Play</span></a>
           <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener">${storeIcon()}<span>AppGallery</span></a>
           <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener">${storeIcon()}<span>RuStore</span></a>
         </div>
@@ -528,9 +540,128 @@ function ctaBand(title, sub, actions) {
     </div>`;
 }
 
+/** Сетка характеристик (размер, t°, pH…) */
+function specGrid(items) {
+  const cells = items.map(it =>
+    `        <div class="spec-grid__item">
+          <span class="spec-grid__val">${it.val}</span>
+          <span class="spec-grid__label">${esc(it.label)}</span>
+        </div>`).join('\n');
+  return `<div class="spec-grid reveal">\n${cells}\n      </div>`;
+}
+
+/** Строки прайса: услуга + сумма */
+function priceRows(items) {
+  const rows = items.map(it => {
+    const price = it.price != null ? it.price : '';
+    const hint = it.hint ? `<span class="price-rows__hint">${esc(it.hint)}</span>` : '';
+    return `      <div class="price-rows__row">
+        <span class="price-rows__name">${esc(it.name)}${hint}</span>
+        <span class="price-rows__price">${price}</span>
+      </div>`;
+  }).join('\n');
+  return `<div class="price-rows reveal">\n${rows}\n    </div>`;
+}
+
+/** Акционный блок прайса */
+function pricePromo(opt) {
+  const prices = (opt.prices || []).map(p =>
+    `          <div class="price-promo__price">
+            <span class="price-promo__label">${esc(p.label)}</span>
+            <span class="price-promo__val">${p.value}</span>
+          </div>`).join('\n');
+  const photo = opt.photo
+    ? `<figure class="price-promo__media reveal-fill"><img src="${opt.photo}" alt="${esc(opt.photoAlt || opt.title)}" loading="lazy"></figure>`
+    : '';
+  const cta = opt.ctaHref
+    ? `<a class="btn btn--primary" href="${opt.ctaHref}"${/^https?:/.test(opt.ctaHref) ? ' rel="noopener"' : ''}>${esc(opt.ctaLabel || 'Подробнее')}</a>`
+    : '';
+  const sub = opt.sub ? `<p class="price-promo__sub">${esc(opt.sub)}</p>` : '';
+  return `<article class="price-promo reveal" id="${opt.id || ''}">
+      ${photo}
+      <div class="price-promo__body">
+        <h3 class="price-promo__title">${esc(opt.title)}</h3>
+        ${sub}
+        ${prices ? `<div class="price-promo__prices">\n${prices}\n        </div>` : ''}
+        ${cta}
+      </div>
+    </article>`;
+}
+
+/** Табы хаба (бассейны, SPA и т.д.) */
+function hubTabs(opt) {
+  const ns = opt.id || 'hub';
+  const tabs = opt.items.map((it, i) =>
+    `        <button type="button" class="hub-tab${i === 0 ? ' is-active' : ''}"
+                data-hub-tab="${i}" role="tab" aria-selected="${i === 0}"
+                aria-controls="${ns}-panel-${i}">${esc(it.title)}</button>`).join('\n');
+  const panels = opt.items.map((it, i) =>
+    `      <div class="hub-panel${i === 0 ? ' is-active' : ''}" id="${ns}-panel-${i}"
+           data-hub-panel="${i}" role="tabpanel"${i === 0 ? '' : ' hidden'}>
+        ${it.html}
+      </div>`).join('\n');
+  return `<section class="hub-tabs" data-hub-tabs="${ns}" aria-label="${esc(opt.label || 'Разделы')}">
+      <div class="hub-tabs__bar" role="tablist">
+${tabs}
+      </div>
+      <div class="hub-tabs__panels">
+${panels}
+      </div>
+    </section>`;
+}
+
+/** Карусель промо (scroll-snap + кнопки) */
+function promoCarousel(slides, opt) {
+  const id = opt && opt.id ? opt.id : 'promo';
+  const cards = slides.map(s => {
+    const img = s.photo
+      ? `<span class="promo-carousel__media"><img src="${s.photo}" alt="${esc(s.photoAlt || s.title)}" loading="lazy"></span>`
+      : '';
+    const meta = s.meta ? `<span class="promo-carousel__meta">${esc(s.meta)}</span>` : '';
+    return `        <a class="promo-carousel__slide" href="${s.href}">
+          ${img}
+          <span class="promo-carousel__body">
+            ${meta}
+            <span class="promo-carousel__title">${esc(s.title)}</span>
+          </span>
+        </a>`;
+  }).join('\n');
+  return `<div class="promo-carousel reveal" data-carousel="${id}" aria-label="${esc((opt && opt.label) || 'Акции')}">
+      <button type="button" class="promo-carousel__btn promo-carousel__btn--prev" data-carousel-prev aria-label="Назад"></button>
+      <div class="promo-carousel__track" data-carousel-track tabindex="0">
+${cards}
+      </div>
+      <button type="button" class="promo-carousel__btn promo-carousel__btn--next" data-carousel-next aria-label="Вперёд"></button>
+    </div>`;
+}
+
+/** Горизонтальная лента новостей/статей */
+function scrollStrip(items, opt) {
+  const label = opt && opt.label ? `<h2 class="scroll-strip__title">${esc(opt.label)}</h2>` : '';
+  const cards = items.map(it => {
+    const img = it.photo
+      ? `<span class="scroll-strip__thumb"><img src="${it.photo}" alt="" loading="lazy"></span>`
+      : '';
+    return `        <a class="scroll-strip__item" href="${it.href}">
+          ${img}
+          <span class="scroll-strip__body">
+            ${it.meta ? `<span class="scroll-strip__meta">${esc(it.meta)}</span>` : ''}
+            <span class="scroll-strip__name">${esc(it.title)}</span>
+          </span>
+        </a>`;
+  }).join('\n');
+  return `<section class="scroll-strip reveal"${opt && opt.id ? ` aria-labelledby="${opt.id}"` : ''}>
+      ${label}
+      <div class="scroll-strip__track" tabindex="0">
+${cards}
+      </div>
+    </section>`;
+}
+
 module.exports = {
   shell, header, footer, breadcrumbs, trailFromRel, redirectPage,
   rowList, cardList, ctaBand, esc, p, siteP, absUrl, normalizeRel,
   cookieBanner, storeIcon,
+  specGrid, priceRows, pricePromo, hubTabs, promoCarousel, scrollStrip,
   DIR_LABELS, TEAM_CATS, NEWS_CATS, VISITOR_PAGES, LEGAL_PAGES
 };

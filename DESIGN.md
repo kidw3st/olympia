@@ -122,18 +122,30 @@
 Порядок важен: генераторы пишут страницы, финишные проходы правят готовый HTML.
 
 ```bash
-node _tools/build-pages.js      # направления, контакты, цены, FAQ, команда, правила
-node _tools/build-articles.js   # 352 статьи новостей и акций + списки с фильтрами
-node _tools/build-rest.js       # остальные страницы копии по общему шаблону
-node _tools/build-special.js    # профили сотрудников и страницы расписаний
-node _tools/build-baths.js      # бани и сауны: вкладки с фото и описанием
-node _tools/build-docs.js       # 78 документов из копии, разложенных по разделам
-node _tools/build-b2b.js        # корпоративным клиентам
-node _tools/build-schedule.js   # data/schedule.json — сетка занятий (правится руками)
-node _tools/polish-html.js      # размеры картинок, loading, alt, rel=noopener
-node _tools/relink.js           # ссылки ведут в редизайн, а не в старую копию
-node _tools/restamp.js          # версии css/js во всех страницах (обход кэша)
+node _tools/build-pages.js         # контакты, FAQ, команда, правила (без хабов)
+node _tools/build-pools-hub.js     # бассейны: 6 табов, преимущества, прокат
+node _tools/build-hubs-extra.js    # fitness, spa, ЦДП, кинезитерапия
+node _tools/build-price.js         # прайс: семантические секции из Google Sheets
+node _tools/build-articles.js      # новости и акции + списки с фильтрами
+node _tools/build-rest.js          # остальные страницы копии
+node _tools/build-special.js       # профили сотрудников и расписания
+node _tools/build-baths.js         # бани и сауны
+node _tools/build-home.js          # главная: promo carousel, scroll-strip новости
+node _tools/build-docs.js
+node _tools/build-b2b.js
+node _tools/build-schedule.js
+node _tools/strip-orphan-galleries.js  # убрать orphan gallery-strip перед footer
+node _tools/polish-html.js
+node _tools/relink.js
+node _tools/restamp.js
 ```
+
+### Фото на страницах
+
+Медиа только в смысловых блоках: `dirpage-hero__media`, `hub-card__media`,
+активная панель табов/карусели, promo-блоки прайса. **Запрещено** дописывать
+декоративный `gallery-strip` перед `</main>` — enrich-photos.js больше не делает
+этого. Orphan-полоски удаляются `strip-orphan-galleries.js`.
 
 Страницы, которые собираются отдельными скриптами, перечислены в `SKIP_RELS`
 внутри `build-rest.js` — иначе общий конвертер их перезапишет.

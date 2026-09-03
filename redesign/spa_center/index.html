@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>var d=document.documentElement;d.className+=" js";setTimeout(function(){if(!window.__olMotion)d.className+=" no-motion";},3500);</script>
   <title>SPA-центр — «Олимпия» Пермь</title>
-  <meta name="description" content="SPA-центр «Олимпии» в Перми: массажи, SPA-ритуалы, обертывания, аппаратные процедуры, фитобочка и солярий. Медицинская лицензия, налоговый вычет, ДМС.">
+  <meta name="description" content="SPA-центр «Олимпии»: массажи, SPA-ритуалы, обертывания, солярий. Медицинская лицензия, налоговый вычет, ДМС.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:title" content="SPA-центр — «Олимпия» Пермь">
@@ -15,14 +15,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=1c35f730">
+  <link rel="stylesheet" href="../css/style.css?v=04a6f380">
 </head>
 <body>
 <header class="site-header">
   <nav class="nav-pill" aria-label="Главная навигация">
     <div class="nav-pill__row">
     <a class="nav-logo" href="../index.html" aria-label="Олимпия — на главную">
-      <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115" fetchpriority="high" decoding="async">
+      <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
       <li class="nav-group" data-nav-group="swim">
@@ -38,6 +38,17 @@
         <div class="nav-group__menu" id="navmenu-fitness">
           <a href="../fitness_center/index.html">Фитнес-центр<small>3500 м², тренажёры и групповые</small></a>
           <a href="../center_kinesitherapy/index.html">Кинезитерапия<small>Реабилитация движением</small></a>
+        </div>
+      </li>
+      <li class="nav-group" data-nav-group="booking">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-booking">Запись</button>
+        <div class="nav-group__menu" id="navmenu-booking">
+          <a href="../zapis_cdp/index.html">Центр детского плавания<small>Запись ребёнка на занятия</small></a>
+          <a href="../timetable/mama-i-malysh/index.html">Мама и малыш<small>Расписание занятий</small></a>
+          <a href="../timetable/group-cp/index.html">Дежурные группы ЦП<small>Центр плавания</small></a>
+          <a href="https://dikidi.net/870188">SPA-центр<small>Онлайн-запись dikidi</small></a>
+          <a href="../timetable/group/index.html">Групповые программы<small>Фитнес и аква</small></a>
+          <a href="https://dikidi.ru/1529440">ЭКГ<small>Запись на ЭКГ</small></a>
         </div>
       </li>
       <li><a href="../timetable/index.html">Расписание</a></li>
@@ -70,6 +81,13 @@
   <span class="mobile-menu__group">Фитнес</span>
   <a class="mobile-menu__sub" href="../fitness_center/index.html">Фитнес-центр</a>
   <a class="mobile-menu__sub" href="../center_kinesitherapy/index.html">Кинезитерапия</a>
+  <span class="mobile-menu__group">Запись</span>
+  <a class="mobile-menu__sub" href="../zapis_cdp/index.html">Центр детского плавания</a>
+  <a class="mobile-menu__sub" href="../timetable/mama-i-malysh/index.html">Мама и малыш</a>
+  <a class="mobile-menu__sub" href="../timetable/group-cp/index.html">Дежурные группы ЦП</a>
+  <a class="mobile-menu__sub" href="https://dikidi.net/870188">SPA-центр</a>
+  <a class="mobile-menu__sub" href="../timetable/group/index.html">Групповые программы</a>
+  <a class="mobile-menu__sub" href="https://dikidi.ru/1529440">ЭКГ</a>
   <a href="../timetable/index.html">Расписание</a>
   <a href="../price/index.html">Цены</a>
   <a href="../actions/index.html">Акции</a>
@@ -92,19 +110,90 @@
 
     <div class="dirpage-hero">
       <figure class="dirpage-hero__media reveal-fill">
-        <img src="../assets/spa-massage.jpg" alt="Сеанс массажа в SPA-центре" width="1456" height="1600" loading="lazy" decoding="async">
+        <img src="../assets/spa-massage.jpg" alt="Сеанс массажа в SPA-центре" loading="eager">
       </figure>
       <div class="reveal">
-        <p class="page-head__lede">SPA-центр «Олимпии» — для тех, кто выбирает лучшее:
-        широкий спектр процедур для кожи и всего организма, специалисты
-        с медицинским образованием, оборудование с регистрационными
-        удостоверениями Минздрава РФ и сертифицированная косметика
-        с натуральными компонентами.</p>
-        <p class="page-head__lede" style="margin-top:14px">На ряд процедур можно получить налоговый
-        вычет или пройти их по полису ДМС.</p>
+        <p class="page-head__lede">SPA-центр «Олимпии» — широкий спектр процедур
+        для кожи и всего организма, специалисты с медицинским образованием,
+        сертифицированная косметика с натуральными компонентами.</p>
+        <p class="page-head__lede" style="margin-top:14px">На ряд процедур можно получить
+        налоговый вычет или пройти их по полису ДМС.</p>
       </div>
     </div>
 
+    
+    <section class="section" aria-label="Акция SPA">
+      <div class="promo-carousel reveal" data-carousel="spa-promo" aria-label="Акции SPA-центра">
+      <button type="button" class="promo-carousel__btn promo-carousel__btn--prev" data-carousel-prev aria-label="Назад"></button>
+      <div class="promo-carousel__track" data-carousel-track tabindex="0">
+        <a class="promo-carousel__slide" href="../actions/spa-tsentr/skidka-15-na-pressoterapiyu-/index.html">
+          <span class="promo-carousel__media"><img src="../../site/upload/iblock/774/4ddl2tq47ucb0xzis9dyulmqobfk9s7x.jpg" alt="Скидка -20% на прессотерапию" loading="lazy"></span>
+          <span class="promo-carousel__body">
+            
+            <span class="promo-carousel__title">Скидка -20% на прессотерапию</span>
+          </span>
+        </a>
+        <a class="promo-carousel__slide" href="../actions/spa-tsentr/skidka-15-na-pressoterapiyu-/index.html">
+          <span class="promo-carousel__media"><img src="../../../assets/spa-massage.jpg" alt="Скидка -20% на прессотерапию" loading="lazy"></span>
+          <span class="promo-carousel__body">
+            <span class="promo-carousel__meta">1 июл. 2026 г.</span>
+            <span class="promo-carousel__title">Скидка -20% на прессотерапию</span>
+          </span>
+        </a>
+        <a class="promo-carousel__slide" href="../actions/spa-tsentr/znakomstvo-s-masterom-po-30-04-2026-pechenkina-larisa/index.html">
+          <span class="promo-carousel__media"><img src="../../../assets/spa-massage.jpg" alt="Знакомство с мастером по 30.04.2026 Печенкина Лариса" loading="lazy"></span>
+          <span class="promo-carousel__body">
+            <span class="promo-carousel__meta">30 мар. 2026 г.</span>
+            <span class="promo-carousel__title">Знакомство с мастером по 30.04.2026 Печенкина Лариса</span>
+          </span>
+        </a>
+        <a class="promo-carousel__slide" href="../actions/spa-tsentr/znakomstvo-s-masterom-po-31-03-2026-kosmetik-estetist-beklemyshev-aleksey/index.html">
+          <span class="promo-carousel__media"><img src="../../../assets/spa-massage.jpg" alt="Знакомство с мастером по 31.03.2026 Беклемышевым Алексеем" loading="lazy"></span>
+          <span class="promo-carousel__body">
+            <span class="promo-carousel__meta">30 мар. 2026 г.</span>
+            <span class="promo-carousel__title">Знакомство с мастером по 31.03.2026 Беклемышевым Алексеем</span>
+          </span>
+        </a>
+      </div>
+      <button type="button" class="promo-carousel__btn promo-carousel__btn--next" data-carousel-next aria-label="Вперёд"></button>
+    </div>
+    </section>
+    <section class="section" aria-label="Наши преимущества">
+      <div class="section-head reveal">
+        <h2>Наши преимущества</h2>
+      </div>
+      <div class="fact-grid reveal">
+        <div class="fact-grid__item">
+          
+          <p class="fact-grid__text">СПА-Центр имеет медицинскую лицензию Российской Федерации</p>
+        </div>
+      </div>
+    </section><section class="scroll-strip reveal" aria-labelledby="spa-news">
+      <h2 class="scroll-strip__title">Новости SPA-центра</h2>
+      <div class="scroll-strip__track" tabindex="0">
+        <a class="scroll-strip__item" href="../news/spa-tsentr/vnimanie-rezhim-raboty-spa-tsentra-20-21-i-31-avgusta/index.html">
+          <span class="scroll-strip__thumb"><img src="../../../assets/spa-massage.jpg" alt="" loading="lazy"></span>
+          <span class="scroll-strip__body">
+            <span class="scroll-strip__meta">18 авг. 2026 г.</span>
+            <span class="scroll-strip__name">Внимание, режим работы Спа-центра 20, 21 и 31 августа!</span>
+          </span>
+        </a>
+        <a class="scroll-strip__item" href="../news/spa-tsentr/vnimanie-posetiteli-spa-tsentra/index.html">
+          <span class="scroll-strip__thumb"><img src="../../../assets/spa-massage.jpg" alt="" loading="lazy"></span>
+          <span class="scroll-strip__body">
+            <span class="scroll-strip__meta">14 авг. 2026 г.</span>
+            <span class="scroll-strip__name">Внимание, посетители Спа-центра!</span>
+          </span>
+        </a>
+        <a class="scroll-strip__item" href="../news/spa-tsentr/novaya-avtorskaya-omolazhivayushchaya-programma-v-spa-tsentre/index.html">
+          <span class="scroll-strip__thumb"><img src="../../../assets/spa-massage.jpg" alt="" loading="lazy"></span>
+          <span class="scroll-strip__body">
+            <span class="scroll-strip__meta">28 июл. 2026 г.</span>
+            <span class="scroll-strip__name">Новая авторская омолаживающая программа в Спа-центре!</span>
+          </span>
+        </a>
+      </div>
+    </section>
 
     <section class="section" aria-label="Услуги">
       <div class="section-head reveal">
@@ -113,51 +202,51 @@
       <ul class="hub-cards reveal">
       <li>
         <a class="hub-card hub-card--media" href="./massazhi-telo/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/2b3/ejjsd6kcowpg11sqkqafb609hqr8fzl4.jpg" alt="Массаж тела" loading="lazy" width="1600" height="1068"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/2b3/ejjsd6kcowpg11sqkqafb609hqr8fzl4.jpg" alt="Массаж тела" loading="lazy"></figure>
           <span class="hub-card__name">Массажи тела</span>
           <span class="hub-card__hint">классические и специальные</span>
         </a>
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./massazhi-litsa/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/b01/o1rcjcywig14k2whoqpkvd5ql5e9m99b.jpg" alt="Массаж лица" loading="lazy" width="1600" height="2400"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/b01/o1rcjcywig14k2whoqpkvd5ql5e9m99b.jpg" alt="Массаж лица" loading="lazy"></figure>
           <span class="hub-card__name">Массажи лица</span>
           <span class="hub-card__hint">уход и тонус</span>
         </a>
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./spa-ritualy/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg" alt="SPA-ритуал" loading="lazy" width="240" height="161"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg" alt="SPA-ритуал" loading="lazy"></figure>
           <span class="hub-card__name">SPA-ритуалы</span>
-          <span class="hub-card__hint">«Очищение», «Возрождение» и другие</span>
+          <span class="hub-card__hint">«Очищение», «Возрождение»</span>
         </a>
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./spa-ritualy-dlya-dvoikh/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/05b/jfa7oyxu95f7fy5q9xibdtjhaqter23q.jpg" alt="SPA-ритуал для двоих" loading="lazy" width="1456" height="1600"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/05b/jfa7oyxu95f7fy5q9xibdtjhaqter23q.jpg" alt="SPA для двоих" loading="lazy"></figure>
           <span class="hub-card__name">SPA-ритуалы для двоих</span>
-          <span class="hub-card__hint">вдвоём приятнее</span>
+          <span class="hub-card__hint">вдвоём</span>
         </a>
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./spa-protsedury-face/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/ce2/ce260038e341d8a654c72a0691140cdc.jpg" alt="SPA-процедура для лица" loading="lazy" width="240" height="161"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/ce2/ce260038e341d8a654c72a0691140cdc.jpg" alt="SPA для лица" loading="lazy"></figure>
           <span class="hub-card__name">SPA-процедуры для лица</span>
           <span class="hub-card__hint">программы ухода</span>
         </a>
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./apparatnye-protsedury/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/775/ot0hbee81gmt2p5wh227svsnbkd1y6uf.jpg" alt="Аппаратные процедуры" loading="lazy" width="240" height="161"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/775/ot0hbee81gmt2p5wh227svsnbkd1y6uf.jpg" alt="Аппаратные процедуры" loading="lazy"></figure>
           <span class="hub-card__name">Аппаратные процедуры</span>
-          <span class="hub-card__hint">медицинское оборудование</span>
+          <span class="hub-card__hint">медоборудование</span>
         </a>
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./obertyvaniya/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/814/814a0ab959ab64dc86efca46b7621d0e.jpg" alt="Обертывание" loading="lazy" width="1024" height="682"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/814/814a0ab959ab64dc86efca46b7621d0e.jpg" alt="Обертывание" loading="lazy"></figure>
           <span class="hub-card__name">Обертывания</span>
-          <span class="hub-card__hint">детокс и тонус кожи</span>
+          <span class="hub-card__hint">детокс и тонус</span>
         </a>
       </li>
       <li>
@@ -169,7 +258,7 @@
       </li>
       <li>
         <a class="hub-card hub-card--media" href="./solyariy/index.html">
-          <figure class="hub-card__media"><img src="../../site/upload/iblock/422/422c3d74154be0a8233639686b2daee7.jpg" alt="Солярий" loading="lazy" width="681" height="762"></figure>
+          <figure class="hub-card__media"><img src="../../site/upload/iblock/422/422c3d74154be0a8233639686b2daee7.jpg" alt="Солярий" loading="lazy"></figure>
           <span class="hub-card__name">Солярий</span>
           <span class="hub-card__hint">ровный тон кожи</span>
         </a>
@@ -218,7 +307,7 @@
       </div>
       <div class="cta-band__actions">
         <a class="btn btn--ghost-light" href="../price/index.html">Подарочная карта</a>
-        <a class="btn btn--primary" href="../zapis_cdp/index.html">Записаться</a>
+        <a class="btn btn--primary" href="https://dikidi.net/870188" rel="noopener">Записаться в SPA</a>
       </div>
     </div>
   </div>
@@ -229,7 +318,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a class="nav-logo" href="../index.html" aria-label="Олимпия">
-          <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115" loading="lazy" decoding="async">
+          <img class="nav-logo__img" src="../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
         </a>
         <p>Спортивный комплекс в Перми: бассейны, детское плавание,
         фитнес, SPA и кинезитерапия.</p>
@@ -246,6 +335,7 @@
         </div>
         <div class="app-links app-links--footer">
           <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://play.google.com/store/apps/details?id=com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>Google Play</span></a>
           <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>AppGallery</span></a>
           <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>RuStore</span></a>
         </div>
@@ -316,6 +406,7 @@
   </div>
 </div>
 
-<script src="../js/main.js?v=ca9fa191" defer></script>
+<script src="../js/main.js?v=bdf33eb1" defer></script>
+<script src="../js/carousel.js?v=fe791bf2" defer></script>
 </body>
 </html>

@@ -15,14 +15,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css?v=1c35f730">
+  <link rel="stylesheet" href="../../css/style.css?v=04a6f380">
 </head>
 <body>
 <header class="site-header">
   <nav class="nav-pill" aria-label="Главная навигация">
     <div class="nav-pill__row">
     <a class="nav-logo" href="../../index.html" aria-label="Олимпия — на главную">
-      <img class="nav-logo__img" src="../../assets/logo-white.png" alt="Олимпия" width="1366" height="115" fetchpriority="high" decoding="async">
+      <img class="nav-logo__img" src="../../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
     </a>
     <ul class="nav-links">
       <li class="nav-group" data-nav-group="swim">
@@ -38,6 +38,17 @@
         <div class="nav-group__menu" id="navmenu-fitness">
           <a href="../../fitness_center/index.html">Фитнес-центр<small>3500 м², тренажёры и групповые</small></a>
           <a href="../../center_kinesitherapy/index.html">Кинезитерапия<small>Реабилитация движением</small></a>
+        </div>
+      </li>
+      <li class="nav-group" data-nav-group="booking">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="navmenu-booking">Запись</button>
+        <div class="nav-group__menu" id="navmenu-booking">
+          <a href="../../zapis_cdp/index.html">Центр детского плавания<small>Запись ребёнка на занятия</small></a>
+          <a href="../../timetable/mama-i-malysh/index.html">Мама и малыш<small>Расписание занятий</small></a>
+          <a href="../../timetable/group-cp/index.html">Дежурные группы ЦП<small>Центр плавания</small></a>
+          <a href="https://dikidi.net/870188">SPA-центр<small>Онлайн-запись dikidi</small></a>
+          <a href="../../timetable/group/index.html">Групповые программы<small>Фитнес и аква</small></a>
+          <a href="https://dikidi.ru/1529440">ЭКГ<small>Запись на ЭКГ</small></a>
         </div>
       </li>
       <li><a href="../../timetable/index.html">Расписание</a></li>
@@ -70,6 +81,13 @@
   <span class="mobile-menu__group">Фитнес</span>
   <a class="mobile-menu__sub" href="../../fitness_center/index.html">Фитнес-центр</a>
   <a class="mobile-menu__sub" href="../../center_kinesitherapy/index.html">Кинезитерапия</a>
+  <span class="mobile-menu__group">Запись</span>
+  <a class="mobile-menu__sub" href="../../zapis_cdp/index.html">Центр детского плавания</a>
+  <a class="mobile-menu__sub" href="../../timetable/mama-i-malysh/index.html">Мама и малыш</a>
+  <a class="mobile-menu__sub" href="../../timetable/group-cp/index.html">Дежурные группы ЦП</a>
+  <a class="mobile-menu__sub" href="https://dikidi.net/870188">SPA-центр</a>
+  <a class="mobile-menu__sub" href="../../timetable/group/index.html">Групповые программы</a>
+  <a class="mobile-menu__sub" href="https://dikidi.ru/1529440">ЭКГ</a>
   <a href="../../timetable/index.html">Расписание</a>
   <a href="../../price/index.html">Цены</a>
   <a href="../../actions/index.html">Акции</a>
@@ -90,13 +108,26 @@
       <p class="page-head__lede">Собрали то, о чём спрашивают чаще всего. Не нашли ответ?
       Позвоните на горячую линию <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a>.</p>
     </div>
+    <div class="filter-pills" data-filter="faq">
+      <button type="button" data-cat="all" class="is-active">Все</button>
+      <button type="button" data-cat="basseyn">Бассейн</button>
+      <button type="button" data-cat="detskiy-tsentr-plavaniya">Детский центр плавания</button>
+      <button type="button" data-cat="fitnes-tsentr">Фитнес-центр</button>
+      <button type="button" data-cat="spa-tsentr">СПА-центр</button>
+      <button type="button" data-cat="kineziterapiya">Кинезитерапия</button>
+    </div>
+    <label class="faq-search">
+      <span class="faq-search__label">Поиск по вопросам</span>
+      <input type="search" data-faq-search placeholder="Например: абонемент, справка, парковка" autocomplete="off">
+    </label>
+    <p class="hero-note" data-faq-empty hidden>Ничего не нашлось — попробуйте другие слова или позвоните на горячую линию.</p>
 
-    <section class="section" aria-label="Бассейн">
+    <section class="section" data-faq-section="basseyn" aria-label="Бассейн">
       <div class="section-head reveal">
         <h2>Бассейн</h2>
       </div>
       <div class="reveal">
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="подскажите на какие услуги распространяется клубная карта? входит ли туда посещение тренажерного зала?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Подскажите на какие услуги распространяется клубная карта? Входит ли туда посещение тренажерного зала?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -107,7 +138,7 @@
  и тренажерного зала. Более подробную информацию можно
 получить по телефону <a href="tel:+73422567895">+7(342)2-56789-5</a>.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="какая предусмотрена оплата за превышение времени абонемента?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Какая предусмотрена оплата за превышение времени абонемента?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -124,28 +155,28 @@
 </div>
  </p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="есть ли группы для пенсионеров (занятия в дневное время)?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Есть ли группы для пенсионеров (занятия в дневное время)?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Есть группы по занятиям аквааэробикой, для таких групп возраст не ограничен. А также групповые занятия в фитнес-центре &#40;soft направления&#41;, например, pilates или stretching &#40;растяжка&#41;. Подробнее можно узнать по телефону &#43;7 &#40;342&#41; 2-56789-5.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="я бы хотела купить у вас абонемент на свободное плавание в бассейнах где-то раз в неделю. есть ли такие абонементы?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Я бы хотела купить у вас абонемент на свободное плавание в бассейнах где-то раз в неделю. Есть ли такие абонементы?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Все абонементы имеют срок действия 180 дней. Выбрать количество посещений вы можете сами. Цены указаны на сайте.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="что делать, если потерял абонемент?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Что делать, если потерял абонемент?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Если абонемент именной, то вам необходимо обратиться на центральную рецепцию Спорткомплекса «Олимпия» с паспортом для оформления дубликата бланка, стоимость такой услуги — 50 рублей. </p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="сообщите часы работы медицинского кабинета для получения мед.справки">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Сообщите часы работы медицинского кабинета для получения мед.справки</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -158,7 +189,7 @@
  Будни: 11:40-12:00, 18:00-18:20<br>
 Выходные и праздники: 11:40-12:00, 15:00-15:15, 18:00-18:20</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="есть ли у вас обучение плаванию взрослых, если есть то стоимость?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Есть ли у вас обучение плаванию взрослых, если есть то стоимость?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -168,7 +199,7 @@
 Узнать стоимость и записаться на занятия можно через
 кол-центр <a href="tel: +73422567892">+7(342)2-56789-2</a>.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="подскажите, пожалуйста, есть ли у вас специальные группы для беременных? или просто абонемент для взрослого?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Подскажите, пожалуйста, есть ли у вас специальные группы для беременных? Или просто абонемент для взрослого?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -180,14 +211,14 @@
 	 Узнать подробности или забронировать абонемент можно по телефону: <a href="tel: +73422567895">+7(342)2-56789-5</a>.&nbsp;
 </p></p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="что мне нужно, чтобы прийти первый раз в бассейн?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Что мне нужно, чтобы прийти первый раз в бассейн?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Добрый день. Вся необходимая информация <a href="../../vpervye-v-olimpii/index.html">по ссылке</a><a href="../../vpervye-v-olimpii/index.html">.</a> Если у вас остались какие-то вопросы - свяжитесь с нами по телефону +7 (342) 2-56789-2.<br></p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="подскажите, с какого срока можно посещать занятия по аквааэробике беременным (будущим мамам)?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Подскажите, с какого срока можно посещать занятия по аквааэробике беременным (будущим мамам)?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -198,34 +229,34 @@
 АКВААЭРОБИКОЙ и &nbsp;консультации врача ЛФК
 (консультация предоставляется Спорткомплексом бесплатно).</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="можно ли посещать бассейн с псориазом?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Можно ли посещать бассейн с псориазом?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Так как псориаз не является заразным заболеванием, купаться в бассейне разрешается, однако в период обострения болезни больному все же следует воздержаться от посещения бассейна, поскольку кожный покров в данный период очень уязвим.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="расскажите о стоимости посещения комплекса бань и саун">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Расскажите о стоимости посещения комплекса бань и саун</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Посещение комплекса саун бесплатно для посетителей бассейна.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="для разового посещения так же необходима справка?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Для разового посещения так же необходима справка?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Да, для разового посещения справка так же необходима.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="basseyn" data-q="можно ли у вас приобрести абонемент онлайн на другого человека (как подарочный сертификат)?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Можно ли у вас приобрести абонемент онлайн на другого человека (как подарочный сертификат)?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p><p>
-	 Да, конечно. Вы можете воспользоваться сервисом <a target="_blank" href="../../kupit-online/index.html" rel="noopener">онлайн-покупки</a>.&nbsp;&nbsp;&nbsp;
+	 Да, конечно. Вы можете воспользоваться сервисом <a target="_blank" href="../../kupit-online/index.html">онлайн-покупки</a>.&nbsp;&nbsp;&nbsp;
 </p>
 <p>
 	 Более подробную информацию можно получить по телефону <a href="tel: +73422567895">+7(342)2-56789-5</a>.
@@ -233,12 +264,12 @@
       </div>
       </div>
     </section>
-    <section class="section" aria-label="Детский центр плавания">
+    <section class="section" data-faq-section="detskiy-tsentr-plavaniya" aria-label="Детский центр плавания">
       <div class="section-head reveal">
         <h2>Детский центр плавания</h2>
       </div>
       <div class="reveal">
-      <div class="qa-item">
+      <div class="qa-item" data-cat="detskiy-tsentr-plavaniya" data-q="с какого возраста набираются группы по обучению плаванию детей (нам 3,5 года)? дети посещают бассейн с родителями или нет, если нет, можно ли как то наблюдать за ребенком или нужно ждать где-то? когда будет набор групп или, может, есть свободные места?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>С какого возраста набираются группы по обучению плаванию детей (нам 3,5 года)? Дети посещают бассейн с родителями или нет, если нет, можно ли как то наблюдать за ребенком или нужно ждать где-то? Когда будет набор групп или, может, есть свободные места?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -256,28 +287,28 @@
 Подробнее по телефону&nbsp;<a href="tel: +73422567892">+7(342)2-56789-2</a>.
 </p></p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="detskiy-tsentr-plavaniya" data-q="моей внучке 2 года. хотела бы, чтобы она плавала. подскажите, возможно ли осуществить это в вашем бассейне?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Моей внучке 2 года. Хотела бы, чтобы она плавала. Подскажите, возможно ли осуществить это в вашем бассейне?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Для детей до 4х лет мы можем предложить программу «<a href="../../swimming_center/mnm/index.html">Мама и малыш</a>». Более подробную информацию можно получить по телефону +7 (342) 2-56789-2.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="detskiy-tsentr-plavaniya" data-q="помогите, пожалуйста, сориентироваться. есть желание начать заниматься плаванием с ребенком. в июле нам будет 3 года. что можете предложить?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Помогите, пожалуйста, сориентироваться. Есть желание начать заниматься плаванием с ребенком. В июле нам будет 3 года. Что можете предложить?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Для этого возраста подойдут занятия в группе «<a href="../../swimming_center/mnm/index.html">Мама и малыш</a>». Записаться или узнать подробнее можно по телефону +7 (342) 2-56789-2.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="detskiy-tsentr-plavaniya" data-q="с какого возраста дети начинают заниматься самостоятельно?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>С какого возраста дети начинают заниматься самостоятельно?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Самостоятельные занятия с тренером возможны с возраста 4 лет.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="detskiy-tsentr-plavaniya" data-q="дочери 4 года. хочу записать ее в бассейн, научить плавать. как это сделать? сколько стоит обучение? какие справки и документы необходимы? оплата производится сразу?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Дочери 4 года. хочу записать ее в бассейн, научить плавать. Как это сделать? Сколько стоит обучение? Какие справки и документы необходимы? Оплата производится сразу?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -286,13 +317,13 @@
 	 Набор детей в группы оздоровительного плавания происходит каждые три месяца на зимний, весенний и осенний циклы, летний цикл - 1 месяц.&nbsp;Запись детей производится специалистами при собеседовании с родителями/законными представителями в Спорткомплексе.
 </p>
 <p>
- <a target="_blank" href="../../price/index.html#/?id=753265863" rel="noopener">Стоимость абонементов</a> зависит от количества занятий и времени начала тренировок. Оплата абонементов производится сразу после определения группы.
+ <a target="_blank" href="../../../site/price/index.html#/?id=753265863">Стоимость абонементов</a> зависит от количества занятий и времени начала тренировок. Оплата абонементов производится сразу после определения группы.
 </p>
 <p>
 	 К первому занятию необходимо предоставить справку от врача об отсутствии противопоказаний для занятий плаванием в оздоровительной группе с печатью медицинского учреждения, заверенную личной подписью и печатью врача. Детям до 12 лет в обязательном порядке нужен результат исследования на энтеробиоз.
 </p></p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="detskiy-tsentr-plavaniya" data-q="скажите, пожалуйста, нужны ли ребенку 3 лет спасательный жилет и нарукавники при посещении бассейна?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Скажите, пожалуйста, нужны ли ребенку 3 лет спасательный жилет и нарукавники при посещении бассейна?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -306,41 +337,41 @@
       </div>
       </div>
     </section>
-    <section class="section" aria-label="Фитнес-центр">
+    <section class="section" data-faq-section="fitnes-tsentr" aria-label="Фитнес-центр">
       <div class="section-head reveal">
         <h2>Фитнес-центр</h2>
       </div>
       <div class="reveal">
-      <div class="qa-item">
+      <div class="qa-item" data-cat="fitnes-tsentr" data-q="я ранее не занимался фитнесом, с чего мне начать?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Я ранее не занимался фитнесом, с чего мне начать?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Если у вас нет опыта, необходимо поставить базу выполнения упражнений. Рекомендуем начать с персональных тренировок в тренажерном зале, также не бояться посещать групповые занятия. Дальнейшее развитие зависит только от вас и ваших целей</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="fitnes-tsentr" data-q="сколько стоит персональная тренировка с тренером?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Сколько стоит персональная тренировка с тренером?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
-        <div class="qa-item__body"><div><div class="qa-item__inner"><p>Размер доплаты&nbsp;за персональное занятие&nbsp;с тренером в тренажерном зале зависит от квалификации и опыта тренера. <a href="../../price/index.html#/?id=754114173">Актуальные цены смотрите в разделе на сайте</a>. Посещение тренажерного зала оплачивается отдельно как разовое,
+        <div class="qa-item__body"><div><div class="qa-item__inner"><p>Размер доплаты&nbsp;за персональное занятие&nbsp;с тренером в тренажерном зале зависит от квалификации и опыта тренера. <a href="../../../site/price/index.html#/?id=754114173">Актуальные цены смотрите в разделе на сайте</a>. Посещение тренажерного зала оплачивается отдельно как разовое,
 клубной карте или абонементу. Более подробная информация по телефону +7 (342) 2-56789-5</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="fitnes-tsentr" data-q="у меня есть медицинские ограничения, что делать?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>У меня есть медицинские ограничения, что делать?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Перед посещением фитнес-центра мы рекомендуем взять заключение вашего лечащего врача. Это необходимо, чтобы на консультации наш&nbsp; врач ЛФК сделал наиболее точное заключение и дал все необходимые рекомендации для тренировок.&nbsp;Далее, мы рекомендуем начать заниматься с персональным тренером, который подберет для вас оптимальные упражнения, с учетом ваших медицинских ограничений</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="fitnes-tsentr" data-q="что необходимо брать с собой на тренировку?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Что необходимо брать с собой на тренировку?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Для удобства необходимо взять с собой: кроссовки, удобную спортивное белье, бутылочку для воды и полотенце. Также можете взять с собой принадлежности для душа. Если вы их забыли дома, не беспокойтесь, у наших администраторов вы сможете приобрести все самое необходимое.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="fitnes-tsentr" data-q="где посмотреть расписание групповых программ? обязательно записываться?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Где посмотреть расписание групповых программ? Обязательно записываться?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -351,8 +382,8 @@
 <p>
 	- на рецепции Фитнес центра<br>
 	- по телефону <a href="tel: +73422567895">+7(342)2-56789-5</a><br>
-	- на сайте в разделе&nbsp;<a target="_blank" href="../../timetable/group/index.html" rel="noopener">«Расписание»</a>&nbsp;&nbsp;<br>
-	- в мобильном приложении Олимпия, которое доступно для <a target="_blank" href="https://apps.apple.com/us/app/олимпия-пермь/id1483461606?l=ru&ls=1" rel="noopener">iOS</a> и <a target="_blank" href="https://play.google.com/store/apps/details?id=com.itrack.sportivnyjkompl648840" rel="noopener">Android</a>
+	- на сайте в разделе&nbsp;<a target="_blank" href="../../timetable/group/index.html">«Расписание»</a>&nbsp;&nbsp;<br>
+	- в мобильном приложении Олимпия, которое доступно для <a target="_blank" href="https://apps.apple.com/us/app/олимпия-пермь/id1483461606?l=ru&ls=1">iOS</a> и <a target="_blank" href="https://play.google.com/store/apps/details?id=com.itrack.sportivnyjkompl648840">Android</a>
 </p>
 <p>
 	Если вы по какой либо причине не можете прийти на ранее записанную тренировку, просим вас отменять запись
@@ -360,19 +391,19 @@
       </div>
       </div>
     </section>
-    <section class="section" aria-label="СПА-центр">
+    <section class="section" data-faq-section="spa-tsentr" aria-label="СПА-центр">
       <div class="section-head reveal">
         <h2>СПА-центр</h2>
       </div>
       <div class="reveal">
-      <div class="qa-item">
+      <div class="qa-item" data-cat="spa-tsentr" data-q="подскажите, пожалуйста, можно ли приобрести подарочный сертификат в спа-центр?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Подскажите, пожалуйста, можно ли приобрести подарочный сертификат в СПА-центр?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Вы можете приобрести подарочную карту. Она распространяет свое действие на все услуги спорткомплекса. Номинал 500, 1000, 2000, 3000, 5000 рублей. Срок действия карты — 3 года.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="spa-tsentr" data-q="посещение солярия можно оплатить подарочной картой?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Посещение солярия можно оплатить подарочной картой?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -381,40 +412,40 @@
       </div>
       </div>
     </section>
-    <section class="section" aria-label="Кинезитерапия">
+    <section class="section" data-faq-section="kineziterapiya" aria-label="Кинезитерапия">
       <div class="section-head reveal">
         <h2>Кинезитерапия</h2>
       </div>
       <div class="reveal">
-      <div class="qa-item">
+      <div class="qa-item" data-cat="kineziterapiya" data-q="можно ли обойтись без консультации, если я уже был у другого специалиста и диагноз мне поставлен?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Можно ли обойтись без консультации, если я уже был у другого специалиста и диагноз мне поставлен?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Консультация врача-кинезитерапевта обязательна, т.к только ознакомившись со всеми вашими жалобами, сопутствующими заболеваниями, проведя осмотр с функциональными&nbsp; пробами и тестирование в реабилитационном зале, можно разработать индивидуальную программу восстановления с учётом физической подготовки,&nbsp; силы отдельных мышечных групп и объёма движений в суставах и позвоночнике.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="kineziterapiya" data-q="у меня длительное головокружение, боли в голове, жжение в области темени, появилось онемение и слабость в левой руке. сделала мрт шейного отдела позвоночника, выявили грыжу межпозвонкового диска. можно ли мне заниматься кинезитерпией?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>У меня длительное головокружение, боли в голове, жжение в области темени, появилось онемение и слабость в левой руке. Сделала МРТ шейного отдела позвоночника, выявили грыжу межпозвонкового диска. Можно ли мне заниматься кинезитерпией?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Показанием для занятий кинезитерапией являются боли в спине, шее, грыжи и протрузии межпозвонковых дисков. Рекомендуем вам записаться на консультацию к врачу-кинезитерапевту для подбора индивидуального комплекса упражнений. Подробная информация по телефону &#43;7 &#40;342&#41; 2-56789-4.</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="kineziterapiya" data-q="после родов очень болит спина. когда можно начинать заниматься кинезитерапией после кесарева сечения?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>После родов очень болит спина. Когда можно начинать заниматься кинезитерапией после кесарева сечения?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Физические нагрузки после кесарева сечения рекомендуется некоторое время ограничить до периода восстановления организма. Перед началом занятий проконсультируйтесь с наблюдающим вас врачом, также вы можете пройти консультацию у врача-кинезитерапевта в центре кинезитерапии "Олимпия". Записаться можно по телефону +7(342)2-56789-4</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="kineziterapiya" data-q="нужно ли как-то готовиться к приему врача-кинезитерапевта? что взять с собой?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>Нужно ли как-то готовиться к приему врача-кинезитерапевта? Что взять с собой?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
         </button></h3>
         <div class="qa-item__body"><div><div class="qa-item__inner"><p>Никакой специальной подготовки не нужно. На первичный прием врача-кинезитерапевта с собой возьмите снимки с описанием &#40;МРТ, КТ, рентген&#41;, если они у вас уже есть, спортивную форму и обувь, паспорт и бутылку для воды. На прием предварительно необходимо записаться по телефону &#43;7&#40;342&#41;2-56789-4</p></div></div></div>
       </div>
-      <div class="qa-item">
+      <div class="qa-item" data-cat="kineziterapiya" data-q="с какого возраста детям можно заниматься кинезитерапией?">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>С какого возраста детям можно заниматься кинезитерапией?</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -431,7 +462,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a class="nav-logo" href="../../index.html" aria-label="Олимпия">
-          <img class="nav-logo__img" src="../../assets/logo-white.png" alt="Олимпия" width="1366" height="115" loading="lazy" decoding="async">
+          <img class="nav-logo__img" src="../../assets/logo-white.png" alt="Олимпия" width="1366" height="115">
         </a>
         <p>Спортивный комплекс в Перми: бассейны, детское плавание,
         фитнес, SPA и кинезитерапия.</p>
@@ -448,6 +479,7 @@
         </div>
         <div class="app-links app-links--footer">
           <a class="btn btn--ghost-light app-link" href="https://apps.apple.com/us/app/%D0%BE%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%BC%D1%8C/id1483461606?l=ru&amp;ls=1" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>App Store</span></a>
+          <a class="btn btn--ghost-light app-link" href="https://play.google.com/store/apps/details?id=com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>Google Play</span></a>
           <a class="btn btn--ghost-light app-link" href="https://appgallery.huawei.com/#/app/C104697445" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>AppGallery</span></a>
           <a class="btn btn--ghost-light app-link" href="https://rustore.ru/catalog/app/com.itrack.sportivnyjkompl648840" rel="noopener"><svg class="app-link__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7.5v6.5"/><path d="m9.4 11.4 2.6 2.6 2.6-2.6"/><path d="M10.8 18.4h2.4"/></svg><span>RuStore</span></a>
         </div>
@@ -518,6 +550,6 @@
   </div>
 </div>
 
-<script src="../../js/main.js?v=ca9fa191" defer></script>
+<script src="../../js/main.js?v=bdf33eb1" defer></script>
 </body>
 </html>

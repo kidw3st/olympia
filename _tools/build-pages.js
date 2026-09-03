@@ -117,201 +117,9 @@ ${opt.specs ? `
   });
 }
 
-/* ============ 1. БАССЕЙНЫ ============ */
-write('pools/index.html', dirPage({
-  rel: 'pools',
-  h1: 'Бассейны',
-  lede: 'Шесть бассейнов для спорта и отдыха, включая 50-метровый олимпийского стандарта.',
-  metaDesc: 'Бассейны спорткомплекса «Олимпия» в Перми: 50-метровый олимпийского стандарта, детский, глубоководный, гидромассажная зона, сауны.',
-  photo: 'pool-50m.jpg',
-  photoAlt: '50-метровый бассейн «Олимпии» с десятью дорожками',
-  photoPos: '50% 72%',
-  intro: `<p class="page-head__lede">Спорткомплекс «Олимпия» — это шесть бассейнов для
-        разнообразного отдыха. Для спортивного плавания есть 50-метровый бассейн
-        олимпийского стандарта. Для малышей и их родителей оборудован детский бассейн.
-        Часть малого бассейна глубиной 5,5&nbsp;м предназначена для водного поло,
-        вторая часть — гидромассажная зона, где можно расслабиться после активного
-        плавания.</p>
-        <p class="page-head__lede" style="margin-top:14px">В бассейнах, подобных большому бассейну «Олимпии»,
-        устанавливаются мировые рекорды. Здесь регулярно проводятся соревнования
-        регионального, всероссийского и международного уровня: наш бассейн —
-        единственный в городе с лицензией на проведение таких мероприятий.</p>`,
-  services: [
-    { href: './adult_groups/index.html', name: 'Занятия плаванием для взрослых', hint: 'группы и обучение', photo: S + 'upload/iblock/b2d/b2d270c05a5bca4c28ecf42edb7aa2b4.jpg', photoAlt: 'Занятия плаванием для взрослых' },
-    { href: './aqua/index.html', name: 'Аквааэробика', hint: 'тренировки в воде', photo: S + 'upload/iblock/20e/20e55294d0fcb30d3546d491103d306d.jpg', photoAlt: 'Аквааэробика в бассейне «Олимпии»' },
-    { href: './baths/index.html', name: 'Бани и сауны', hint: 'комплекс саун', photo: S + 'upload/iblock/400/400e17633308570c5d3edb474cb498d2.jpg', photoAlt: 'Комплекс саун' },
-    { href: './clear_water/index.html', name: 'Система очистки воды', hint: 'санитарная безопасность', photo: S + 'upload/iblock/9bb/9bb7872ef4f68539bd247152069d64f5.jpg', photoAlt: 'Очистка воды в бассейнах' },
-    { href: './grafik-sorevnovaniy/index.html', name: 'График соревнований', hint: 'календарь стартов' },
-    { href: R + 'price/freeze/index.html', name: 'Заморозка клубной карты', hint: 'пауза действия карты' }
-  ],
-  galleryTitle: 'Шесть бассейнов',
-  gallery: [
-    { src: 'upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg', alt: 'Большой бассейн', caption: 'Большой бассейн, 50 м' },
-    { src: 'upload/iblock/f33/f33f4c99c1c6e9bb06014347cdafd9f9.jpg', alt: 'Малый бассейн и гидромассажная зона', caption: 'Малый бассейн и гидромассаж' },
-    { src: 'upload/iblock/c85/c85784ab2d72c6607c7733f1da38830d.jpg', alt: 'Детский бассейн «Олимпик»', caption: '«Олимпик»' },
-    { src: 'upload/iblock/e33/e332ea703be1296c6f9e5f9f26b921a2.jpg', alt: 'Бассейн «Дельфины»', caption: '«Дельфины»' },
-    { src: 'upload/iblock/4d4/4d43a396c7bbbb3e4e8a8497952f940c.jpg', alt: 'Бассейн «Рыбки»', caption: '«Рыбки»' },
-    { src: 'upload/iblock/2ee/2eee13a394e71d02c6faad346b396045.jpg', alt: 'Бассейн «Киты»', caption: '«Киты»' }
-  ],
-  specs: [
-    ['Большой бассейн', '50 метров, олимпийский стандарт'],
-    ['Дорожки', '10'],
-    ['Глубоководная часть малого бассейна', '5,5 метра — водное поло и дайвинг'],
-    ['Для самых маленьких', 'отдельный детский бассейн'],
-    ['После плавания', 'гидромассажная зона и комплекс саун']
-  ],
-  ctaTitle: 'Установите свой рекорд в «Олимпии»',
-  ctaSub: 'Свободное плавание ежедневно: будни с 07:00, выходные с 08:00.',
-  ctaActions: [
-    ['Расписание бассейна', R + 'timetable/big-pool/index.html', 'btn--ghost-light'],
-    ['Цены', R + 'price/index.html', 'btn--primary']
-  ]
-}));
+/* ============ 1. БАССЕЙНЫ — build-pools-hub.js ============ */
 
-/* ============ 2. ДЕТСКИЙ ЦЕНТР ПЛАВАНИЯ ============ */
-write('swimming_center/index.html', dirPage({
-  rel: 'swimming_center',
-  h1: 'Центр детского плавания',
-  lede: 'Более двух с половиной тысяч ребят учатся плавать и делают первые шаги к будущим победам.',
-  metaDesc: 'Центр детского плавания «Олимпии» в Перми: обучение с раннего возраста, «Мама и малыш», спортивное плавание, водное поло, плавание в ластах.',
-  photo: 'kids-training.jpg',
-  photoAlt: 'Мальчик в очках и шапочке плывёт с доской',
-  intro: `<p class="page-head__lede">Плавание — жизненно необходимый каждому ребёнку
-        навык и наименее травматичный вид спорта. Регулярные занятия улучшают
-        кровообращение, развивают органы дыхания, исправляют осанку и укрепляют
-        иммунитет, а здоровый образ жизни становится для ребёнка нормой.</p>
-        <div class="hero-actions" style="margin-top:26px">
-          <a class="btn btn--primary" href="${R}zapis_cdp/index.html">Записаться</a>
-          <a class="btn btn--ghost" href="${R}timetable/mama-i-malysh/index.html">Расписание занятий</a>
-        </div>`,
-  servicesTitle: 'Программы центра',
-  services: [
-    { href: './forkids/index.html', name: 'Обучение плаванию', hint: 'с раннего возраста', photo: S + 'upload/iblock/98b/98b4e272a77295f2bde9ca7b294d2ba0.jpg', photoAlt: 'Обучение плаванию' },
-    { href: './mnm/index.html', name: 'Мама и малыш', hint: 'первые занятия вместе', photo: S + 'upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg', photoAlt: 'Занятие «Мама и малыш»' },
-    { href: './profilaktika-ploskostopiya-i-skolioza/index.html', name: 'Профилактика плоскостопия и сколиоза', hint: 'оздоровительные группы', photo: S + 'upload/iblock/b55/o738a88mfqwkpdxmecee8lt6is2hos7a.jpg', photoAlt: 'Оздоровительное плавание' },
-    { href: './training/index.html', name: 'Программа «Класс»', hint: 'плавание для школ и садов', photo: S + 'upload/iblock/0de/0de4aea8d956eb7b4937ea79906978dc.jpg', photoAlt: 'Программа «Класс»' },
-    { href: './sport/index.html', name: 'Спортивное плавание', hint: 'путь в большой спорт', photo: S + 'upload/iblock/9f2/9f24b7edc6ebf0a240c528485364555a.jpg', photoAlt: 'Спортивное плавание' },
-    { href: './waterpolo/index.html', name: 'Водное поло', hint: 'командная игра в воде', photo: S + 'upload/iblock/4a8/4a8386016212e00e0bf77143020e7ba6.jpg', photoAlt: 'Водное поло' },
-    { href: './flipper/index.html', name: 'Плавание в ластах', hint: 'скоростное плавание', photo: S + 'upload/iblock/633/6339ea818fade84c1e78de3c31642068.jpg', photoAlt: 'Плавание в ластах' },
-    { href: './pamyatka-dlya-roditeley/index.html', name: 'Памятка для родителей', hint: 'что взять на занятие' },
-    { href: './pravila-bezopasnogo-povedeniya-na-vode/index.html', name: 'Правила безопасного поведения на воде', hint: 'обязательно к прочтению' }
-  ],
-  ctaTitle: 'Научите ребёнка плавать',
-  ctaSub: 'Отдельный детский бассейн, тренеры-профессионалы и группы по возрастам.',
-  ctaActions: [
-    ['Записаться в детский центр', R + 'zapis_cdp/index.html', 'btn--primary'],
-    ['Команда центра', R + 'team/index.html', 'btn--ghost-light']
-  ]
-}));
-
-/* ============ 3. ФИТНЕС-ЦЕНТР ============ */
-write('fitness_center/index.html', dirPage({
-  rel: 'fitness_center',
-  theme: 'fitness',
-  h1: 'Фитнес-центр',
-  lede: 'Самый большой фитнес-центр Пермского края: более 3500 м² под одной крышей с бассейнами.',
-  metaDesc: 'Фитнес-центр «Олимпии» в Перми: тренажёрный зал 1600 м², оборудование Technogym и Matrix, групповые программы, аквааэробика, доступ в 50-метровый бассейн.',
-  photo: 'fitness-hall.jpg',
-  photoAlt: 'Тренажёрный зал «Олимпии» с силовыми рамами Matrix',
-  intro: `<p class="page-head__lede">Тренажёрный зал площадью 1600&nbsp;м² с потолками
-        6&nbsp;метров и панорамным остеклением. Оборудование премиум-сегмента
-        Technogym и Matrix, линейка из 40 кардиотренажёров, зона функционального
-        тренинга и зона единоборств с рингом.</p>
-        <p class="page-head__lede" style="margin-top:14px">Посетители фитнес-центра могут заниматься
-        и в большом спортивном бассейне: клубные карты действуют на оба
-        пространства.</p>`,
-  services: [
-    { href: './gym/index.html', name: 'Тренажёрный зал', hint: '1600 м², Technogym и Matrix', photo: S + 'upload/iblock/039/039baaae5c9bae0291b76a8d9e498127.jpg', photoAlt: 'Тренажёрный зал' },
-    { href: './personalnye-trenirovki/index.html', name: 'Персональные тренировки', hint: 'индивидуальная программа' },
-    { href: './group_programs/index.html', name: 'Групповые направления', hint: 'по расписанию', photo: S + 'upload/iblock/72d/j6mwdyta3xlp6si2r3a9qv6unrn04y8z.jpg', photoAlt: 'Зал групповых тренировок' },
-    { href: R + 'pools/aqua/index.html', name: 'Аквааэробика', hint: 'канон — в разделе бассейнов', photo: S + 'upload/iblock/dc6/dc66dbc89ecaa75e6027a26583af448e.jpg', photoAlt: 'Аквапрограммы фитнес-центра' },
-    { href: './meditsinskoe_testirovanie/index.html', name: 'Медицинское тестирование', hint: 'контроль состояния организма', photo: S + 'upload/iblock/071/071b94b96eabeeb8e0ad3e09f4a0a1c4.jpg', photoAlt: 'Медицинское тестирование MS FIT' },
-    { href: './tehnika-bezopasnosti/index.html', name: 'Техника безопасности', hint: 'правила зала' },
-    { href: R + 'price/freeze/index.html', name: 'Заморозка клубной карты', hint: 'пауза действия карты' }
-  ],
-  specs: [
-    ['Площадь фитнес-центра', 'более 3500 м²'],
-    ['Тренажёрный зал', '1600 м², потолки 6 м'],
-    ['Кардиозона', '40 тренажёров'],
-    ['Оборудование', 'Technogym, Matrix'],
-    ['Бонус', 'доступ в большой бассейн по клубной карте']
-  ],
-  ctaTitle: 'Начните тренироваться в «Олимпии»',
-  ctaSub: 'Клубные карты «Фитнес» и «Фитнес+плавание» с доступом в бассейн.',
-  ctaActions: [
-    ['Расписание групповых', R + 'timetable/group/index.html', 'btn--ghost-light'],
-    ['Цены и клубные карты', R + 'price/index.html', 'btn--primary']
-  ]
-}));
-
-/* ============ 4. SPA-ЦЕНТР ============ */
-write('spa_center/index.html', dirPage({
-  rel: 'spa_center',
-  h1: 'SPA-центр',
-  lede: 'Центр красоты и восстановления с медицинской лицензией.',
-  metaDesc: 'SPA-центр «Олимпии» в Перми: массажи, SPA-ритуалы, обертывания, аппаратные процедуры, фитобочка и солярий. Медицинская лицензия, налоговый вычет, ДМС.',
-  photo: 'spa-massage.jpg',
-  photoAlt: 'Сеанс массажа в SPA-центре',
-  intro: `<p class="page-head__lede">SPA-центр «Олимпии» — для тех, кто выбирает лучшее:
-        широкий спектр процедур для кожи и всего организма, специалисты
-        с медицинским образованием, оборудование с регистрационными
-        удостоверениями Минздрава РФ и сертифицированная косметика
-        с натуральными компонентами.</p>
-        <p class="page-head__lede" style="margin-top:14px">На ряд процедур можно получить налоговый
-        вычет или пройти их по полису ДМС.</p>`,
-  servicesTitle: 'Процедуры',
-  services: [
-    { href: './massazhi-telo/index.html', name: 'Массажи тела', hint: 'классические и специальные', photo: S + 'upload/iblock/2b3/ejjsd6kcowpg11sqkqafb609hqr8fzl4.jpg', photoAlt: 'Массаж тела' },
-    { href: './massazhi-litsa/index.html', name: 'Массажи лица', hint: 'уход и тонус', photo: S + 'upload/iblock/b01/o1rcjcywig14k2whoqpkvd5ql5e9m99b.jpg', photoAlt: 'Массаж лица' },
-    { href: './spa-ritualy/index.html', name: 'SPA-ритуалы', hint: '«Очищение», «Возрождение» и другие', photo: S + 'upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg', photoAlt: 'SPA-ритуал' },
-    { href: './spa-ritualy-dlya-dvoikh/index.html', name: 'SPA-ритуалы для двоих', hint: 'вдвоём приятнее', photo: S + 'upload/iblock/05b/jfa7oyxu95f7fy5q9xibdtjhaqter23q.jpg', photoAlt: 'SPA-ритуал для двоих' },
-    { href: './spa-protsedury-face/index.html', name: 'SPA-процедуры для лица', hint: 'программы ухода', photo: S + 'upload/iblock/ce2/ce260038e341d8a654c72a0691140cdc.jpg', photoAlt: 'SPA-процедура для лица' },
-    { href: './apparatnye-protsedury/index.html', name: 'Аппаратные процедуры', hint: 'медицинское оборудование', photo: S + 'upload/iblock/775/ot0hbee81gmt2p5wh227svsnbkd1y6uf.jpg', photoAlt: 'Аппаратные процедуры' },
-    { href: './obertyvaniya/index.html', name: 'Обертывания', hint: 'детокс и тонус кожи', photo: S + 'upload/iblock/814/814a0ab959ab64dc86efca46b7621d0e.jpg', photoAlt: 'Обертывание' },
-    { href: './barrel/index.html', name: 'Фитобочка', hint: 'кедровое прогревание' },
-    { href: './solyariy/index.html', name: 'Солярий', hint: 'ровный тон кожи', photo: S + 'upload/iblock/422/422c3d74154be0a8233639686b2daee7.jpg', photoAlt: 'Солярий' }
-  ],
-  ctaTitle: 'Подарите себе восстановление',
-  ctaSub: 'SPA-ритуалы и массажи после бассейна или тренировки. Действуют подарочные карты.',
-  ctaActions: [
-    ['Подарочная карта', R + 'price/index.html', 'btn--ghost-light'],
-    ['Записаться', R + 'zapis_cdp/index.html', 'btn--primary']
-  ]
-}));
-
-/* ============ 5. КИНЕЗИТЕРАПИЯ ============ */
-write('center_kinesitherapy/index.html', dirPage({
-  rel: 'center_kinesitherapy',
-  theme: 'fitness',
-  h1: 'Центр кинезитерапии',
-  lede: 'Движение — естественное лекарственное средство.',
-  metaDesc: 'Центр кинезитерапии «Олимпии» в Перми: реабилитация опорно-двигательного аппарата, ЛФК, кинезиотейпирование, плантоскопия, медицинский массаж.',
-  photo: 'kinesi-gym.jpg',
-  photoAlt: 'Занятие с инструктором в зале кинезитерапии',
-  intro: `<p class="page-head__lede">Единственный центр в Перми с полным комплексом услуг
-        по восстановлению опорно-двигательного аппарата: занятия в зале
-        кинезитерапии, плавание в бассейне, медицинский массаж,
-        кинезиотейпирование и физиопроцедуры.</p>
-        <p class="page-head__lede" style="margin-top:14px">Центр — клиническая база кафедры медицинской
-        реабилитации и спортивной медицины Пермского государственного медицинского
-        университета им.&nbsp;академика Е.&nbsp;А.&nbsp;Вагнера. Помощь
-        врача-кинезитерапевта усиливает эффект традиционной терапии и часто
-        помогает избежать лекарств и операций.</p>`,
-  services: [
-    { href: './pervichnyy-priyem/index.html', name: 'Первичный приём', hint: 'осмотр и план восстановления' },
-    { href: './reabilitatsionnaya-programma/index.html', name: 'Реабилитационная программа', hint: 'курс занятий под контролем врача', photo: S + 'upload/iblock/32c/32c8f9fd1810f5b17473cc25870b7c78.jpg', photoAlt: 'Реабилитационная программа' },
-    { href: './profilakticheskiy-kurs/index.html', name: 'Профилактический курс', hint: 'предупредить проще, чем лечить', photo: S + 'upload/iblock/52e/52e9c3d6c94fefc211f298457a512c7c.jpg', photoAlt: 'Профилактический курс' },
-    { href: './kinezioteypirovanie/index.html', name: 'Кинезиотейпирование', hint: 'поддержка мышц и суставов' },
-    { href: './plantoskop/index.html', name: 'Плантоскопия', hint: 'диагностика стопы', photo: S + 'upload/iblock/3bc/3bcc5982e2452cd1bc8d2720c20bf900.jpg', photoAlt: 'Плантоскопия' },
-    { href: './perkussionnyy-massazh/index.html', name: 'Перкуссионный массаж', hint: 'восстановление мышц', photo: S + 'upload/iblock/d5e/qcahgjrwfdkxvig30342kg4x9v4a0o7k.jpg', photoAlt: 'Перкуссионный массаж' }
-  ],
-  ctaTitle: 'Вернитесь к движению без боли',
-  ctaSub: 'Врачи-кинезитерапевты и инструкторы-методисты составят программу под вас.',
-  ctaActions: [
-    ['Команда центра', R + 'team/index.html', 'btn--ghost-light'],
-    ['Записаться', R + 'zapis_cdp/index.html', 'btn--primary']
-  ]
-}));
+/* ============ 2–5. ХАБЫ НАПРАВЛЕНИЙ — build-hubs-extra.js ============ */
 
 /* ============ КОНТАКТЫ ============ */
 {
@@ -328,9 +136,15 @@ write('center_kinesitherapy/index.html', dirPage({
         <h2>Адрес и телефоны</h2>
         <p class="visit__address">г. Пермь, ул. Мира, 41</p>
         <p class="visit__phone-line">Горячая линия <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a> с 8:00 до 21:00</p>
+        <ul class="visit__phones">
+          <li>Бассейны и ЦДП — <a href="tel:+73422567892">+7 (342) 2-56789-2</a></li>
+          <li>Фитнес-центр — <a href="tel:+73422567895">+7 (342) 2-56789-5</a></li>
+          <li>SPA-центр — уточняйте на горячей линии</li>
+        </ul>
         <div class="visit__actions">
           <a class="btn btn--primary" href="${R}zapis_cdp/index.html">Записаться</a>
-          <a class="btn btn--ghost" href="${R}contacts/index.html">Схема проезда и все телефоны</a>
+          <a class="btn btn--ghost" href="#map">Схема проезда</a>
+          <a class="btn btn--ghost" href="${R}visitors/faq/index.html">Вопросы и ответы</a>
         </div>
       </div>
       <dl class="hours reveal">
@@ -348,18 +162,50 @@ write('center_kinesitherapy/index.html', dirPage({
       </dl>
     </div>
 
-    <section class="section" aria-label="Полезные страницы">
+    <section class="section" id="map" aria-label="Схема проезда">
+      <div class="section-head reveal">
+        <h2>Как доехать</h2>
+        <p class="section-head__aside">Индустриальный район, рядом с пересечением Мира и Стахановской.
+        Парковка у комплекса — для владельцев клубных и парковочных карт.</p>
+      </div>
+      <div class="map-frame reveal">
+        <iframe title="Карта: «Олимпия», ул. Мира, 41"
+          src="https://yandex.ru/map-widget/v1/?ll=56.2685%2C58.0056&amp;z=16&amp;pt=56.2685%2C58.0056%2Cpm2rdm&amp;l=map"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Полезное перед визитом">
       <div class="section-head reveal">
         <h2>Полезное перед визитом</h2>
+        <p class="section-head__aside">Коротко о том, что важно знать до прихода.</p>
       </div>
-      ${rowList([
-        { href: R + 'visitors/parking/index.html', name: 'Парковка', hint: 'как припарковаться у комплекса' },
-        { href: R + 'visitors/rules/index.html', name: 'Правила посещения', hint: 'документы и регламенты' },
-        { href: R + 'visitors/faq/index.html', name: 'Вопросы и ответы', hint: 'самое часто спрашиваемое' },
-        { href: R + 'visitors/accessibility/index.html', name: 'Доступная среда', hint: 'для маломобильных посетителей' },
-        { href: R + 'visitors/cafe/index.html', name: 'Кафе', hint: 'перекусить после тренировки' },
-        { href: R + 'visitors/rental/index.html', name: 'Прокат', hint: 'инвентарь напрокат' }
-      ])}
+      <div class="fact-grid reveal">
+        <article class="fact-card">
+          <h3>Первый раз</h3>
+          <p>Купальник или плавки, шапочка, сланцы, полотенце. Для бассейна нужна медсправка.
+          Кассы работают до 21:15.</p>
+          <a class="dir-link" href="${R}visitors/first-visit/index.html">Памятка для первого визита</a>
+        </article>
+        <article class="fact-card">
+          <h3>Парковка</h3>
+          <p>Въезд по клубной или парковочной карте. Оплата списывается с лицевого счёта
+          на выезде. Без средств на карте выехать нельзя.</p>
+          <a class="dir-link" href="${R}visitors/parking/index.html">Правила парковки</a>
+        </article>
+        <article class="fact-card">
+          <h3>Частые вопросы</h3>
+          <p>Абонементы, превышение времени, справки, льготы и группы — собрали в одном разделе
+          с поиском по вопросам.</p>
+          <a class="dir-link" href="${R}visitors/faq/index.html">Открыть вопросы и ответы</a>
+        </article>
+        <article class="fact-card">
+          <h3>Правила и доступность</h3>
+          <p>Регламенты посещения и условия для маломобильных гостей — до оплаты услуги.</p>
+          <a class="dir-link" href="${R}visitors/rules/index.html">Правила посещения</a>
+        </article>
+      </div>
     </section>
 
     ${ctaBand('Мы на связи', 'Пишите нам во ВКонтакте и Телеграме: @olympiaperm.', [
@@ -376,90 +222,10 @@ write('center_kinesitherapy/index.html', dirPage({
 }
 
 /* ============ ЦЕНЫ ============ */
+/* price/index.html собирает _tools/build-price.js (живые таблицы + фильтры).
+   Здесь не перезаписываем, чтобы не стереть прайс. */
 {
-  const content = `  <div class="container">
-    ${lib.breadcrumbs(1, lib.trailFromRel('price', 'Цены и карты'))}
-    <div class="page-head">
-      <h1>Билеты и абонементы</h1>
-      <p class="page-head__lede">Разовые посещения, абонементы и клубные карты.
-      Суммы зависят от времени и льгот — актуальный прайс в кассах
-      и по телефону <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a>.</p>
-    </div>
-
-    <section class="section" aria-label="Сравнение клубных карт">
-      <div class="section-head reveal">
-        <h2>Клубные карты</h2>
-        <p class="section-head__aside">Сравните доступ, не три одинаковые карточки.
-        Цену уточняйте в кассе — здесь только состав услуг.</p>
-      </div>
-      <div class="filter-pills" data-filter="benefit">
-        <button type="button" data-benefit="all" class="is-active">Все</button>
-        <button type="button" data-benefit="pensioner">Пенсионер</button>
-        <button type="button" data-benefit="student">Студент</button>
-        <button type="button" data-benefit="family">Многодетные</button>
-        <button type="button" data-benefit="svo">СВО</button>
-      </div>
-      <div class="compare reveal">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Что входит</th>
-              <th>Плавание</th>
-              <th>Фитнес</th>
-              <th>Фитнес+плавание</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th>Свободное плавание, 50&nbsp;м</th><td>да</td><td>—</td><td>да</td></tr>
-            <tr><th>Тренажёрный зал и группы</th><td>—</td><td>да</td><td>да</td></tr>
-            <tr><th>Комплекс саун</th><td>да</td><td>да</td><td>да</td></tr>
-            <tr><th>Заморозка карты</th><td colspan="3"><a href="./freeze/index.html">условия на отдельной странице</a></td></tr>
-            <tr class="compare-price"><th>Стоимость</th><td colspan="3">в кассе / по телефону, без сумм на сайте</td></tr>
-          </tbody>
-        </table>
-        <p class="hero-note compare-note" data-benefit-note hidden></p>
-      </div>
-    </section>
-
-    <section class="section" aria-label="Категории">
-      <div class="section-head reveal">
-        <h2>Что можно оформить</h2>
-      </div>
-      ${lib.cardList([
-        { href: R + 'pools/index.html', name: 'Разовое посещение бассейна', hint: 'взрослые и дети, будни и выходные', photo: S + 'upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg', photoAlt: 'Большой бассейн' },
-        { href: R + 'pools/adult_groups/index.html', name: 'Абонементы на плавание', hint: 'свободное плавание и группы', photo: S + 'upload/iblock/b2d/b2d270c05a5bca4c28ecf42edb7aa2b4.jpg', photoAlt: 'Занятия плаванием' },
-        { href: R + 'swimming_center/index.html', name: 'Абонементы детского центра', hint: 'обучение плаванию по возрастам', photo: S + 'upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg', photoAlt: 'Центр детского плавания' },
-        { href: R + 'fitness_center/index.html', name: 'Клубные карты фитнеса', hint: '«Фитнес» и «Фитнес+плавание»', photo: S + 'upload/iblock/039/039baaae5c9bae0291b76a8d9e498127.jpg', photoAlt: 'Тренажёрный зал' },
-        { href: R + 'spa_center/index.html', name: 'SPA-процедуры', hint: 'по прайсу центра', photo: S + 'upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg', photoAlt: 'SPA-центр' },
-        { href: R + 'center_kinesitherapy/index.html', name: 'Программы кинезитерапии', hint: 'приёмы и курсы', photo: S + 'upload/iblock/32c/32c8f9fd1810f5b17473cc25870b7c78.jpg', photoAlt: 'Кинезитерапия' },
-        { href: R + 'actions/basseyn/podarochnaya-karta-ideya-dlya-podarka/index.html', name: 'Подарочная карта', hint: 'в кассе и онлайн', photo: S + 'upload/iblock/c20/c20c46fe34da4a7e0fd98a36e6f30be1.jpg', photoAlt: 'Подарочная карта' },
-        { href: R + 'price/freeze/index.html', name: 'Заморозка карты', hint: 'пауза действия клубной карты' }
-      ])}
-    </section>
-
-    <section class="section" aria-label="Льготы">
-      <div class="section-head reveal">
-        <h2>Льготы и выгода</h2>
-      </div>
-      ${rowList([
-        { href: R + 'actions/index.html', name: 'Все акции и скидки', hint: 'пенсионерам, студентам, многодетным' },
-        { href: R + 'visitors/tax-refund/index.html', name: 'Налоговый вычет', hint: 'верните 13% за занятия спортом' },
-        { href: R + 'legal/dms/index.html', name: 'Услуги по полису ДМС', hint: 'SPA и кинезитерапия' },
-        { href: R + 'legal/corporate/index.html', name: 'Корпоративным клиентам', hint: 'спорт для команд' }
-      ])}
-    </section>
-
-    ${ctaBand('Приходите сегодня', 'Кассы работают до 21:15. Будни с 07:00, выходные с 08:00.', [
-      ['Расписание', R + 'timetable/index.html', 'btn--ghost-light'],
-      ['Купить онлайн', R + 'kupit-online/index.html', 'btn--primary']
-    ])}
-  </div>`;
-  write('price/index.html', lib.shell(1, {
-    title: 'Цены и абонементы — «Олимпия» Пермь',
-    description: 'Билеты, абонементы и клубные карты спорткомплекса «Олимпия» в Перми: бассейны, детский центр плавания, фитнес, SPA, кинезитерапия.',
-    active: 'price',
-    content
-  }));
+  // freeze и прочие подстраницы — ниже; хаб — только через build-price.js
 }
 
 /* ============ FAQ (извлечение) ============ */
@@ -504,7 +270,7 @@ write('center_kinesitherapy/index.html', dirPage({
     }
     if (!items.length) continue;
     total += items.length;
-    const qa = items.map(it => `      <div class="qa-item">
+    const qa = items.map(it => `      <div class="qa-item" data-cat="${slug}" data-q="${lib.esc(it.q.toLowerCase())}">
         <h3 style="margin:0"><button class="qa-item__head" aria-expanded="false">
           <span>${lib.esc(it.q)}</span>
           <span class="dir-item__toggle" aria-hidden="true"></span>
@@ -512,7 +278,7 @@ write('center_kinesitherapy/index.html', dirPage({
         <div class="qa-item__body"><div><div class="qa-item__inner">${it.a}</div></div></div>
       </div>`).join('\n');
     sections += `
-    <section class="section" aria-label="${lib.esc(name)}">
+    <section class="section" data-faq-section="${slug}" aria-label="${lib.esc(name)}">
       <div class="section-head reveal">
         <h2>${lib.esc(name)}</h2>
       </div>
@@ -522,6 +288,15 @@ ${qa}
     </section>`;
   }
   console.log('  FAQ: вопросов извлечено', total);
+  const faqPills = `<div class="filter-pills" data-filter="faq">
+      <button type="button" data-cat="all" class="is-active">Все</button>
+      ${cats.map(([slug, name]) => `<button type="button" data-cat="${slug}">${lib.esc(name)}</button>`).join('\n      ')}
+    </div>
+    <label class="faq-search">
+      <span class="faq-search__label">Поиск по вопросам</span>
+      <input type="search" data-faq-search placeholder="Например: абонемент, справка, парковка" autocomplete="off">
+    </label>
+    <p class="hero-note" data-faq-empty hidden>Ничего не нашлось — попробуйте другие слова или позвоните на горячую линию.</p>`;
   const content = `  <div class="container">
     ${lib.breadcrumbs(2, lib.trailFromRel('visitors/faq', 'FAQ'))}
     <div class="page-head">
@@ -529,6 +304,7 @@ ${qa}
       <p class="page-head__lede">Собрали то, о чём спрашивают чаще всего. Не нашли ответ?
       Позвоните на горячую линию <a href="tel:+73422567892">+7&nbsp;(342)&nbsp;2-56789-2</a>.</p>
     </div>
+    ${faqPills}
 ${sections}
   </div>`;
   write('visitors/faq/index.html', lib.shell(2, {
@@ -540,49 +316,27 @@ ${sections}
 
 /* ============ КОМАНДА (извлечение) ============ */
 {
-  // Порядок как в навигации: сначала бассейн, потом фитнес, затем ЦДП.
-  const cats = [
-    ['basseyn', 'Бассейн'],
-    ['fitnes-tsentr', 'Фитнес-центр'],
-    ['detskiy-tsentr-plavaniya', 'Центр детского плавания'],
-    ['spa-tsentr', 'СПА-центр'],
-    ['kineziterapiya', 'Кинезитерапия']
-  ];
+  const teamOrder = require('./team-order');
+  const teamFocal = require('./team-focal');
+  if (teamFocal.hasSharp) {
+    require('child_process').execFileSync(process.execPath, [path.join(__dirname, 'team-focal.js')], { stdio: 'inherit' });
+  }
+  const cats = teamOrder.TEAM_CAT_ORDER.map(slug => [slug, teamOrder.TEAM_CATS[slug]]);
   let sections = '';
   let total = 0;
   for (const [slug, name] of cats) {
-    const fp = path.join(SITE, 'team', slug, 'index.html');
-    if (!fs.existsSync(fp)) continue;
-    const html = fs.readFileSync(fp, 'utf8');
-    const people = [];
-    // разбор по карточкам: каждая начинается с photo_mobile
-    const chunks = html.split('class="photo_mobile"').slice(1);
-    for (const ch of chunks) {
-      const seg = ch.slice(0, 3000);
-      const img = (seg.match(/^ style="background-image: url\('([^']+)'\)/) || [])[1];
-      const nm = (seg.match(/class="name">([^<]+)</) || [])[1];
-      const post = (seg.match(/class="post">([^<]*)</) || [])[1] || '';
-      const href = (seg.match(/class="read_more" href="([^"]+)"/) || [])[1];
-      if (!nm || !href) continue;
-      // отсечь мёртвые в оригинале профили («Элемент не найден!»)
-      try {
-        const detail = fs.readFileSync(path.join(SITE, 'team', slug, href), 'utf8');
-        if (detail.includes('errortext')) continue;
-      } catch (e) { continue; }
-      people.push({
-        img: (img || '').replace(/^(\.\.\/)+/, ''),
-        name: nm.trim(),
-        post: post.trim(),
-        href
-      });
-    }
+    const people = teamOrder.loadPeople(SITE, slug);
     if (!people.length) continue;
     total += people.length;
-    const cards = people.map(p => `      <a class="team-card" href="${R}team/${slug}/${p.href}">
-        <figure><img src="${S}${p.img}" alt="${lib.esc(p.name)}" loading="lazy"></figure>
+    const cards = people.map(p => {
+      const pos = p.img ? (teamFocal.getFocalSync(p.img) ? teamFocal.focalStyle(teamFocal.getFocalSync(p.img), 'card') : '50% 22%') : '';
+      const posAttr = pos ? ` style="object-position:${pos}"` : '';
+      return `      <a class="team-card" href="${R}team/${slug}/${p.href}">
+        <figure><img src="${p.img ? S + p.img : R + 'assets/lanes-overhead.jpg'}" alt="${lib.esc(p.name)}"${posAttr} loading="lazy"></figure>
         <div class="team-card__name">${lib.esc(p.name)}</div>
         <div class="team-card__role">${lib.esc(p.post)}</div>
-      </a>`).join('\n');
+      </a>`;
+    }).join('\n');
     sections += `
     <section class="section" data-cat="${slug}" aria-label="${lib.esc(name)}">
       <div class="section-head reveal">
@@ -714,23 +468,14 @@ ${sections}
     ]);
 
   hubPage('timetable', 'Расписание',
-    'Выберите сетку. Ниже — пример на макете; актуальные слоты уточняйте по телефону.',
+    'Выберите сетку. Полные фильтры и слоты — внутри каждого раздела; актуальные времена уточняйте по телефону.',
     [
-      { href: './big-pool/index.html', name: 'Большой бассейн', hint: 'свободное плавание', cat: 'pool', photo: S + 'upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg', photoAlt: 'Большой бассейн' },
-      { href: './group/index.html', name: 'Группы фитнеса', hint: 'залы и аква', cat: 'group', photo: S + 'upload/iblock/677/677034db6e113f1ceb3d75b6c33e647b.jpg', photoAlt: 'Тренажёрный зал' },
-      { href: './group-cp/index.html', name: 'Дежурные группы ЦДП', hint: 'центр детского плавания', cat: 'cdp', photo: S + 'upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg', photoAlt: 'Центр детского плавания' },
-      { href: './mama-i-malysh/index.html', name: 'Мама и малыш', hint: 'совместные занятия', cat: 'mnm', photo: S + 'upload/iblock/2ee/2eee13a394e71d02c6faad346b396045.jpg', photoAlt: 'Бассейн «Киты»' },
-      { href: './ekg/index.html', name: 'Кабинет ЭКГ', hint: 'справки-допуски', cat: 'ekg', photo: S + 'upload/iblock/cdb/cdb13c0eb6e62f198a358d12daf88437.png', photoAlt: 'Кабинет ЭКГ' }
-    ],
-    `<div class="filter-pills" data-filter="timetable">
-      <button type="button" data-cat="all" class="is-active">Все</button>
-      <button type="button" data-cat="pool">Бассейн</button>
-      <button type="button" data-cat="group">Группы</button>
-      <button type="button" data-cat="cdp">ЦДП</button>
-      <button type="button" data-cat="mnm">Мама и малыш</button>
-      <button type="button" data-cat="ekg">ЭКГ</button>
-    </div>
-    <p class="hero-note">Фильтр отмечает карточки ниже. Полные сетки — внутри каждого раздела.</p>`);
+      { href: './big-pool/index.html', name: 'Большой бассейн', hint: 'свободное плавание', photo: S + 'upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg', photoAlt: 'Большой бассейн' },
+      { href: './group/index.html', name: 'Группы фитнеса', hint: 'залы и аква', photo: S + 'upload/iblock/677/677034db6e113f1ceb3d75b6c33e647b.jpg', photoAlt: 'Тренажёрный зал' },
+      { href: './group-cp/index.html', name: 'Дежурные группы ЦДП', hint: 'центр детского плавания', photo: S + 'upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg', photoAlt: 'Центр детского плавания' },
+      { href: './mama-i-malysh/index.html', name: 'Мама и малыш', hint: 'совместные занятия', photo: S + 'upload/iblock/2ee/2eee13a394e71d02c6faad346b396045.jpg', photoAlt: 'Бассейн «Киты»' },
+      { href: './ekg/index.html', name: 'Кабинет ЭКГ', hint: 'справки-допуски', photo: S + 'upload/iblock/cdb/cdb13c0eb6e62f198a358d12daf88437.png', photoAlt: 'Кабинет ЭКГ' }
+    ]);
 }
 
 {
@@ -825,6 +570,91 @@ ${panes}
   write('visitors/first-visit/index.html', lib.shell(2, {
     title: 'Первый визит — «Олимпия» Пермь',
     description: 'Что взять, какая справка нужна, как доехать и как купить первый билет в «Олимпии».',
+    content
+  }));
+}
+
+/* ============ ПАРКОВКА ============ */
+{
+  const S2 = '../../../site/';
+  const content = `  <div class="container">
+    ${lib.breadcrumbs(2, lib.trailFromRel('visitors/parking', 'Парковка'))}
+    <div class="page-head">
+      <h1>Парковка</h1>
+      <p class="page-head__lede">Воспользоваться парковкой могут владельцы клубных или парковочных карт «Олимпии».
+      При разовом визите парковочную карту оформляют в кассах.</p>
+    </div>
+    <div class="gallery-strip reveal">
+      <figure><img src="${S2}upload/medialibrary/610/610866c8c221e9d45b8f2eaf38590dfe.jpg" alt="Въезд на парковку спорткомплекса «Олимпия»" loading="lazy" width="410" height="410"></figure>
+      <figure><img src="${S2}upload/medialibrary/1af/1af1b20183392c2ceb388d93c96a1100.png" alt="Считыватель карты на шлагбауме" loading="lazy"></figure>
+    </div>
+    <div class="fact-grid reveal">
+      <article class="fact-card">
+        <h3>Оплата</h3>
+        <ul class="rules-list">
+          <li>Пополните лицевой счёт карты на кассах главной рецепции. После 21:15 — на кассах фитнеса, SPA или на турникетах.</li>
+          <li>Списание — автоматически на выезде по тарифу и времени стоянки.</li>
+          <li>Без достаточной суммы на счёте выезд невозможен.</li>
+          <li>Оплата за каждый полный или неполный час по стоимости полного часа.</li>
+        </ul>
+      </article>
+      <article class="fact-card">
+        <h3>Въезд и выезд</h3>
+        <ul class="rules-list">
+          <li>Только по клубным или парковочным картам «Олимпии».</li>
+          <li>Приложите карту к считывателю (жёлтый крест на синем фоне) и дождитесь поднятия шлагбаума.</li>
+        </ul>
+        <p><a href="${S2}upload/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20%D0%BF%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8%20%D0%A1%D0%BF%D0%BE%D1%80%D1%82%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%20%D0%9E%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D1%8F.pdf">Правила парковки (PDF)</a></p>
+      </article>
+    </div>
+    ${ctaBand('Нужна помощь на въезде?', 'Подробности по телефону горячей линии.', [
+      ['Позвонить', 'tel:+73422567892', 'btn--primary'],
+      ['Контакты', '../../contacts/index.html', 'btn--ghost-light']
+    ])}
+  </div>`;
+  write('visitors/parking/index.html', lib.shell(2, {
+    title: 'Парковка — «Олимпия» Пермь',
+    description: 'Правила парковки спорткомплекса «Олимпия»: въезд по карте, оплата с лицевого счёта, тарифы.',
+    content
+  }));
+}
+
+/* ============ ОБ ОЛИМПИИ ============ */
+{
+  const content = `  <div class="container">
+    ${lib.breadcrumbs(1, lib.trailFromRel('about', 'Об Олимпии'))}
+    <div class="page-head">
+      <h1>Об Олимпии</h1>
+      <p class="page-head__lede">Крупнейший спортивный комплекс Пермского края: бассейны олимпийского стандарта,
+      центр детского плавания, фитнес, SPA и кинезитерапия под одной крышей.</p>
+    </div>
+    <div class="gallery-strip reveal">
+      <figure><img src="${S}upload/iblock/e0a/e0a8eee18233907c04748845e99a3aa0.jpg" alt="Бассейн «Олимпии»" loading="lazy" width="468" height="485"></figure>
+      <figure><img src="${S}upload/iblock/b5d/b5d15f1c3c836a57c4ddb69c24013db6.jpg" alt="Зал спорткомплекса" loading="lazy" width="468" height="485"></figure>
+      <figure><img src="${S}upload/iblock/2b1/2b143108dfa0a0c190619847064c92ad.jpg" alt="Интерьер комплекса" loading="lazy" width="468" height="485"></figure>
+    </div>
+    <section class="section" aria-label="Направления">
+      <div class="section-head reveal">
+        <h2>Пять направлений</h2>
+      </div>
+      ${lib.cardList([
+        { href: R + 'pools/index.html', name: 'Бассейны', hint: '50 м, детский, гидромассаж, сауны', photo: S + 'upload/iblock/7be/7beca203b451908c0d19327d856015d2.jpg', photoAlt: 'Большой бассейн' },
+        { href: R + 'swimming_center/index.html', name: 'Центр детского плавания', hint: 'обучение с раннего возраста', photo: S + 'upload/iblock/c4a/h8jwo6hfvawyrlvfhkx2nop6c4m0fzu5.jpg', photoAlt: 'Детский центр' },
+        { href: R + 'fitness_center/index.html', name: 'Фитнес-центр', hint: '3500 м², тренажёры и группы', photo: S + 'upload/iblock/039/039baaae5c9bae0291b76a8d9e498127.jpg', photoAlt: 'Фитнес-зал' },
+        { href: R + 'spa_center/index.html', name: 'SPA-центр', hint: 'массаж, ритуалы, восстановление', photo: S + 'upload/iblock/73c/73cbd0e5a7d3760325fa6c1c3b9f3679.jpg', photoAlt: 'SPA' },
+        { href: R + 'center_kinesitherapy/index.html', name: 'Кинезитерапия', hint: 'реабилитация движением', photo: S + 'upload/iblock/32c/32c8f9fd1810f5b17473cc25870b7c78.jpg', photoAlt: 'Кинезитерапия' },
+        { href: R + 'about/docs/index.html', name: 'Документы организации', hint: 'уставные и разрешительные' }
+      ])}
+    </section>
+    <article class="article reveal">
+      <p>В зоне бассейнов — 50-метровый бассейн олимпийского стандарта, глубоководный бассейн 5,5&nbsp;м,
+      гидромассажная зона и четыре бассейна в детском центре плавания. Рядом — самый большой
+      фитнес-центр Перми, центр кинезитерапии и SPA.</p>
+    </article>
+  </div>`;
+  write('about/index.html', lib.shell(1, {
+    title: 'Об Олимпии — спортивный комплекс в Перми',
+    description: 'О спорткомплексе «Олимпия»: бассейны, детское плавание, фитнес, SPA и кинезитерапия в Перми, ул. Мира, 41.',
     content
   }));
 }

@@ -23,6 +23,8 @@ const ALREADY = new Set([
 const SKIP_RELS = new Set([
   'pools/baths',            // собирается отдельно: карусель саун (build-baths.js)
   'about/docs',             // собирается отдельно: список документов (build-docs.js)
+  'about',                  // собирается в build-pages.js
+  'visitors/parking',       // собирается в build-pages.js
   'legal/corporate',       // собирается отдельно: раздел для юрлиц (build-b2b.js)
   'fitness_center/aqua',
   'vpervye-v-olimpii',
@@ -301,9 +303,9 @@ ${bodyBlock}
 const pages = listPages(SITE, [], '');
 let done = 0, skipped = 0, failed = [];
 for (const rel of pages) {
-  if (ALREADY.has(rel) || specialOwned(rel)) { skipped++; continue; }
+  const outRel = RELOCATE[rel] || rel;
+  if (ALREADY.has(rel) || specialOwned(rel) || SKIP_RELS.has(outRel)) { skipped++; continue; }
   try {
-    const outRel = RELOCATE[rel] || rel;
     const out = convert(rel);
     if (!out) { failed.push(rel || '(корень)'); continue; }
     const f = path.join(OUT, outRel, 'index.html');
