@@ -658,10 +658,21 @@ ${cards}
     </section>`;
 }
 
+/** Пересчёт пути картинки статьи (глубина 3) под страницу другой глубины. */
+function rebasePhoto(src, depth) {
+  if (!src) return '';
+  if (/^(https?:|data:)/i.test(src)) return src;
+  const cleaned = src.replace(/^(\.\.\/)+/, '');
+  if (/^site\//.test(cleaned)) return '../'.repeat(depth) + '../' + cleaned;
+  if (/^(assets|photos)\//.test(cleaned)) return '../'.repeat(depth) + cleaned;
+  return src;
+}
+
 module.exports = {
   shell, header, footer, breadcrumbs, trailFromRel, redirectPage,
   rowList, cardList, ctaBand, esc, p, siteP, absUrl, normalizeRel,
   cookieBanner, storeIcon,
   specGrid, priceRows, pricePromo, hubTabs, promoCarousel, scrollStrip,
+  rebasePhoto,
   DIR_LABELS, TEAM_CATS, NEWS_CATS, VISITOR_PAGES, LEGAL_PAGES
 };

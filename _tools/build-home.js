@@ -8,14 +8,22 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'redesign');
 const HOME = path.join(OUT, 'index.html');
 
-function normalizeHomePhoto(src) {
+function normalizeHomePhoto(src, cover) {
+  if (cover) return '../site/' + cover.replace(/^\/+/, '');
   if (!src) return '';
-  if (/^assets\//.test(src)) return src;
-  if (/^photos\//.test(src)) return src;
+  if (/^assets\//.test(src) || /^photos\//.test(src)) return src;
+  if (/^\.\.\/site\//.test(src)) return src;
   const base = src.replace(/^(\.\.\/)+/, '');
   if (/^assets\//.test(base) || /^photos\//.test(base)) return base;
+  if (/^site\//.test(base)) return '../' + base;
   if (/^https?:/.test(src)) return src;
   return 'assets/lanes-overhead.jpg';
+}
+
+function extractCoverFromArticleHtml(h) {
+  const cover = (h.match(/post__cover[^>]*>[\s\S]*?src="([^"]+)"/) || [])[1] || '';
+  const img = cover || ((h.match(/<img[^>]+src="([^"]+)"/) || [])[1] || '');
+  return img;
 }
 
 function latestArticles(section, limit) {
@@ -31,7 +39,7 @@ function latestArticles(section, limit) {
       const h = fs.readFileSync(fp, 'utf8');
       const title = (h.match(/<h1[^>]*class="post__title">([^<]+)/) || [])[1];
       const date = (h.match(/datetime="([^"]+)"/) || [])[1];
-      const img = ((h.match(/post__cover[^>]*>[\s\S]*?src="([^"]+)"/) || h.match(/<img[^>]+src="([^"]+)"/)) || [])[1];
+      const img = extractCoverFromArticleHtml(h);
       const catLabel = (h.match(/post__cat[^>]*>([^<]+)/) || [])[1] || cat;
       if (title) {
         items.push({
@@ -51,12 +59,12 @@ function latestArticles(section, limit) {
 function featuredPromos(limit) {
   const picks = [
     'actions/fitnes-tsentr/start-sezona-2026-2027/index.html',
-    'actions/basseyn/basseyn-besplatno-dlya-detey-do-14-let-/index.html',
-    'actions/basseyn/-30-dney-zamorozki-na-klubnye-karty-360-dney/index.html',
+    'actions/fitnes-tsentr/prodlevaem-sezonnye-klubnye-karty-8-mesyatsev-/index.html',
     'actions/fitnes-tsentr/fitnes-idyet-v-basseyn-besplatno/index.html',
-    'actions/kineziterapiya/skidka-50-na-konsultatsiyu-vracha-kineziterapevta/index.html',
+    'actions/basseyn/basseyn-besplatno-dlya-detey-do-14-let-/index.html',
+    'actions/basseyn/akva-layt/index.html',
     'actions/spa-tsentr/goryashchie-predlozheniya-v-spa-tsentre/index.html',
-    'actions/basseyn/leto-kruglyy-god-/index.html'
+    'actions/basseyn/dlya-uchastnikov-svo/index.html'
   ];
   const slides = [];
   for (const rel of picks) {
@@ -66,7 +74,7 @@ function featuredPromos(limit) {
     const h = fs.readFileSync(fp, 'utf8');
     const title = (h.match(/<h1[^>]*class="post__title">([^<]+)/) || [])[1];
     const date = (h.match(/datetime="([^"]+)"/) || [])[1];
-    const img = ((h.match(/post__cover[^>]*>[\s\S]*?src="([^"]+)"/) || h.match(/<img[^>]+src="([^"]+)"/)) || [])[1];
+    const img = extractCoverFromArticleHtml(h);
     if (title) {
       slides.push({
         href: rel,
@@ -100,12 +108,19 @@ const promoBlock = promos.length ? `
   </section>
 ` : '';
 
-// Вставить promo carousel после ticker (перед направлениями)
-if (promoBlock && !html.includes('data-carousel="home-promo"')) {
-  html = html.replace(
-    /(<\/aside>\s*\n\s*<!-- ================= НАПРАВЛЕНИЯ)/,
-    `</aside>\n${promoBlock}\n  $1`
-  );
+// Promo carousel: всегда перезаписываем (пути могли устареть)
+if (promoBlock) {
+  if (html.includes('data-carousel="home-promo"')) {
+    html = html.replace(
+      /<!-- ================= ПРОМО-КАРУСЕЛЬ ================= -->[\s\S]*?(?=\s*<!-- ================= НАПРАВЛЕНИЯ)/,
+      promoBlock.trim() + '\n\n  '
+    );
+  } else {
+    html = html.replace(
+      /(<\/aside>\s*\n\s*<!-- ================= НАПРАВЛЕНИЯ)/,
+      `</aside>\n${promoBlock}\n  $1`
+    );
+  }
 }
 
 // Заменить секцию новостей на scroll-strip

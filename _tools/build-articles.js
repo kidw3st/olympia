@@ -6,8 +6,6 @@ const fs = require('fs');
 const path = require('path');
 const lib = require('./redesign-lib');
 const typo = require('./typography');
-const bank = require('./photo-bank');
-const PHOTOS = bank.load();
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = path.join(ROOT, 'site');
@@ -225,11 +223,93 @@ const CAT_PHOTO = {
 
 const waveThumb =`<span class="thumb-fallback" aria-hidden="true"><svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1 L13 1 L5 9 L0 9 Z" fill="#ed4432"/><path d="M16 1 L21 1 L9 13 L4 13 Z" fill="#fff"/><path d="M24 1 L29 1 L13 17 L8 17 Z" fill="#fff" opacity="0.65"/><path d="M32 1 L34 1 L14 21 L12 21 Z" fill="#fff" opacity="0.35"/></svg></span>`;
 
+/** Обложки из списков и «похожих» блоков оригинала: .photo_slide + href → upload/iblock/... */
+function loadListingCovers(secSrc) {
+  const map = new Map();
+  const files = [];
+  function walk(dir) {
+    if (!fs.existsSync(dir)) return;
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const abs = path.join(dir, e.name);
+      if (e.isDirectory()) walk(abs);
+      else if (e.name === 'index.html') files.push(abs);
+    }
+  }
+  walk(path.join(SITE, secSrc));
+
+  for (const fp of files) {
+    const html = fs.readFileSync(fp, 'utf8');
+    const pageRel = path.relative(SITE, path.dirname(fp)).split(path.sep).join('/'); // news/basseyn/slug
+    const re = /class="photo_slide"[^>]*url\(['"]([^'"]+)['"]\)[\s\S]*?href="([^"]+)"/gi;
+    let m;
+    while ((m = re.exec(html))) {
+      let href = m[2].trim();
+      if (/^(https?:|mailto:|tel:|#)/i.test(href)) continue;
+      href = href.replace(/\/index\.html$/i, '').replace(/\/$/, '');
+      let resolved;
+      try {
+        resolved = path.posix.normalize(path.posix.join(pageRel, href));
+      } catch (e) { continue; }
+      if (resolved.startsWith('..')) continue;
+      let parts = resolved.split('/').filter(Boolean);
+      if (parts[0] === secSrc) parts = parts.slice(1);
+      let key = '';
+      if (parts.length >= 2 && CAT_NAMES[parts[0]]) {
+        key = parts[0] + '/' + parts[1];
+      } else if (parts.length === 1) {
+        // Bitrix related: ../slug со страницы cat/article резолвится в sec/slug —
+        // ищем реальную категорию по файловой системе.
+        const slug = parts[0];
+        for (const cat of Object.keys(CAT_NAMES)) {
+          if (fs.existsSync(path.join(SITE, secSrc, cat, slug, 'index.html'))) {
+            key = cat + '/' + slug;
+            break;
+          }
+        }
+      }
+      if (!key) continue;
+
+      const up = m[1].replace(/\\/g, '/').match(/(?:^|\/)(upload\/(?:iblock|resize_cache)\/.+)$/i);
+      if (!up) continue;
+      let normalized = up[1];
+      const rc = normalized.match(/^upload\/resize_cache\/iblock\/([^/]+)\/\d+_\d+_\d+\/(.+)$/i);
+      if (rc) {
+        const candidate = 'upload/iblock/' + rc[1] + '/' + rc[2];
+        if (fs.existsSync(path.join(SITE, candidate))) normalized = candidate;
+      }
+      const prev = map.get(key);
+      if (!prev || (/resize_cache/i.test(prev) && !/resize_cache/i.test(normalized))) {
+        map.set(key, normalized);
+      }
+    }
+  }
+  return map;
+}
+
+function coverSrc(relUpload, depth) {
+  if (!relUpload) return '';
+  return '../'.repeat(depth) + '../site/' + relUpload.replace(/^\/+/, '');
+}
+
+function articleThumb(a, depth) {
+  if (a.cover) return coverSrc(a.cover, depth);
+  if (a.img) {
+    // пути в теле уже под depth=3; для другого depth пересчитываем префикс
+    return a.img.replace(/^(\.\.\/)+site\//, '../'.repeat(depth) + '../site/')
+      .replace(/^(\.\.\/)+assets\//, '../'.repeat(depth) + 'assets/')
+      .replace(/^(\.\.\/)+photos\//, '../'.repeat(depth) + 'photos/');
+  }
+  if (CAT_PHOTO[a.cat]) return '../'.repeat(depth) + 'assets/' + CAT_PHOTO[a.cat];
+  return '';
+}
+
 function buildSection(sec, lastmod) {
   const srcRoot = path.join(SITE, sec.src);
   if (!fs.existsSync(srcRoot)) return { articles: [], errors: [] };
   const articles = [];
   const errors = [];
+  const covers = loadListingCovers(sec.src);
+  console.log('  обложек из списков:', covers.size);
 
   for (const cat of fs.readdirSync(srcRoot, { withFileTypes: true })) {
     if (!cat.isDirectory()) continue;
@@ -255,6 +335,7 @@ function buildSection(sec, lastmod) {
       if (sec.key === 'news' && NEWS_REROUTE[slug.name]) outCat = NEWS_REROUTE[slug.name];
       const rel = [sec.key, outCat, slug.name, 'index.html'].join('/');
       const urlPath = '/' + [sec.src, origCat, slug.name].join('/') + '/';
+      const coverKey = origCat + '/' + slug.name;
       articles.push({
         sec: sec.key,
         cat: outCat,
@@ -264,10 +345,7 @@ function buildSection(sec, lastmod) {
         slug: slug.name,
         title, body, rel,
         img: firstImage(body, path.join(OUT, sec.key, outCat, slug.name)),
-        // своё фото статьи из архива: ключ манифеста — section/page
-        bankPhoto: bank.exportPhoto(bank.pickFor(
-          PHOTOS.byPage.get(sec.key + '/' + sec.src + '/' + origCat + '/' + slug.name),
-          slug.name)),
+        cover: covers.get(coverKey) || '',
         preview: textPreview(body, 160),
         lastmod: lastmod.get(urlPath) || ''
       });
@@ -311,11 +389,17 @@ function buildSection(sec, lastmod) {
         </div>
         <h1 class="post__title">${lib.esc(a.title)}</h1>
       </header>
-${(!a.img && (a.bankPhoto || CAT_PHOTO[a.cat])) ? `      <figure class="post__cover">
-        <img src="${a.bankPhoto ? r + 'photos/' + a.bankPhoto : r + 'assets/' + CAT_PHOTO[a.cat]}"
-             alt="${lib.esc(a.catName)} — «Олимпия»" loading="lazy">
+${(() => {
+  const src = articleThumb(a, 3);
+  if (!src) return '';
+  // если в теле уже есть то же фото — обложку не дублируем
+  if (a.img && a.cover && a.img.includes(a.cover.split('/').pop())) return '';
+  if (!a.cover && a.img) return ''; // тело уже даёт первую картинку
+  return `      <figure class="post__cover">
+        <img src="${src}" alt="${lib.esc(a.title)}" loading="lazy">
       </figure>
-` : ''}      <div class="post__body">
+`;
+})()}      <div class="post__body">
 ${a.body}
       </div>
     </article>
@@ -389,19 +473,8 @@ function buildList(sec, articles) {
     : '';
 
   const rowsHtml = sorted.map(a => {
-    // миниатюра: img уже с путём глубины 3; для списка глубина 1 — пересчёт
-    let thumb = waveThumb;
-    if (a.img) {
-      // в статье путь с глубины 3 (../../../../site/...), в списке глубина 1 (../../site/...)
-      const fixed = a.img.replace(/^(\.\.\/)+/, '../../');
-      thumb = `<img src="${fixed}" alt="" loading="lazy">`;
-    } else if (a.bankPhoto) {
-      // собственное фото материала из архива
-      thumb = `<img src="../photos/${a.bankPhoto}" alt="" loading="lazy">`;
-    } else if (CAT_PHOTO[a.cat]) {
-      // своего фото нет — показываем снимок направления
-      thumb = `<img src="../assets/${CAT_PHOTO[a.cat]}" alt="" loading="lazy">`;
-    }
+    const src = articleThumb(a, 1);
+    const thumb = src ? `<img src="${src}" alt="" loading="lazy">` : waveThumb;
     const year = a.lastmod ? a.lastmod.slice(0, 4) : '';
     const day = a.lastmod ? a.lastmod.slice(0, 10) : '';
     return `      <li data-cat="${a.cat}" data-year="${year}" data-date="${day}">
@@ -426,10 +499,7 @@ function buildList(sec, articles) {
       <h2 class="lead-strip__title">${sec.key === 'news' ? 'Сейчас актуально' : 'Успейте воспользоваться'}</h2>
       <div class="lead-strip__grid">
 ${leadItems.map((a, i) => {
-    let img = '';
-    if (a.img) img = a.img.replace(/^(\.\.\/)+/, '../../');
-    else if (a.bankPhoto) img = '../photos/' + a.bankPhoto;
-    else if (CAT_PHOTO[a.cat]) img = '../assets/' + CAT_PHOTO[a.cat];
+    const img = articleThumb(a, 1);
     return `        <a class="lead-card${i === 0 ? ' lead-card--first' : ''}" href="${a.cat}/${a.slug}/index.html">
           <span class="lead-card__media">${img ? `<img src="${img}" alt="" loading="lazy">` : ''}</span>
           <span class="lead-card__body">
@@ -483,8 +553,3 @@ for (const sec of SECTIONS) {
   total += articles.length; errTotal += errors.length;
 }
 console.log('Итого статей: ' + total + ', ошибок: ' + errTotal);
-
-// выгружаем в сайт только те снимки, которые действительно понадобились
-bank.flush().then(n => {
-  if (n) console.log('Фотографий выгружено в redesign/photos: ' + n);
-});

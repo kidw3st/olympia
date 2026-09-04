@@ -153,7 +153,7 @@ function latestArticles(section, catSlug, limit) {
         href: R + section + '/' + catSlug + '/' + slug + '/index.html',
         title: title.trim(),
         meta: date ? new Date(date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' }) : '',
-        photo: img || '',
+        photo: lib.rebasePhoto(img || '', 1) || (R + 'assets/lanes-overhead.jpg'),
         sort: date || ''
       });
     }

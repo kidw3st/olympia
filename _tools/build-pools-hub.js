@@ -142,7 +142,7 @@ function latestNews(limit) {
       href: R + 'news/basseyn/' + slug + '/index.html',
       title: title.trim(),
       meta: date ? new Date(date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' }) : '',
-      photo: img || R + 'assets/lanes-overhead.jpg'
+      photo: lib.rebasePhoto(img || '', 1) || (R + 'assets/lanes-overhead.jpg')
     });
   }
   items.sort((a, b) => (b.meta || '').localeCompare(a.meta || ''));
